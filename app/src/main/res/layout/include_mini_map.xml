@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="@dimen/standard_spacing_small"
+    app:cardElevation="@dimen/standard_spacing_micro">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_editext_bordered">
+
+
+        <com.esri.arcgisruntime.mapping.view.MapView
+            android:id="@+id/miniMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/miniMapButtonBar"
+            android:layout_alignParentTop="true">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/fabLayers"
+                    android:layout_width="@dimen/standard_button_size_small"
+                    android:layout_height="@dimen/standard_button_size_small"
+                    android:layout_margin="@dimen/standard_spacing_normal"
+                    android:background="@drawable/bg_semi_transparent_round"
+                    android:backgroundTint="@color/colorRed"
+                    android:contentDescription="@string/dashboard_measurement"
+                    android:padding="@dimen/standard_spacing_mini"
+                    android:src="@drawable/ic_layers"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.esri.arcgisruntime.mapping.view.MapView>
+
+        <LinearLayout
+            android:id="@+id/miniMapButtonBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorDarkBlue"
+            android:gravity="center"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/miniMapDelete"
+                android:layout_width="@dimen/standard_icon_size_medium"
+                android:layout_height="@dimen/standard_icon_size_medium"
+                android:layout_margin="@dimen/standard_spacing_small"
+                android:src="@drawable/ic_mini_map_delete"
+                app:tint="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/miniMapExtend"
+                android:layout_width="@dimen/standard_icon_size_medium"
+                android:layout_height="@dimen/standard_icon_size_medium"
+                android:layout_margin="@dimen/standard_spacing_small"
+                android:src="@drawable/ic_mini_map_extent"
+                app:tint="@color/colorWhite" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/miniMapSearch"
+                android:layout_width="@dimen/standard_icon_size_medium"
+                android:layout_height="@dimen/standard_icon_size_medium"
+                android:layout_margin="@dimen/standard_spacing_small"
+                android:src="@drawable/ic__search_24"
+                app:tint="@color/colorWhite" />
+
+            <EditText
+                android:id="@+id/etMiniMapSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/standard_spacing_small"
+                android:background="@color/colorWhite"
+                android:singleLine="true"
+                android:digits="0123456789.,"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="@string/longitude_latitude"
+                android:inputType="numberDecimal"
+                android:paddingStart="@dimen/standard_spacing_normal"
+                android:paddingTop="@dimen/standard_spacing_small"
+                android:paddingEnd="@dimen/standard_spacing_normal"
+                android:paddingBottom="@dimen/standard_spacing_small"
+                android:textColor="@color/colorBlack"
+                android:textColorHint="@color/colorHintGrey"
+                android:textDirection="ltr"
+                android:textSize="@dimen/standard_text_size_small_xxx" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

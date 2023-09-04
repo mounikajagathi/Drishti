@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/colorTransparent">
+
+    <in.ults.ipms.views.AppProgressBar
+        android:id="@+id/common_progress_dialog_progressbar"
+        android:layout_width="@dimen/standard_progress_bar_size_medium"
+        android:layout_height="@dimen/standard_progress_bar_size_medium"
+        app:app_progress_bar_barWidth="@dimen/standard_progress_bar_stroke_medium"
+        app:app_progress_bar_barColor="@color/colorPrimary"
+        app:app_progress_bar_progressIndeterminate="true" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/common_progress_dialog_progress_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        android:visibility="gone"
+        android:layout_margin="@dimen/standard_spacing_medium"
+        app:cardCornerRadius="@dimen/standard_spacing_medium">
+
+        <TextView
+        android:id="@+id/common_progress_dialog_progress_counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorDarkBlue"
+        android:layout_margin="@dimen/standard_spacing_medium"
+        android:gravity="center"
+        android:textSize="@dimen/standard_text_size_medium"
+        android:fontFamily="@font/roboto_bold"
+        android:lineSpacingExtra="@dimen/standard_spacing_small"
+        android:text=""/>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

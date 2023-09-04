@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/standard_icon_size_large"
+    android:paddingEnd="@dimen/dimen_zero_dp">
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/checkboxLayerChild"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:paddingStart="@dimen/standard_spacing_small"
+        android:paddingEnd="@dimen/dimen_zero_dp"
+        android:button="@drawable/selector_checkbox"
+        android:layout_marginStart="?android:attr/expandableListPreferredChildPaddingLeft"
+        android:layout_marginEnd="@dimen/standard_spacing_medium"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/standard_text_size_medium"
+        android:fontFamily="@font/roboto_regular"/>
+
+</FrameLayout>

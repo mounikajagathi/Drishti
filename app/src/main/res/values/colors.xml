@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#2a3858</color>
+    <color name="colorPrimaryDark">#202839</color>
+    <color name="colorAccent">#00AF55</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorRed">#ca2208</color>
+    <color name="colorRippleRed">#33ca2208</color>
+    <color name="colorDarkBlue">#142240</color>
+    <color name="colorHintGrey">#99a0ae</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorRockBlue">#99a0ae</color>
+    <color name="cmnTxtInputLayoutColor">#2a3858</color>
+    <color name="colorGray">#666666</color>
+
+</resources>

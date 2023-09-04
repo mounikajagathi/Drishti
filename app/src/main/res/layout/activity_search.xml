@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootSearchActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <include
+        android:id="@+id/includeSearchView"
+        layout="@layout/include_map_search_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/standard_spacing_medium"
+        android:layout_marginTop="@dimen/standard_spacing_small"
+        android:layout_marginEnd="@dimen/standard_spacing_medium"
+        android:layout_marginBottom="@dimen/standard_spacing_small"
+        android:transitionName="search"
+        app:layout_constraintBottom_toTopOf="@id/searchDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/searchDivider"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/standard_spacing_nano"
+        android:layout_marginTop="@dimen/standard_spacing_mini"
+        android:layout_marginBottom="@dimen/dimen_zero_dp"
+        android:background="#F8F9FB"
+        app:layout_constraintBottom_toTopOf="@id/rvSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/includeSearchView" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchDivider"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchDetails"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchDivider"
+        app:layout_constraintVertical_bias="0"
+        android:visibility="gone"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+
+    <include
+        android:id="@+id/includeSearchError"
+        layout="@layout/error_state_search"
+        app:layout_constraintBottom_toBottomOf="@id/rvSearch"
+        app:layout_constraintEnd_toEndOf="@id/rvSearch"
+        app:layout_constraintStart_toStartOf="@id/rvSearch"
+        app:layout_constraintTop_toTopOf="@id/rvSearch" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/standard_spacing_medium"
+    android:layout_marginEnd="@dimen/standard_spacing_medium"
+    android:layout_marginTop="@dimen/standard_spacing_small"
+    android:layout_marginBottom="@dimen/standard_spacing_small"
+    android:background="@color/colorWhite">
+
+    <androidx.appcompat.widget.AppCompatRadioButton
+        android:id="@+id/checkboxBasicSearchFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_regular"
+        android:text=""
+        android:button="@drawable/selector_radio_button"
+        android:drawableTint="@color/colorDarkBlue"
+        android:paddingEnd="@dimen/dimen_zero_dp"
+        android:paddingStart="@dimen/standard_spacing_small"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/standard_text_size_small_xxx" />
+
+</FrameLayout>

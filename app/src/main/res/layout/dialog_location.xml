@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/standard_spacing_medium">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="@dimen/standard_spacing_medium">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/includeDial0gHeader"
+                layout="@layout/include_dialog_header"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintVertical_bias="0"/>
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabGoToXY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/dashboard_go_to_location"
+                android:src="@drawable/ic_go_to_xy"
+                app:backgroundTint="@color/colorWhite"
+                app:fabSize="auto"
+                app:layout_constraintBottom_toBottomOf="@id/fabCurrentLocation"
+                app:layout_constraintEnd_toEndOf="@id/txtGoToXY"
+                app:layout_constraintStart_toStartOf="@id/txtGoToXY"
+                app:layout_constraintTop_toTopOf="@id/fabCurrentLocation" />
+
+
+
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_max"
+                android:layout_marginBottom="@dimen/standard_spacing_max"
+                android:contentDescription="@string/dashboard_location"
+                android:src="@drawable/ic_current_location"
+                app:backgroundTint="@color/colorWhite"
+                app:fabSize="auto"
+                app:layout_constraintBottom_toTopOf="@id/txtCurrentLocation"
+                app:layout_constraintEnd_toEndOf="@id/txtCurrentLocation"
+                app:layout_constraintStart_toStartOf="@id/txtCurrentLocation"
+                app:layout_constraintTop_toBottomOf="@id/includeDial0gHeader"/>
+
+
+            <TextView
+                android:id="@+id/txtGoToXY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/dashboard_go_to_location"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium"
+                app:layout_constraintBottom_toBottomOf="@id/txtCurrentLocation"
+                app:layout_constraintEnd_toStartOf="@id/txtCurrentLocation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtCurrentLocation"/>
+
+
+            <TextView
+                android:id="@+id/txtCurrentLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/dashboard_current_location"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium"
+                app:layout_constraintStart_toEndOf="@id/txtGoToXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/locationDivider"
+                app:layout_constraintTop_toBottomOf="@id/fabCurrentLocation"/>
+            
+
+            <View
+                android:id="@+id/locationDivider"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_one_dp"
+                android:background="@color/colorHintGrey"
+                android:layout_marginTop="@dimen/standard_spacing_medium"
+                app:layout_constraintBottom_toTopOf="@id/txtLocationMsg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtCurrentLocation"
+                app:layout_constraintVertical_chainStyle="packed"/>
+
+
+
+            <TextView
+                android:id="@+id/txtLocationMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/msg_location"
+                android:textColor="@color/colorBlack"
+                android:layout_marginStart="@dimen/standard_spacing_medium"
+                android:layout_marginEnd="@dimen/standard_spacing_medium"
+                android:layout_marginTop="@dimen/standard_spacing_max"
+                android:layout_marginBottom="@dimen/standard_spacing_max"
+                android:textSize="@dimen/standard_text_size_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/locationDivider"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

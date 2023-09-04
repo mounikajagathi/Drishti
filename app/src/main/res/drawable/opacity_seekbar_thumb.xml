@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="360"
+                android:endColor="#ECE5E5"
+                android:startColor="#FFFFFF" />
+            <size
+                android:width="@dimen/seek_bar_thumb_large"
+                android:height="@dimen/seek_bar_thumb_large" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke
+                android:width="@dimen/seek_bar_thumb_medium"
+                android:color="@android:color/transparent" />
+            <solid android:color="@color/colorRed" />
+            <size
+                android:width="@dimen/seek_bar_thumb_large"
+                android:height="@dimen/seek_bar_thumb_large" />
+        </shape>
+    </item>
+</layer-list>

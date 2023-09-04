@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <color android:color="@color/colorWhite" />
+    </item>
+    <item>
+        <shape
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:shape="rectangle">
+            <solid
+                android:color="@color/colorWhite"/>
+
+            <corners
+                android:bottomRightRadius="@dimen/standard_spacing_micro"
+                android:bottomLeftRadius="@dimen/standard_spacing_micro"
+                android:topLeftRadius="@dimen/standard_spacing_micro"
+                android:topRightRadius="@dimen/standard_spacing_micro"/>
+            <stroke
+                android:color="@color/colorHintGrey"
+                android:width="@dimen/dimen_one_dp"/>
+        </shape>
+    </item>
+    <item android:gravity="center_vertical|right" android:right="@dimen/dimen_eight_dp">
+        <layer-list>
+            <item android:width="@dimen/dimen_twelve_dp" android:height="@dimen/dimen_twelve_dp" android:gravity="center" android:bottom="@dimen/dimen_ten_dp">
+                <rotate
+                    android:fromDegrees="45"
+                    android:toDegrees="45">
+                    <shape android:shape="rectangle">
+                        <solid android:color="@color/colorGray" />
+                        <stroke android:color="@color/colorHintGrey" android:width="@dimen/dimen_one_dp"/>
+                    </shape>
+                </rotate>
+            </item>
+            <item android:width="@dimen/dimen_thirty_dp" android:height="@dimen/dimen_eight_dp" android:bottom="@dimen/dimen_twenty_dp" android:gravity="center">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/colorWhite"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</layer-list>

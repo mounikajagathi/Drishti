@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/layerListExpandCollapseIndicator"
+        android:layout_width="@dimen/standard_icon_size_small"
+        android:layout_height="@dimen/standard_icon_size_small"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/standard_spacing_medium"
+        android:src="@drawable/ic_layers_expand_plus" />
+
+    <TextView
+        android:id="@+id/txtLayerParent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/standard_spacing_small"
+        android:layout_marginBottom="@dimen/standard_spacing_small"
+        android:layout_toStartOf="@id/layerClearAll"
+        android:layout_toEndOf="@id/layerListExpandCollapseIndicator"
+        android:fontFamily="@font/roboto_regular"
+        android:text=""
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/standard_text_size_medium_x" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/layerClearAll"
+        android:layout_width="@dimen/standard_icon_size_small"
+        android:layout_height="@dimen/standard_icon_size_small"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="@dimen/standard_spacing_medium"
+        android:src="@drawable/ic_layer_clear_all"
+        app:tint="@drawable/selector_layer_clear_all" />
+
+
+</RelativeLayout>

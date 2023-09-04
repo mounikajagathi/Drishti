@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- For React Native Hot-reloading system -->
+        <!-- If you are running on a device insert your computer IP -->
+        <domain includeSubdomains="true">server1.ulgis.com</domain>
+        <domain includeSubdomains="true">drishtiadmin.ulgis.com</domain>
+        <domain includeSubdomains="true">drishtitest.ulgis.com</domain>
+        <domain includeSubdomains="true">drishtitestadmin.ulgis.com</domain>
+        <domain includeSubdomains="true">sdtvm2.ulgis.com</domain>
+        <domain includeSubdomains="true">192.168.18.17</domain>
+        <domain includeSubdomains="true">127.0.0.1</domain>
+        <domain includeSubdomains="true">10.0.0.1</domain>
+        <domain includeSubdomains="true">localhost</domain>
+         <domain includeSubdomains="true">10.0.2.2</domain>
+         <domain includeSubdomains="true">sdt.ulgis.com</domain>
+          <domain includeSubdomains="true">qa.ipms.ults.build</domain>
+         <domain includeSubdomains="true">map.ulgis.com</domain>
+          <domain includeSubdomains="true">dev.ipms.ults.build</domain>
+          <domain includeSubdomains="true">103.133.180.27</domain>
+          <domain includeSubdomains="true">103.135.130.192</domain>
+          <domain includeSubdomains="true">basemaps-api.arcgis.com</domain>
+          <domain includeSubdomains="true">developers.arcgis.com </domain>
+          <domain includeSubdomains="true">sdcvm3server1tmct.ulgis.com</domain>
+        <trust-anchors>
+<!--            <certificates src="@raw/f782c9dc30b67d73" />-->
+            <certificates src="@raw/ulgis" />
+        </trust-anchors>
+    </domain-config>
+</network-security-config>
+
+<!--    <?xml version="1.0" encoding="utf-8"?>-->
+<!--<network-security-config xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--<base-config cleartextTrafficPermitted="true">-->
+<!--    <trust-anchors>-->
+<!--        <certificates src="system" />-->
+<!--    </trust-anchors>-->
+<!--</base-config>-->
+<!--</network-security-config>-->

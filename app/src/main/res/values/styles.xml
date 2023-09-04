@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert" />
+
+    <style name="AppTheme.DarkOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <style name="AppCommonTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/cmnTxtInputLayoutColor</item>
+        <item name="hintTextAppearance">@style/AppCommonInputTextHint</item>
+        <item name="android:textColorHint">@color/colorBlack</item>
+        <item name="passwordToggleTint">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorControlNormal">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorControlActivated">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorControlHighlight">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorPrimary">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorPrimaryDark">@color/cmnTxtInputLayoutColor</item>
+        <item name="colorAccent">@color/cmnTxtInputLayoutColor</item>
+    </style>
+
+    <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@color/colorWhite</item>
+    </style>
+
+    <style name="AppCommonInputTextHint" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">@dimen/standard_text_size_small_xx</item>
+        <item name="android:textColor">@color/cmnTxtInputLayoutColor</item>
+    </style>
+
+    <style name="Toolbar.TitleText">
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Toolbar" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">?attr/actionBarSize</item>
+        <item name="colorControlNormal">@color/colorWhite</item>
+    </style>
+
+    <style name="BottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:backgroundDimAmount">0.3</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+</resources>
+
+
+

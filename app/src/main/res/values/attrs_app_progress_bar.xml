@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //App Common Progressbar Attributes
+    <declare-styleable name="AppProgressBar">
+        <attr name="app_progress_bar_progressIndeterminate" format="boolean" />
+        <attr name="app_progress_bar_barColor" format="color" />
+        <attr name="app_progress_bar_rimColor" format="color" />
+        <attr name="app_progress_bar_rimWidth" format="dimension" />
+        <attr name="app_progress_bar_spinSpeed" format="float" />
+        <attr name="app_progress_bar_barSpinCycleTime" format="integer" />
+        <attr name="app_progress_bar_circleRadius" format="dimension" />
+        <attr name="app_progress_bar_fillRadius" format="boolean" />
+        <attr name="app_progress_bar_barWidth" format="dimension" />
+        <attr name="app_progress_bar_linearProgress" format="boolean" />
+    </declare-styleable>
+</resources>

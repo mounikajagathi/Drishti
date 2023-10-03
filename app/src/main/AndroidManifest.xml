@@ -72,6 +72,9 @@
             android:name=".ui.waterbody.WaterBodyActivity"
             android:screenOrientation="portrait"/>
         <activity
+            android:name=".ui.otherassets.OtherAssetsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".ui.viewer.imageview.ImageViewerActivity"
             android:screenOrientation="portrait"/>
 

@@ -20,6 +20,7 @@ import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
 import in.ults.ipms.data.network.model.response.LoginResponse;
+import in.ults.ipms.data.network.model.response.OtherAssetsSpinnerResponse;
 import in.ults.ipms.data.network.model.response.SearchDetailsResponse;
 import in.ults.ipms.data.network.model.response.SearchResponse;
 import in.ults.ipms.data.network.model.response.UploadImageResponse;
@@ -94,6 +95,8 @@ public class AppApiHelper implements ApiHelper {
 
     @Override
     public Observable<FetchAssetDataResponse> fetchBuildAssetData(String authorization, FetchBuildingAssetsRequest request) {
+
+        System.out.println("@@@--->"+new Gson().toJson(request));
         return mApiInterface.fetchBuildAssetData(authorization, RequestBody.create(API_BODY_REQUEST_TYPE,
                 gson.toJson(request)));
     }
@@ -101,11 +104,14 @@ public class AppApiHelper implements ApiHelper {
     @Override
     public Observable<UploadImageResponse> updateImage(String xAuth, String mainPath, String subPath, String localBodyId, String imageName, ProgressRequestBody reqFile) {
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", imageName, reqFile);
-        return mApiInterface.updateImage(xAuth, mainPath, subPath, localBodyId, body);
+        return mApiInterface.updateImage(xAuth, mainPath, subPath, localBodyId, "attachment; filename="+imageName, body);
     }
 
     @Override
     public Observable<FetchAssetDataResponse> saveAssetDetails(String authorization, FetchAssetDataResponse.Data data) {
+
+        System.out.println("@@@--->"+authorization);
+        System.out.println("@@@--->"+new Gson().toJson(data));
         return mApiInterface.saveAssetDetails(authorization, RequestBody.create(API_BODY_REQUEST_TYPE,
                 gson.toJson(data)));
     }
@@ -134,6 +140,11 @@ public class AppApiHelper implements ApiHelper {
     public Observable<BaseResponse> deleteAssetDetails(String authorization, DeleteAssetDataRequest request) {
         return mApiInterface.deleteAssetDetails(authorization, RequestBody.create(API_BODY_REQUEST_TYPE,
                 gson.toJson(request)));
+    }
+
+    @Override
+    public Observable<OtherAssetsSpinnerResponse> getOtherAssetsSpinnerResponse(String authorization) {
+        return mApiInterface.getOtherAssetsSpinnerResponse(authorization);
     }
 }
 

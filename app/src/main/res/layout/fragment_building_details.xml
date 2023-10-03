@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/cbBuildingIsLandmark"
+                app:layout_constraintBottom_toTopOf="@id/layoutBuildingStructureType"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/layoutBuildingRefId"
@@ -157,6 +157,35 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutBuildingStructureType"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular"
+                app:layout_constraintBottom_toTopOf="@id/cbBuildingIsLandmark"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutBuildingWardNumber"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etBuildingStructureType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/building_structure_type"
+                    android:inputType="text"
+                    android:fontFamily="@font/roboto_regular"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/cbBuildingIsLandmark"
                 android:layout_width="0dp"
@@ -173,7 +202,7 @@
                 app:layout_constraintBottom_toTopOf="@id/txtBuildingLocation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutBuildingWardNumber" />
+                app:layout_constraintTop_toBottomOf="@id/layoutBuildingStructureType" />
 
 
             <TextView

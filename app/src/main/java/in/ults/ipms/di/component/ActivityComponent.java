@@ -8,6 +8,7 @@ import in.ults.ipms.ui.buildingassets.BuildingAssetsActivity;
 import in.ults.ipms.ui.dashboard.DashboardActivity;
 import in.ults.ipms.ui.dashboard.search.SearchActivity;
 import in.ults.ipms.ui.detailedinfo.DetailedInfoActivity;
+import in.ults.ipms.ui.otherassets.OtherAssetsActivity;
 import in.ults.ipms.ui.splash.SplashActivity;
 import in.ults.ipms.ui.utility.UtilityActivity;
 import in.ults.ipms.ui.viewer.imageview.ImageViewerActivity;
@@ -30,4 +31,5 @@ public interface ActivityComponent {
     void inject(ImageViewerActivity activity);
     void inject(UtilityActivity activity);
     void inject(WaterBodyActivity activity);
+    void inject(OtherAssetsActivity activity);
 }

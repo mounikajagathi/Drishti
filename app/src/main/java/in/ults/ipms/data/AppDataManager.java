@@ -22,6 +22,7 @@ import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
 import in.ults.ipms.data.network.model.response.LoginResponse;
+import in.ults.ipms.data.network.model.response.OtherAssetsSpinnerResponse;
 import in.ults.ipms.data.network.model.response.SearchDetailsResponse;
 import in.ults.ipms.data.network.model.response.SearchResponse;
 import in.ults.ipms.data.network.model.response.UploadImageResponse;
@@ -202,6 +203,11 @@ public class AppDataManager implements DataManager {
     @Override
     public Observable<WaterBodySpinnerResponse> getWaterBodySpinnerResponse(String authorization) {
         return mApiHelper.getWaterBodySpinnerResponse(authorization);
+    }
+
+    @Override
+    public Observable<OtherAssetsSpinnerResponse> getOtherAssetsSpinnerResponse(String authorization) {
+        return mApiHelper.getOtherAssetsSpinnerResponse(authorization);
     }
 
     @Override

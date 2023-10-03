@@ -58,6 +58,19 @@
                 android:textSize="@dimen/standard_text_size_medium_x"
                 android:visibility="visible"/>
 
+            <TextView
+                android:id="@+id/txtOtherAssets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorTransparent"
+                android:fontFamily="@font/roboto_regular"
+                android:gravity="center_vertical"
+                android:padding="@dimen/standard_spacing_medium"
+                android:text="@string/other_assets_title"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/standard_text_size_medium_x"
+                android:visibility="visible"/>
+
 
         </LinearLayout>
 

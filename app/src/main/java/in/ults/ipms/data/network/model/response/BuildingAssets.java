@@ -2352,6 +2352,10 @@ public class BuildingAssets {
         private String permitNo;
 
         @Expose
+        @SerializedName("structure_type")
+        private String structureType;
+
+        @Expose
         @SerializedName("pk")
         private long pk = -1;
 
@@ -2466,6 +2470,14 @@ public class BuildingAssets {
 
         public void setGeom(GeomPoint geom) {
             this.geom = geom;
+        }
+
+        public String getStructureType() {
+            return structureType;
+        }
+
+        public void setStructureType(String structureType) {
+            this.structureType = structureType;
         }
     }
 

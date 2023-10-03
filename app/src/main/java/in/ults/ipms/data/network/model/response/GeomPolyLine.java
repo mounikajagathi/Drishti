@@ -10,7 +10,6 @@ public class GeomPolyLine {
     @SerializedName("type")
     private String type;
 
-
     @Expose
     @SerializedName("coordinates")
     private ArrayList<ArrayList<ArrayList<Double>>> coordinates;

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
@@ -42,6 +43,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -751,6 +753,91 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
 
     }
 
+    @Override
+    public void launchBusBayMap(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchBusStandMap(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchBusStopMap(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchCanalDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchCanalLineDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchGarbageDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchMobileTowerDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchParkDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchStadiumDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchStatueDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchStreetTapDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchTankDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchTaxiStandDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchTransformerDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchWellDetails(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchOtherAssetsHome(boolean isBackStack, boolean isAnimate) {
+
+    }
+
+    @Override
+    public void launchHighLowMastLight(boolean isBackStack, boolean isAnimate) {
+
+    }
+
     @TargetApi(Build.VERSION_CODES.M)
     public boolean hasPermission(String permission) {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
@@ -778,10 +865,9 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             if (requestCode == AppConstants.REQUEST_CODE_OPEN_CAMERA) {
-                if (imageUri != null && FileUtils.isValidImageFile(imageUri.getPath())) {
-                    if (imagePickListener != null) {
-                        imagePickListener.onImageCaptured(imageUri.getPath(), reqTypeCode);
-                    }
+                Bitmap photo = (Bitmap) Objects.requireNonNull(data).getExtras().get("data");
+                if (imagePickListener != null) {
+                    imagePickListener.onImageCaptured(PathUtils.getPath(this, getImageUri(photo)), reqTypeCode);
                 }
             } else if (requestCode == AppConstants.REQUEST_CODE_OPEN_GALLERY) {
                 if (data != null && data.getData() != null && FileUtils.isValidImageFile(PathUtils.getPath(this, data.getData()))) {
@@ -791,6 +877,13 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
                 }
             }
         }
+    }
+
+    public Uri getImageUri(Bitmap photo) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        photo.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(getContentResolver(), photo, "drishti_image_captured_" + new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(new Date()), null);
+        return Uri.parse(path);
     }
 
     public void openImagePicker(ImagePickListener imagePickListener, int reqTypeCode) {
@@ -826,16 +919,6 @@ public abstract class BaseActivity<T extends ViewBinding> extends AppCompatActiv
 
     public void openCamera(BaseActivity activity, int requestCode) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        File photo = new File(FileUtils.getCaptureImageDirectory(), "drishti_image_captured_" + new SimpleDateFormat("yyyyMMddHHmmss", Locale.ENGLISH).format(new Date()) + ".jpg");
-        imageUri = Uri.fromFile(photo);
-        Uri intentUri = FileProvider.getUriForFile(activity, BuildConfig.APPLICATION_ID + ".provider", photo);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, intentUri);
-        List<ResolveInfo> resInfoList = activity.getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
-        for (ResolveInfo resolveInfo : resInfoList) {
-            String packageName = resolveInfo.activityInfo.packageName;
-            activity.grantUriPermission(packageName, imageUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        }
         ActivityCompat.startActivityForResult(activity, Intent.createChooser(intent, activity.getResources().getString(R.string.open_camera_using)), requestCode, null);
     }
 

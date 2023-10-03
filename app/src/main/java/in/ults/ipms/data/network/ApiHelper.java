@@ -17,6 +17,7 @@ import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
 import in.ults.ipms.data.network.model.response.LoginResponse;
+import in.ults.ipms.data.network.model.response.OtherAssetsSpinnerResponse;
 import in.ults.ipms.data.network.model.response.SearchDetailsResponse;
 import in.ults.ipms.data.network.model.response.SearchResponse;
 import in.ults.ipms.data.network.model.response.UploadImageResponse;
@@ -48,6 +49,7 @@ public interface ApiHelper {
     Observable<BaseResponse> deleteAssetDetails(String authorization, DeleteAssetDataRequest request);
     Observable<UtilitySpinnerResponse> getUtilitySpinnerResponse(String authorization);
     Observable<WaterBodySpinnerResponse> getWaterBodySpinnerResponse(String authorization);
+    Observable<OtherAssetsSpinnerResponse> getOtherAssetsSpinnerResponse(String authorization);
     Observable<Boolean> saveRUAddRoad(String authorization);
 
 

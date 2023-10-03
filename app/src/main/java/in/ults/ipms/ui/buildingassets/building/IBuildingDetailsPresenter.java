@@ -9,5 +9,5 @@ import in.ults.ipms.ui.base.IBasePresenter;
 
 @PerFragment
 public interface IBuildingDetailsPresenter<V extends IBuildingDetailsView,I extends IBuildingDetailsInteractor> extends IBasePresenter<V,I> {
-    void validateData(String buildingName,String permitNumber,String buildingUnder,String buildingRefId,String wardNumber,boolean isLandmark, double locationLatitude, double locationLongitude);
+    void validateData(String buildingName,String permitNumber,String buildingUnder,String buildingRefId,String wardNumber,String structureType, boolean isLandmark, double locationLatitude, double locationLongitude);
 }

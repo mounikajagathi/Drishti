@@ -130,6 +130,7 @@
     <string name="building_under">Building Under</string>
     <string name="building_ref_id">Building Reference ID</string>
     <string name="building_location">Building Location :</string>
+    <string name="building_structure_type">Structure Type</string>
     <string name="state">State</string>
     <string name="district">District</string>
     <string name="localbody">Localbody</string>
@@ -145,6 +146,7 @@
     <string name="err_district">Please select district.</string>
     <string name="err_localbody">Please select local body.</string>
     <string name="err_ward_number">Please select ward number.</string>
+    <string name="err_structure_type">Please enter structure type.</string>
     <string name="err_building_location">Please locate the point on map.</string>
     <string name="building_location_dialog_title">Building Location</string>
 
@@ -461,11 +463,31 @@
         <item>Road\nHump</item>
         <item>Road\nJunction</item>
         <item>Road\nSignboard</item>
+        <item>Bus\nBay</item>
+        <item>Bus\nStand</item>
+        <item>Bus\nStop</item>
+        <item>Canal</item>
+        <item>Canal\nLine</item>
+        <item>Garbage\nPoint</item>
+        <item>Mobile\nTower</item>
+        <item>Park</item>
+        <item>Stadium</item>
+        <item>Statue</item>
+        <item>Street\nTap</item>
+        <item>Tank</item>
+        <item>Taxi\nStand</item>
+        <item>Transformer</item>
+        <item>Well</item>
     </string-array>
 
     <string name="water_body_title">WATER BODY</string>
     <string-array name="water_body">
         <item>Pond</item>
+    </string-array>
+
+    <string name="other_assets_title">OTHER ASSETS</string>
+    <string-array name="other_assets">
+        <item>High Mast Light</item>
     </string-array>
 
     <!--Road Utility-->
@@ -720,6 +742,417 @@
     <string name="err_pond_details_remarks">Please enter Remarks</string>
     <string name="err_pond_details_photo">Please select photo</string>
     <string name="err_pond_details_location">Please locate pond location</string>
+
+
+    <!--bus bay Details-->
+    <string name="bus_bay_details_title">Bus Bay Details</string>
+    <string name="bus_bay_details_place">Place</string>
+    <string name="bus_bay_details_ward_number">Ward Number</string>
+    <string name="bus_bay_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="bus_bay_details_photo_1">Photo</string>
+    <string name="bus_bay_details_location">Bus bay Location</string>
+
+    <string name="err_bus_bay_place">Please enter junction name</string>
+    <string name="err_bus_bay_ward_number">Please select ward number</string>
+    <string name="err_bus_bay_remarks">Please enter remarks</string>
+    <string name="err_bus_bay_photo_1">Please select photo</string>
+    <string name="err_bus_bay_location">Please plot bus bay location</string>
+
+    <!--bus stand Details-->
+    <string name="bus_stand_details_title">Bus Stand Details</string>
+    <string name="bus_stand_details_place">Place</string>
+    <string name="bus_stand_details_name">Bus Stand Name</string>
+    <string name="bus_stand_details_ownership">Ownership</string>
+    <string name="bus_stand_details_survey_no">Survey No</string>
+    <string name="bus_stand_details_ward_number">Ward Number</string>
+    <string name="bus_stand_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="bus_stand_details_photo_1">Photo</string>
+    <string name="bus_stand_details_location">Bus Stand Location</string>
+
+    <string name="err_bus_stand_details_place">Please enter place</string>
+    <string name="err_bus_stand_details_name">Please enter bus stand name</string>
+    <string name="err_bus_stand_details_ownership">Please enter ownership</string>
+    <string name="err_bus_stand_details_survey_no">Please enter survey number</string>
+    <string name="err_bus_stand_details_ward_number">Please select ward number</string>
+    <string name="err_bus_stand_details_remarks">Please enter remarks</string>
+    <string name="err_bus_stand_details_photo_1">Please select photo</string>
+    <string name="err_bus_stand_details_location">Please plot bus stand location</string>
+
+    <!--bus stop Details-->
+    <string name="bus_stop_details_title">Bus Stop Details</string>
+    <string name="bus_stop_details_place">Place</string>
+    <string name="bus_stop_details_ward_number">Ward Number</string>
+    <string name="bus_stop_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="bus_stop_details_photo_1">Photo</string>
+    <string name="bus_stop_details_location">Bus Stop Location</string>
+
+    <string name="err_bus_stop_details_place">Please enter place</string>
+    <string name="err_bus_stop_details_ward_number">Please select ward number</string>
+    <string name="err_bus_stop_details_remarks">Please enter remarks</string>
+    <string name="err_bus_stop_details_photo_1">Please select photo</string>
+    <string name="err_bus_stop_details_location">Please plot bus stop location</string>
+
+    <!--Canal Details-->
+    <string name="canal_details_title">Canal Details</string>
+    <string name="canal_details_name">Canal Name</string>
+    <string name="canal_details_location">Location</string>
+    <string name="canal_details_street_name">Street Name</string>
+    <string name="canal_details_area">Area</string>
+    <string name="canal_details_type">Type</string>
+    <string name="canal_details_sub_type">Subtype</string>
+    <string name="canal_details_class_field">Class Field</string>
+    <string name="canal_details_sidewall">Sidewall</string>
+    <string name="canal_details_condition">Condition</string>
+    <string name="canal_details_start_point">Start Point</string>
+    <string name="canal_details_end_point">End Point</string>
+    <string name="canal_details_status">Status</string>
+    <string name="canal_details_ward_number">Ward Number</string>
+    <string name="canal_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="canal_details_photo_1">Photo</string>
+    <string name="canal_details_canal_location">Canal Location</string>
+
+    <string name="err_canal_details_name">Please enter canal name</string>
+    <string name="err_canal_details_location">Please enter location</string>
+    <string name="err_canal_details_street_name">Please select street name</string>
+    <string name="err_canal_details_area">Please select area</string>
+    <string name="err_canal_details_sub_type">Please select sub type</string>
+    <string name="err_canal_details_type">Please select type</string>
+    <string name="err_canal_details_class_field">Please select class field</string>
+    <string name="err_canal_details_sidewall">Please enter sidewall</string>
+    <string name="err_canal_details_condtion">Please enter condition</string>
+    <string name="err_canal_details_start_point">Please enter start point</string>
+    <string name="err_canal_details_end_point">Please enter end point</string>
+    <string name="err_canal_details_status">Please enter status</string>
+    <string name="err_canal_details_ward_number">Please select ward number</string>
+    <string name="err_canal_details_remarks">Please enter remarks</string>
+    <string name="err_canal_details_photo_1">Please select photo</string>
+    <string name="err_canal_details_canal_location">Please plot canal location</string>
+
+    <!--Canal line Details-->
+    <string name="canal_line_details_title">Canal Line Details</string>
+
+    <string name="canal_line_details_street_name">Street Name</string>
+    <string name="canal_line_details_area">Area</string>
+    <string name="canal_line_details_type">Type</string>
+    <string name="canal_line_details_sub_type">Subtype</string>
+    <string name="canal_line_details_class_field">Class Field</string>
+    <string name="canal_line_details_canal_width">Canal Width</string>
+    <string name="canal_line_details_canal_length">Canal Length</string>
+    <string name="canal_line_details_start_point">Start Point</string>
+    <string name="canal_line_details_end_point">End Point</string>
+    <string name="canal_line_details_status">Status</string>
+    <string name="canal_line_details_ward_number">Ward Number</string>
+    <string name="canal_line_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="canal_line_details_photo_1">Photo</string>
+    <string name="canal_line_details_canal_location">Canal Line Location</string>
+
+    <string name="err_canal_line_details_street_name">Please select street name</string>
+    <string name="err_canal_line_details_area">Please select area</string>
+    <string name="err_canal_line_details_sub_type">Please select sub type</string>
+    <string name="err_canal_line_details_type">Please select type</string>
+    <string name="err_canal_line_details_class_field">Please select class field</string>
+    <string name="err_canal_line_details_canal_width">Please enter canal width</string>
+    <string name="err_canal_line_details_canal_length">Please enter canal length</string>
+    <string name="err_canal_line_details_start_point">Please enter start point</string>
+    <string name="err_canal_line_details_end_point">Please enter end point</string>
+    <string name="err_canal_line_details_status">Please enter status</string>
+    <string name="err_canal_line_details_ward_number">Please select ward number</string>
+    <string name="err_canal_line_details_remarks">Please enter remarks</string>
+    <string name="err_canal_line_details_photo_1">Please select photo</string>
+    <string name="err_canal_line_details_canal_location">Please plot canal Line location</string>
+
+    <!--Garbage Details-->
+    <string name="garbage_details_title">Garbage Details</string>
+    <string name="garbage_details_place">Place</string>
+    <string name="garbage_details_category">Category</string>
+    <string name="garbage_details_ward_number">Ward Number</string>
+    <string name="garbage_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="garbage_details_photo_1">Photo</string>
+    <string name="garbage_details_location">Garbage Area Location</string>
+
+    <string name="err_garbage_details_place">Please enter place</string>
+    <string name="err_garbage_details_category">Please enter category</string>
+    <string name="err_garbage_details_ward_number">Please select ward number</string>
+    <string name="err_garbage_details_remarks">Please enter remarks</string>
+    <string name="err_garbage_details_photo_1">Please select photo</string>
+    <string name="err_garbage_details_location">Please plot garbage area location</string>
+
+    <!--Mobile tower Details-->
+    <string name="mobile_tower_details_title">Mobile Tower Details</string>
+    <string name="mobile_tower_details_building">Building Name</string>
+    <string name="mobile_tower_details_place">Place</string>
+    <string name="mobile_tower_details_owner_name">Owner Name</string>
+    <string name="mobile_tower_details_owner_address">Owner Address</string>
+    <string name="mobile_tower_details_owner_mobile">Owner Mobile</string>
+    <string name="mobile_tower_details_building_status">Building Status</string>
+    <string name="mobile_tower_details_building_usage">Building Usage</string>
+    <string name="mobile_tower_details_new_property_id">New Property Id</string>
+    <string name="mobile_tower_details_old_property_id">Old Property Id</string>
+    <string name="mobile_tower_details_year_of_construction">Year Of Construction</string>
+    <string name="mobile_tower_details_electric_connection">Elec Con</string>
+    <string name="mobile_tower_details_unique_id">Unique Id</string>
+    <string name="mobile_tower_details_service_provider">Service Provider</string>
+    <string name="mobile_tower_details_consumer_no">Consumer No</string>
+    <string name="mobile_tower_details_road_width">Road Width</string>
+    <string name="mobile_tower_details_road_type">Road Type</string>
+    <string name="mobile_tower_details_ward">Ward Number</string>
+    <string name="mobile_tower_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="mobile_tower_details_photo_1">Photo 1</string>
+    <string name="mobile_tower_details_photo_2">Photo 2</string>
+    <string name="mobile_tower_details_location">Mobile Tower Location</string>
+
+    <string name="err_mobile_tower_details_building">Please enter build name</string>
+    <string name="err_mobile_tower_details_place">Please enter place</string>
+    <string name="err_mobile_tower_details_owner_name">Please select owner name</string>
+    <string name="err_mobile_tower_details_owner_address">Please select owner address</string>
+    <string name="err_mobile_tower_details_owner_mobile">Please select owner mobile</string>
+    <string name="err_mobile_tower_details_building_status">Please select building status</string>
+    <string name="err_mobile_tower_details_building_usage">Please select building usage</string>
+    <string name="err_mobile_tower_details_new_property_id">Please enter new property id</string>
+    <string name="err_mobile_tower_details_old_property_id">Please enter old property id</string>
+    <string name="err_mobile_tower_details_year_of_construction">Please enter year of construction</string>
+    <string name="err_mobile_tower_details_electric_connectivity">Please enter electric connectivity</string>
+    <string name="err_mobile_tower_details_unique_id">Please enter unique id</string>
+    <string name="err_mobile_tower_details_service_provider">Please enter service provider</string>
+    <string name="err_mobile_tower_details_consumer_no">Please enter consumer no</string>
+    <string name="err_mobile_tower_details_road_width">Please enter road width</string>
+    <string name="err_mobile_tower_details_road_type">Please enter road type</string>
+    <string name="err_mobile_tower_details_ward_number">Please select ward number</string>
+    <string name="err_mobile_tower_details_remarks">Please enter remarks</string>
+    <string name="err_mobile_tower_details_photo_1">Please select photo 1</string>
+    <string name="err_mobile_tower_details_photo_2">Please select photo 2</string>
+    <string name="err_mobile_tower_details_location">Please plot mobile tower location</string>
+
+    <!--Park Details-->
+    <string name="park_details_title">Park Details</string>
+    <string name="park_details_location">Location</string>
+    <string name="park_details_name">Park Name</string>
+    <string name="park_details_area">Area</string>
+    <string name="park_details_survey_no">Survey Number</string>
+    <string name="park_details_park_type">Park Type</string>
+    <string name="park_details_ward_number">Ward Number</string>
+    <string name="park_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="park_details_photo_1">Photo</string>
+    <string name="park_details_park_location">Park Location</string>
+
+    <string name="err_park_details_location">Please enter location</string>
+    <string name="err_park_details_name">Please enter park name</string>
+    <string name="err_park_details_survey_no">Please select survey number</string>
+    <string name="err_park_details_area">Please select area</string>
+    <string name="err_park_details_type">Please select park type</string>
+    <string name="err_park_details_ward_number">Please select ward number</string>
+    <string name="err_park_details_remarks">Please enter remarks</string>
+    <string name="err_park_details_photo_1">Please select photo</string>
+    <string name="err_park_details_park_location">Please plot park location</string>
+
+    <!--stadium Details-->
+    <string name="stadium_details_title">Stadium Details</string>
+
+    <string name="stadium_details_name">Stadium Name</string>
+    <string name="stadium_details_area">Area</string>
+    <string name="stadium_details_location">Location</string>
+    <string name="stadium_details_address">Address</string>
+    <string name="stadium_details_survey_no">Survey Number</string>
+    <string name="stadium_details_no_gallery">No Gallery</string>
+    <string name="stadium_details_electricity">Electricity</string>
+    <string name="stadium_details_gallery">Gallery</string>
+    <string name="stadium_details_bathroom">Bathroom</string>
+    <string name="stadium_details_gallery_coverage">Gallery Coverage</string>
+    <string name="stadium_details_ward_number">Ward Number</string>
+    <string name="stadium_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="stadium_details_photo_1">Photo</string>
+    <string name="stadium_details_stadium_location">Stadium Location</string>
+
+    <string name="err_stadium_details_name">Please select stadium name</string>
+    <string name="err_stadium_details_area">Please select area</string>
+    <string name="err_stadium_details_location">Please select location</string>
+    <string name="err_stadium_details_address">Please select address</string>
+    <string name="err_stadium_details_survey_no">Please select survey number</string>
+    <string name="err_stadium_details_no_gallery">Please enter no gallery</string>
+    <string name="err_stadium_details_gallery">Please enter gallery</string>
+    <string name="err_stadium_details_gallery_coverage">Please enter gallery coverage</string>
+    <string name="err_stadium_details_electricity">Please enter electricity</string>
+    <string name="err_stadium_details_bathroom">Please enter bathroom</string>
+    <string name="err_stadium_details_ward_number">Please select ward number</string>
+    <string name="err_stadium_details_remarks">Please enter remarks</string>
+    <string name="err_stadium_details_photo_1">Please select photo</string>
+    <string name="err_stadium_details_stadium_location">Please plot stadium location</string>
+
+    <!--Statue Details-->
+    <string name="statue_details_title">Statue Details</string>
+    <string name="statue_details_location">Location</string>
+    <string name="statue_details_ward_number">Ward Number</string>
+    <string name="statue_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="statue_details_photo_1">Photo</string>
+    <string name="statue_details_statue_location">Statue Location</string>
+
+    <string name="err_statue_details_location">Please enter location</string>
+    <string name="err_statue_details_ward_number">Please select ward number</string>
+    <string name="err_statue_details_remarks">Please enter remarks</string>
+    <string name="err_statue_details_photo_1">Please select photo</string>
+    <string name="err_statue_details_statue_location">Please plot statue location</string>
+
+    <!--Street Tap Details-->
+    <string name="street_tap_details_title">Street Tap Details</string>
+    <string name="street_tap_details_location">Location</string>
+    <string name="street_tap_details_address">Address</string>
+    <string name="street_tap_details_working_status">Working Status</string>
+    <string name="street_tap_details_funded_by">Funded By</string>
+    <string name="street_tap_details_ward_number">Ward Number</string>
+    <string name="street_tap_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="street_tap_details_photo_1">Photo</string>
+    <string name="street_tap_details_street_location">Street Tap Location</string>
+
+    <string name="err_street_tap_details_location">Please enter location</string>
+    <string name="err_street_tap_details_address">Please select address</string>
+    <string name="err_street_tap_details_working_status">Please select working status</string>
+    <string name="err_street_tap_details_funded_by">Please select funded by</string>
+    <string name="err_street_tap_details_ward_number">Please select ward number</string>
+    <string name="err_street_tap_details_remarks">Please enter remarks</string>
+    <string name="err_street_tap_details_photo_1">Please select photo</string>
+    <string name="err_street_tap_details_street_location">Please plot street tap location</string>
+
+    <!--Tank Details-->
+    <string name="tank_details_title">Tank Details</string>
+    <string name="tank_details_location">Location</string>
+    <string name="tank_details_tank_owner">Tank Owner</string>
+    <string name="tank_details_capacity">Capacity</string>
+    <string name="tank_details_type">Tank Type</string>
+    <string name="tank_details_ward_number">Ward Number</string>
+    <string name="tank_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="tank_details_photo_1">Photo</string>
+    <string name="tank_details_tank_location">Tank Location</string>
+
+    <string name="err_tank_details_location">Please enter location</string>
+    <string name="err_tank_details_tank_owner">Please enter tank owner</string>
+    <string name="err_tank_details_capacity">Please select capacity</string>
+    <string name="err_tank_details_tank_type">Please select tank type</string>
+    <string name="err_tank_details_ward_number">Please select ward number</string>
+    <string name="err_tank_details_remarks">Please enter remarks</string>
+    <string name="err_tank_details_photo_1">Please select photo</string>
+    <string name="err_tank_details_tank_location">Please plot tank location</string>
+
+    <!--Taxi Stand Details-->
+    <string name="taxi_stand_details_title">Taxi Stand Details</string>
+    <string name="taxi_stand_details_location">Location</string>
+    <string name="taxi_stand_details_authorised">Authorised</string>
+    <string name="taxi_stand_details_capacity">Capacity</string>
+    <string name="taxi_stand_details_auth_details">Authorisation Details</string>
+    <string name="taxi_stand_details_parking_type">Parking Type</string>
+    <string name="taxi_stand_details_ward_number">Ward Number</string>
+    <string name="taxi_stand_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="taxi_stand_details_photo_1">Photo</string>
+    <string name="taxi_stand_details_taxi_location">Taxi Stand Location</string>
+
+    <string name="err_taxi_stand_details_location">Please enter location</string>
+    <string name="err_taxi_stand_details_authorised">Please enter authorised</string>
+    <string name="err_taxi_stand_details_capacity">Please select capacity</string>
+    <string name="err_taxi_stand_details_auth_details">Please select authorisation details</string>
+    <string name="err_taxi_stand_details_parking_type">Please select parking type</string>
+    <string name="err_taxi_stand_details_ward_number">Please select ward number</string>
+    <string name="err_taxi_stand_details_remarks">Please enter remarks</string>
+    <string name="err_taxi_stand_details_photo_1">Please select photo</string>
+    <string name="err_taxi_stand_details_taxi_location">Please plot taxi stand location</string>
+
+    <!--Transformer Details-->
+    <string name="transformer_details_title">Transformer Details</string>
+    <string name="transformer_details_application">Application No</string>
+    <string name="transformer_details_location">Location</string>
+    <string name="transformer_details_consumer_no">Consumer No</string>
+    <string name="transformer_details_single_tube">Single Tube (40W)</string>
+    <string name="transformer_details_double_tube">Double Tube (80W)</string>
+    <string name="transformer_details_led">LED (35)</string>
+    <string name="transformer_details_class_cfl">CFL (36)</string>
+    <string name="transformer_details_connected_load">Connected Load (W)</string>
+    <string name="transformer_details_bulb">Bulb (40W)</string>
+    <string name="transformer_details_category">category</string>
+    <string name="transformer_details_pole_number">Pole Number</string>
+    <string name="transformer_details_sodium_vapour">Sodium Vapour (180W)</string>
+    <string name="transformer_details_ward_number">Ward Number</string>
+    <string name="transformer_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="transformer_details_photo_1">Photo</string>
+    <string name="transformer_details_transformer_location">Transformer Location</string>
+
+    <string name="err_transformer_details_application_no">Please enter application no</string>
+    <string name="err_transformer_details_location">Please enter location</string>
+    <string name="err_transformer_details_street_pole_number">Please select pole number</string>
+    <string name="err_transformer_details_consumer_no">Please select consumer no</string>
+    <string name="err_transformer_details_category">Please select category</string>
+    <string name="err_transformer_details_single_tube">Please select single tube</string>
+    <string name="err_transformer_details_double_tube">Please select class field</string>
+    <string name="err_transformer_details_led">Please enter LED</string>
+    <string name="err_transformer_details_cfl">Please enter CFL</string>
+    <string name="err_transformer_details_start_bulb">Please enter start bulb</string>
+    <string name="err_transformer_details_end_sodium_vapour">Please enter sodium vapour</string>
+    <string name="err_transformer_details_connected_load">Please enter connected load</string>
+    <string name="err_transformer_details_ward_number">Please select ward number</string>
+    <string name="err_transformer_details_remarks">Please enter remarks</string>
+    <string name="err_transformer_details_photo_1">Please select photo</string>
+    <string name="err_transformer_details_transformer_location">Please plot transformer location</string>
+
+    <!--Well Details-->
+    <string name="well_details_title">Well Details</string>
+
+    <string name="well_details_owner">Well Owner</string>
+    <string name="well_details_well_purpose">Well Purpose</string>
+    <string name="well_details_location">Location</string>
+    <string name="well_details_cover">Well Cover</string>
+    <string name="well_details_survey_no">Survey Number</string>
+    <string name="well_details_near_road">Near Road</string>
+    <string name="well_details_re_water_availability_marks">Re Water Availability Marks</string>
+    <string name="well_details_status">Status</string>
+    <string name="well_details_seasonal">Seasonal</string>
+    <string name="well_details_type">Well Type</string>
+    <string name="well_details_ward_number">Ward Number</string>
+    <string name="well_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="well_details_photo_1">Photo</string>
+    <string name="well_details_well_location">Well Location</string>
+
+    <string name="err_well_details_owner">Please select owner</string>
+    <string name="err_well_details_well_purpose">Please select well purpose</string>
+    <string name="err_well_details_location">Please select location</string>
+    <string name="err_well_details_cover">Please select well cover</string>
+    <string name="err_well_details_survey_no">Please select survey number</string>
+    <string name="err_well_details_near_road">Please enter near road</string>
+    <string name="err_well_details_re_water_availability_marks">Please enter re water availability marks</string>
+    <string name="err_well_details_status">Please enter status</string>
+    <string name="err_well_details_seasonal">Please enter seasonal</string>
+    <string name="err_well_details_type">Please enter well type</string>
+    <string name="err_well_details_ward_number">Please select ward number</string>
+    <string name="err_well_details_remarks">Please enter remarks</string>
+    <string name="err_well_details_photo_1">Please select photo</string>
+    <string name="err_well_details_well_location">Please plot well location</string>
+
+    <!--High and low mast tower Details-->
+    <string name="high_and_low_mast_details_title">High &amp; Low Mast Light Details</string>
+    <string name="high_and_low_mast_details_type">Type</string>
+    <string name="high_and_low_mast_details_light_type">Light Type</string>
+    <string name="high_and_low_mast_details_funded_by">Funded By</string>
+    <string name="high_and_low_mast_details_working_status">Working Status</string>
+    <string name="high_and_low_mast_details_location">Location</string>
+    <string name="high_and_low_mast_details_address">Address</string>
+    <string name="high_and_low_mast_details_power">Power</string>
+    <string name="high_and_low_mast_details_height">High Mast Light Height</string>
+    <string name="high_and_low_mast_details_No_of_bulbs">No Of Bulbs</string>
+    <string name="high_and_low_mast_details_ward">Ward Number</string>
+    <string name="high_and_low_mast_details_remarks">Remarks ( Max Length 100 )</string>
+    <string name="high_and_low_mast_details_photo_1">Photo 1</string>
+    <string name="high_and_low_mast_details_high_or_low_mast_location">High Mast Or Low Mast Location</string>
+
+    <string name="err_high_and_low_mast_details_type">Please select type</string>
+    <string name="err_high_and_low_mast_details_light_type">Please select light type</string>
+    <string name="err_high_and_low_mast_details_funded_by">Please enter funded by</string>
+    <string name="err_high_and_low_mast_details_working_status">Please select working status</string>
+    <string name="err_high_and_low_mast_details_location">Please enter location</string>
+    <string name="err_high_and_low_mast_details_address">Please enter address</string>
+    <string name="err_high_and_low_mast_details_power">Please enter power</string>
+    <string name="err_high_and_low_mast_details_height">Please enter high mast light height</string>
+    <string name="err_high_and_low_mast_details_no_of_bulbs">Please enter no of bulbs</string>
+    <string name="err_high_and_low_mast_details_ward_number">Please select ward number</string>
+    <string name="err_high_and_low_mast_details_remarks">Please enter remarks</string>
+    <string name="err_high_and_low_mast_details_photo_1">Please select photo 1</string>
+    <string name="err_high_and_low_mast_details_high_or_low_mast_location">Please plot high or low mast location</string>
+
 
 
 </resources>

@@ -8,20 +8,24 @@ import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
 import in.ults.ipms.data.network.model.response.LoginResponse;
+import in.ults.ipms.data.network.model.response.OtherAssetsSpinnerResponse;
 import in.ults.ipms.data.network.model.response.SearchDetailsResponse;
 import in.ults.ipms.data.network.model.response.SearchResponse;
 import in.ults.ipms.data.network.model.response.UploadImageResponse;
 import in.ults.ipms.data.network.model.response.UtilitySpinnerResponse;
+import in.ults.ipms.data.network.model.response.WFSModel;
 import in.ults.ipms.data.network.model.response.WaterBodySpinnerResponse;
 import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
 
@@ -67,8 +71,8 @@ public interface ApiInterface {
 
     //Upload Api
     @Multipart
-    @POST("map/upload/{main_path}/{sub_path}/{local_body_id}/")
-    Observable<UploadImageResponse> updateImage(@Header("Authorization") String auth, @Path("main_path") String mainPath, @Path("sub_path") String subPath, @Path("local_body_id") String localBodyId,
+    @PUT("map/upload/{main_path}/{sub_path}/{local_body_id}/")
+    Observable<UploadImageResponse> updateImage(@Header("Authorization") String auth, @Path("main_path") String mainPath, @Path("sub_path") String subPath, @Path("local_body_id") String localBodyId,@Header("Content-Disposition") String imageName,
                                                 @Part MultipartBody.Part image);
 
     @POST("mobileapi/save-asset-data/")
@@ -84,5 +88,14 @@ public interface ApiInterface {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("mobileapi/get-pond-utility-dropdown/")
     Observable<WaterBodySpinnerResponse> getWaterBodySpinnerResponse(@Header("Authorization") String auth);
+
+
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("mobileapi/get-pond-utility-dropdown/")
+    Observable<OtherAssetsSpinnerResponse> getOtherAssetsSpinnerResponse(@Header("Authorization") String auth);
+
+
+    @GET("geoserver/wfs?version=1.3.0&request=GetFeature&outputFormat=application%2Fjson&service=WFS&typeName=drishti:ipms_localbody&srsname=EPSG:3857&cql_filter=localbody_id%3D2&authkey=a1213a5b-5131-41e4-97bb-ebcf80de3923")
+    Call<WFSModel> getWFS();
 
 }

@@ -86,6 +86,7 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
         } else if (throwable instanceof UnAuthorizedException) {
             logoutUser();
         } else {
+            System.out.println("@@@@--->"+throwable.getMessage());
             getMvpView().onApiFailure();
         }
         Log.d("API ERROR", new Gson().toJson(throwable));
@@ -239,6 +240,7 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
                                 return;
                             }
                             if (isResponseSuccess(response)) {
+                                System.out.println("@@@--->"+new Gson().toJson(response));
                                 if (app.equalsIgnoreCase(AppConstants.APP_TYPE_BUILDING_ASSET)) {
                                     if (layer.equals(AppConstants.LAYER_TYPE_BUILDING)) {
                                         AppCacheData.getOurInstance().setBuildingDetailsData(response.getData());
@@ -249,6 +251,8 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
                                     AppCacheData.getOurInstance().setBuildingAssetData(response.getData());
                                 } else if (app.equalsIgnoreCase(AppConstants.APP_TYPE_WATER_BODY)) {
                                     AppCacheData.getOurInstance().setBuildingAssetData(response.getData());
+                                } else if (app.equalsIgnoreCase(AppConstants.APP_TYPE_OTHER_ASSET)) {
+                                    AppCacheData.getOurInstance().setBuildingAssetData(response.getData());
                                 }
                                 getMvpView().onFetchAssetSuccess(id, app, layer);
                             }
@@ -257,7 +261,6 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
 
     @Override
     public void saveAssetDetails(FetchAssetDataResponse.Data data) {
-
       //  Log.d("save", new Gson().toJson(data));
         getCompositeDisposable()
                 .add(getInteractor()

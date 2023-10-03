@@ -87,6 +87,65 @@ public class UtilitySpinnerResponse extends BaseResponse {
         @SerializedName("Road Sign Board")
         private DashboardResponse.LayerCategoryChild roadSignBoard;
 
+        @Expose
+        @SerializedName("Bus Bay")
+        private DashboardResponse.LayerCategoryChild busBay;
+
+        @Expose
+        @SerializedName("Bus Stand")
+        private DashboardResponse.LayerCategoryChild busStand;
+
+        @Expose
+        @SerializedName("Bus Stop")
+        private DashboardResponse.LayerCategoryChild busStop;
+
+        @Expose
+        @SerializedName("Canal")
+        private DashboardResponse.LayerCategoryChild canal;
+
+        @Expose
+        @SerializedName("Canal Line")
+        private DashboardResponse.LayerCategoryChild canalLine;
+
+        @Expose
+        @SerializedName("Garbage")
+        private DashboardResponse.LayerCategoryChild garbage;
+
+        @Expose
+        @SerializedName("Mobile Tower")
+        private DashboardResponse.LayerCategoryChild mobileTower;
+
+        @Expose
+        @SerializedName("Park")
+        private DashboardResponse.LayerCategoryChild park;
+
+        @Expose
+        @SerializedName("Stadium")
+        private DashboardResponse.LayerCategoryChild stadium;
+
+        @Expose
+        @SerializedName("Statue")
+        private DashboardResponse.LayerCategoryChild statue;
+
+        @Expose
+        @SerializedName("Street Tap")
+        private DashboardResponse.LayerCategoryChild streetTap;
+
+        @Expose
+        @SerializedName("Taxi Stand")
+        private DashboardResponse.LayerCategoryChild taxiStand;
+
+        @Expose
+        @SerializedName("Transformer")
+        private DashboardResponse.LayerCategoryChild transformer;
+
+        @Expose
+        @SerializedName("Tank")
+        private DashboardResponse.LayerCategoryChild tank;
+
+        @Expose
+        @SerializedName("Well")
+        private DashboardResponse.LayerCategoryChild well;
 
         public DashboardResponse.LayerCategoryChild getBridge() {
             return bridge;
@@ -126,6 +185,66 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
         public DashboardResponse.LayerCategoryChild getRoadSignBoard() {
             return roadSignBoard;
+        }
+
+        public DashboardResponse.LayerCategoryChild getBusBay() {
+            return busBay;
+        }
+
+        public DashboardResponse.LayerCategoryChild getBusStand() {
+            return busStand;
+        }
+
+        public DashboardResponse.LayerCategoryChild getBusStop() {
+            return busStop;
+        }
+
+        public DashboardResponse.LayerCategoryChild getCanal() {
+            return canal;
+        }
+
+        public DashboardResponse.LayerCategoryChild getCanalLine() {
+            return canalLine;
+        }
+
+        public DashboardResponse.LayerCategoryChild getGarbage() {
+            return garbage;
+        }
+
+        public DashboardResponse.LayerCategoryChild getMobileTower() {
+            return mobileTower;
+        }
+
+        public DashboardResponse.LayerCategoryChild getPark() {
+            return park;
+        }
+
+        public DashboardResponse.LayerCategoryChild getTank() {
+            return tank;
+        }
+
+        public DashboardResponse.LayerCategoryChild getStadium() {
+            return stadium;
+        }
+
+        public DashboardResponse.LayerCategoryChild getStatue() {
+            return statue;
+        }
+
+        public DashboardResponse.LayerCategoryChild getStreetTap() {
+            return streetTap;
+        }
+
+        public DashboardResponse.LayerCategoryChild getTaxiStand() {
+            return taxiStand;
+        }
+
+        public DashboardResponse.LayerCategoryChild getTransformer() {
+            return transformer;
+        }
+
+        public DashboardResponse.LayerCategoryChild getWell() {
+            return well;
         }
     }
 
@@ -184,6 +303,29 @@ public class UtilitySpinnerResponse extends BaseResponse {
         @SerializedName("parking_type")
         private ArrayList<ParkingType> parkingTypes;
 
+        @Expose
+        @SerializedName("ownership")
+        private ArrayList<OwnerShip> ownership;
+
+        @Expose
+        @SerializedName("buildingStatus")
+        private ArrayList<BuildingStatus> buildingStatus;
+
+        @Expose
+        @SerializedName("park_type")
+        private ArrayList<ParkType> parkType;
+
+        @Expose
+        @SerializedName("tank_type")
+        private ArrayList<TankType> tankType;
+
+        @Expose
+        @SerializedName("buildingUsage")
+        private ArrayList<BuildingUsage> buildingUsage;
+
+        @Expose
+        @SerializedName("well_type")
+        private ArrayList<WellType> wellType;
 
         public ArrayList<MaintainedBy> getMaintainedBy() {
             return maintainedBy;
@@ -203,6 +345,14 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
         public ArrayList<Ward> getWard() {
             return ward;
+        }
+
+        public ArrayList<BuildingStatus> getBuildingStatus() {
+            return buildingStatus;
+        }
+
+        public ArrayList<BuildingUsage> getBuildingUsage() {
+            return buildingUsage;
         }
 
         public ArrayList<SignboardCategory> getSignboardCategory() {
@@ -236,8 +386,23 @@ public class UtilitySpinnerResponse extends BaseResponse {
         public ArrayList<ParkingType> getParkingTypes() {
             return parkingTypes;
         }
-    }
 
+        public ArrayList<OwnerShip> getOwnership() {
+            return ownership;
+        }
+
+        public ArrayList<ParkType> getParkType() {
+            return parkType;
+        }
+
+        public ArrayList<TankType> getTankType() {
+            return tankType;
+        }
+
+        public ArrayList<WellType> getWellType() {
+            return wellType;
+        }
+    }
 
 
     public static class MaintainedBy extends BaseSpinnerData {
@@ -287,6 +452,17 @@ public class UtilitySpinnerResponse extends BaseResponse {
     public static class Ward extends BaseSpinnerData {
         @Expose
         @SerializedName("ward_name")
+        private String spinnerTitle;
+
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
+
+    public static class OwnerShip extends BaseSpinnerData {
+        @Expose
+        @SerializedName("ownership")
         private String spinnerTitle;
 
         @Override
@@ -383,6 +559,59 @@ public class UtilitySpinnerResponse extends BaseResponse {
         }
     }
 
+    public static class BuildingStatus extends BaseSpinnerData {
+        @Expose
+        @SerializedName("building_status")
+        private String spinnerTitle;
 
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
+
+    public static class BuildingUsage extends BaseSpinnerData {
+        @Expose
+        @SerializedName("building_usage")
+        private String spinnerTitle;
+
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
+
+    public static class ParkType extends BaseSpinnerData {
+        @Expose
+        @SerializedName("park_type")
+        private String spinnerTitle;
+
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
+
+    public static class TankType extends BaseSpinnerData {
+        @Expose
+        @SerializedName("tank_type")
+        private String spinnerTitle;
+
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
+
+    public static class WellType extends BaseSpinnerData {
+        @Expose
+        @SerializedName("well_type")
+        private String spinnerTitle;
+
+        @Override
+        public String getSpinnerTitle() {
+            return spinnerTitle;
+        }
+    }
 
 }

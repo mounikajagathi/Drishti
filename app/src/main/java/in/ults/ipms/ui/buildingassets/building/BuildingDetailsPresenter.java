@@ -30,7 +30,7 @@ public class BuildingDetailsPresenter<V extends IBuildingDetailsView, I extends 
     }
 
     @Override
-    public void validateData(String buildingName, String permitNumber, String buildingUnder, String buildingRefId, String wardNumber, boolean isLandmark, double locationLatitude, double locationLongitude) {
+    public void validateData(String buildingName, String permitNumber, String buildingUnder, String buildingRefId, String wardNumber, String structureType, boolean isLandmark, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(buildingName)) {
             getMvpView().showBuildingDetailsFieldError(BuildingDetailsFragment.ERROR_TYPE_BUILDING_NAME, baseActivity.getResources().getString(R.string.err_building_name));
@@ -52,14 +52,18 @@ public class BuildingDetailsPresenter<V extends IBuildingDetailsView, I extends 
             getMvpView().showBuildingDetailsFieldError(BuildingDetailsFragment.ERROR_TYPE_WARD_NUMBER, baseActivity.getResources().getString(R.string.err_ward_number));
             return;
         }
+        if (CommonUtils.isNullString(structureType)) {
+            getMvpView().showBuildingDetailsFieldError(BuildingDetailsFragment.ERROR_TYPE_STRUCTURE_TYPE, baseActivity.getResources().getString(R.string.err_structure_type));
+            return;
+        }
         if (locationLatitude == 0.0 || locationLongitude == 0.0) {
             getMvpView().showBuildingDetailsFieldError(BuildingDetailsFragment.ERROR_TYPE_BUILDING_LOCATION, baseActivity.getResources().getString(R.string.err_building_location));
             return;
         }
-        savingBuildingDetails(buildingName, permitNumber, buildingUnder, buildingRefId, wardNumber, isLandmark, locationLatitude, locationLongitude);
+        savingBuildingDetails(buildingName, permitNumber, buildingUnder, buildingRefId, wardNumber, structureType, isLandmark, locationLatitude, locationLongitude);
     }
 
-    private void savingBuildingDetails(String buildingName, String permitNumber, String buildingUnder, String buildingRefId, String wardNumber, boolean isLandmark, double locationLatitude, double locationLongitude) {
+    private void savingBuildingDetails(String buildingName, String permitNumber, String buildingUnder, String buildingRefId, String wardNumber, String structureType, boolean isLandmark, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -71,6 +75,7 @@ public class BuildingDetailsPresenter<V extends IBuildingDetailsView, I extends 
                 data.getBuildingDetails().setBldgUnder(Integer.parseInt(buildingUnder));
                 data.getBuildingDetails().setBldgRefId(buildingRefId);
                 data.getBuildingDetails().setWard(wardNumber);
+                data.getBuildingDetails().setStructureType(structureType);
                 data.getBuildingDetails().setLandmark(isLandmark);
                 data.getBuildingDetails().setGeom(geom);
                 data.getBuildingDetails().setUpdationStatus(AppConstants.UPDATION_STATUS_UPDATE);
@@ -84,6 +89,7 @@ public class BuildingDetailsPresenter<V extends IBuildingDetailsView, I extends 
             details.setBldgUnder(Integer.parseInt(buildingUnder));
             details.setBldgRefId(buildingRefId);
             details.setWard(wardNumber);
+            details.setStructureType(structureType);
             details.setLandmark(isLandmark);
             details.setGeom(geom);
             details.setUpdationStatus(AppConstants.UPDATION_STATUS_ADD);

@@ -96,6 +96,52 @@ public class UtilityHomeFragment extends BaseFragment<FragmentUtilityHomeBinding
                 case 9:
                     getBaseActivity().launchRoadSignboardMap(true, false);
                     return;
+                case 10:
+                    getBaseActivity().launchBusBayMap(true, false);
+                    return;
+                case 11:
+                    getBaseActivity().launchBusStandMap(true, false);
+                    return;
+                case 12:
+                    getBaseActivity().launchBusStopMap(true, false);
+                    return;
+                case 13:
+                    getBaseActivity().launchCanalDetails(true, false);
+                    return;
+                case 14:
+                    getBaseActivity().launchCanalLineDetails(true, false);
+                    return;
+                case 15:
+                    getBaseActivity().launchGarbageDetails(true, false);
+                    return;
+                case 16:
+                    getBaseActivity().launchMobileTowerDetails(true, false);
+                    return;
+                case 17:
+                    getBaseActivity().launchParkDetails(true, false);
+                    return;
+                case 18:
+                    getBaseActivity().launchStadiumDetails(true, false);
+                    return;
+                case 19:
+                    getBaseActivity().launchStatueDetails(true, false);
+                    return;
+                case 20:
+                    getBaseActivity().launchStreetTapDetails(true, false);
+                    return;
+                case 21:
+                    getBaseActivity().launchTankDetails(true, false);
+                    return;
+                case 22:
+                    getBaseActivity().launchTaxiStandDetails(true, false);
+                    return;
+                case 23:
+                    getBaseActivity().launchTransformerDetails(true, false);
+                    return;
+                case 24:
+                    getBaseActivity().launchWellDetails(true, false);
+                    return;
+
             }
         });
     }

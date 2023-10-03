@@ -97,6 +97,10 @@ public class FetchAssetDataResponse extends BaseResponse {
         private UtilityAssets.ParkingArea parkingAreaDetails;
 
         @Expose
+        @SerializedName("utility_garbage_point")
+        private UtilityAssets.Garbage garbageDetails;
+
+        @Expose
         @SerializedName("utility_playground")
         private UtilityAssets.Playground playgroundDetails;
 
@@ -113,14 +117,82 @@ public class FetchAssetDataResponse extends BaseResponse {
         private UtilityAssets.RoadSignboard roadSignboardDetails;
 
         @Expose
+        @SerializedName("utility_bus_bay")
+        private UtilityAssets.BusBay busBayDetails;
+
+        @Expose
+        @SerializedName("utility_bus_stand")
+        private UtilityAssets.BusStand busStandDetails;
+
+        @Expose
+        @SerializedName("utility_bus_stop")
+        private UtilityAssets.BusStop busStopDetails;
+
+        @Expose
+        @SerializedName("utility_canal")
+        private UtilityAssets.Canal canalDetails;
+
+        @Expose
+        @SerializedName("utility_canal_line")
+        private UtilityAssets.CanalLine canalLineDetails;
+
+        @Expose
+        @SerializedName("utility_mobile_tower")
+        private UtilityAssets.MobileTower mobileTowerDetails;
+
+        @Expose
+        @SerializedName("utility_park")
+        private UtilityAssets.Park parkDetails;
+
+        @Expose
+        @SerializedName("utility_stadium")
+        private UtilityAssets.Stadium stadiumDetails;
+
+        @Expose
+        @SerializedName("utility_statue")
+        private UtilityAssets.Statue statueDetails;
+
+        @Expose
+        @SerializedName("utility_street_tap")
+        private UtilityAssets.StreetTap streetTapDetails;
+
+        @Expose
+        @SerializedName("utility_tank")
+        private UtilityAssets.Tank tankDetails;
+
+        @Expose
+        @SerializedName("utility_taxi_stand")
+        private UtilityAssets.TaxiStand taxiStandDetails;
+
+        @Expose
+        @SerializedName("utility_transformer")
+        private UtilityAssets.Transformer transformerDetails;
+
+        @Expose
+        @SerializedName("utility_well")
+        private UtilityAssets.Well wellDetails;
+
+        @Expose
         @SerializedName("waterbody_pond")
         private WaterBodyAssets.Pond pondDetails;
+
+        @Expose
+        @SerializedName("otherasset_high_mast_light")
+        private OtherAssets.HighLowMastLight highLowMastLight;
 
 
         @Expose
         @SerializedName("buildingasset_member_disability")
         private ArrayList<BuildingAssets.Disability> disability;
 
+
+        public OtherAssets.HighLowMastLight getHighLowMastLight() {
+            return highLowMastLight;
+        }
+
+        public void setHighLowMastLight(OtherAssets.HighLowMastLight highLowMastLight) {
+            this.highLowMastLight = highLowMastLight;
+        }
 
         public BuildingAssets.TenantDetails getTenantDetails() {
             return tenantDetails;
@@ -204,6 +276,66 @@ public class FetchAssetDataResponse extends BaseResponse {
 
         public UtilityAssets.RoadSignboard getRoadSignboardDetails() {
             return roadSignboardDetails;
+        }
+
+        public UtilityAssets.Statue getStatueDetails() {
+            return statueDetails;
+        }
+
+        public UtilityAssets.BusBay getBusBayDetails() {
+            return busBayDetails;
+        }
+
+        public UtilityAssets.BusStand getBusStandDetails() {
+            return busStandDetails;
+        }
+
+        public UtilityAssets.BusStop getBusStopDetails() {
+            return busStopDetails;
+        }
+
+        public UtilityAssets.Canal getCanalDetails() {
+            return canalDetails;
+        }
+
+        public UtilityAssets.MobileTower getMobileTowerDetails() {
+            return mobileTowerDetails;
+        }
+
+        public UtilityAssets.CanalLine getCanalLineDetails() {
+            return canalLineDetails;
+        }
+
+        public UtilityAssets.Garbage getGarbageDetails() {
+            return garbageDetails;
+        }
+
+        public UtilityAssets.Park getParkDetails() {
+            return parkDetails;
+        }
+
+        public UtilityAssets.Tank getTankDetails() {
+            return tankDetails;
+        }
+
+        public UtilityAssets.Stadium getStadiumDetails() {
+            return stadiumDetails;
+        }
+
+        public UtilityAssets.StreetTap getStreetTapDetails() {
+            return streetTapDetails;
+        }
+
+        public UtilityAssets.TaxiStand getTaxiStandDetails() {
+            return taxiStandDetails;
+        }
+
+        public UtilityAssets.Transformer getTransformerDetails() {
+            return transformerDetails;
+        }
+
+        public UtilityAssets.Well getWellDetails() {
+            return wellDetails;
         }
 
         public WaterBodyAssets.Pond getPondDetails() {
@@ -299,8 +431,68 @@ public class FetchAssetDataResponse extends BaseResponse {
             this.roadJunctionDetails = roadJunctionDetails;
         }
 
+        public void setBusBayDetails(UtilityAssets.BusBay busBayDetails) {
+            this.busBayDetails = busBayDetails;
+        }
+
+        public void setBusStandDetails(UtilityAssets.BusStand busStandDetails) {
+            this.busStandDetails = busStandDetails;
+        }
+
+        public void setBusStopDetails(UtilityAssets.BusStop busStopDetails) {
+            this.busStopDetails = busStopDetails;
+        }
+
+        public void setCanalDetails(UtilityAssets.Canal canalDetails) {
+            this.canalDetails = canalDetails;
+        }
+
+        public void setTransformerDetails(UtilityAssets.Transformer transformerDetails) {
+            this.transformerDetails = transformerDetails;
+        }
+
+        public void setCanalLineDetails(UtilityAssets.CanalLine canalLineDetails) {
+            this.canalLineDetails = canalLineDetails;
+        }
+
+        public void setGarbageDetails(UtilityAssets.Garbage garbageDetails) {
+            this.garbageDetails = garbageDetails;
+        }
+
+        public void setMobileTowerDetails(UtilityAssets.MobileTower mobileTowerDetails) {
+            this.mobileTowerDetails = mobileTowerDetails;
+        }
+
+        public void setParkDetails(UtilityAssets.Park parkDetails) {
+            this.parkDetails = parkDetails;
+        }
+
+        public void setStadiumDetails(UtilityAssets.Stadium stadiumDetails) {
+            this.stadiumDetails = stadiumDetails;
+        }
+
         public void setRoadSignboardDetails(UtilityAssets.RoadSignboard roadSignboardDetails) {
             this.roadSignboardDetails = roadSignboardDetails;
+        }
+
+        public void setStatueDetails(UtilityAssets.Statue statueDetails) {
+            this.statueDetails = statueDetails;
+        }
+
+        public void setStreetTapDetails(UtilityAssets.StreetTap streetTapDetails) {
+            this.streetTapDetails = streetTapDetails;
+        }
+
+        public void setTankDetails(UtilityAssets.Tank tankDetails) {
+            this.tankDetails = tankDetails;
+        }
+
+        public void setTaxiStandDetails(UtilityAssets.TaxiStand taxiStandDetails) {
+            this.taxiStandDetails = taxiStandDetails;
+        }
+
+        public void setWellDetails(UtilityAssets.Well wellDetails) {
+            this.wellDetails = wellDetails;
         }
 
         public void setPondDetails(WaterBodyAssets.Pond pondDetails) {
@@ -315,7 +507,6 @@ public class FetchAssetDataResponse extends BaseResponse {
             this.disability = disability;
         }
     }
-
 
 
 }

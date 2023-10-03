@@ -10,6 +10,7 @@ import in.ults.ipms.adapters.DisabilityAdapter;
 import in.ults.ipms.adapters.FloorAreaAdapter;
 import in.ults.ipms.adapters.FloorTypeAdapter;
 import in.ults.ipms.adapters.MembersListAdapter;
+import in.ults.ipms.adapters.OtherAssetsHomeAdapter;
 import in.ults.ipms.adapters.OwnerListAdapter;
 import in.ults.ipms.adapters.RoofTypeAdapter;
 import in.ults.ipms.adapters.TaxListAdapter;
@@ -102,11 +103,46 @@ import in.ults.ipms.ui.buildingassets.tenant.ITenantDetailsPresenter;
 import in.ults.ipms.ui.buildingassets.tenant.ITenantDetailsView;
 import in.ults.ipms.ui.buildingassets.tenant.TenantDetailsInteractor;
 import in.ults.ipms.ui.buildingassets.tenant.TenantDetailsPresenter;
+import in.ults.ipms.ui.otherassets.home.IOtherAssetsHomeInteractor;
+import in.ults.ipms.ui.otherassets.home.IOtherAssetsHomePresenter;
+import in.ults.ipms.ui.otherassets.home.IOtherAssetsHomeView;
+import in.ults.ipms.ui.otherassets.home.OtherAssetsHomeInteractor;
+import in.ults.ipms.ui.otherassets.home.OtherAssetsHomePresenter;
+import in.ults.ipms.ui.otherassets.mastlight.HighLowMastLightDetailsInteractor;
+import in.ults.ipms.ui.otherassets.mastlight.HighLowMastLightDetailsPresenter;
+import in.ults.ipms.ui.otherassets.mastlight.IHighLowMastLightDetailsInteractor;
+import in.ults.ipms.ui.otherassets.mastlight.IHighLowMastLightDetailsPresenter;
+import in.ults.ipms.ui.otherassets.mastlight.IHighLowMastLightDetailsView;
 import in.ults.ipms.ui.utility.bridge.BridgeDetailsInteractor;
 import in.ults.ipms.ui.utility.bridge.BridgeDetailsPresenter;
 import in.ults.ipms.ui.utility.bridge.IBridgeDetailsInteractor;
 import in.ults.ipms.ui.utility.bridge.IBridgeDetailsPresenter;
 import in.ults.ipms.ui.utility.bridge.IBridgeDetailsView;
+import in.ults.ipms.ui.utility.bus.BusStandDetailsInteractor;
+import in.ults.ipms.ui.utility.bus.BusStandDetailsPresenter;
+import in.ults.ipms.ui.utility.bus.IBusStandDetailsInteractor;
+import in.ults.ipms.ui.utility.bus.IBusStandDetailsPresenter;
+import in.ults.ipms.ui.utility.bus.IBusStandDetailsView;
+import in.ults.ipms.ui.utility.busbay.BusBayDetailsInteractor;
+import in.ults.ipms.ui.utility.busbay.BusBayDetailsPresenter;
+import in.ults.ipms.ui.utility.busbay.IBusBayDetailsInteractor;
+import in.ults.ipms.ui.utility.busbay.IBusBayDetailsPresenter;
+import in.ults.ipms.ui.utility.busbay.IBusBayDetailsView;
+import in.ults.ipms.ui.utility.busstop.BusStopDetailsInteractor;
+import in.ults.ipms.ui.utility.busstop.BusStopDetailsPresenter;
+import in.ults.ipms.ui.utility.busstop.IBusStopDetailsInteractor;
+import in.ults.ipms.ui.utility.busstop.IBusStopDetailsPresenter;
+import in.ults.ipms.ui.utility.busstop.IBusStopDetailsView;
+import in.ults.ipms.ui.utility.canal.CanalDetailsInteractor;
+import in.ults.ipms.ui.utility.canal.CanalDetailsPresenter;
+import in.ults.ipms.ui.utility.canal.ICanalDetailsInteractor;
+import in.ults.ipms.ui.utility.canal.ICanalDetailsPresenter;
+import in.ults.ipms.ui.utility.canal.ICanalDetailsView;
+import in.ults.ipms.ui.utility.canalline.CanalLineDetailsInteractor;
+import in.ults.ipms.ui.utility.canalline.CanalLineDetailsPresenter;
+import in.ults.ipms.ui.utility.canalline.ICanalLineDetailsInteractor;
+import in.ults.ipms.ui.utility.canalline.ICanalLineDetailsPresenter;
+import in.ults.ipms.ui.utility.canalline.ICanalLineDetailsView;
 import in.ults.ipms.ui.utility.culvert.CulvertDetailsInteractor;
 import in.ults.ipms.ui.utility.culvert.CulvertDetailsPresenter;
 import in.ults.ipms.ui.utility.culvert.ICulvertDetailsInteractor;
@@ -127,6 +163,11 @@ import in.ults.ipms.ui.utility.drainage.map.DrainageMapPresenter;
 import in.ults.ipms.ui.utility.drainage.map.IDrainageMapInteractor;
 import in.ults.ipms.ui.utility.drainage.map.IDrainageMapPresenter;
 import in.ults.ipms.ui.utility.drainage.map.IDrainageMapView;
+import in.ults.ipms.ui.utility.garbage.GarbageDetailsInteractor;
+import in.ults.ipms.ui.utility.garbage.GarbageDetailsPresenter;
+import in.ults.ipms.ui.utility.garbage.IGarbageDetailsInteractor;
+import in.ults.ipms.ui.utility.garbage.IGarbageDetailsPresenter;
+import in.ults.ipms.ui.utility.garbage.IGarbageDetailsView;
 import in.ults.ipms.ui.utility.home.IUtilityHomeInteractor;
 import in.ults.ipms.ui.utility.home.IUtilityHomePresenter;
 import in.ults.ipms.ui.utility.home.IUtilityHomeView;
@@ -142,6 +183,16 @@ import in.ults.ipms.ui.utility.junction.IRoadJunctionDetailsPresenter;
 import in.ults.ipms.ui.utility.junction.IRoadJunctionDetailsView;
 import in.ults.ipms.ui.utility.junction.RoadJunctionDetailsInteractor;
 import in.ults.ipms.ui.utility.junction.RoadJunctionDetailsPresenter;
+import in.ults.ipms.ui.utility.mobiletower.IMobileTowerDetailsInteractor;
+import in.ults.ipms.ui.utility.mobiletower.IMobileTowerDetailsPresenter;
+import in.ults.ipms.ui.utility.mobiletower.IMobileTowerDetailsView;
+import in.ults.ipms.ui.utility.mobiletower.MobileTowerDetailsInteractor;
+import in.ults.ipms.ui.utility.mobiletower.MobileTowerDetailsPresenter;
+import in.ults.ipms.ui.utility.park.IParkDetailsInteractor;
+import in.ults.ipms.ui.utility.park.IParkDetailsPresenter;
+import in.ults.ipms.ui.utility.park.IParkDetailsView;
+import in.ults.ipms.ui.utility.park.ParkDetailsInteractor;
+import in.ults.ipms.ui.utility.park.ParkDetailsPresenter;
 import in.ults.ipms.ui.utility.parking.IParkingDetailsInteractor;
 import in.ults.ipms.ui.utility.parking.IParkingDetailsPresenter;
 import in.ults.ipms.ui.utility.parking.IParkingDetailsView;
@@ -167,6 +218,41 @@ import in.ults.ipms.ui.utility.signboard.IRoadSignboardDetailsPresenter;
 import in.ults.ipms.ui.utility.signboard.IRoadSignboardDetailsView;
 import in.ults.ipms.ui.utility.signboard.RoadSignboardDetailsInteractor;
 import in.ults.ipms.ui.utility.signboard.RoadSignboardDetailsPresenter;
+import in.ults.ipms.ui.utility.stadium.IStadiumDetailsInteractor;
+import in.ults.ipms.ui.utility.stadium.IStadiumDetailsPresenter;
+import in.ults.ipms.ui.utility.stadium.IStadiumDetailsView;
+import in.ults.ipms.ui.utility.stadium.StadiumDetailsInteractor;
+import in.ults.ipms.ui.utility.stadium.StadiumDetailsPresenter;
+import in.ults.ipms.ui.utility.statue.IStatueDetailsInteractor;
+import in.ults.ipms.ui.utility.statue.IStatueDetailsPresenter;
+import in.ults.ipms.ui.utility.statue.IStatueDetailsView;
+import in.ults.ipms.ui.utility.statue.StatueDetailsInteractor;
+import in.ults.ipms.ui.utility.statue.StatueDetailsPresenter;
+import in.ults.ipms.ui.utility.streettap.IStreetTapDetailsInteractor;
+import in.ults.ipms.ui.utility.streettap.IStreetTapDetailsPresenter;
+import in.ults.ipms.ui.utility.streettap.IStreetTapDetailsView;
+import in.ults.ipms.ui.utility.streettap.StreetTapDetailsInteractor;
+import in.ults.ipms.ui.utility.streettap.StreetTapDetailsPresenter;
+import in.ults.ipms.ui.utility.tank.ITankDetailsInteractor;
+import in.ults.ipms.ui.utility.tank.ITankDetailsPresenter;
+import in.ults.ipms.ui.utility.tank.ITankDetailsView;
+import in.ults.ipms.ui.utility.tank.TankDetailsInteractor;
+import in.ults.ipms.ui.utility.tank.TankDetailsPresenter;
+import in.ults.ipms.ui.utility.taxistand.ITaxiStandDetailsInteractor;
+import in.ults.ipms.ui.utility.taxistand.ITaxiStandDetailsPresenter;
+import in.ults.ipms.ui.utility.taxistand.ITaxiStandDetailsView;
+import in.ults.ipms.ui.utility.taxistand.TaxiStandDetailsInteractor;
+import in.ults.ipms.ui.utility.taxistand.TaxiStandDetailsPresenter;
+import in.ults.ipms.ui.utility.transformer.ITransformerDetailsInteractor;
+import in.ults.ipms.ui.utility.transformer.ITransformerDetailsPresenter;
+import in.ults.ipms.ui.utility.transformer.ITransformerDetailsView;
+import in.ults.ipms.ui.utility.transformer.TransformerDetailsInteractor;
+import in.ults.ipms.ui.utility.transformer.TransformerDetailsPresenter;
+import in.ults.ipms.ui.utility.well.IWellDetailsInteractor;
+import in.ults.ipms.ui.utility.well.IWellDetailsPresenter;
+import in.ults.ipms.ui.utility.well.IWellDetailsView;
+import in.ults.ipms.ui.utility.well.WellDetailsInteractor;
+import in.ults.ipms.ui.utility.well.WellDetailsPresenter;
 import in.ults.ipms.ui.waterbody.home.IWaterBodyHomeInteractor;
 import in.ults.ipms.ui.waterbody.home.IWaterBodyHomePresenter;
 import in.ults.ipms.ui.waterbody.home.IWaterBodyHomeView;
@@ -523,6 +609,12 @@ public class FragmentModule {
 
     @Provides
     @PerFragment
+    OtherAssetsHomeAdapter provideOtherAssetsHomeAdapter() {
+        return new OtherAssetsHomeAdapter();
+    }
+
+    @Provides
+    @PerFragment
     WaterBodyHomeAdapter provideWaterBodyHomeAdapter() {
         return new WaterBodyHomeAdapter();
     }
@@ -678,6 +770,30 @@ public class FragmentModule {
 
     @Provides
     @PerFragment
+    IOtherAssetsHomePresenter<IOtherAssetsHomeView, IOtherAssetsHomeInteractor> provideOtherAssetsHomeDetailsFP(OtherAssetsHomePresenter<IOtherAssetsHomeView, IOtherAssetsHomeInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IOtherAssetsHomeInteractor provideOtherAssetsHomeDetailsFI(OtherAssetsHomeInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IHighLowMastLightDetailsPresenter<IHighLowMastLightDetailsView, IHighLowMastLightDetailsInteractor> provideHighLowMastLightFP(HighLowMastLightDetailsPresenter<IHighLowMastLightDetailsView, IHighLowMastLightDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IHighLowMastLightDetailsInteractor provideHighLowMastLightDetailsFI(HighLowMastLightDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
     IFloorAndRoofDetailsPresenter<IFloorAndRoofDetailsView, IFloorAndRoofDetailsInteractor> provideFloorAndRoofDetailsFP(FloorAndRoofDetailsPresenter<IFloorAndRoofDetailsView, IFloorAndRoofDetailsInteractor> presenter) {
         return presenter;
     }
@@ -687,4 +803,185 @@ public class FragmentModule {
     IFloorAndRoofDetailsInteractor provideFloorAndRoofDetailsFI(FloorAndRoofDetailsInteractor interactor) {
         return interactor;
     }
+
+    @Provides
+    @PerFragment
+    IBusBayDetailsPresenter<IBusBayDetailsView, IBusBayDetailsInteractor> provideBusBayFP(BusBayDetailsPresenter<IBusBayDetailsView, IBusBayDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IBusBayDetailsInteractor provideBusBayFI(BusBayDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IBusStandDetailsPresenter<IBusStandDetailsView, IBusStandDetailsInteractor> provideBusStandFP(BusStandDetailsPresenter<IBusStandDetailsView, IBusStandDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IBusStandDetailsInteractor provideBusStandFI(BusStandDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IBusStopDetailsPresenter<IBusStopDetailsView, IBusStopDetailsInteractor> provideBusStopFP(BusStopDetailsPresenter<IBusStopDetailsView, IBusStopDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IBusStopDetailsInteractor provideBusStopFI(BusStopDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    ICanalDetailsPresenter<ICanalDetailsView, ICanalDetailsInteractor> provideCanalFP(CanalDetailsPresenter<ICanalDetailsView, ICanalDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    ICanalDetailsInteractor provideCanalFI(CanalDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    ICanalLineDetailsPresenter<ICanalLineDetailsView, ICanalLineDetailsInteractor> provideCanalLineFP(CanalLineDetailsPresenter<ICanalLineDetailsView, ICanalLineDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    ICanalLineDetailsInteractor provideCanalLineFI(CanalLineDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IGarbageDetailsPresenter<IGarbageDetailsView, IGarbageDetailsInteractor> provideGarbageFP(GarbageDetailsPresenter<IGarbageDetailsView, IGarbageDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IGarbageDetailsInteractor provideGarbageFI(GarbageDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IMobileTowerDetailsPresenter<IMobileTowerDetailsView, IMobileTowerDetailsInteractor> provideMobileTowerFP(MobileTowerDetailsPresenter<IMobileTowerDetailsView, IMobileTowerDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IMobileTowerDetailsInteractor provideMobileTowerFI(MobileTowerDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IParkDetailsPresenter<IParkDetailsView, IParkDetailsInteractor> provideParkFP(ParkDetailsPresenter<IParkDetailsView, IParkDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IParkDetailsInteractor provideParkFI(ParkDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IStadiumDetailsPresenter<IStadiumDetailsView, IStadiumDetailsInteractor> provideStadiumFP(StadiumDetailsPresenter<IStadiumDetailsView, IStadiumDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IStadiumDetailsInteractor provideStadiumFI(StadiumDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IStatueDetailsPresenter<IStatueDetailsView, IStatueDetailsInteractor> provideStatueFP(StatueDetailsPresenter<IStatueDetailsView, IStatueDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IStatueDetailsInteractor provideStatueFI(StatueDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IStreetTapDetailsPresenter<IStreetTapDetailsView, IStreetTapDetailsInteractor> provideStreetTapFP(StreetTapDetailsPresenter<IStreetTapDetailsView, IStreetTapDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IStreetTapDetailsInteractor provideStreetTapFI(StreetTapDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    ITankDetailsPresenter<ITankDetailsView, ITankDetailsInteractor> provideTankFP(TankDetailsPresenter<ITankDetailsView, ITankDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    ITankDetailsInteractor provideTankFI(TankDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    ITaxiStandDetailsPresenter<ITaxiStandDetailsView, ITaxiStandDetailsInteractor> provideTaxiStandFP(TaxiStandDetailsPresenter<ITaxiStandDetailsView, ITaxiStandDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    ITaxiStandDetailsInteractor provideTaxiStandFI(TaxiStandDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    ITransformerDetailsPresenter<ITransformerDetailsView, ITransformerDetailsInteractor> provideTransformerFP(TransformerDetailsPresenter<ITransformerDetailsView, ITransformerDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    ITransformerDetailsInteractor provideTransformerFI(TransformerDetailsInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerFragment
+    IWellDetailsPresenter<IWellDetailsView, IWellDetailsInteractor> provideWellFP(WellDetailsPresenter<IWellDetailsView, IWellDetailsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerFragment
+    IWellDetailsInteractor provideWellFI(WellDetailsInteractor interactor) {
+        return interactor;
+    }
+
 }

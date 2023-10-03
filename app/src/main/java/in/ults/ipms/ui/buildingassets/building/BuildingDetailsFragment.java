@@ -62,7 +62,8 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
     public static final int ERROR_TYPE_BUILDING_UNDER = 3;
     public static final int ERROR_TYPE_BUILDING_REFID = 4;
     public static final int ERROR_TYPE_WARD_NUMBER = 5;
-    public static final int ERROR_TYPE_BUILDING_LOCATION = 6;
+    public static final int ERROR_TYPE_STRUCTURE_TYPE = 6;
+    public static final int ERROR_TYPE_BUILDING_LOCATION = 7;
 
     Set<String> selectedMapLayers;
     ArrayList<DashboardResponse.LayerCategoryChild> layers;
@@ -133,7 +134,7 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
         getViewBinding().btnBuildingDetails.setOnClickListener(v -> submitOnClick());
         getViewBinding().includeMiniMapBuilding.miniMapDelete.setOnClickListener(v -> {
             getViewBinding().includeMiniMapBuilding.etMiniMapSearch.setText("");
-            latitude= 0.0;
+            latitude = 0.0;
             longitude = 0.0;
             if (pointOverlay != null) {
                 pointOverlay.getGraphics().clear();
@@ -267,10 +268,11 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
         String buildingName = Objects.requireNonNull(getViewBinding().etBuildingName.getText()).toString().trim();
         String permitNumber = Objects.requireNonNull(getViewBinding().etBuildingPermitNumber.getText()).toString().trim();
         String buildingRefId = Objects.requireNonNull(getViewBinding().etBuildingRefId.getText()).toString().trim();
+        String structureType = Objects.requireNonNull(getViewBinding().etBuildingStructureType.getText()).toString().trim();
         String wardNumber = (String) getViewBinding().srBuildingWardNumber.getTag();
         String buildingUnder = (String) getViewBinding().srBuildingUnder.getTag();
         boolean isLandmark = getViewBinding().cbBuildingIsLandmark.isChecked();
-        presenter.validateData(buildingName, permitNumber, buildingUnder, buildingRefId, wardNumber, isLandmark, latitude, longitude);
+        presenter.validateData(buildingName, permitNumber, buildingUnder, buildingRefId, wardNumber,structureType, isLandmark, latitude, longitude);
     }
 
     public void showBuildingDetailsFieldError(int errorType, String error) {
@@ -295,6 +297,10 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
                 getViewBinding().layoutBuildingWardNumber.setError(error);
                 getViewBinding().layoutBuildingWardNumber.requestFocus();
                 break;
+            case ERROR_TYPE_STRUCTURE_TYPE:
+                getViewBinding().layoutBuildingStructureType.setError(error);
+                getViewBinding().layoutBuildingStructureType.requestFocus();
+                break;
             case ERROR_TYPE_BUILDING_LOCATION:
                 showToast(error);
                 break;
@@ -310,6 +316,7 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
         getViewBinding().layoutBuildingUnder.setErrorEnabled(false);
         getViewBinding().layoutBuildingRefId.setErrorEnabled(false);
         getViewBinding().layoutBuildingWardNumber.setErrorEnabled(false);
+        getViewBinding().layoutBuildingStructureType.setErrorEnabled(false);
     }
 
     @Override
@@ -318,12 +325,13 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
     }
 
     public void setEditData() {
-        if(AppCacheData.getOurInstance().getBuildingAssetData()!=null &&
-                AppCacheData.getOurInstance().getBuildingDetailsData().getBuildingDetails()!=null) {
+        if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
+                AppCacheData.getOurInstance().getBuildingDetailsData().getBuildingDetails() != null) {
             BuildingAssets.BuildingDetails buildingDetails = AppCacheData.getOurInstance().getBuildingDetailsData().getBuildingDetails();
             getViewBinding().etBuildingName.setText(buildingDetails.getBuildingName());
             getViewBinding().etBuildingPermitNumber.setText(buildingDetails.getPermitNo());
             getViewBinding().etBuildingRefId.setText(buildingDetails.getBldgRefId());
+            getViewBinding().etBuildingStructureType.setText(buildingDetails.getStructureType());
             buildingUnderAdapter.setContent(String.valueOf(buildingDetails.getBldgUnder()));
             wardNosAdapter.setContent(buildingDetails.getWard());
             getViewBinding().cbBuildingIsLandmark.setChecked(buildingDetails.isLandmark());
@@ -350,7 +358,7 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
 
     @Override
     public void onDestroy() {
-        if(getViewBinding().includeMiniMapBuilding.miniMap!=null) {
+        if (getViewBinding().includeMiniMapBuilding.miniMap != null) {
             getViewBinding().includeMiniMapBuilding.miniMap.dispose();
         }
         super.onDestroy();
@@ -358,6 +366,6 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
 
     @Override
     public void onAddOrUpdateSuccess() {
-        getBaseActivity().launchBuildAssetHome(false,false);
+        getBaseActivity().launchBuildAssetHome(false, false);
     }
 }

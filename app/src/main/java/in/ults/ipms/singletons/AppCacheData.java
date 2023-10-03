@@ -10,6 +10,7 @@ import in.ults.ipms.data.network.model.response.BuildingNameSpinnerResponse;
 import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
+import in.ults.ipms.data.network.model.response.OtherAssetsSpinnerResponse;
 import in.ults.ipms.data.network.model.response.UtilitySpinnerResponse;
 import in.ults.ipms.data.network.model.response.WaterBodySpinnerResponse;
 
@@ -23,6 +24,7 @@ public class AppCacheData {
     private BuildingAssetSpinnerResponse.Data buildingAssetSpinnerData;
     private UtilitySpinnerResponse.Data utilitySpinnerData;
     private WaterBodySpinnerResponse.Data waterBodySpinnerData;
+    private OtherAssetsSpinnerResponse.Data otherAssetsSpinnerData;
     private FetchAssetDataResponse.Data buildingAssetData;
     private FetchAssetDataResponse.Data buildingDetailsData;
     private ArrayList<BuildingNameSpinnerResponse.BuildingName> buildingNameSpinnerData;
@@ -146,5 +148,13 @@ public class AppCacheData {
 
     public void setNewProperty(BuildingAssets.PropertyDetails newProperty) {
         this.newProperty = newProperty;
+    }
+
+    public OtherAssetsSpinnerResponse.Data getOtherAssetsSpinnerData() {
+        return otherAssetsSpinnerData;
+    }
+
+    public void setOtherAssetsSpinnerData(OtherAssetsSpinnerResponse.Data otherAssetsSpinnerData) {
+        this.otherAssetsSpinnerData = otherAssetsSpinnerData;
     }
 }

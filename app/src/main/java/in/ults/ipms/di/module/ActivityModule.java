@@ -38,6 +38,11 @@ import in.ults.ipms.ui.detailedinfo.DetailedInfoPresenter;
 import in.ults.ipms.ui.detailedinfo.IDetailedInfoInteractor;
 import in.ults.ipms.ui.detailedinfo.IDetailedInfoPresenter;
 import in.ults.ipms.ui.detailedinfo.IDetailedInfoView;
+import in.ults.ipms.ui.otherassets.IOtherAssetsInteractor;
+import in.ults.ipms.ui.otherassets.IOtherAssetsPresenter;
+import in.ults.ipms.ui.otherassets.IOtherAssetsView;
+import in.ults.ipms.ui.otherassets.OtherAssetsInteractor;
+import in.ults.ipms.ui.otherassets.OtherAssetsPresenter;
 import in.ults.ipms.ui.splash.ISplashInteractor;
 import in.ults.ipms.ui.splash.ISplashPresenter;
 import in.ults.ipms.ui.splash.ISplashView;
@@ -246,6 +251,18 @@ public class ActivityModule {
     @Provides
     @PerActivity
     IWaterBodyInteractor provideWaterBodyAAI(WaterBodyInteractor interactor) {
+        return interactor;
+    }
+
+    @Provides
+    @PerActivity
+    IOtherAssetsPresenter<IOtherAssetsView, IOtherAssetsInteractor> provideOtherAssetsAP(OtherAssetsPresenter<IOtherAssetsView, IOtherAssetsInteractor> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    IOtherAssetsInteractor provideOtherAssetsAAI(OtherAssetsInteractor interactor) {
         return interactor;
     }
 

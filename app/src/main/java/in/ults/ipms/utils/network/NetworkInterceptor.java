@@ -4,6 +4,8 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.google.gson.Gson;
+
 import java.io.IOException;
 
 import in.ults.ipms.utils.connection.ConnectionUtils;
@@ -29,7 +31,10 @@ public class NetworkInterceptor implements Interceptor {
         if (!ConnectionUtils.isNetworkConnected(context)) {
             throw new NoInternetException();
         } else {
+            System.out.println("@@@--->"+new Gson().toJson(chain.request().body()));
+            System.out.println("@@@--->"+chain.request().url());
             Response response = chain.proceed(chain.request());
+
             if (response.code() == 401) {
                 throw new UnAuthorizedException();
             }

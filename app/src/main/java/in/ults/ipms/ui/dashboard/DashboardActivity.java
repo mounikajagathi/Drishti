@@ -30,10 +30,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.esri.arcgisruntime.ArcGISRuntimeEnvironment;
 import com.esri.arcgisruntime.concurrent.ListenableFuture;
+import com.esri.arcgisruntime.data.FeatureQueryResult;
 import com.esri.arcgisruntime.geometry.AngularUnit;
 import com.esri.arcgisruntime.geometry.AngularUnitId;
 import com.esri.arcgisruntime.geometry.AreaUnit;
 import com.esri.arcgisruntime.geometry.AreaUnitId;
+import com.esri.arcgisruntime.geometry.Envelope;
 import com.esri.arcgisruntime.geometry.GeodeticCurveType;
 import com.esri.arcgisruntime.geometry.Geometry;
 import com.esri.arcgisruntime.geometry.GeometryEngine;
@@ -41,12 +43,14 @@ import com.esri.arcgisruntime.geometry.GeometryType;
 import com.esri.arcgisruntime.geometry.LinearUnit;
 import com.esri.arcgisruntime.geometry.LinearUnitId;
 import com.esri.arcgisruntime.geometry.Multipoint;
+import com.esri.arcgisruntime.geometry.Part;
 import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.geometry.PointCollection;
 import com.esri.arcgisruntime.geometry.Polygon;
 import com.esri.arcgisruntime.geometry.Polyline;
 import com.esri.arcgisruntime.geometry.SpatialReferences;
 import com.esri.arcgisruntime.layers.WmsLayer;
+import com.esri.arcgisruntime.layers.WmtsLayer;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
@@ -70,6 +74,7 @@ import com.esri.arcgisruntime.symbology.SimpleLineSymbol;
 import com.esri.arcgisruntime.symbology.SimpleMarkerSymbol;
 import com.esri.arcgisruntime.toolkit.scalebar.Scalebar;
 import com.esri.arcgisruntime.toolkit.scalebar.style.Style;
+import com.google.gson.Gson;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -92,9 +97,13 @@ import in.ults.ipms.R;
 import in.ults.ipms.adapters.DashboardMenuFeatureAdapter;
 import in.ults.ipms.adapters.MinimalInfoAdapter;
 import in.ults.ipms.data.StaticData;
+import in.ults.ipms.data.network.ApiInterface;
 import in.ults.ipms.data.network.model.response.DashboardResponse;
 import in.ults.ipms.data.network.model.response.FeatureDataResponse;
 import in.ults.ipms.data.network.model.response.FetchAssetDataResponse;
+import in.ults.ipms.data.network.model.response.GeomPolyLine;
+import in.ults.ipms.data.network.model.response.GeomPolygon;
+import in.ults.ipms.data.network.model.response.WFSModel;
 import in.ults.ipms.databinding.ActivityDashboardBinding;
 import in.ults.ipms.singletons.AppCacheData;
 import in.ults.ipms.ui.base.BaseActivity;
@@ -110,13 +119,20 @@ import in.ults.ipms.ui.dashboard.opacity.OpacityBottomSheet;
 import in.ults.ipms.ui.dashboard.search.SearchActivity;
 import in.ults.ipms.ui.dashboard.settings.SettingsBottomSheet;
 import in.ults.ipms.ui.detailedinfo.DetailedInfoActivity;
+import in.ults.ipms.ui.otherassets.OtherAssetsActivity;
 import in.ults.ipms.ui.utility.UtilityActivity;
 import in.ults.ipms.ui.waterbody.WaterBodyActivity;
 import in.ults.ipms.utils.AppConstants;
 import in.ults.ipms.utils.common.CommonUtils;
 import in.ults.ipms.utils.location.GpsUtils;
+import in.ults.ipms.utils.network.UnsafeOkHttpClient;
 import in.ults.ipms.views.ARCGISCircle;
 import in.ults.ipms.views.adaptivestate.AdaptiveStateConstants;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class DashboardActivity extends BaseActivity<ActivityDashboardBinding> implements IDashboardView, GoToLocationDialog.OnLatLonListener, MeasureDialog.GeometryListener {
@@ -380,10 +396,239 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding> im
         }
 
 
+
+        // Create a Retrofit instance
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://sdt.ulgis.com/") // Replace with your base URL
+                .client(UnsafeOkHttpClient.getUnsafeOkHttpClient().build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        // Create a WFS service instance
+        ApiInterface wfsService = retrofit.create(ApiInterface.class);
+
+        // Make an API request to fetch WFS data
+        Call<WFSModel> call = wfsService.getWFS();
+        call.enqueue(new Callback<WFSModel>() {
+            @Override
+            public void onResponse(Call<WFSModel> call, Response<WFSModel> response) {
+                if (response.isSuccessful()) {
+                    WFSModel feature = response.body();
+                    if (feature != null) {
+                        // Access the feature data here
+                        String propertyName = feature.getType();
+                        // Handle the data as needed
+
+// Extract the coordinates for each polygon within the MultiPolygon
+                        ArrayList<ArrayList<ArrayList<ArrayList<Double>>>> polygons = feature.getFeatures().get(0).getGeometry().getCoordinates();
+
+// Create a list to hold individual Polygon geometries
+                        List<Polygon> polygonList = new ArrayList<>();
+                        for (int k = 0; k < polygons.size(); k++) {
+                            ArrayList<ArrayList<ArrayList<Double>>> poly = polygons.get(k);
+
+// Iterate through each polygon in the MultiPolygon
+                            for (int i = 0; i < poly.size(); i++) {
+                                ArrayList<ArrayList<Double>> polygonCoordinates = poly.get(i);
+
+                                // Create a list to hold rings for the current Polygon
+                                PointCollection ringPoints = new PointCollection(SpatialReferences.getWgs84());
+
+                                // Iterate through the coordinates of the current polygon
+                                for (int j = 0; j < polygonCoordinates.size(); j++) {
+                                    ArrayList<Double> ringCoordinates = polygonCoordinates.get(j);
+
+                                    // Create points for the current ring
+                                    double x = ringCoordinates.get(0);
+                                    double y = ringCoordinates.get(1);
+                                    Point point = new Point(x, y);
+                                    ringPoints.add(point);
+
+                                    // If it's the last point in the ring, close the ring
+                                    if (j == polygonCoordinates.size() - 1) {
+                                        ringPoints.add(ringPoints.get(0)); // Close the ring
+                                    }
+                                }
+
+                                // Create a Polygon geometry for the current polygon
+//                            Polygon polygon = new Polygon(ringPoints);
+
+                                // Create a Part with the ring points
+//                                Part part = new Part(ringPoints);
+
+                                // Create a Multipart with the part
+//                            Multipart multipart = new Multipart(part);
+
+                                // Create a Polygon geometry for the current polygon
+                                Polygon polygon = new Polygon(ringPoints);
+
+                                // Add the completed polygon to the list
+                                polygonList.add(polygon);
+                            }
+                        }
+
+// Create a MultiPolygon geometry from the list of Polygon geometries
+//                        GeometryEngine. multiPolygonGeometry = new GeometryCollection(polygonList);
+
+                        Geometry resultGeometry = polygonList.get(0);
+
+                        for (int i = 1; i < polygonList.size(); i++) {
+                            Polygon nextPolygon = polygonList.get(i);
+
+                            // Check if the geometries have the same type (e.g., both are polygons)
+                            if (resultGeometry.getGeometryType() == GeometryType.POLYGON && nextPolygon.getGeometryType() == GeometryType.POLYGON) {
+                                // Merge the current result and the next polygon
+                                resultGeometry = GeometryEngine.union(resultGeometry, nextPolygon);
+                            }
+                        }
+
+
+
+                        SimpleFillSymbol fillSymbol = new SimpleFillSymbol(
+                                SimpleFillSymbol.Style.SOLID,
+                                Color.argb(100, 0, 0, 255), // Blue fill color with transparency
+                                null // No outline symbol
+                        );
+                        GraphicsOverlay graphicsOverlay = new GraphicsOverlay();
+                        getViewBinding().mapView.getGraphicsOverlays().add(graphicsOverlay);
+// Create a graphic with the extent polygon and fill symbol
+                        Graphic extentGraphic = new Graphic(polygonList.get(0), fillSymbol);
+                        graphicsOverlay.getGraphics().add(extentGraphic);
+
+//                        WmsLayer wmsLayer = new WmsLayer("https://sdt.ulgis.com/geoserver/kollam_corporation/wms", Collections.singletonList("kollam"));
+//                        WmtsLayer wmsLayer = new WmtsLayer("https://sdt.ulgis.com/geoserver/kollam_corporation/gwc/service/wmts", "kollam_corporation:kollam");
+////                        WmsLayer wmsLayer = new WmsLayer("https://sdt.ulgis.com/geoserver/drishti/wms", Collections.singletonList("ipms_localbody"));
+////                        wmsLayer.getCustomParameters().put("cql_filter","localbody_id=2");
+//                        map.getOperationalLayers().add(wmsLayer);
+//                        final Envelope ep = resultGeometry.getExtent();
+//                        wmsLayer.addDoneLoadingListener(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if(wmsLayer.getLoadStatus() == LoadStatus.LOADED){
+//
+//
+//
+//                                    System.out.println("@@@--->"+wmsLayer.getFullExtent().toJson());
+//                                    // Clip the WMS layer with the polygon
+//                                    Geometry clippedGeometry = GeometryEngine.clip(wmsLayer.getFullExtent(), ep.getExtent());
+//                                    WmsLayer clippedWmsLayer = new WmsLayer(modifyWmsLayerUrl("https://sdt.ulgis.com/geoserver/kollam_corporation/wms", clippedGeometry),Collections.singletonList("kollam"));
+////
+////// Add the clipped WMS layer to the map
+////                                    map.getOperationalLayers().add(clippedWmsLayer);
+////                                    System.out.println("@@@--->" + wmsLayer.getUri().toString());
+//                                    Envelope boundingBox = new Envelope(75.332491082717098, 8.8193042072989396, 76.673812899745798, 12.0590424874439, SpatialReferences.getWgs84());
+//
+//                                    // Assuming you have a WMS layer named 'wmsLayer'
+////                                    wmsLayer.setDefinitionExpression("1=1"); // Reset the expression to display all features
+//// Apply the clipping by setting a filter based on your clipGeometry
+////                                    wmsLayer.setDefinitionExpression("ST_INTERSECTS(SHAPE, " + clipGeometry + ")");
+//
+//                                }
+//                            }
+//                        });
+
+
+                    }
+                } else {
+                    // Handle the error
+                }
+            }
+
+            @Override
+            public void onFailure(Call<WFSModel> call, Throwable t) {
+                // Handle the network request failure
+
+                System.out.println("@@@_-->" + t.getMessage());
+            }
+        });
+
+
+
+
 //        // Load the WMS layer
 //        WmsLayer wmsLayer = new WmsLayer("https://sdt.ulgis.com/geoserver/kollam_corporation/wms", Collections.singletonList("kollam"));
 //        System.out.println("@@@--->"+wmsLayer.getUri().toString());
 //        map.getOperationalLayers().add(wmsLayer);
+//
+//         Define the URL of the WFS service
+//        String wfsUrl = "https://sdt.ulgis.com/geoserver/wfs?version=1.3.0&request=GetFeature&outputFormat=application%2Fjson&service=WFS&typeName=drishti:ipms_localbody&srsname=EPSG:3857&cql_filter=localbody_id%3D2&authkey=a1213a5b-5131-41e4-97bb-ebcf80de3923";
+//
+//        ServiceFeatureTable serviceFeatureTable = new ServiceFeatureTable(wfsUrl);
+//
+//        // Create a query to retrieve features
+//        QueryParameters queryParameters = new QueryParameters();
+//        queryParameters.setWhereClause("1=1"); // Query all features, you can customize this query
+//
+//        // Execute the query
+//        Future<FeatureQueryResult> queryResult = serviceFeatureTable.queryFeaturesAsync(queryParameters);
+//
+//        try {
+//            FeatureQueryResult result = queryResult.get();
+//
+//            // Convert the FeatureQueryResult to JSON
+////            String jsonResult = convertFeatureQueryResultToJson(result);
+//
+////            System.out.println("@@@_-->"+jsonResult);
+//            // Handle the JSON data as needed
+////            Log.d("WFS JSON", jsonResult);
+//        } catch (InterruptedException | ExecutionException e) {
+//            System.out.println("@@@_-->"+e.getMessage());
+//            e.printStackTrace();
+//        }
+
+
+//        FeatureTable featureTable = new ServiceFeatureTable(wfsUrl);
+//        FeatureLayer featureLayer = new FeatureLayer(featureTable);
+//        featureLayer.loadAsync();
+
+        // Add the feature layer to the map
+//        map.getOperationalLayers().add(featureLayer);
+
+        // Set the map to the MapView
+//        mapView.setMap(map);
+
+        // Listen for the load status change
+//        featureLayer.addLoadStatusChangedListener(loadStatusChangedEvent -> {
+//            if (loadStatusChangedEvent.getNewLoadStatus() == LoadStatus.LOADED) {
+//                System.out.println("@@@--->Loaded");
+//
+//                // Convert the feature layer data to GeoJSON
+////                ListenableFuture<String> geoJsonFuture = featureLayer.();
+////                geoJsonFuture.addDoneListener(() -> {
+////                    try {
+////                        String geoJson = geoJsonFuture.get();
+////                        // Now you have the GeoJSON data
+////                        // You can parse and use it as needed
+////                    } catch (Exception e) {
+////                        e.printStackTrace();
+////                    }
+////                });
+//            }
+
+//            if (loadStatusChangedEvent.getNewLoadStatus() == LoadStatus.FAILED_TO_LOAD) {
+//                System.out.println("@@@--->FAILED_TO_LOAD");
+//
+//                // Convert the feature layer data to GeoJSON
+////                ListenableFuture<String> geoJsonFuture = featureLayer.();
+////                geoJsonFuture.addDoneListener(() -> {
+////                    try {
+////                        String geoJson = geoJsonFuture.get();
+////                        // Now you have the GeoJSON data
+////                        // You can parse and use it as needed
+////                    } catch (Exception e) {
+////                        e.printStackTrace();
+////                    }
+////                });
+//            }
+//
+//        });
+
+
+// Create a WFS feature table and a feature layer from the WFS URL
+//        ServiceFeatureTable featureTable = new ServiceFeatureTable(wfsUrl);
+//        FeatureLayer wfsLayer = new FeatureLayer(featureTable);
+//
+//        map.getOperationalLayers().add(wfsLayer);
 
 
 //        String layerUrl ="https://sdt.ulgis.com/geoserver/wfs?version=1.3.0&request=GetFeature&outputFormat=application%2Fjson&service=WFS&typeName=drishti:ipms_localbody&srsname=EPSG:3857&cql_filter=localbody_id%3D2&authkey=a1213a5b-5131-41e4-97bb-ebcf80de3923";
@@ -427,6 +672,77 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding> im
 //        });
 
 
+    }
+//
+//    private void clip(Geometry geom){
+//        WmsLayer wmsLayer = new WmsLayer("https://sdt.ulgis.com/geoserver/kollam_corporation/wms", Collections.singletonList("kollam"));
+//                        map.getOperationalLayers().add(wmsLayer);
+//                        wmsLayer.addDoneLoadingListener(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                if(wmsLayer.getLoadStatus() == LoadStatus.LOADED){
+//
+//                                    Envelope boundingBox = new Envelope(75.332491082717098, 8.8193042072989396, 76.673812899745798, 12.0590424874439, SpatialReferences.getWgs84());
+//
+//
+//                                    // Clip the WMS layer with the polygon
+//                                    Geometry clippedGeometry = GeometryEngine.clip(wmsLayer.getFullExtent(), geom.getExtent());
+//                                    WmsLayer clippedWmsLayer = new WmsLayer(modifyWmsLayerUrl("https://sdt.ulgis.com/geoserver/kollam_corporation/wms", clippedGeometry),Collections.singletonList("kollam"));
+////
+////// Add the clipped WMS layer to the map
+//                                    map.getOperationalLayers().add(clippedWmsLayer);
+////                                    System.out.println("@@@--->" + wmsLayer.getUri().toString());
+//
+//                                    // Assuming you have a WMS layer named 'wmsLayer'
+////                                    wmsLayer.setDefinitionExpression("1=1"); // Reset the expression to display all features
+//// Apply the clipping by setting a filter based on your clipGeometry
+////                                    wmsLayer.setDefinitionExpression("ST_INTERSECTS(SHAPE, " + clipGeometry + ")");
+//
+//                                }
+//                            }
+//                        });
+//    }
+//
+//
+    private String modifyWmsLayerUrl(String originalUrl, Geometry clippedGeometry) {
+        // Get the extent of the clipped geometry
+        Envelope extent = clippedGeometry.getExtent();
+
+        // Create a modified URL with a bounding box parameter
+        String modifiedUrl = originalUrl + "?bbox=" +
+                extent.getXMin() + "," +
+                extent.getYMin() + "," +
+                extent.getXMax() + "," +
+                extent.getYMax();
+
+        return modifiedUrl;
+    }
+
+    private String convertFeatureQueryResultToJson(FeatureQueryResult featureQueryResult) {
+        // Convert the FeatureQueryResult to JSON format
+        // You can use your preferred JSON library here, such as Gson or JSONObject
+
+        // Example using Gson:
+        Gson gson = new Gson();
+        return gson.toJson(featureQueryResult);
+
+        // Example using JSONObject:
+        // JSONObject json = new JSONObject();
+        // // Convert the features to a JSON array
+        // JSONArray featuresArray = new JSONArray();
+        // for (Feature feature : featureQueryResult) {
+        //     // Convert each feature to JSON and add it to the array
+        //     JSONObject featureJson = feature.toJson();
+        //     featuresArray.put(featureJson);
+        // }
+        // try {
+        //     json.put("features", featuresArray);
+        // } catch (JSONException e) {
+        //     e.printStackTrace();
+        // }
+        // return json.toString();
+
+//        return ""; // Replace with your preferred JSON conversion code
     }
 
 
@@ -977,6 +1293,12 @@ public class DashboardActivity extends BaseActivity<ActivityDashboardBinding> im
             assetDialog.dismiss();
             AppCacheData.getOurInstance().setAssetUpdate(false);
             startActivity(new Intent(DashboardActivity.this, WaterBodyActivity.class));
+        });
+
+        assetDialog.findViewById(R.id.txtOtherAssets).setOnClickListener(view -> {
+            assetDialog.dismiss();
+            AppCacheData.getOurInstance().setAssetUpdate(false);
+            startActivity(new Intent(DashboardActivity.this, OtherAssetsActivity.class));
         });
         assetDialog.show();
     }

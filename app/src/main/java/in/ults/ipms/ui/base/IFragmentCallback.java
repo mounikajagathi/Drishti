@@ -40,4 +40,23 @@ interface IFragmentCallback {
     void launchDrainageDetails(boolean isBackStack, boolean isAnimate, GeomPolyLine geom);
     void launchWaterBodyHome(boolean isBackStack, boolean isAnimate);
     void launchPondDetails(boolean isBackStack, boolean isAnimate);
+
+    void launchBusBayMap(boolean isBackStack, boolean isAnimate);
+    void launchBusStandMap(boolean isBackStack, boolean isAnimate);
+    void launchBusStopMap(boolean isBackStack, boolean isAnimate);
+    void launchCanalDetails(boolean isBackStack, boolean isAnimate);
+    void launchCanalLineDetails(boolean isBackStack, boolean isAnimate);
+    void launchGarbageDetails(boolean isBackStack, boolean isAnimate);
+    void launchMobileTowerDetails(boolean isBackStack, boolean isAnimate);
+    void launchParkDetails(boolean isBackStack, boolean isAnimate);
+    void launchStadiumDetails(boolean isBackStack, boolean isAnimate);
+    void launchStatueDetails(boolean isBackStack, boolean isAnimate);
+    void launchStreetTapDetails(boolean isBackStack, boolean isAnimate);
+    void launchTankDetails(boolean isBackStack, boolean isAnimate);
+    void launchTaxiStandDetails(boolean isBackStack, boolean isAnimate);
+    void launchTransformerDetails(boolean isBackStack, boolean isAnimate);
+    void launchWellDetails(boolean isBackStack, boolean isAnimate);
+
+    void launchOtherAssetsHome(boolean isBackStack, boolean isAnimate);
+    void launchHighLowMastLight(boolean isBackStack, boolean isAnimate);
 }

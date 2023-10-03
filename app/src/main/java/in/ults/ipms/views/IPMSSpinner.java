@@ -5,6 +5,7 @@ import android.text.InputFilter;
 import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
+import androidx.core.content.ContextCompat;
 
 import in.ults.ipms.R;
 
@@ -30,6 +31,8 @@ public class IPMSSpinner extends AppCompatAutoCompleteTextView {
         this.setPadding(context.getResources().getDimensionPixelOffset(R.dimen.standard_spacing_normal),context.getResources().getDimensionPixelOffset(R.dimen.standard_spacing_normal),context.getResources().getDimensionPixelOffset(R.dimen.standard_spacing_normal),context.getResources().getDimensionPixelOffset(R.dimen.standard_spacing_normal));
         this.setOnClickListener(v -> ((AppCompatAutoCompleteTextView) v).showDropDown());
         this.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+        this.setCompoundDrawablesWithIntrinsicBounds(null, null, ContextCompat.getDrawable(context,R.drawable.ic_arrow_drop_down_24), null);
+
     }
 
 }

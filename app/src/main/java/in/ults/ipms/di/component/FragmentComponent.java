@@ -20,19 +20,36 @@ import in.ults.ipms.ui.buildingassets.survey.SurveyDetailsFragment;
 import in.ults.ipms.ui.buildingassets.tax.TaxDetailsFragment;
 import in.ults.ipms.ui.buildingassets.taxlist.TaxListFragment;
 import in.ults.ipms.ui.buildingassets.tenant.TenantDetailsFragment;
+import in.ults.ipms.ui.otherassets.home.OtherAssetsHomeFragment;
+import in.ults.ipms.ui.otherassets.mastlight.HighLowMastLightDetailsFragment;
 import in.ults.ipms.ui.utility.bridge.BridgeDetailsFragment;
+import in.ults.ipms.ui.utility.bus.BusStandDetailsFragment;
+import in.ults.ipms.ui.utility.busbay.BusBayDetailsFragment;
+import in.ults.ipms.ui.utility.busstop.BusStopDetailsFragment;
+import in.ults.ipms.ui.utility.canal.CanalDetailsFragment;
+import in.ults.ipms.ui.utility.canalline.CanalLineDetailsFragment;
 import in.ults.ipms.ui.utility.culvert.CulvertDetailsFragment;
 import in.ults.ipms.ui.utility.divider.DividerDetailsFragment;
 import in.ults.ipms.ui.utility.drainage.details.DrainageDetailsFragment;
 import in.ults.ipms.ui.utility.drainage.map.DrainageMapFragment;
+import in.ults.ipms.ui.utility.garbage.GarbageDetailsFragment;
 import in.ults.ipms.ui.utility.home.UtilityHomeFragment;
 import in.ults.ipms.ui.utility.hump.RoadHumpDetailsFragment;
 import in.ults.ipms.ui.utility.junction.RoadJunctionDetailsFragment;
+import in.ults.ipms.ui.utility.mobiletower.MobileTowerDetailsFragment;
+import in.ults.ipms.ui.utility.park.ParkDetailsFragment;
 import in.ults.ipms.ui.utility.parking.ParkingDetailsFragment;
 import in.ults.ipms.ui.utility.playground.PlaygroundDetailsFragment;
 import in.ults.ipms.ui.utility.road.details.RoadDetailsFragment;
 import in.ults.ipms.ui.utility.road.map.RoadMapFragment;
 import in.ults.ipms.ui.utility.signboard.RoadSignboardDetailsFragment;
+import in.ults.ipms.ui.utility.stadium.StadiumDetailsFragment;
+import in.ults.ipms.ui.utility.statue.StatueDetailsFragment;
+import in.ults.ipms.ui.utility.streettap.StreetTapDetailsFragment;
+import in.ults.ipms.ui.utility.tank.TankDetailsFragment;
+import in.ults.ipms.ui.utility.taxistand.TaxiStandDetailsFragment;
+import in.ults.ipms.ui.utility.transformer.TransformerDetailsFragment;
+import in.ults.ipms.ui.utility.well.WellDetailsFragment;
 import in.ults.ipms.ui.waterbody.home.WaterBodyHomeFragment;
 import in.ults.ipms.ui.waterbody.pond.PondDetailsFragment;
 
@@ -108,5 +125,39 @@ public interface FragmentComponent {
     void inject(PondDetailsFragment fragment);
 
     void inject(FloorAndRoofDetailsFragment fragment);
+
+    void inject(BusBayDetailsFragment fragment);
+
+    void inject(BusStandDetailsFragment fragment);
+
+    void inject(BusStopDetailsFragment fragment);
+
+    void inject(CanalDetailsFragment fragment);
+
+    void inject(CanalLineDetailsFragment fragment);
+
+    void inject(GarbageDetailsFragment fragment);
+
+    void inject(MobileTowerDetailsFragment fragment);
+
+    void inject(ParkDetailsFragment fragment);
+
+    void inject(StadiumDetailsFragment fragment);
+
+    void inject(StatueDetailsFragment fragment);
+
+    void inject(StreetTapDetailsFragment fragment);
+
+    void inject(TankDetailsFragment fragment);
+
+    void inject(TaxiStandDetailsFragment fragment);
+
+    void inject(TransformerDetailsFragment fragment);
+
+    void inject(WellDetailsFragment fragment);
+
+    void inject(OtherAssetsHomeFragment fragment);
+
+    void inject(HighLowMastLightDetailsFragment fragment);
 
 }

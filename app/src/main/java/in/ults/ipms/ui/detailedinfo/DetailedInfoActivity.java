@@ -16,6 +16,7 @@ import in.ults.ipms.databinding.ActivityDetailedInfoBinding;
 import in.ults.ipms.singletons.AppCacheData;
 import in.ults.ipms.ui.base.BaseActivity;
 import in.ults.ipms.ui.buildingassets.BuildingAssetsActivity;
+import in.ults.ipms.ui.otherassets.OtherAssetsActivity;
 import in.ults.ipms.ui.utility.UtilityActivity;
 import in.ults.ipms.ui.waterbody.WaterBodyActivity;
 import in.ults.ipms.utils.AppConstants;
@@ -74,7 +75,7 @@ public class DetailedInfoActivity extends BaseActivity<ActivityDetailedInfoBindi
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_detailed_info, menu);
         FeatureDataResponse.Data data = AppCacheData.getOurInstance().getSelectedFeatureInfoDetails();
-        return data!=null && data.isCanEdit();
+        return data != null && data.isCanEdit();
     }
 
     @Override
@@ -110,10 +111,14 @@ public class DetailedInfoActivity extends BaseActivity<ActivityDetailedInfoBindi
             Intent intent = new Intent(DetailedInfoActivity.this, UtilityActivity.class);
             intent.putExtra(AppConstants.KEY_LAYER_TYPE, layer);
             startActivity(intent);
-        }
-        else if (app.equalsIgnoreCase(AppConstants.APP_TYPE_WATER_BODY)) {
+        } else if (app.equalsIgnoreCase(AppConstants.APP_TYPE_WATER_BODY)) {
             AppCacheData.getOurInstance().setAssetUpdate(true);
             Intent intent = new Intent(DetailedInfoActivity.this, WaterBodyActivity.class);
+            intent.putExtra(AppConstants.KEY_LAYER_TYPE, layer);
+            startActivity(intent);
+        } else if (app.equalsIgnoreCase(AppConstants.APP_TYPE_OTHER_ASSET)) {
+            AppCacheData.getOurInstance().setAssetUpdate(true);
+            Intent intent = new Intent(DetailedInfoActivity.this, OtherAssetsActivity.class);
             intent.putExtra(AppConstants.KEY_LAYER_TYPE, layer);
             startActivity(intent);
         }

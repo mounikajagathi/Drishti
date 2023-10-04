@@ -26,7 +26,7 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
     }
 
     @Override
-    public void validateData(String location, String name, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String location, String name, String type,String area,String surveyNo, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(location)) {
             getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_playground_details_location));
@@ -38,6 +38,14 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
         }
         if (CommonUtils.isNullString(type)) {
             getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_TYPE, baseActivity.getResources().getString(R.string.err_playground_details_type));
+            return;
+        }
+        if (CommonUtils.isNullString(area)) {
+            getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_AREA, baseActivity.getResources().getString(R.string.err_playground_details_area));
+            return;
+        }
+        if (CommonUtils.isNullString(surveyNo)) {
+            getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_SURVEY_NO, baseActivity.getResources().getString(R.string.err_playground_details_survey_no));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {
@@ -58,11 +66,11 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
             return;
         }
 
-        addUpdateContent(location, name, type, wardNo, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(location, name, type,area,surveyNo, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String location, String name, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String location, String name, String type,String area,String surveyNo, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -72,6 +80,8 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
                 data.getPlaygroundDetails().setLocation(location);
                 data.getPlaygroundDetails().setGroundName(name);
                 data.getPlaygroundDetails().setGroundType(type);
+                data.getPlaygroundDetails().setGroundArea(area);
+                data.getPlaygroundDetails().setSurveyNo(surveyNo);
                 data.getPlaygroundDetails().setWard(Long.parseLong(wardNo));
                 data.getPlaygroundDetails().setRemarks(remarks);
                 data.getPlaygroundDetails().setPhoto1(photo);
@@ -86,6 +96,8 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
             details.setGroundName(name);
             details.setGroundType(type);
             details.setWard(Long.parseLong(wardNo));
+            details.setGroundArea(area);
+            details.setSurveyNo(surveyNo);
             details.setRemarks(remarks);
             details.setPhoto1(photo);
             details.setGeom(geom);

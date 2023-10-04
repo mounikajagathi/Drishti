@@ -30,7 +30,7 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
     }
 
     @Override
-    public void validateData(String firstName, String lastName, String email, String mobile, String landphone, String gender, String placeName, String village, String street, String ownerHouse, String ownerOccupation, String ownerPostoffice, String ownerSurveyNumber) {
+    public void validateData(String firstName, String lastName,String nameSanjaya, String email, String mobile, String landphone, String gender, String placeName, String village, String street, String ownerHouse, String ownerOccupation, String ownerState,String ownerPostoffice,String ownerPincode, String ownerSurveyNumber) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(firstName)) {
             getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_FIRST_NAME, baseActivity.getResources().getString(R.string.err_first_name));
@@ -38,6 +38,10 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
         }
         if (CommonUtils.isNullString(lastName)) {
             getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_LAST_NAME, baseActivity.getResources().getString(R.string.err_last_name));
+            return;
+        }
+        if (CommonUtils.isNullString(nameSanjaya)) {
+            getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_NAME_SANJAYA, baseActivity.getResources().getString(R.string.err_owner_name_sanjaya));
             return;
         }
         if (CommonUtils.isNullString(gender)) {
@@ -76,18 +80,26 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
             getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_OWNER_OCCUPATION, baseActivity.getResources().getString(R.string.err_occupation));
             return;
         }
+        if (CommonUtils.isNullString(ownerState)) {
+            getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_OWNER_STATE, baseActivity.getResources().getString(R.string.err_state));
+            return;
+        }
         if (CommonUtils.isNullString(ownerPostoffice)) {
             getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_OWNER_POSTOFFICE, baseActivity.getResources().getString(R.string.err_owner_postoffice));
+            return;
+        }
+        if (CommonUtils.isNullString(ownerPincode)) {
+            getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_OWNER_PINCODE, baseActivity.getResources().getString(R.string.err_pincode));
             return;
         }
         if (CommonUtils.isNullString(ownerSurveyNumber)) {
             getMvpView().showOwnerDetailsFieldError(OwnerDetailsFragment.ERROR_TYPE_OWNER_SURVEY_NUMBER, baseActivity.getResources().getString(R.string.err_owner_survey_number));
             return;
         }
-        savingOwnerDetails(firstName, lastName, email, mobile, landphone, gender, placeName, village, street, ownerHouse, ownerOccupation, ownerPostoffice, ownerSurveyNumber);
+        savingOwnerDetails(firstName, lastName,nameSanjaya, email, mobile, landphone, gender, placeName, village, street, ownerHouse, ownerOccupation,ownerState, ownerPostoffice,ownerPincode, ownerSurveyNumber);
     }
 
-    public void savingOwnerDetails(String firstName, String lastName, String email, String mobile, String landphone, String gender, String placeName, String village, String street, String ownerHouse, String ownerOccupation, String ownerPostoffice, String ownerSurveyNumber) {
+    public void savingOwnerDetails(String firstName, String lastName,String nameSanjaya, String email, String mobile, String landphone, String gender, String placeName, String village, String street, String ownerHouse, String ownerOccupation, String ownerState,String ownerPostoffice,String ownerPincode, String ownerSurveyNumber) {
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
                 FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
@@ -107,6 +119,7 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
                 }
                 ownerDetails.setFirstname(firstName);
                 ownerDetails.setLastname(lastName);
+                ownerDetails.setOwnerNameSanjaya(nameSanjaya);
                 ownerDetails.setEmail(email);
                 ownerDetails.setMobile(mobile);
                 ownerDetails.setLandphone(landphone);
@@ -116,7 +129,9 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
                 ownerDetails.setStreet(street);
                 ownerDetails.setOwnerHouse(ownerHouse);
                 ownerDetails.setOwnerOccup(Integer.parseInt(ownerOccupation));
+                ownerDetails.setOwnerState(ownerState);
                 ownerDetails.setOwnerPost(ownerPostoffice);
+                ownerDetails.setOwnerPin(ownerPincode);
                 ownerDetails.setOwnerSurveyNo(ownerSurveyNumber);
 
                 if (selectedPosition == -1) {
@@ -148,6 +163,7 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
                 }
                 owner.setFirstname(firstName);
                 owner.setLastname(lastName);
+                owner.setOwnerNameSanjaya(nameSanjaya);
                 owner.setEmail(email);
                 owner.setMobile(mobile);
                 owner.setLandphone(landphone);
@@ -157,7 +173,9 @@ public class OwnerDetailsPresenter<V extends IOwnerDetailsView, I extends IOwner
                 owner.setStreet(street);
                 owner.setOwnerHouse(ownerHouse);
                 owner.setOwnerOccup(Integer.parseInt(ownerOccupation));
+                owner.setOwnerState(ownerState);
                 owner.setOwnerPost(ownerPostoffice);
+                owner.setOwnerPin(ownerPincode);
                 owner.setOwnerSurveyNo(ownerSurveyNumber);
                 if (selectedPosition == -1) {
                     ownerDetails.add(owner);

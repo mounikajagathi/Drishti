@@ -32,7 +32,7 @@ public class MemberDetailsPresenter<V extends IMemberDetailsView, I extends IMem
     }
 
     @Override
-    public void validateData(String firstName, String lastName, String gender, String age, boolean isMonth, String memberOccupation, String bloodGroup, String educationCategory, String education, String maritalStatus, String isCoolieWage, String isAlive, String isQualified, String bankAccount, String nriOrNrk, ArrayList<String> bankType, ArrayList<String> pension, ArrayList<String> disease, DisabilityAdapter disabilityAdapter) {
+    public void validateData(String firstName, String lastName, String gender, String age, boolean isMonth, String memberOccupation, String bloodGroup, String memberDOB, String religion, String caste, String educationCategory, String education, String maritalStatus, String isCoolieWage, String isAlive, String isQualified, String bankAccount, String nriOrNrk, ArrayList<String> bankType, ArrayList<String> pension, ArrayList<String> disease, DisabilityAdapter disabilityAdapter) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(firstName)) {
             getMvpView().showMemberDetailsFieldError(MemberDetailsFragment.ERROR_TYPE_FIRST_NAME, baseActivity.getResources().getString(R.string.err_first_name));
@@ -56,6 +56,18 @@ public class MemberDetailsPresenter<V extends IMemberDetailsView, I extends IMem
         }
         if (CommonUtils.isNullString(bloodGroup)) {
             getMvpView().showMemberDetailsFieldError(MemberDetailsFragment.ERROR_TYPE_BLOOD_GROUP, baseActivity.getResources().getString(R.string.err_blood_group));
+            return;
+        }
+        if (CommonUtils.isNullString(memberDOB)) {
+            getMvpView().showMemberDetailsFieldError(MemberDetailsFragment.ERROR_TYPE_DOB, baseActivity.getResources().getString(R.string.err_date_of_birth));
+            return;
+        }
+        if (CommonUtils.isNullString(religion)) {
+            getMvpView().showMemberDetailsFieldError(MemberDetailsFragment.ERROR_TYPE_RELIGION, baseActivity.getResources().getString(R.string.err_religion));
+            return;
+        }
+        if (CommonUtils.isNullString(caste)) {
+            getMvpView().showMemberDetailsFieldError(MemberDetailsFragment.ERROR_TYPE_CASTE, baseActivity.getResources().getString(R.string.err_caste));
             return;
         }
         if (CommonUtils.isNullString(educationCategory)) {
@@ -106,10 +118,10 @@ public class MemberDetailsPresenter<V extends IMemberDetailsView, I extends IMem
             return;
         }
 
-        savingMemberDetails(firstName, lastName, gender, age, isMonth, memberOccupation, bloodGroup, educationCategory, education, maritalStatus, isCoolieWage, isAlive, isQualified, bankAccount, nriOrNrk, bankType, pension, disease, disabilityAdapter.getLocalDataSet());
+        savingMemberDetails(firstName, lastName, gender, age, isMonth, memberOccupation, bloodGroup, memberDOB, religion, caste, educationCategory, education, maritalStatus, isCoolieWage, isAlive, isQualified, bankAccount, nriOrNrk, bankType, pension, disease, disabilityAdapter.getLocalDataSet());
     }
 
-    public void savingMemberDetails(String firstName, String lastName, String gender, String age, boolean isMonth, String memberOccupation, String bloodGroup, String educationCategory, String education, String maritalStatus, String isCoolieWage, String isAlive, String isQualified, String bankAccount, String nriOrNrk, ArrayList<String> bankType, ArrayList<String> pension, ArrayList<String> disease, ArrayList<BuildingAssets.Disability> disability) {
+    public void savingMemberDetails(String firstName, String lastName, String gender, String age, boolean isMonth, String memberOccupation, String bloodGroup, String memberDOB, String religion, String caste, String educationCategory, String education, String maritalStatus, String isCoolieWage, String isAlive, String isQualified, String bankAccount, String nriOrNrk, ArrayList<String> bankType, ArrayList<String> pension, ArrayList<String> disease, ArrayList<BuildingAssets.Disability> disability) {
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
                 FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
@@ -134,6 +146,9 @@ public class MemberDetailsPresenter<V extends IMemberDetailsView, I extends IMem
                 memberDetails.setMonth(isMonth);
                 memberDetails.setOccuppation(Integer.parseInt(memberOccupation));
                 memberDetails.setBloodGroup(Integer.parseInt(bloodGroup));
+                memberDetails.setDateOfBirth(memberDOB);
+                memberDetails.setReligion(Integer.parseInt(religion));
+                memberDetails.setCaste(Integer.parseInt(caste));
                 memberDetails.setEducationCategory(Integer.parseInt(educationCategory));
                 memberDetails.setEducation(Integer.parseInt(education));
                 memberDetails.setMaritalStatus(Integer.parseInt(maritalStatus));
@@ -180,6 +195,9 @@ public class MemberDetailsPresenter<V extends IMemberDetailsView, I extends IMem
                 member.setAge(Integer.parseInt(age));
                 member.setOccuppation(Integer.parseInt(memberOccupation));
                 member.setBloodGroup(Integer.parseInt(bloodGroup));
+                member.setDateOfBirth(memberDOB);
+                member.setReligion(Integer.parseInt(religion));
+                member.setCaste(Integer.parseInt(caste));
                 member.setEducationCategory(Integer.parseInt(educationCategory));
                 member.setEducation(Integer.parseInt(education));
                 member.setMaritalStatus(Integer.parseInt(maritalStatus));

@@ -587,6 +587,18 @@ public class BuildingAssets {
         private String rentAmount;
 
         @Expose
+        @SerializedName("tenant_pincode")
+        private String tenantPincode;
+
+        @Expose
+        @SerializedName("tenant_state")
+        private String tenantState;
+
+        @Expose
+        @SerializedName("tenant_status")
+        private String tenantStatus;
+
+        @Expose
         @SerializedName("street")
         private String street;
 
@@ -760,6 +772,30 @@ public class BuildingAssets {
 
         public void setVillage(String village) {
             this.village = village;
+        }
+
+        public String getTenantPincode() {
+            return tenantPincode;
+        }
+
+        public void setTenantPincode(String tenantPincode) {
+            this.tenantPincode = tenantPincode;
+        }
+
+        public String getTenantState() {
+            return tenantState;
+        }
+
+        public void setTenantState(String tenantState) {
+            this.tenantState = tenantState;
+        }
+
+        public String getTenantStatus() {
+            return tenantStatus;
+        }
+
+        public void setTenantStatus(String tenantStatus) {
+            this.tenantStatus = tenantStatus;
         }
     }
 
@@ -1029,6 +1065,9 @@ public class BuildingAssets {
         @SerializedName("tax_amount")
         private String taxAmount;
         @Expose
+        @SerializedName("tax_annual")
+        private String taxAnnual;
+        @Expose
         @SerializedName("tax_bill_no")
         private String taxBillNo;
         @Expose
@@ -1050,6 +1089,13 @@ public class BuildingAssets {
             this.parentFeature = parentFeature;
         }
 
+        public String getTaxAnnual() {
+            return taxAnnual;
+        }
+
+        public void setTaxAnnual(String taxAnnual) {
+            this.taxAnnual = taxAnnual;
+        }
 
         public String getAssessmentNo() {
             return assessmentNo;
@@ -1768,6 +1814,18 @@ public class BuildingAssets {
         private int bloodGroup;
 
         @Expose
+        @SerializedName("date_of_birth")
+        private String dateOfBirth;
+
+        @Expose
+        @SerializedName("religion")
+        private int religion;
+
+        @Expose
+        @SerializedName("caste")
+        private int caste;
+
+        @Expose
         @SerializedName("education")
         private int education;
 
@@ -2026,6 +2084,30 @@ public class BuildingAssets {
         public ArrayList<String> getBankType() {
             return bankType;
         }
+
+        public String getDateOfBirth() {
+            return dateOfBirth;
+        }
+
+        public void setDateOfBirth(String dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        public int getReligion() {
+            return religion;
+        }
+
+        public void setReligion(int religion) {
+            this.religion = religion;
+        }
+
+        public int getCaste() {
+            return caste;
+        }
+
+        public void setCaste(int caste) {
+            this.caste = caste;
+        }
     }
 
     //Inner Data Class
@@ -2173,6 +2255,18 @@ public class BuildingAssets {
         private String ownerPost;
 
         @Expose
+        @SerializedName("owner_name_sanjaya")
+        private String ownerNameSanjaya;
+
+        @Expose
+        @SerializedName("ownrPin")
+        private String ownerPin;
+
+        @Expose
+        @SerializedName("ownrState")
+        private String ownerState;
+
+        @Expose
         @SerializedName("owner_survey_no")
         private String ownerSurveyNo;
 
@@ -2188,6 +2282,29 @@ public class BuildingAssets {
             this.parentFeature = parentFeature;
         }
 
+        public String getOwnerNameSanjaya() {
+            return ownerNameSanjaya;
+        }
+
+        public void setOwnerNameSanjaya(String ownerNameSanjaya) {
+            this.ownerNameSanjaya = ownerNameSanjaya;
+        }
+
+        public String getOwnerPin() {
+            return ownerPin;
+        }
+
+        public void setOwnerPin(String ownerPin) {
+            this.ownerPin = ownerPin;
+        }
+
+        public String getOwnerState() {
+            return ownerState;
+        }
+
+        public void setOwnerState(String ownerState) {
+            this.ownerState = ownerState;
+        }
 
         public String getEmail() {
             return email;

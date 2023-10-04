@@ -25,9 +25,6 @@ public class WaterBodyHomeFragment extends BaseFragment<FragmentWaterbodyHomeBin
     @Inject
     WaterBodyHomeAdapter waterBodyHomeAdapter;
 
-    @Inject
-    GridLayoutManager layoutManager;
-
 
     public static WaterBodyHomeFragment newInstance() {
         return new WaterBodyHomeFragment();
@@ -60,7 +57,6 @@ public class WaterBodyHomeFragment extends BaseFragment<FragmentWaterbodyHomeBin
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvWaterBodyHome.setLayoutManager(layoutManager);
         getViewBinding().rvWaterBodyHome.setAdapter(waterBodyHomeAdapter);
         String[] waterBodyArray = getResources().getStringArray(R.array.water_body);
         waterBodyHomeAdapter.setLocalDataSet(waterBodyArray);

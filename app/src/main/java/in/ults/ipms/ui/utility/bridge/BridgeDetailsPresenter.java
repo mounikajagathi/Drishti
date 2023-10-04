@@ -26,7 +26,7 @@ public class BridgeDetailsPresenter<V extends IBridgeDetailsView, I extends IBri
     }
 
     @Override
-    public void validateData(String bridgeName, String place, String bridgeMaterial, String bridgeSubType, String carriageWidth, String bridgeWidth, String wardNo, String maintainedBy, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String bridgeName, String place, String bridgeMaterial, String bridgeSubType, String carriageWidth, String bridgeWidth, String bridgeLength, String footpathConstructionMaterial, String wardNo, String maintainedBy, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(bridgeName)) {
             getMvpView().showErrors(BridgeDetailsFragment.ERROR_TYPE_BRIDGE_NAME, baseActivity.getResources().getString(R.string.err_bridge_details_name));
@@ -52,6 +52,14 @@ public class BridgeDetailsPresenter<V extends IBridgeDetailsView, I extends IBri
             getMvpView().showErrors(BridgeDetailsFragment.ERROR_TYPE_BRIDGE_WIDTH, baseActivity.getResources().getString(R.string.err_bridge_details_bridge_width));
             return;
         }
+        if (CommonUtils.isNullString(bridgeLength)) {
+            getMvpView().showErrors(BridgeDetailsFragment.ERROR_TYPE_BRIDGE_LENGTH, baseActivity.getResources().getString(R.string.err_bridge_details_bridge_length));
+            return;
+        }
+        if (CommonUtils.isNullString(footpathConstructionMaterial)) {
+            getMvpView().showErrors(BridgeDetailsFragment.ERROR_TYPE_FOOTPATH_CONSTRUCTION_MATERIAL, baseActivity.getResources().getString(R.string.err_bridge_details_footpath_construction_material));
+            return;
+        }
         if (CommonUtils.isNullString(wardNo)) {
             getMvpView().showErrors(BridgeDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_bridge_details_ward_number));
             return;
@@ -74,11 +82,11 @@ public class BridgeDetailsPresenter<V extends IBridgeDetailsView, I extends IBri
             return;
         }
 
-        addUpdateContent(bridgeName, place, bridgeMaterial, bridgeSubType, carriageWidth, bridgeWidth, wardNo, maintainedBy, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(bridgeName, place, bridgeMaterial, bridgeSubType, carriageWidth, bridgeWidth, bridgeLength, footpathConstructionMaterial, wardNo, maintainedBy, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String bridgeName, String place, String bridgeMaterial, String bridgeSubType, String carriageWidth, String bridgeWidth, String wardNo, String maintainedBy, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String bridgeName, String place, String bridgeMaterial, String bridgeSubType, String carriageWidth, String bridgeWidth, String bridgeLength, String footpathConstructionMaterial, String wardNo, String maintainedBy, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -91,6 +99,8 @@ public class BridgeDetailsPresenter<V extends IBridgeDetailsView, I extends IBri
                 data.getBridgeDetails().setBridgeSubType(bridgeSubType);
                 data.getBridgeDetails().setWidth(carriageWidth);
                 data.getBridgeDetails().setBridgeWidth(bridgeWidth);
+                data.getBridgeDetails().setBridgeLength(bridgeLength);
+                data.getBridgeDetails().setFootpathConstructionMaterial(footpathConstructionMaterial);
                 data.getBridgeDetails().setWard(Long.parseLong(wardNo));
                 data.getBridgeDetails().setMaintainedBy(Long.parseLong(maintainedBy));
                 data.getBridgeDetails().setRemarks(remarks);
@@ -108,6 +118,8 @@ public class BridgeDetailsPresenter<V extends IBridgeDetailsView, I extends IBri
             details.setBridgeSubType(bridgeSubType);
             details.setWidth(carriageWidth);
             details.setBridgeWidth(bridgeWidth);
+            details.setBridgeLength(bridgeLength);
+            details.setFootpathConstructionMaterial(footpathConstructionMaterial);
             details.setWard(Long.parseLong(wardNo));
             details.setMaintainedBy(Long.parseLong(maintainedBy));
             details.setRemarks(remarks);

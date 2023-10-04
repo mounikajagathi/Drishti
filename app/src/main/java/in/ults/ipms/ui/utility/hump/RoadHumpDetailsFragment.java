@@ -59,10 +59,11 @@ public class RoadHumpDetailsFragment extends BaseFragment<FragmentRoadHumpDetail
     public static final int ERROR_TYPE_NAME = 2;
     public static final int ERROR_TYPE_LENGTH = 3;
     public static final int ERROR_TYPE_WIDTH = 4;
-    public static final int ERROR_TYPE_WARD_NO = 5;
-    public static final int ERROR_TYPE_REMARKS = 6;
-    public static final int ERROR_TYPE_PHOTO = 7;
-    public static final int ERROR_TYPE_LOCATION = 8;
+    public static final int ERROR_TYPE_STATUS = 5;
+    public static final int ERROR_TYPE_WARD_NO = 6;
+    public static final int ERROR_TYPE_REMARKS = 7;
+    public static final int ERROR_TYPE_PHOTO = 8;
+    public static final int ERROR_TYPE_LOCATION = 9;
 
     public static RoadHumpDetailsFragment newInstance() {
         return new RoadHumpDetailsFragment();
@@ -276,9 +277,10 @@ public class RoadHumpDetailsFragment extends BaseFragment<FragmentRoadHumpDetail
         String name = Objects.requireNonNull(getViewBinding().etRoadHumpName.getText()).toString().trim();
         String length = Objects.requireNonNull(getViewBinding().etRoadHumpLength.getText()).toString().trim();
         String width = Objects.requireNonNull(getViewBinding().etRoadHumpWidth.getText()).toString().trim();
+        String status = Objects.requireNonNull(getViewBinding().etRoadHumpStatus.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(place, name, length, width, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(place, name, length, width,status, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -299,6 +301,10 @@ public class RoadHumpDetailsFragment extends BaseFragment<FragmentRoadHumpDetail
             case ERROR_TYPE_WIDTH:
                 getViewBinding().layoutRoadHumpWidth.setError(error);
                 getViewBinding().layoutRoadHumpWidth.requestFocus();
+                break;
+            case ERROR_TYPE_STATUS:
+                getViewBinding().layoutRoadHumpStatus.setError(error);
+                getViewBinding().layoutRoadHumpStatus.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -323,6 +329,7 @@ public class RoadHumpDetailsFragment extends BaseFragment<FragmentRoadHumpDetail
         getViewBinding().layoutRoadHumpName.setErrorEnabled(false);
         getViewBinding().layoutRoadHumpLength.setErrorEnabled(false);
         getViewBinding().layoutRoadHumpWidth.setErrorEnabled(false);
+        getViewBinding().layoutRoadHumpStatus.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
@@ -401,9 +408,7 @@ public class RoadHumpDetailsFragment extends BaseFragment<FragmentRoadHumpDetail
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

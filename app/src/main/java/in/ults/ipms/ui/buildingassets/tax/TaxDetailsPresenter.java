@@ -28,7 +28,7 @@ public class TaxDetailsPresenter<V extends ITaxDetailsView, I extends ITaxDetail
         this.baseActivity = baseActivity;
     }
 
-    public void validateData(String billNumber, String paidDate, String paidYear, String amount, String assessmentNumber, String taxPhoto) {
+    public void validateData(String billNumber, String paidDate, String paidYear, String amount,String annualTax, String assessmentNumber, String taxPhoto) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(billNumber)) {
             getMvpView().showTaxDetailsFieldError(TaxDetailsFragment.ERROR_TYPE_BILL_NUMBER, baseActivity.getResources().getString(R.string.err_bill_number));
@@ -46,6 +46,10 @@ public class TaxDetailsPresenter<V extends ITaxDetailsView, I extends ITaxDetail
             getMvpView().showTaxDetailsFieldError(TaxDetailsFragment.ERROR_TYPE_AMOUNT, baseActivity.getResources().getString(R.string.err_tax_amount));
             return;
         }
+        if (CommonUtils.isNullString(annualTax)) {
+            getMvpView().showTaxDetailsFieldError(TaxDetailsFragment.ERROR_TYPE_ANNUAL, baseActivity.getResources().getString(R.string.err_tax_annual));
+            return;
+        }
         if (CommonUtils.isNullString(assessmentNumber)) {
             getMvpView().showTaxDetailsFieldError(TaxDetailsFragment.ERROR_TYPE_ASSESSMENT_NUMBER, baseActivity.getResources().getString(R.string.err_assessment_number));
             return;
@@ -55,10 +59,10 @@ public class TaxDetailsPresenter<V extends ITaxDetailsView, I extends ITaxDetail
             return;
         }
 
-        savingTaxDetails(billNumber, paidDate, paidYear, amount, assessmentNumber, taxPhoto);
+        savingTaxDetails(billNumber, paidDate, paidYear, amount,annualTax, assessmentNumber, taxPhoto);
     }
 
-    public void savingTaxDetails(String billNumber, String paidDate, String paidYear, String amount, String assessmentNumber, String photo) {
+    public void savingTaxDetails(String billNumber, String paidDate, String paidYear, String amount,String annualTax, String assessmentNumber, String photo) {
             if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
                 FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
@@ -80,6 +84,7 @@ public class TaxDetailsPresenter<V extends ITaxDetailsView, I extends ITaxDetail
                 taxDetails.setTaxPaidDate(paidDate);
                 taxDetails.setTaxPaidYear(Integer.parseInt(paidYear));
                 taxDetails.setTaxAmount(amount);
+                taxDetails.setTaxAnnual(annualTax);
                 taxDetails.setAssessmentNo(assessmentNumber);
                 taxDetails.setTaxPhoto(photo);
 
@@ -114,6 +119,7 @@ public class TaxDetailsPresenter<V extends ITaxDetailsView, I extends ITaxDetail
                 tax.setTaxPaidDate(paidDate);
                 tax.setTaxPaidYear(Integer.parseInt(paidYear));
                 tax.setTaxAmount(amount);
+                tax.setTaxAnnual(annualTax);
                 tax.setAssessmentNo(assessmentNumber);
                 tax.setTaxPhoto(photo);
                 if (selectedPosition == -1) {

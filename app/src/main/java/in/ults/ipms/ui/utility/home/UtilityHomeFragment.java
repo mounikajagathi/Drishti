@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import javax.inject.Inject;
 
@@ -24,9 +23,6 @@ public class UtilityHomeFragment extends BaseFragment<FragmentUtilityHomeBinding
 
     @Inject
     UtilityHomeAdapter utilityHomeAdapter;
-
-    @Inject
-    GridLayoutManager layoutManager;
 
 
     public static UtilityHomeFragment newInstance() {
@@ -60,7 +56,6 @@ public class UtilityHomeFragment extends BaseFragment<FragmentUtilityHomeBinding
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvUtilityHome.setLayoutManager(layoutManager);
         getViewBinding().rvUtilityHome.setAdapter(utilityHomeAdapter);
         String[] utilityArray = getResources().getStringArray(R.array.utility);
         utilityHomeAdapter.setLocalDataSet(utilityArray);

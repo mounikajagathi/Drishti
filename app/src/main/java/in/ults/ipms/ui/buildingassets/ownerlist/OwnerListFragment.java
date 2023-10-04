@@ -29,9 +29,6 @@ public class OwnerListFragment extends BaseFragment<FragmentOwnerListBinding> im
     @Inject
     OwnerListAdapter ownerListAdapter;
 
-    @Inject
-    LinearLayoutManager layoutManager;
-
 
     public static OwnerListFragment newInstance() {
         return new OwnerListFragment();
@@ -64,7 +61,6 @@ public class OwnerListFragment extends BaseFragment<FragmentOwnerListBinding> im
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvOwnerList.setLayoutManager(layoutManager);
         if(AppCacheData.getOurInstance().getBuildingAssetData()!=null &&
         AppCacheData.getOurInstance().getBuildingAssetData().getOwnerDetails()!=null) {
             ownerListAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetData().getOwnerDetails());

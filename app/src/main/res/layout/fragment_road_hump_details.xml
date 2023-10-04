@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
@@ -13,24 +12,20 @@
         android:layout_alignParentTop="true"
         android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:padding="@dimen/standard_spacing_medium">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRoadHumpPlace"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRoadHumpName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadHumpPlace"
@@ -52,15 +47,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRoadHumpName"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRoadHumpLength"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRoadHumpPlace"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadHumpName"
@@ -81,15 +71,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRoadHumpLength"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRoadHumpWidth"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRoadHumpName"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadHumpLength"
@@ -110,15 +95,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRoadHumpWidth"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutWardNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRoadHumpLength"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadHumpWidth"
@@ -137,18 +117,38 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
+           <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRoadHumpStatus"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etRoadHumpStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/road_hump_details_status"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutWardNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRoadHumpWidth"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srWardNo"
@@ -168,15 +168,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/txtRoadHumpImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutWardNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRemarks"
@@ -198,65 +193,43 @@
 
             <TextView
                 android:id="@+id/txtRoadHumpImage"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/road_hump_details_photo_1"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/imgRoadHump"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRemarks"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgRoadHump"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_property_image_place_holder"
-                app:layout_constraintBottom_toTopOf="@id/txtRoadHumpLocation"
-                app:layout_constraintDimensionRatio="H,2:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtRoadHumpImage"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:src="@mipmap/ic_property_image_place_holder" />
 
             <TextView
                 android:id="@+id/txtRoadHumpLocation"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/road_hump_details_location"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/includeMiniMapProperty"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgRoadHump"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <include
                 android:id="@+id/includeMiniMapProperty"
                 layout="@layout/include_mini_map"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
-                android:layout_marginBottom="@dimen/standard_spacing_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1.25:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtRoadHumpLocation"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:layout_marginBottom="@dimen/standard_spacing_medium" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -269,8 +242,7 @@
         android:paddingTop="@dimen/standard_spacing_medium"
         android:text="@string/submit_button"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/standard_text_size_medium"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:textSize="@dimen/standard_text_size_medium" />
 
 
 </RelativeLayout>

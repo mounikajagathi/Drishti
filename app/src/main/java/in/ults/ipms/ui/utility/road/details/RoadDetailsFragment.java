@@ -40,21 +40,27 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
     public static final int ERROR_TYPE_ROADWAY_WIDTH_MTR = 9;
     public static final int ERROR_TYPE_FOOTPATH_WIDTH_MTR = 10;
     public static final int ERROR_TYPE_RIGHTWAY_WIDTH_MTR = 11;
-    public static final int ERROR_TYPE_REMARKS = 12;
-    public static final int ERROR_TYPE_PHOTO = 13;
+    public static final int ERROR_TYPE_FOOT_PATH = 12;
+    public static final int ERROR_TYPE_FOOT_PATH_PLACEMENT = 13;
+    public static final int ERROR_TYPE_FOOT_PATH_CONS_MAT = 14;
+    public static final int ERROR_TYPE_ENVIRONMENT = 15;
+    public static final int ERROR_TYPE_BOARD_RESOLUTION = 16;
+    public static final int ERROR_TYPE_ASSET_ID = 17;
+    public static final int ERROR_TYPE_WARD_NUMBER = 18;
+    public static final int ERROR_TYPE_REMARKS = 19;
+    public static final int ERROR_TYPE_PHOTO = 20;
     private String photo;
     static final int REQUEST_CODE_IMAGE = 101;
     String roadLength;
     GeomPolyLine geom;
 
-
     @Inject
     IRoadDetailsPresenter<IRoadDetailsView, IRoadDetailsInteractor> presenter;
-
 
     CommonSpinnerAdapter<UtilitySpinnerResponse.RoadTypes> roadMaterialAdapter;
     CommonSpinnerAdapter<UtilitySpinnerResponse.RoadCategories> roadCategoryAdapter;
     CommonSpinnerAdapter<UtilitySpinnerResponse.MaintainedBy> maintainedByAdapter;
+    CommonSpinnerAdapter<UtilitySpinnerResponse.Ward> wardAdapter;
 
 
     public static RoadDetailsFragment newInstance() {
@@ -96,6 +102,7 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
             roadMaterialAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srRURoadMaterial, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getRoadTypes());
             roadCategoryAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srRURoadCategory, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getRoadCategories());
             maintainedByAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srRUMaintainedBy, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getMaintainedBy());
+            wardAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srWardNo, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getWard());
         }
 
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -123,11 +130,19 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
             roadMaterialAdapter.setContent(roadUtility.getRoadMaterial());
             roadCategoryAdapter.setContent(roadUtility.getRoadCategory());
             maintainedByAdapter.setContent(roadUtility.getMaintainedBy());
+            maintainedByAdapter.setContent(roadUtility.getMaintainedBy());
+            wardAdapter.setContent(String.valueOf(roadUtility.getWard()));
             getViewBinding().etRULength.setText(roadUtility.getLength());
             getViewBinding().etRUCarriageWidth.setText(roadUtility.getCarriageWidth());
             getViewBinding().etRURoadwayWidth.setText(roadUtility.getRoadwayWidth());
             getViewBinding().etRUFootpathWidth.setText(roadUtility.getFootpathWidth());
             getViewBinding().etRURightWayWidth.setText(roadUtility.getRightOfWayWidth());
+            getViewBinding().etFootPath.setText(roadUtility.getFootpath());
+            getViewBinding().etFootpathPlacement.setText(roadUtility.getFootpathPlacement());
+            getViewBinding().etFootpathConsMat.setText(roadUtility.getFootpathConsMat());
+            getViewBinding().etEnvironment.setText(roadUtility.getEnvironment());
+            getViewBinding().etBoardResolution.setText(roadUtility.getBoardResolution());
+            getViewBinding().etAssetID.setText(roadUtility.getAssetID());
             getViewBinding().etRURemarks.setText(roadUtility.getRemarks());
             String photo = roadUtility.getPhoto();
             onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+ photo, null, photo);
@@ -146,9 +161,16 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
         String roadwayWidth = Objects.requireNonNull(getViewBinding().etRURoadwayWidth.getText()).toString().trim();
         String footpathWidth = Objects.requireNonNull(getViewBinding().etRUFootpathWidth.getText()).toString().trim();
         String rightWayWidth = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String footpath = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String footpathPlacement = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String footpathConsMat = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String environment = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String boardResolution = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String assetID = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String wardNo = (String) getViewBinding().srWardNo.getTag();
         //photo
         String remarks = Objects.requireNonNull(getViewBinding().etRURemarks.getText()).toString().trim();
-        presenter.saveRoadDetails(roadName, startPoint, endPoint, roadMaterial, roadCategory, maintainedBy, length, carriageWidth, roadwayWidth, footpathWidth, rightWayWidth, remarks, photo, geom);
+        presenter.saveRoadDetails(roadName, startPoint, endPoint, roadMaterial, roadCategory, maintainedBy, length, carriageWidth, roadwayWidth, footpathWidth, rightWayWidth,footpath,footpathPlacement,footpathConsMat,environment,boardResolution,assetID,wardNo, remarks, photo, geom);
 
     }
 
@@ -199,6 +221,34 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
                 getViewBinding().layoutRURightWayWidth.setError(error);
                 getViewBinding().layoutRURightWayWidth.requestFocus();
                 break;
+            case ERROR_TYPE_FOOT_PATH:
+                getViewBinding().layoutFootPath.setError(error);
+                getViewBinding().layoutFootPath.requestFocus();
+                break;
+            case ERROR_TYPE_FOOT_PATH_PLACEMENT:
+                getViewBinding().layoutFootpathPlacement.setError(error);
+                getViewBinding().layoutFootpathPlacement.requestFocus();
+                break;
+            case ERROR_TYPE_FOOT_PATH_CONS_MAT:
+                getViewBinding().layoutFootpathConsMat.setError(error);
+                getViewBinding().layoutFootpathConsMat.requestFocus();
+                break;
+            case ERROR_TYPE_ENVIRONMENT:
+                getViewBinding().layoutEnvironment.setError(error);
+                getViewBinding().layoutEnvironment.requestFocus();
+                break;
+            case ERROR_TYPE_BOARD_RESOLUTION:
+                getViewBinding().layoutBoardResolution.setError(error);
+                getViewBinding().layoutBoardResolution.requestFocus();
+                break;
+            case ERROR_TYPE_ASSET_ID:
+                getViewBinding().layoutAssetID.setError(error);
+                getViewBinding().layoutAssetID.requestFocus();
+                break;
+            case ERROR_TYPE_WARD_NUMBER:
+                getViewBinding().layoutWardNo.setError(error);
+                getViewBinding().layoutWardNo.requestFocus();
+                break;
             case ERROR_TYPE_REMARKS:
                 getViewBinding().layoutRURemarks.setError(error);
                 getViewBinding().layoutRURemarks.requestFocus();
@@ -224,6 +274,13 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
         getViewBinding().layoutRURoadwayWidth.setErrorEnabled(false);
         getViewBinding().layoutRUFootpathWidth.setErrorEnabled(false);
         getViewBinding().layoutRURightWayWidth.setErrorEnabled(false);
+        getViewBinding().layoutFootPath.setErrorEnabled(false);
+        getViewBinding().layoutFootpathPlacement.setErrorEnabled(false);
+        getViewBinding().layoutFootpathConsMat.setErrorEnabled(false);
+        getViewBinding().layoutEnvironment.setErrorEnabled(false);
+        getViewBinding().layoutBoardResolution.setErrorEnabled(false);
+        getViewBinding().layoutAssetID.setErrorEnabled(false);
+        getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRURemarks.setErrorEnabled(false);
 
     }

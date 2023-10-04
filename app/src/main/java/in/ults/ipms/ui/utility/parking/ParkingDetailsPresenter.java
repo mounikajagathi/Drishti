@@ -26,7 +26,7 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
     }
 
     @Override
-    public void validateData(String place, String capacity, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String place, String capacity, String type, String parkType, String area, String surveyNo, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(place)) {
             getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_PLACE, baseActivity.getResources().getString(R.string.err_parking_details_place));
@@ -38,6 +38,18 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
         }
         if (CommonUtils.isNullString(type)) {
             getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_PARKING_TYPE, baseActivity.getResources().getString(R.string.err_parking_details_type));
+            return;
+        }
+        if (CommonUtils.isNullString(parkType)) {
+            getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_PARK_TYPE, baseActivity.getResources().getString(R.string.err_parking_details_park_type));
+            return;
+        }
+        if (CommonUtils.isNullString(area)) {
+            getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_AREA, baseActivity.getResources().getString(R.string.err_parking_details_area));
+            return;
+        }
+        if (CommonUtils.isNullString(surveyNo)) {
+            getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_SURVEY_NO, baseActivity.getResources().getString(R.string.err_parking_details_survey_no));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {
@@ -58,11 +70,11 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
             return;
         }
 
-        addUpdateContent(place, capacity, type, wardNo, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(place, capacity, type, parkType, area, surveyNo, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String place, String capacity, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String place, String capacity, String type, String parkType, String area, String surveyNo, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -72,6 +84,9 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
                 data.getParkingAreaDetails().setPlace(place);
                 data.getParkingAreaDetails().setCapacity(Long.parseLong(capacity));
                 data.getParkingAreaDetails().setParkingType(type);
+                data.getParkingAreaDetails().setParkType(parkType);
+                data.getParkingAreaDetails().setArea(area);
+                data.getParkingAreaDetails().setSurveyNo(surveyNo);
                 data.getParkingAreaDetails().setWard(Long.parseLong(wardNo));
                 data.getParkingAreaDetails().setRemarks(remarks);
                 data.getParkingAreaDetails().setPhoto1(photo);
@@ -85,6 +100,9 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
             details.setPlace(place);
             details.setCapacity(Long.parseLong(capacity));
             details.setParkingType(type);
+            details.setParkType(parkType);
+            details.setArea(area);
+            details.setSurveyNo(surveyNo);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
             details.setPhoto1(photo);

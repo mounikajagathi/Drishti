@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
@@ -13,24 +12,20 @@
         android:layout_alignParentTop="true"
         android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:padding="@dimen/standard_spacing_medium">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerLocation"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerPoleNumber"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etLocation"
@@ -52,15 +47,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerPoleNumber"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerCategory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerLocation"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etPoleNumber"
@@ -81,15 +71,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerCategory"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerApplicationNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerPoleNumber"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etCategory"
@@ -110,15 +95,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerApplicationNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerConsumerNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerCategory"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etApplicationNo"
@@ -139,15 +119,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerConsumerNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerSingleTube40W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerApplicationNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etConsumerNo"
@@ -168,15 +143,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerSingleTube40W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerDoubleTube80W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerConsumerNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSingleTube40W"
@@ -197,15 +167,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerDoubleTube80W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerLED35W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerSingleTube40W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etDoubleTube80W"
@@ -226,15 +191,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerLED35W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerCFL36W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerDoubleTube80W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etLED35W"
@@ -255,15 +215,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerCFL36W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerBulb40W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerLED35W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etCFL36W"
@@ -284,15 +239,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerBulb40W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerSodiumVapour180W"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerCFL36W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etBulb40W"
@@ -313,15 +263,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerSodiumVapour180W"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutTransformerConnectedLoadW"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerBulb40W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSodiumVapour180W"
@@ -342,15 +287,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutTransformerConnectedLoadW"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutWardNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerSodiumVapour180W"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etConnectedLoadW"
@@ -371,15 +311,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutWardNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutTransformerConnectedLoadW"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srWardNo"
@@ -398,15 +333,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/txtTransformerImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutWardNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRemarks"
@@ -428,65 +358,43 @@
 
             <TextView
                 android:id="@+id/txtTransformerImage"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/transformer_details_photo_1"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/imgTransformer"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRemarks"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgTransformer"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_property_image_place_holder"
-                app:layout_constraintBottom_toTopOf="@id/txtTransformerLocation"
-                app:layout_constraintDimensionRatio="H,2:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtTransformerImage"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:src="@mipmap/ic_property_image_place_holder" />
 
             <TextView
                 android:id="@+id/txtTransformerLocation"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/transformer_details_transformer_location"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/includeMiniMapProperty"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgTransformer"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <include
                 android:id="@+id/includeMiniMapProperty"
                 layout="@layout/include_mini_map"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
-                android:layout_marginBottom="@dimen/standard_spacing_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1.25:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtTransformerLocation"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:layout_marginBottom="@dimen/standard_spacing_medium" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -499,8 +407,7 @@
         android:paddingTop="@dimen/standard_spacing_medium"
         android:text="@string/submit_button"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/standard_text_size_medium"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:textSize="@dimen/standard_text_size_medium" />
 
 
 </RelativeLayout>

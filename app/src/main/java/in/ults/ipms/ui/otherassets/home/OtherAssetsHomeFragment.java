@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import javax.inject.Inject;
 
@@ -24,9 +23,6 @@ public class OtherAssetsHomeFragment extends BaseFragment<FragmentOtherAssetsHom
 
     @Inject
     OtherAssetsHomeAdapter otherAssetsHomeAdapter;
-
-    @Inject
-    GridLayoutManager layoutManager;
 
 
     public static OtherAssetsHomeFragment newInstance() {
@@ -60,7 +56,6 @@ public class OtherAssetsHomeFragment extends BaseFragment<FragmentOtherAssetsHom
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvOtherAssetsHome.setLayoutManager(layoutManager);
         getViewBinding().rvOtherAssetsHome.setAdapter(otherAssetsHomeAdapter);
         String[] waterBodyArray = getResources().getStringArray(R.array.other_assets);
         otherAssetsHomeAdapter.setLocalDataSet(waterBodyArray);

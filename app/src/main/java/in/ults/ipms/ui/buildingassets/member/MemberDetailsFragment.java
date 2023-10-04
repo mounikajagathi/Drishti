@@ -1,5 +1,6 @@
 package in.ults.ipms.ui.buildingassets.member;
 
+import android.app.DatePickerDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 import javax.inject.Inject;
@@ -36,19 +40,22 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
     public static final int ERROR_TYPE_AGE = 4;
     public static final int ERROR_TYPE_MEMBER_OCCUPATION = 5;
     public static final int ERROR_TYPE_BLOOD_GROUP = 6;
-    public static final int ERROR_TYPE_EDUCATION_CATEGORY = 7;
-    public static final int ERROR_TYPE_EDUCATION = 8;
-    public static final int ERROR_TYPE_MARITAL_STATUS = 9;
-    public static final int ERROR_TYPE_IS_COOLIE_WAGE = 10;
-    public static final int ERROR_TYPE_IS_ALIVE = 11;
-    public static final int ERROR_TYPE_IS_QUALIFIED = 12;
-    public static final int ERROR_TYPE_BANK_ACCOUNT = 13;
-    public static final int ERROR_TYPE_NRI_OR_NRK = 14;
-    public static final int ERROR_TYPE_BANK_TYPE = 15;
-    public static final int ERROR_TYPE_PENSION = 16;
-    public static final int ERROR_TYPE_DISEASE = 17;
-    public static final int ERROR_TYPE_DISABILITY = 18;
-    public static final int ERROR_TYPE_DISABILITY_PERCENTAGE = 19;
+    public static final int ERROR_TYPE_DOB = 7;
+    public static final int ERROR_TYPE_CASTE = 8;
+    public static final int ERROR_TYPE_RELIGION = 9;
+    public static final int ERROR_TYPE_EDUCATION_CATEGORY = 10;
+    public static final int ERROR_TYPE_EDUCATION = 11;
+    public static final int ERROR_TYPE_MARITAL_STATUS = 12;
+    public static final int ERROR_TYPE_IS_COOLIE_WAGE = 13;
+    public static final int ERROR_TYPE_IS_ALIVE = 14;
+    public static final int ERROR_TYPE_IS_QUALIFIED = 15;
+    public static final int ERROR_TYPE_BANK_ACCOUNT = 16;
+    public static final int ERROR_TYPE_NRI_OR_NRK = 17;
+    public static final int ERROR_TYPE_BANK_TYPE = 18;
+    public static final int ERROR_TYPE_PENSION = 19;
+    public static final int ERROR_TYPE_DISEASE = 20;
+    public static final int ERROR_TYPE_DISABILITY = 21;
+    public static final int ERROR_TYPE_DISABILITY_PERCENTAGE = 22;
     public static int selectedPosition = -1;
 
     public static final int REMOVE_TYPE_DISABILITY = 20;
@@ -59,6 +66,8 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.Genders> genderAdapter;
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.Jobs> jobAdapter;
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.BloodGroups> bloodGroupAdapter;
+    CommonSpinnerAdapter<BuildingAssetSpinnerResponse.Religions> religionsAdapter;
+    CommonSpinnerAdapter<BuildingAssetSpinnerResponse.Castes> castesAdapter;
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.EducationCategories> educationCategoryAdapter;
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.Educations> educationAdapter;
     CommonSpinnerAdapter<BuildingAssetSpinnerResponse.MaritalStatus> maritalStatusAdapter;
@@ -115,6 +124,8 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
         bankTypeAdapter = new CommonMultiSelectAdapter<>();
         genderAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberGender, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getGenders());
         jobAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberOccupation, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getJobs());
+        religionsAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberReligion, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getReligions());
+        castesAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberCaste, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getCastes());
         bloodGroupAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberBloodGroup, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getBloodGroups());
         educationCategoryAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberEducationCategory, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getEducationCategories());
         educationAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srMemberEducation, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getEducations());
@@ -127,15 +138,17 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
         diseaseAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getDiseaseTypes());
         pensionAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getPensionTypes());
         bankTypeAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getBankTypes());
-
-        getViewBinding().rvDisease.setLayoutManager(new GridLayoutManager(getBaseActivity(),2));
+        final Calendar newCalendar = Calendar.getInstance();
+        final DatePickerDialog datePicker = new DatePickerDialog(getBaseActivity(), (view1, year, monthOfYear, dayOfMonth) -> {
+            Calendar newDate = Calendar.getInstance();
+            newDate.set(year, monthOfYear, dayOfMonth);
+            getViewBinding().etMemberDOB.setText(new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH).format(newDate.getTime()));
+        }, newCalendar.get(Calendar.YEAR), newCalendar.get(Calendar.MONTH), newCalendar.get(Calendar.DAY_OF_MONTH));
+        datePicker.getDatePicker().setMaxDate(newCalendar.getTimeInMillis());
+        getViewBinding().etMemberDOB.setOnClickListener(v -> datePicker.show());
         getViewBinding().rvDisease.setAdapter(diseaseAdapter);
-        getViewBinding().rvBankType.setLayoutManager(new GridLayoutManager(getBaseActivity(),2));
         getViewBinding().rvBankType.setAdapter(bankTypeAdapter);
-        getViewBinding().rvPension.setLayoutManager(new GridLayoutManager(getBaseActivity(),2));
         getViewBinding().rvPension.setAdapter(pensionAdapter);
-
-        getViewBinding().rvDisability.setLayoutManager(new LinearLayoutManager(getBaseActivity()));
         getViewBinding().rvDisability.setAdapter(disabilityAdapter);
         disabilityAdapter.setDisabilityList(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getDisabilityTypes());
         disabilityAdapter.setRemoveListener((position, pk) -> {
@@ -156,6 +169,9 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
         String age = Objects.requireNonNull(getViewBinding().etMemberAge.getText()).toString().trim();
         boolean isMonth = getViewBinding().cbMemberIsMonth.isChecked();
         String memberOccupation = (String) getViewBinding().srMemberOccupation.getTag();
+        String memberDOB = Objects.requireNonNull(getViewBinding().etMemberDOB.getText()).toString().trim();
+        String religion = (String) getViewBinding().srMemberReligion.getTag();
+        String caste = (String) getViewBinding().srMemberCaste.getTag();
         String bloodGroup = (String) getViewBinding().srMemberBloodGroup.getTag();
         String educationCategory = (String) getViewBinding().srMemberEducationCategory.getTag();
         String education = (String) getViewBinding().srMemberEducation.getTag();
@@ -168,7 +184,7 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
         ArrayList<String> bankType = bankTypeAdapter.getSelectedId();
         ArrayList<String> pension = pensionAdapter.getSelectedId();
         ArrayList<String> disease = diseaseAdapter.getSelectedId();
-        presenter.validateData(firstName,lastName,gender,age,isMonth,memberOccupation,bloodGroup,educationCategory,education,maritalStatus,isCoolieWage,isAlive,isQualified,bankAccount,nriOrNrk,bankType,pension,disease,disabilityAdapter);
+        presenter.validateData(firstName,lastName,gender,age,isMonth,memberOccupation,bloodGroup, memberDOB, religion, caste,educationCategory,education,maritalStatus,isCoolieWage,isAlive,isQualified,bankAccount,nriOrNrk,bankType,pension,disease,disabilityAdapter);
     }
 
     @Override
@@ -197,6 +213,18 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
             case ERROR_TYPE_BLOOD_GROUP:
                 getViewBinding().layoutMemberBloodGroup.setError(error);
                 getViewBinding().layoutMemberBloodGroup.requestFocus();
+                break;
+            case ERROR_TYPE_DOB:
+                getViewBinding().layoutMemberDOB.setError(error);
+                getViewBinding().layoutMemberDOB.requestFocus();
+                break;
+            case ERROR_TYPE_RELIGION:
+                getViewBinding().layoutMemberReligion.setError(error);
+                getViewBinding().layoutMemberReligion.requestFocus();
+                break;
+            case ERROR_TYPE_CASTE:
+                getViewBinding().layoutMemberCaste.setError(error);
+                getViewBinding().layoutMemberCaste.requestFocus();
                 break;
             case ERROR_TYPE_EDUCATION_CATEGORY:
                 getViewBinding().layoutMemberEducationCategory.setError(error);
@@ -248,6 +276,9 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
         getViewBinding().layoutMemberAge.setErrorEnabled(false);
         getViewBinding().layoutMemberOccupation.setErrorEnabled(false);
         getViewBinding().layoutMemberBloodGroup.setErrorEnabled(false);
+        getViewBinding().layoutMemberDOB.setErrorEnabled(false);
+        getViewBinding().layoutMemberReligion.setErrorEnabled(false);
+        getViewBinding().layoutMemberCaste.setErrorEnabled(false);
         getViewBinding().layoutMemberEducationCategory.setErrorEnabled(false);
         getViewBinding().layoutMemberEducation.setErrorEnabled(false);
         getViewBinding().layoutMemberMaritalStatus.setErrorEnabled(false);
@@ -269,9 +300,12 @@ public class MemberDetailsFragment extends BaseFragment<FragmentMemberDetailsBin
             getViewBinding().etMemberLastName.setText(memberDetail.getLastname());
             genderAdapter.setContent(String.valueOf(memberDetail.getGender()));
             getViewBinding().etMemberAge.setText(String.valueOf(memberDetail.getAge()));
+            getViewBinding().etMemberDOB.setText(memberDetail.getDateOfBirth());
             getViewBinding().cbMemberIsMonth.setChecked(memberDetail.isMonth());
             jobAdapter.setContent(String.valueOf(memberDetail.getOccuppation()));
             bloodGroupAdapter.setContent(String.valueOf(memberDetail.getBloodGroup()));
+            religionsAdapter.setContent(String.valueOf(memberDetail.getReligion()));
+            castesAdapter.setContent(String.valueOf(memberDetail.getCaste()));
             educationCategoryAdapter.setContent(String.valueOf(memberDetail.getEducationCategory()));
             educationAdapter.setContent(String.valueOf(memberDetail.getEducation()));
             maritalStatusAdapter.setContent(String.valueOf(memberDetail.getMaritalStatus()));

@@ -29,9 +29,6 @@ public class TaxListFragment extends BaseFragment<FragmentTaxListBinding> implem
     @Inject
     TaxListAdapter taxListAdapter;
 
-    @Inject
-    LinearLayoutManager layoutManager;
-
 
     public static TaxListFragment newInstance() {
         return new TaxListFragment();
@@ -64,7 +61,6 @@ public class TaxListFragment extends BaseFragment<FragmentTaxListBinding> implem
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvTaxList.setLayoutManager(layoutManager);
         if(AppCacheData.getOurInstance().getBuildingAssetData()!=null &&
         AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails()!=null) {
             taxListAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails());

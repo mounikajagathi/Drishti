@@ -58,10 +58,13 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
     public static final int ERROR_TYPE_PLACE = 1;
     public static final int ERROR_TYPE_CAPACITY = 2;
     public static final int ERROR_TYPE_PARKING_TYPE = 3;
-    public static final int ERROR_TYPE_WARD_NO = 4;
-    public static final int ERROR_TYPE_REMARKS = 5;
-    public static final int ERROR_TYPE_PHOTO = 6;
-    public static final int ERROR_TYPE_LOCATION = 7;
+    public static final int ERROR_TYPE_PARK_TYPE = 4;
+    public static final int ERROR_TYPE_AREA = 5;
+    public static final int ERROR_TYPE_SURVEY_NO = 6;
+    public static final int ERROR_TYPE_WARD_NO = 7;
+    public static final int ERROR_TYPE_REMARKS = 8;
+    public static final int ERROR_TYPE_PHOTO = 9;
+    public static final int ERROR_TYPE_LOCATION = 10;
 
     public static ParkingDetailsFragment newInstance() {
         return new ParkingDetailsFragment();
@@ -127,7 +130,7 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
             layersBottomSheet.show(getParentFragmentManager(), MapOverlayBottomSheet.TAG);
         });
 
-        if(AppCacheData.getOurInstance().getUtilitySpinnerData()!=null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues()!=null) {
+        if (AppCacheData.getOurInstance().getUtilitySpinnerData() != null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues() != null) {
             wardAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srWardNo, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getWard());
             parkingTypeAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srParkingType, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getParkingTypes());
         }
@@ -276,10 +279,13 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
     void submitOnClick() {
         String place = Objects.requireNonNull(getViewBinding().etParkingPlace.getText()).toString().trim();
         String capacity = Objects.requireNonNull(getViewBinding().etParkingCapacity.getText()).toString().trim();
+        String parkType = Objects.requireNonNull(getViewBinding().etParkType.getText()).toString().trim();
+        String area = Objects.requireNonNull(getViewBinding().etParkingArea.getText()).toString().trim();
+        String surveyNo = Objects.requireNonNull(getViewBinding().etSurveyNo.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String type = (String) getViewBinding().srParkingType.getTag();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(place, capacity, type, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(place, capacity, type,parkType,area,surveyNo, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -296,6 +302,18 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
             case ERROR_TYPE_PARKING_TYPE:
                 getViewBinding().layoutParkingType.setError(error);
                 getViewBinding().layoutParkingType.requestFocus();
+                break;
+            case ERROR_TYPE_PARK_TYPE:
+                getViewBinding().layoutParkType.setError(error);
+                getViewBinding().layoutParkType.requestFocus();
+                break;
+            case ERROR_TYPE_AREA:
+                getViewBinding().layoutParkingArea.setError(error);
+                getViewBinding().layoutParkingArea.requestFocus();
+                break;
+            case ERROR_TYPE_SURVEY_NO:
+                getViewBinding().layoutSurveyNo.setError(error);
+                getViewBinding().layoutSurveyNo.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -319,16 +337,22 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
         getViewBinding().layoutParkingPlace.setErrorEnabled(false);
         getViewBinding().layoutParkingType.setErrorEnabled(false);
         getViewBinding().layoutParkingCapacity.setErrorEnabled(false);
+        getViewBinding().layoutParkType.setErrorEnabled(false);
+        getViewBinding().layoutParkingArea.setErrorEnabled(false);
+        getViewBinding().layoutSurveyNo.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
 
     public void setEditData() {
-        if (AppCacheData.getOurInstance().getBuildingAssetData() != null ) {
+        if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
             UtilityAssets.ParkingArea parkingDetails = AppCacheData.getOurInstance().getBuildingAssetData().getParkingAreaDetails();
             if (parkingDetails != null) {
                 getViewBinding().etParkingPlace.setText(parkingDetails.getPlace());
                 getViewBinding().etParkingCapacity.setText(String.valueOf(parkingDetails.getCapacity()));
+                getViewBinding().etParkingArea.setText(String.valueOf(parkingDetails.getArea()));
+                getViewBinding().etParkType.setText(String.valueOf(parkingDetails.getParkType()));
+                getViewBinding().etSurveyNo.setText(String.valueOf(parkingDetails.getSurveyNo()));
                 getViewBinding().etRemarks.setText(parkingDetails.getRemarks());
                 parkingTypeAdapter.setContent(String.valueOf(parkingDetails.getParkingType()));
                 wardAdapter.setContent(String.valueOf(parkingDetails.getWard()));
@@ -338,7 +362,7 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
                     double latitude = geom.getCoordinates().get(1);
                     plotPoint(latitude, longitude);
                 }
-                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+parkingDetails.getPhoto1(), null, parkingDetails.getPhoto1());
+                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + parkingDetails.getPhoto1(), null, parkingDetails.getPhoto1());
 //                Log.d("base", new Gson().toJson(AppCacheData.getOurInstance().getImageBaseURL() ));
 //                Log.d("base1....", new Gson().toJson(parkingDetails.getPhoto1()));
 
@@ -399,9 +423,7 @@ public class ParkingDetailsFragment extends BaseFragment<FragmentParkingDetailsB
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

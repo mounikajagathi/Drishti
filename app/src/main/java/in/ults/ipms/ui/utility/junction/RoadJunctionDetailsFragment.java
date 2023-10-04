@@ -56,10 +56,13 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
     public static final String TAG = RoadJunctionDetailsFragment.class.getSimpleName();
 
     public static final int ERROR_TYPE_NAME = 1;
-    public static final int ERROR_TYPE_WARD_NO = 2;
-    public static final int ERROR_TYPE_REMARKS = 3;
-    public static final int ERROR_TYPE_PHOTO = 4;
-    public static final int ERROR_TYPE_LOCATION = 5;
+    public static final int ERROR_TYPE_LOCATION_DETAILS = 2;
+    public static final int ERROR_TYPE_NO_OF_ROADS = 3;
+    public static final int ERROR_TYPE_PEDESTRIAN = 4;
+    public static final int ERROR_TYPE_WARD_NO = 5;
+    public static final int ERROR_TYPE_REMARKS = 6;
+    public static final int ERROR_TYPE_PHOTO = 7;
+    public static final int ERROR_TYPE_LOCATION = 8;
 
     public static RoadJunctionDetailsFragment newInstance() {
         return new RoadJunctionDetailsFragment();
@@ -124,7 +127,7 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
             layersBottomSheet.show(getParentFragmentManager(), MapOverlayBottomSheet.TAG);
         });
 
-        if(AppCacheData.getOurInstance().getUtilitySpinnerData()!=null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues()!=null) {
+        if (AppCacheData.getOurInstance().getUtilitySpinnerData() != null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues() != null) {
             wardAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srWardNo, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getWard());
         }
 
@@ -271,9 +274,12 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
 
     void submitOnClick() {
         String name = Objects.requireNonNull(getViewBinding().etRoadJunctionName.getText()).toString().trim();
+        String location = Objects.requireNonNull(getViewBinding().etRoadJunctionLocation.getText()).toString().trim();
+        String noOfRoad = Objects.requireNonNull(getViewBinding().etRoadJunctionNoRoad.getText()).toString().trim();
+        String pedestrian = Objects.requireNonNull(getViewBinding().etRoadJunctionPedestrian.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(name, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(name,location,noOfRoad,pedestrian, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -282,6 +288,18 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
             case ERROR_TYPE_NAME:
                 getViewBinding().layoutRoadJunctionName.setError(error);
                 getViewBinding().layoutRoadJunctionName.requestFocus();
+                break;
+            case ERROR_TYPE_LOCATION_DETAILS:
+                getViewBinding().layoutRoadJunctionLocation.setError(error);
+                getViewBinding().layoutRoadJunctionLocation.requestFocus();
+                break;
+            case ERROR_TYPE_NO_OF_ROADS:
+                getViewBinding().layoutRoadJunctionNoRoad.setError(error);
+                getViewBinding().layoutRoadJunctionNoRoad.requestFocus();
+                break;
+            case ERROR_TYPE_PEDESTRIAN:
+                getViewBinding().layoutRoadJunctionPedestrian.setError(error);
+                getViewBinding().layoutRoadJunctionPedestrian.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -303,15 +321,21 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
     @Override
     public void clearErrors() {
         getViewBinding().layoutRoadJunctionName.setErrorEnabled(false);
+        getViewBinding().layoutRoadJunctionLocation.setErrorEnabled(false);
+        getViewBinding().layoutRoadJunctionNoRoad.setErrorEnabled(false);
+        getViewBinding().layoutRoadJunctionPedestrian.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
 
     public void setEditData() {
-        if (AppCacheData.getOurInstance().getBuildingAssetData() != null ) {
+        if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
             UtilityAssets.RoadJunction junctionDetails = AppCacheData.getOurInstance().getBuildingAssetData().getRoadJunctionDetails();
             if (junctionDetails != null) {
                 getViewBinding().etRoadJunctionName.setText(junctionDetails.getJunctionName());
+                getViewBinding().etRoadJunctionLocation.setText(junctionDetails.getLocation());
+                getViewBinding().etRoadJunctionNoRoad.setText(junctionDetails.getNoOfRoads());
+                getViewBinding().etRoadJunctionPedestrian.setText(junctionDetails.getPedestrian());
                 getViewBinding().etRemarks.setText(junctionDetails.getRemarks());
                 wardAdapter.setContent(String.valueOf(junctionDetails.getWard()));
                 GeomPoint geom = junctionDetails.getGeom();
@@ -320,7 +344,7 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
                     double latitude = geom.getCoordinates().get(1);
                     plotPoint(latitude, longitude);
                 }
-                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+junctionDetails.getPhoto1(), null, junctionDetails.getPhoto1());
+                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + junctionDetails.getPhoto1(), null, junctionDetails.getPhoto1());
             }
         }
     }
@@ -378,9 +402,7 @@ public class RoadJunctionDetailsFragment extends BaseFragment<FragmentRoadJuncti
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

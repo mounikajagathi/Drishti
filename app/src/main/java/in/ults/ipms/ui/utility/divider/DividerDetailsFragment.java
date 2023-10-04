@@ -58,10 +58,12 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
     public static final int ERROR_TYPE_PLACE = 1;
     public static final int ERROR_TYPE_LENGTH = 2;
     public static final int ERROR_TYPE_MATERIAL = 3;
-    public static final int ERROR_TYPE_WARD_NO = 4;
-    public static final int ERROR_TYPE_REMARKS = 5;
-    public static final int ERROR_TYPE_PHOTO = 6;
-    public static final int ERROR_TYPE_LOCATION = 7;
+    public static final int ERROR_TYPE_WIDTH = 4;
+    public static final int ERROR_TYPE_START_END = 5;
+    public static final int ERROR_TYPE_WARD_NO = 6;
+    public static final int ERROR_TYPE_REMARKS = 7;
+    public static final int ERROR_TYPE_PHOTO = 8;
+    public static final int ERROR_TYPE_LOCATION = 9;
 
     public static DividerDetailsFragment newInstance() {
         return new DividerDetailsFragment();
@@ -275,10 +277,12 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
     void submitOnClick() {
         String place = Objects.requireNonNull(getViewBinding().etDividerPlace.getText()).toString().trim();
         String length = Objects.requireNonNull(getViewBinding().etDividerLength.getText()).toString().trim();
+        String width = Objects.requireNonNull(getViewBinding().etDividerWidth.getText()).toString().trim();
+        String startEnd = Objects.requireNonNull(getViewBinding().etDividerStartEnd.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String material = (String) getViewBinding().srDividerMaterial.getTag();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(place, length, material, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(place, length, material, width, startEnd, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -291,6 +295,14 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
             case ERROR_TYPE_LENGTH:
                 getViewBinding().layoutDividerLength.setError(error);
                 getViewBinding().layoutDividerLength.requestFocus();
+                break;
+            case ERROR_TYPE_WIDTH:
+                getViewBinding().layoutDividerWidth.setError(error);
+                getViewBinding().layoutDividerWidth.requestFocus();
+                break;
+            case ERROR_TYPE_START_END:
+                getViewBinding().layoutDividerStartEnd.setError(error);
+                getViewBinding().layoutDividerStartEnd.requestFocus();
                 break;
             case ERROR_TYPE_MATERIAL:
                 getViewBinding().layoutDividerMaterial.setError(error);
@@ -317,6 +329,8 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
     public void clearErrors() {
         getViewBinding().layoutDividerPlace.setErrorEnabled(false);
         getViewBinding().layoutDividerLength.setErrorEnabled(false);
+        getViewBinding().layoutDividerWidth.setErrorEnabled(false);
+        getViewBinding().layoutDividerStartEnd.setErrorEnabled(false);
         getViewBinding().layoutDividerMaterial.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
@@ -328,6 +342,8 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
             if (dividerDetails != null) {
                 getViewBinding().etDividerPlace.setText(dividerDetails.getPlace());
                 getViewBinding().etDividerLength.setText(dividerDetails.getLength());
+                getViewBinding().etDividerWidth.setText(dividerDetails.getWidth());
+                getViewBinding().etDividerStartEnd.setText(dividerDetails.getStartEnd());
                 getViewBinding().etRemarks.setText(dividerDetails.getRemarks());
                 dividerMaterialAdapter.setContent(dividerDetails.getDividerMaterial());
                 wardAdapter.setContent(String.valueOf(dividerDetails.getWard()));
@@ -395,9 +411,7 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

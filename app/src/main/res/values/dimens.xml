@@ -125,4 +125,9 @@
     <!--Home-->
     <dimen name="dashboard_sketch_area_bar_height">50dp</dimen>
 
+    <!--Image Height-->
+    <dimen name="standard_image_height_small">150dp</dimen>
+    <dimen name="standard_image_height_medium">200dp</dimen>
+    <dimen name="standard_image_height_large">250dp</dimen>
+
 </resources>

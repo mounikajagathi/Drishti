@@ -26,7 +26,7 @@ public class DrainageDetailsPresenter<V extends IDrainageDetailsView, I extends 
     }
 
     @Override
-    public void validateData(String name, String place, String material, String type, String wardNumber, String remarks, String photo, GeomPolyLine geom) {
+    public void validateData(String name, String place, String material, String type,String length,String drainageLength, String wardNumber, String remarks, String photo, GeomPolyLine geom) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(name)){
             getMvpView().showRoadAddFieldError(DrainageDetailsFragment.ERROR_TYPE_NAME,baseActivity.getResources().getString(R.string.err_drainage_details_drainage_name));
@@ -44,6 +44,14 @@ public class DrainageDetailsPresenter<V extends IDrainageDetailsView, I extends 
             getMvpView().showRoadAddFieldError(DrainageDetailsFragment.ERROR_TYPE_TYPE,baseActivity.getResources().getString(R.string.err_drainage_details_drainage_type));
             return;
         }
+        if (CommonUtils.isNullString(length)){
+            getMvpView().showRoadAddFieldError(DrainageDetailsFragment.ERROR_TYPE_LENGTH,baseActivity.getResources().getString(R.string.err_drainage_details_length));
+            return;
+        }
+        if (CommonUtils.isNullString(drainageLength)){
+            getMvpView().showRoadAddFieldError(DrainageDetailsFragment.ERROR_TYPE_DRAINAGE_LENGTH,baseActivity.getResources().getString(R.string.err_drainage_details_drainage_length));
+            return;
+        }
         if (CommonUtils.isNullString(wardNumber)){
             getMvpView().showRoadAddFieldError(DrainageDetailsFragment.ERROR_TYPE_WARD_NUMBER,baseActivity.getResources().getString(R.string.err_drainage_details_ward_number));
             return;
@@ -57,12 +65,12 @@ public class DrainageDetailsPresenter<V extends IDrainageDetailsView, I extends 
             return;
         }
 
-        addUpdateContent(name, place, material, type, wardNumber, remarks, photo, geom);
+        addUpdateContent(name, place, material, type,length,drainageLength, wardNumber, remarks, photo, geom);
 
     }
 
 
-    void addUpdateContent(String name, String place, String material, String type, String wardNumber, String remarks, String photo, GeomPolyLine geom) {
+    void addUpdateContent(String name, String place, String material, String type,String length,String drainageLength, String wardNumber, String remarks, String photo, GeomPolyLine geom) {
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
                     AppCacheData.getOurInstance().getBuildingAssetData().getDrainageDetails() != null) {
@@ -71,6 +79,8 @@ public class DrainageDetailsPresenter<V extends IDrainageDetailsView, I extends 
                 data.getDrainageDetails().setPlace(place);
                 data.getDrainageDetails().setDrainageMaterial(material);
                 data.getDrainageDetails().setDrainageType(type);
+                data.getDrainageDetails().setDrainageLength(drainageLength);
+                data.getDrainageDetails().setLength(length);
                 data.getDrainageDetails().setWard(Long.parseLong(wardNumber));
                 data.getDrainageDetails().setRemarks(remarks);
                 data.getDrainageDetails().setPhoto1(photo);
@@ -85,6 +95,8 @@ public class DrainageDetailsPresenter<V extends IDrainageDetailsView, I extends 
             details.setPlace(place);
             details.setDrainageMaterial(material);
             details.setDrainageType(type);
+            details.setDrainageLength(drainageLength);
+            details.setLength(length);
             details.setWard(Long.parseLong(wardNumber));
             details.setRemarks(remarks);
             details.setPhoto1(photo);

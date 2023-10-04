@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
 
 import javax.inject.Inject;
 
@@ -25,9 +24,6 @@ public class BuildingAssetHomeFragment extends BaseFragment<FragmentBuildingAsse
 
     @Inject
     BuildingAssetHomeAdapter buildingAssetHomeAdapter;
-
-    @Inject
-    GridLayoutManager layoutManager;
 
 
     public static BuildingAssetHomeFragment newInstance() {
@@ -61,8 +57,6 @@ public class BuildingAssetHomeFragment extends BaseFragment<FragmentBuildingAsse
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvBuildingAssetHome.setLayoutManager(layoutManager);
-        getViewBinding().rvBuildingAssetHome.setAdapter(buildingAssetHomeAdapter);
         String[] buildingAssetsArray = getResources().getStringArray(R.array.building_assets);
         buildingAssetHomeAdapter.setLocalDataSet(buildingAssetsArray);
         buildingAssetHomeAdapter.setClickListener((position, v) -> {
@@ -105,6 +99,7 @@ public class BuildingAssetHomeFragment extends BaseFragment<FragmentBuildingAsse
                     return;
             }
         });
+        getViewBinding().rvBuildingAssetHome.setAdapter(buildingAssetHomeAdapter);
     }
 
     @Override

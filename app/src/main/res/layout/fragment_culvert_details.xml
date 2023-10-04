@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
@@ -13,24 +12,20 @@
         android:layout_alignParentTop="true"
         android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:padding="@dimen/standard_spacing_medium">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutCulvertName"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutCulvertPlace"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etCulvertName"
@@ -52,15 +47,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutCulvertPlace"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutWardNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutCulvertName"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etCulvertPlace"
@@ -80,17 +70,108 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/layoutWardNo"
+                android:id="@+id/layoutCulvertUniqueID"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutCulvertPlace"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etUniqueID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/culvert_details_unique_id"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutSpanLength"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etSpanLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/culvert_details_span_length"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutConstructionMaterial"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etConstructionMaterial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/culvert_details_construction_material"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutRoadName"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etRoadName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/culvert_details_road_name"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutWardNo"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srWardNo"
@@ -110,15 +191,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/txtCulvertImage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutWardNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRemarks"
@@ -140,65 +216,43 @@
 
             <TextView
                 android:id="@+id/txtCulvertImage"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/culvert_details_photo_1"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/imgCulvert"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRemarks"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgCulvert"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_property_image_place_holder"
-                app:layout_constraintBottom_toTopOf="@id/txtCulvertLocation"
-                app:layout_constraintDimensionRatio="H,2:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtCulvertImage"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:src="@mipmap/ic_property_image_place_holder" />
 
             <TextView
                 android:id="@+id/txtCulvertLocation"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/culvert_details_culvert_location"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/includeMiniMapProperty"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgCulvert"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <include
                 android:id="@+id/includeMiniMapProperty"
                 layout="@layout/include_mini_map"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
-                android:layout_marginBottom="@dimen/standard_spacing_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1.25:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtCulvertLocation"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:layout_marginBottom="@dimen/standard_spacing_medium" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -211,8 +265,7 @@
         android:paddingTop="@dimen/standard_spacing_medium"
         android:text="@string/submit_button"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/standard_text_size_medium"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:textSize="@dimen/standard_text_size_medium" />
 
 
 </RelativeLayout>

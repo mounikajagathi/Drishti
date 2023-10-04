@@ -26,7 +26,7 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
     }
 
     @Override
-    public void validateData(String place, String length, String material, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String place, String length,String width,String startEnd, String material, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(place)) {
             getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_PLACE, baseActivity.getResources().getString(R.string.err_divider_details_place));
@@ -34,6 +34,14 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
         }
         if (CommonUtils.isNullString(length)) {
             getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_LENGTH, baseActivity.getResources().getString(R.string.err_divider_details_length));
+            return;
+        }
+        if (CommonUtils.isNullString(width)) {
+            getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_WIDTH, baseActivity.getResources().getString(R.string.err_divider_details_width));
+            return;
+        }
+        if (CommonUtils.isNullString(startEnd)) {
+            getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_START_END, baseActivity.getResources().getString(R.string.err_divider_details_start_end));
             return;
         }
         if (CommonUtils.isNullString(material)) {
@@ -58,11 +66,11 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
             return;
         }
 
-        addUpdateContent(place, length, material, wardNo, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(place, length, width, startEnd, material, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String place, String length, String material, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String place, String length, String width, String startEnd, String material, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -71,6 +79,8 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getDividerDetails().setPlace(place);
                 data.getDividerDetails().setLength(length);
+                data.getDividerDetails().setWidth(width);
+                data.getDividerDetails().setStartEnd(startEnd);
                 data.getDividerDetails().setDividerMaterial(material);
                 data.getDividerDetails().setWard(Long.parseLong(wardNo));
                 data.getDividerDetails().setRemarks(remarks);
@@ -84,6 +94,8 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
             UtilityAssets.Divider details = new UtilityAssets.Divider();
             details.setPlace(place);
             details.setLength(length);
+            details.setWidth(width);
+            details.setStartEnd(startEnd);
             details.setDividerMaterial(material);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);

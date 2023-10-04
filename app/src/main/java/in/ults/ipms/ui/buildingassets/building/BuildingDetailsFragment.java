@@ -358,9 +358,7 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapBuilding.miniMap != null) {
-            getViewBinding().includeMiniMapBuilding.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapBuilding.miniMap.dispose();
         super.onDestroy();
     }
 

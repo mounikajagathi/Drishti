@@ -61,11 +61,13 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
     public static final int ERROR_TYPE_SUB_TYPE = 4;
     public static final int ERROR_TYPE_CARRIAGE_WIDTH = 5;
     public static final int ERROR_TYPE_BRIDGE_WIDTH = 6;
-    public static final int ERROR_TYPE_WARD_NO = 7;
-    public static final int ERROR_TYPE_MAINTAINED_BY = 8;
-    public static final int ERROR_TYPE_REMARKS = 9;
-    public static final int ERROR_TYPE_PHOTO = 10;
-    public static final int ERROR_TYPE_LOCATION = 11;
+    public static final int ERROR_TYPE_BRIDGE_LENGTH = 7;
+    public static final int ERROR_TYPE_FOOTPATH_CONSTRUCTION_MATERIAL = 8;
+    public static final int ERROR_TYPE_WARD_NO = 9;
+    public static final int ERROR_TYPE_MAINTAINED_BY = 10;
+    public static final int ERROR_TYPE_REMARKS = 11;
+    public static final int ERROR_TYPE_PHOTO = 12;
+    public static final int ERROR_TYPE_LOCATION = 13;
 
     public static BridgeDetailsFragment newInstance() {
         return new BridgeDetailsFragment();
@@ -284,12 +286,14 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
         String place = Objects.requireNonNull(getViewBinding().etBridgePlace.getText()).toString().trim();
         String carriageWidth = Objects.requireNonNull(getViewBinding().etBridgeCarriageWidth.getText()).toString().trim();
         String bridgeWidth = Objects.requireNonNull(getViewBinding().etBridgeWidth.getText()).toString().trim();
+        String bridgeLength = Objects.requireNonNull(getViewBinding().etBridgeLength.getText()).toString().trim();
+        String footpathConstructionMaterial = Objects.requireNonNull(getViewBinding().etFootpathConstructionMaterial.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String bridgeMaterial = (String) getViewBinding().srBridgeMaterial.getTag();
         String bridgeSubType = (String) getViewBinding().srBridgeSubType.getTag();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
         String maintainedBy = (String) getViewBinding().srBridgeMaintainedBy.getTag();
-        presenter.validateData(bridgeName, place, bridgeMaterial, bridgeSubType, carriageWidth, bridgeWidth, wardNo, maintainedBy, remarks, photo, latitude, longitude);
+        presenter.validateData(bridgeName, place, bridgeMaterial, bridgeSubType, carriageWidth, bridgeWidth,bridgeLength,footpathConstructionMaterial, wardNo, maintainedBy, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -318,6 +322,14 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
             case ERROR_TYPE_BRIDGE_WIDTH:
                 getViewBinding().layoutBridgeWidth.setError(error);
                 getViewBinding().layoutBridgeWidth.requestFocus();
+                break;
+            case ERROR_TYPE_BRIDGE_LENGTH:
+                getViewBinding().layoutBridgeLength.setError(error);
+                getViewBinding().layoutBridgeLength.requestFocus();
+                break;
+            case ERROR_TYPE_FOOTPATH_CONSTRUCTION_MATERIAL:
+                getViewBinding().layoutFootpathConstructionMaterial.setError(error);
+                getViewBinding().layoutFootpathConstructionMaterial.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -348,6 +360,8 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
         getViewBinding().layoutBridgeSubType.setErrorEnabled(false);
         getViewBinding().layoutBridgeCarriageWidth.setErrorEnabled(false);
         getViewBinding().layoutBridgeWidth.setErrorEnabled(false);
+        getViewBinding().layoutBridgeLength.setErrorEnabled(false);
+        getViewBinding().layoutFootpathConstructionMaterial.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
         getViewBinding().layoutBridgeMaintainedBy.setErrorEnabled(false);
@@ -361,6 +375,8 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
                 getViewBinding().etBridgePlace.setText(bridgeDetails.getPlace());
                 getViewBinding().etBridgeCarriageWidth.setText(bridgeDetails.getWidth());
                 getViewBinding().etBridgeWidth.setText(bridgeDetails.getBridgeWidth());
+                getViewBinding().etBridgeLength.setText(bridgeDetails.getBridgeLength());
+                getViewBinding().etFootpathConstructionMaterial.setText(bridgeDetails.getFootpathConstructionMaterial());
                 getViewBinding().etRemarks.setText(bridgeDetails.getRemarks());
                 bridgeMaterialAdapter.setContent(bridgeDetails.getBridgeMaterial());
                 bridgeSubTypeAdapter.setContent(bridgeDetails.getBridgeSubType());
@@ -430,9 +446,7 @@ public class BridgeDetailsFragment extends BaseFragment<FragmentBridgeDetailsBin
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

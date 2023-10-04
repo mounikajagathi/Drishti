@@ -34,9 +34,12 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
     public static final int ERROR_TYPE_STREET = 9;
     public static final int ERROR_TYPE_TENANT_HOUSE = 10;
     public static final int ERROR_TYPE_TENANT_NATIVE = 11;
-    public static final int ERROR_TYPE_TENANT_POSTOFFICE = 12;
-    public static final int ERROR_TYPE_TENANT_SURVEY_NUMBER = 13;
-    public static final int ERROR_TYPE_RENT_AMOUNT = 14;
+    public static final int ERROR_TYPE_TENANT_STATE = 12;
+    public static final int ERROR_TYPE_TENANT_POSTOFFICE = 13;
+    public static final int ERROR_TYPE_TENANT_PINCODE = 14;
+    public static final int ERROR_TYPE_TENANT_SURVEY_NUMBER = 15;
+    public static final int ERROR_TYPE_RENT_AMOUNT = 16;
+    public static final int ERROR_TYPE_TENANT_STATUS = 17;
 
     @Inject
     ITenantDetailsPresenter<ITenantDetailsView, ITenantDetailsInteractor> presenter;
@@ -96,11 +99,14 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
         String street = Objects.requireNonNull(getViewBinding().etTenantStreetName.getText()).toString().trim();
         String tenantHouse = Objects.requireNonNull(getViewBinding().etTenantHouseName.getText()).toString().trim();
         String tenantNative = Objects.requireNonNull(getViewBinding().etTenantNative.getText()).toString().trim();
+        String tenantState = Objects.requireNonNull(getViewBinding().etTenantState.getText()).toString().trim();
         String tenantPostoffice = Objects.requireNonNull(getViewBinding().etTenantPostOffice.getText()).toString().trim();
+        String tenantPincode = Objects.requireNonNull(getViewBinding().etTenantPincode.getText()).toString().trim();
         String tenantSurveyNumber = Objects.requireNonNull(getViewBinding().etTenantSurveyNumber.getText()).toString().trim();
         String rentAmount = Objects.requireNonNull(getViewBinding().etTenantRentAmount.getText()).toString().trim();
+        String tenantStatus = Objects.requireNonNull(getViewBinding().etTenantStatus.getText()).toString().trim();
 
-        presenter.validateData(firstName,lastName,email,mobile,landphone,gender,placeName,village,street,tenantHouse,tenantNative,tenantPostoffice,tenantSurveyNumber,rentAmount);
+        presenter.validateData(firstName,lastName,email,mobile,landphone,gender,placeName,village,street,tenantHouse,tenantNative,tenantState,tenantPostoffice,tenantPincode,tenantSurveyNumber,rentAmount,tenantStatus);
     }
 
     @Override
@@ -150,9 +156,17 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
                 getViewBinding().layoutTenantNative.setError(error);
                 getViewBinding().layoutTenantNative.requestFocus();
                 break;
+            case ERROR_TYPE_TENANT_STATE:
+                getViewBinding().layoutTenantState.setError(error);
+                getViewBinding().layoutTenantState.requestFocus();
+                break;
             case ERROR_TYPE_TENANT_POSTOFFICE:
                 getViewBinding().layoutTenantPostOffice.setError(error);
                 getViewBinding().layoutTenantPostOffice.requestFocus();
+                break;
+            case ERROR_TYPE_TENANT_PINCODE:
+                getViewBinding().layoutTenantPincode.setError(error);
+                getViewBinding().layoutTenantPincode.requestFocus();
                 break;
             case ERROR_TYPE_TENANT_SURVEY_NUMBER:
                 getViewBinding().layoutTenantSurveyNumber.setError(error);
@@ -161,6 +175,10 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
             case ERROR_TYPE_RENT_AMOUNT:
                 getViewBinding().layoutTenantRentAmount.setError(error);
                 getViewBinding().layoutTenantRentAmount.requestFocus();
+                break;
+            case ERROR_TYPE_TENANT_STATUS:
+                getViewBinding().layoutTenantStatus.setError(error);
+                getViewBinding().layoutTenantStatus.requestFocus();
                 break;
             default:
                 break;
@@ -201,9 +219,12 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
             getViewBinding().etTenantStreetName.setText(tenantDetails.getStreet());
             getViewBinding().etTenantHouseName.setText(tenantDetails.getTntHouseName());
             getViewBinding().etTenantNative.setText(tenantDetails.getTntNative());
+            getViewBinding().etTenantState.setText(tenantDetails.getTenantState());
             getViewBinding().etTenantPostOffice.setText(tenantDetails.getTntPostOffice());
+            getViewBinding().etTenantPincode.setText(tenantDetails.getTenantPincode());
             getViewBinding().etTenantSurveyNumber.setText(tenantDetails.getTntSurveyNo());
             getViewBinding().etTenantRentAmount.setText(tenantDetails.getRentAmount());
+            getViewBinding().etTenantStatus.setText(tenantDetails.getTenantStatus());
         }
     }
 

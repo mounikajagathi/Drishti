@@ -13,24 +13,20 @@
         android:layout_alignParentTop="true"
         android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:padding="@dimen/standard_spacing_medium">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyInformedBy"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyNeighbourName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyInformedBy"
@@ -51,15 +47,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyNeighbourName"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveySurveyor"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyInformedBy"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyNeighbourName"
@@ -80,15 +71,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveySurveyor"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyNeighbourName"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveySurveyor"
@@ -109,15 +95,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyOldPropertyRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveySurveyor"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyRemarks"
@@ -138,15 +119,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyOldPropertyRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyNewPropertyRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyRemarks"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyOldPropertyRemarks"
@@ -167,15 +143,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyNewPropertyRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyCooperation"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyOldPropertyRemarks"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyNewPropertyRemarks"
@@ -196,15 +167,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyCooperation"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toTopOf="@id/layoutSurveyOwnershipChange"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyNewPropertyRemarks"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etSurveyCooperation"
@@ -225,15 +191,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutSurveyOwnershipChange"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_regular"
-                android:layout_marginTop="@dimen/standard_spacing_mini"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutSurveyCooperation"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:layout_marginTop="@dimen/standard_spacing_mini">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srSurveyOwnershipChange"
@@ -250,7 +211,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -263,8 +224,7 @@
         android:textSize="@dimen/standard_text_size_medium"
         android:background="@color/colorDarkBlue"
         android:padding="@dimen/standard_spacing_medium"
-        android:paddingTop="@dimen/standard_spacing_medium"
-        app:layout_constraintVertical_chainStyle="packed"/>
+        android:paddingTop="@dimen/standard_spacing_medium"/>
 
 
 </RelativeLayout>

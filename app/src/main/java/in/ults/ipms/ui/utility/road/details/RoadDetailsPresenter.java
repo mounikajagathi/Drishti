@@ -26,7 +26,7 @@ public class RoadDetailsPresenter<V extends IRoadDetailsView, I extends IRoadDet
     }
 
     @Override
-    public void saveRoadDetails(String roadName, String startPoint, String endPoint, String roadMaterial, String roadCategory, String maintainedBy, String lengthMtr, String carriageWidthMtr, String roadwayWidthMtr, String footpathWidthMtr, String rightWayWidthMtr, String remarks, String photo, GeomPolyLine geom) {
+    public void saveRoadDetails(String roadName, String startPoint, String endPoint, String roadMaterial, String roadCategory, String maintainedBy, String lengthMtr, String carriageWidthMtr, String roadwayWidthMtr, String footpathWidthMtr, String rightWayWidthMtr, String footpath, String footpathPlacement, String footpathConsMat, String environment, String boardResolution, String assetID, String wardNo, String remarks, String photo, GeomPolyLine geom) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(roadName)) {
             getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_ROAD_NAME, baseActivity.getResources().getString(R.string.err_road_utility_road_name));
@@ -70,21 +70,49 @@ public class RoadDetailsPresenter<V extends IRoadDetailsView, I extends IRoadDet
         }
         if (CommonUtils.isNullString(rightWayWidthMtr)) {
             getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_RIGHTWAY_WIDTH_MTR, baseActivity.getResources().getString(R.string.err_road_utility_right_of_way_width_mtr));
-            return;//
+            return;
+        }
+        if (CommonUtils.isNullString(footpath)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_FOOT_PATH, baseActivity.getResources().getString(R.string.err_road_utility_footpath));
+            return;
+        }
+        if (CommonUtils.isNullString(footpathPlacement)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_FOOT_PATH_PLACEMENT, baseActivity.getResources().getString(R.string.err_road_utility_footpath_placement));
+            return;
+        }
+        if (CommonUtils.isNullString(footpathConsMat)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_FOOT_PATH_CONS_MAT, baseActivity.getResources().getString(R.string.err_road_utility_footpath_cons_mat));
+            return;
+        }
+        if (CommonUtils.isNullString(environment)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_ENVIRONMENT, baseActivity.getResources().getString(R.string.err_road_utility_environment));
+            return;
+        }
+        if (CommonUtils.isNullString(boardResolution)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_BOARD_RESOLUTION, baseActivity.getResources().getString(R.string.err_road_utility_board_resolution));
+            return;
+        }
+        if (CommonUtils.isNullString(assetID)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_ASSET_ID, baseActivity.getResources().getString(R.string.err_road_utility_asset_id));
+            return;
+        }
+        if (CommonUtils.isNullString(wardNo)) {
+            getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_WARD_NUMBER, baseActivity.getResources().getString(R.string.err_road_utility_ward_number));
+            return;
         }
         if (CommonUtils.isNullString(remarks)) {
             getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_REMARKS, baseActivity.getResources().getString(R.string.err_road_utility_remarks));
-            return;//
+            return;
         }
         if (CommonUtils.isNullString(photo)) {
             getMvpView().showRoadAddFieldError(RoadDetailsFragment.ERROR_TYPE_PHOTO, baseActivity.getResources().getString(R.string.err_road_utility_photo));
-            return;//
+            return;
         }
-        addUpdateContent(roadName, startPoint, endPoint, roadMaterial, roadCategory, maintainedBy, lengthMtr, carriageWidthMtr, roadwayWidthMtr, footpathWidthMtr, rightWayWidthMtr, remarks, photo, geom);
+        addUpdateContent(roadName, startPoint, endPoint, roadMaterial, roadCategory, maintainedBy, lengthMtr, carriageWidthMtr, roadwayWidthMtr, footpathWidthMtr, rightWayWidthMtr, footpath, footpathPlacement, footpathConsMat, environment, boardResolution, assetID, wardNo, remarks, photo, geom);
     }
 
     void addUpdateContent(String roadName, String startPoint, String endPoint, String roadMaterial, String roadCategory, String maintainedBy,
-                          String lengthMtr, String carriageWidthMtr, String roadwayWidthMtr, String footpathWidthMtr, String rightWayWidthMtr, String remarks, String photo, GeomPolyLine geom) {
+                          String lengthMtr, String carriageWidthMtr, String roadwayWidthMtr, String footpathWidthMtr, String rightWayWidthMtr, String footpath, String footpathPlacement, String footpathConsMat, String environment, String boardResolution, String assetID, String wardNo, String remarks, String photo, GeomPolyLine geom) {
 
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
@@ -101,6 +129,13 @@ public class RoadDetailsPresenter<V extends IRoadDetailsView, I extends IRoadDet
                 data.getRoadUtility().setRoadwayWidth(roadwayWidthMtr);
                 data.getRoadUtility().setFootpathWidth(footpathWidthMtr);
                 data.getRoadUtility().setMaintainedBy(maintainedBy);
+                data.getRoadUtility().setFootpath(footpath);
+                data.getRoadUtility().setFootpathPlacement(footpathPlacement);
+                data.getRoadUtility().setFootpathConsMat(footpathConsMat);
+                data.getRoadUtility().setBoardResolution(boardResolution);
+                data.getRoadUtility().setEnvironment(environment);
+                data.getRoadUtility().setAssetID(assetID);
+                data.getRoadUtility().setWard(Integer.parseInt(wardNo));
                 data.getRoadUtility().setRemarks(remarks);
                 data.getRoadUtility().setPhoto(photo);
                 data.getRoadUtility().setGeom(geom);
@@ -121,8 +156,15 @@ public class RoadDetailsPresenter<V extends IRoadDetailsView, I extends IRoadDet
             details.setRoadwayWidth(roadwayWidthMtr);
             details.setFootpathWidth(footpathWidthMtr);
             details.setMaintainedBy(maintainedBy);
+            details.setFootpath(footpath);
+            details.setFootpathPlacement(footpathPlacement);
+            details.setFootpathConsMat(footpathConsMat);
+            details.setBoardResolution(boardResolution);
+            details.setEnvironment(environment);
+            details.setAssetID(assetID);
+            details.setWard(Integer.parseInt(wardNo));
             details.setRemarks(remarks);
-            details.setPhoto(photo);//
+            details.setPhoto(photo);
             details.setGeom(geom);
             details.setUpdationStatus(AppConstants.UPDATION_STATUS_ADD);
             data.setRoadUtility(details);

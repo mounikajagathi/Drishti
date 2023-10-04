@@ -26,7 +26,7 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
     }
 
     @Override
-    public void validateData(String place, String name, String length, String width, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String place, String name, String length, String width,String status, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
       getMvpView().clearErrors();
         if (CommonUtils.isNullString(place)) {
             getMvpView().showErrors(RoadHumpDetailsFragment.ERROR_TYPE_PLACE, baseActivity.getResources().getString(R.string.err_road_hump_details_place));
@@ -42,6 +42,10 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
         }
         if (CommonUtils.isNullString(width)) {
             getMvpView().showErrors(RoadHumpDetailsFragment.ERROR_TYPE_WIDTH, baseActivity.getResources().getString(R.string.err_road_hump_details_width));
+            return;
+        }
+        if (CommonUtils.isNullString(status)) {
+            getMvpView().showErrors(RoadHumpDetailsFragment.ERROR_TYPE_STATUS, baseActivity.getResources().getString(R.string.err_road_hump_details_status));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {
@@ -62,11 +66,11 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
             return;
         }
 
-        addUpdateContent(place, name, length, width, wardNo, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(place, name, length, width,status, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String place, String name, String length, String width,  String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String place, String name, String length, String width,String status,  String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -77,6 +81,7 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
                 data.getRoadHumpDetails().setPlace(place);
                 data.getRoadHumpDetails().setLength(Long.parseLong(length));
                 data.getRoadHumpDetails().setWidth(Long.parseLong(width));
+                data.getRoadHumpDetails().setStatus(status);
                 data.getRoadHumpDetails().setWard(Long.parseLong(wardNo));
                 data.getRoadHumpDetails().setRemarks(remarks);
                 data.getRoadHumpDetails().setPhoto1(photo);
@@ -91,6 +96,7 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
             details.setPlace(place);
             details.setLength(Long.parseLong(length));
             details.setWidth(Long.parseLong(width));
+            details.setStatus(status);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
             details.setPhoto1(photo);

@@ -50,7 +50,8 @@
     <string name="village_name">Village</string>
     <string name="street_name">Street</string>
     <string name="ward_number">Ward Number</string>
-    <string name="postoffice">Postoffice</string>
+    <string name="postoffice">Post Office</string>
+    <string name="pincode">Pincode</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
 
@@ -241,6 +242,7 @@
     <string name="owner_details_title">Owner Details</string>
     <string name="house">House Name</string>
     <string name="survey_number">Survey Number</string>
+    <string name="owner_name_sanjaya">Owner Name in Sanjaya</string>
 
     <string name="err_first_name">Please enter first name.</string>
     <string name="err_last_name">Please enter last name.</string>
@@ -253,15 +255,20 @@
     <string name="err_owner_house">Please enter house name.</string>
     <string name="err_occupation">Please select occupation.</string>
     <string name="err_owner_postoffice">Please enter postoffice.</string>
+    <string name="err_pincode">Please enter pincode.</string>
     <string name="err_owner_survey_number">Please enter survey number.</string>
+    <string name="err_owner_name_sanjaya">Please enter owner name in sanjaya.</string>
+
 
     <!--Tenant Details-->
     <string name="tenant_details_title">Tenant Details</string>
     <string name="tenant_native">Native</string>
+    <string name="tenant_status">Tenant Status</string>
     <string name="rent_amount">Rent Amount</string>
 
     <string name="err_tenant_native">Please enter native.</string>
     <string name="err_rent_amount">Please enter rent amount.</string>
+    <string name="err_tenant_status">Please enter tenant status.</string>
 
     <!--Establishment Details-->
     <string name="establishment_details_title">Establishment Details</string>
@@ -365,6 +372,7 @@
     <string name="tax_paid_date">Tax Paid Date</string>
     <string name="tax_paid_year">Tax Paid Year</string>
     <string name="tax_amount">Tax Amount</string>
+    <string name="tax_annual">Annual Tax Amount</string>
     <string name="assessment_number">Assessment Number</string>
     <string name="tax_photo">Tax Photo</string>
 
@@ -372,6 +380,7 @@
     <string name="err_paid_date">Please enter paid date.</string>
     <string name="err_paid_year">Please enter paid year.</string>
     <string name="err_tax_amount">Please enter tax amount.</string>
+    <string name="err_tax_annual">Please enter annual tax amount.</string>
     <string name="err_assessment_number">Please enter assessment number.</string>
     <string name="err_tax_image">Please capture tax image.</string>
 
@@ -386,6 +395,7 @@
     <string name="Education_category">Education Category</string>
     <string name="Education">Education</string>
     <string name="marital_status">Marital Status</string>
+    <string name="date_of_birth">Date of Birth</string>
     <string name="is_coolie_wage">Is Coolie Wage</string>
     <string name="is_alive">Is Alive</string>
     <string name="is_qualified">Is Qualified</string>
@@ -402,6 +412,7 @@
     <string name="err_blood_group">Please select blood group.</string>
     <string name="err_education_category">Please select education category.</string>
     <string name="err_education">Please select education.</string>
+    <string name="err_date_of_birth">Please select date of birth.</string>
     <string name="err_marital_status">Please select marital status.</string>
     <string name="err_is_coolie_wage">Please select is coolie wage.</string>
     <string name="err_is_alive">Please select is alive.</string>
@@ -504,6 +515,13 @@
     <string name="road_utility_roadway_width_mtr">Roadway Width (mtr)</string>
     <string name="road_utility_footpath_width_mtr">Footpath Width (mtr)</string>
     <string name="road_utility_right_of_way_width_mtr">Right of way Width (mtr)</string>
+    <string name="road_utility_footpath">Footpath</string>
+    <string name="road_utility_footpath_placement">Footpath Placement</string>
+    <string name="road_utility_footpath_cons_mat">Footpath Cons Mat</string>
+    <string name="road_utility_environment">Environment</string>
+    <string name="road_utility_board_resolution">Board Resolution</string>
+    <string name="road_utility_asset_id">Asset ID</string>
+    <string name="road_utility_ward_number">Ward Number</string>
     <string name="road_utility_remarks">Remarks</string>
     <string name="road_utility_photo">Photo</string>
 
@@ -519,6 +537,13 @@
     <string name="err_road_utility_roadway_width_mtr">Please enter road way width in mtr</string>
     <string name="err_road_utility_footpath_width_mtr">Please enter footpath width in mtr</string>
     <string name="err_road_utility_right_of_way_width_mtr">Please enter right of way width in mtr</string>
+    <string name="err_road_utility_footpath">Please enter footpath</string>
+    <string name="err_road_utility_footpath_placement">Please enter footpath placement</string>
+    <string name="err_road_utility_footpath_cons_mat">Please enter footpath cons mat</string>
+    <string name="err_road_utility_environment">Please enter environment</string>
+    <string name="err_road_utility_board_resolution">Please enter board resolution</string>
+    <string name="err_road_utility_asset_id">Please enter asset id</string>
+    <string name="err_road_utility_ward_number">Please select ward number</string>
     <string name="err_road_utility_remarks">Please enter remarks</string>
     <string name="err_road_utility_location">Please plot road location</string>
     <string name="err_road_utility_photo">Please select photo</string>
@@ -532,6 +557,8 @@
     <string name="bridge_details_bridge_sub_type">Bridge Sub Type</string>
     <string name="bridge_details_carriage_width">Carriage Width (mtr)</string>
     <string name="bridge_details_bridge_width">Bridge Width (mtr)</string>
+    <string name="bridge_details_bridge_length">Bridge Length (mtr)</string>
+    <string name="bridge_details_footpath_construction_material">Footpath Construction Material</string>
     <string name="bridge_details_ward_number">Ward Number</string>
     <string name="bridge_details_maintained_by">Maintained By</string>
     <string name="bridge_details_remarks">Remarks ( Max Length 100 )</string>
@@ -544,6 +571,8 @@
     <string name="err_bridge_details_bridge_sub_type">Please select bridge sub type</string>
     <string name="err_bridge_details_carriage_width">Please enter carriage width (mtr)</string>
     <string name="err_bridge_details_bridge_width">Please enter bridge width (mtr)</string>
+    <string name="err_bridge_details_bridge_length">Please enter bridge length (mtr)</string>
+    <string name="err_bridge_details_footpath_construction_material">Please enter footpath construction material</string>
     <string name="err_bridge_details_ward_number">Please select ward number</string>
     <string name="err_bridge_details_maintained_by">Please select maintained By</string>
     <string name="err_bridge_details_remarks">Please enter remarks</string>
@@ -555,6 +584,10 @@
     <string name="culvert_details_title">Culvert Details</string>
     <string name="culvert_details_name">Culvert Name</string>
     <string name="culvert_details_place">Place</string>
+    <string name="culvert_details_unique_id">Unique ID</string>
+    <string name="culvert_details_span_length">Span Length</string>
+    <string name="culvert_details_construction_material">Construction Material</string>
+    <string name="culvert_details_road_name">Road Name</string>
     <string name="culvert_details_ward_number">Ward Number</string>
     <string name="culvert_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="culvert_details_photo_1">Photo</string>
@@ -562,6 +595,10 @@
 
     <string name="err_culvert_details_name">Please enter culvert name</string>
     <string name="err_culvert_details_place">Please enter place</string>
+    <string name="err_culvert_details_unique_id">Please enter unique id</string>
+    <string name="err_culvert_details_span_length">Please enter span length</string>
+    <string name="err_culvert_details_construction_material">Please enter construction material</string>
+    <string name="err_culvert_details_road_name">Please enter road name</string>
     <string name="err_culvert_details_ward_number">Please select ward number</string>
     <string name="err_culvert_details_remarks">Please enter remarks</string>
     <string name="err_culvert_details_photo_1">Please select photo</string>
@@ -572,6 +609,8 @@
     <string name="divider_details_title">Divider Details</string>
     <string name="divider_details_place">Place</string>
     <string name="divider_details_length">Length (mtr)</string>
+    <string name="divider_details_width">Width (mtr)</string>
+    <string name="divider_details_start_end">Start End</string>
     <string name="divider_details_material">Divider Material</string>
     <string name="divider_details_ward_number">Ward Number</string>
     <string name="divider_details_remarks">Remarks ( Max Length 100 )</string>
@@ -580,6 +619,8 @@
 
     <string name="err_divider_details_place">Please enter place</string>
     <string name="err_divider_details_length">Please enter length (mtr)</string>
+    <string name="err_divider_details_width">Please enter width (mtr)</string>
+    <string name="err_divider_details_start_end">Please enter start end</string>
     <string name="err_divider_details_material">Please select divider material</string>
     <string name="err_divider_details_ward_number">Please select ward number</string>
     <string name="err_divider_details_remarks">Please enter remarks</string>
@@ -592,6 +633,9 @@
     <string name="parking_details_place">Place</string>
     <string name="parking_details_capacity">Capacity</string>
     <string name="parking_details_type">Parking Type</string>
+    <string name="parking_details_park_type">Park Type</string>
+    <string name="parking_details_area">Area</string>
+    <string name="parking_details_survey_no">Survey Number</string>
     <string name="parking_details_ward_number">Ward Number</string>
     <string name="parking_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="parking_details_photo_1">Photo</string>
@@ -600,6 +644,9 @@
     <string name="err_parking_details_place">Please enter place</string>
     <string name="err_parking_details_capacity">Please enter capacity</string>
     <string name="err_parking_details_type">Please select parking type</string>
+    <string name="err_parking_details_park_type">Please enter park type</string>
+    <string name="err_parking_details_area">Please enter area</string>
+    <string name="err_parking_details_survey_no">Please enter survey number</string>
     <string name="err_parking_details_ward_number">Please select ward number</string>
     <string name="err_parking_details_remarks">Please enter remarks</string>
     <string name="err_parking_details_photo_1">Please select photo</string>
@@ -611,6 +658,8 @@
     <string name="playground_details_location">Location</string>
     <string name="playground_details_name">Ground Name</string>
     <string name="playground_details_type">Ground Type</string>
+    <string name="playground_details_area">Playground Area</string>
+    <string name="playground_details_survey_no">Survey Number</string>
     <string name="playground_details_ward_number">Ward Number</string>
     <string name="playground_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="playground_details_photo_1">Photo</string>
@@ -619,6 +668,8 @@
     <string name="err_playground_details_location">Please enter location</string>
     <string name="err_playground_details_name">Please enter ground name</string>
     <string name="err_playground_details_type">Please select ground type</string>
+    <string name="err_playground_details_area">Please enter playground area</string>
+    <string name="err_playground_details_survey_no">Please enter survey number</string>
     <string name="err_playground_details_ward_number">Please select ward number</string>
     <string name="err_playground_details_remarks">Please enter remarks</string>
     <string name="err_playground_details_photo_1">Please select photo</string>
@@ -630,6 +681,7 @@
     <string name="road_hump_details_name">Road Name</string>
     <string name="road_hump_details_length">Length</string>
     <string name="road_hump_details_width">Width</string>
+    <string name="road_hump_details_status">Status</string>
     <string name="road_hump_details_ward_number">Ward Number</string>
     <string name="road_hump_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="road_hump_details_photo_1">Photo</string>
@@ -639,6 +691,7 @@
     <string name="err_road_hump_details_name">Please enter road name</string>
     <string name="err_road_hump_details_length">Please enter length</string>
     <string name="err_road_hump_details_width">Please enter width</string>
+    <string name="err_road_hump_details_status">Please enter status</string>
     <string name="err_road_hump_details_ward_number">Please select ward number</string>
     <string name="err_road_hump_details_remarks">Please enter remarks</string>
     <string name="err_road_hump_details_photo_1">Please select photo</string>
@@ -648,12 +701,18 @@
     <!--Road Junction Details-->
     <string name="road_junction_details_title">Junction Details</string>
     <string name="road_junction_details_name">Junction Name</string>
+    <string name="road_junction_details_location_details">Location</string>
+    <string name="road_junction_details_no_of_roads">No of Roads</string>
+    <string name="road_junction_details_pedestrian">Pedestrian</string>
     <string name="road_junction_details_ward_number">Ward Number</string>
     <string name="road_junction_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="road_junction_details_photo_1">Photo</string>
     <string name="road_junction_details_location">Road Junction Location</string>
 
     <string name="err_road_junction_details_name">Please enter junction name</string>
+    <string name="err_road_junction_details_location_details">Please enter location</string>
+    <string name="err_road_junction_details_no_of_roads">Please enter no of roads</string>
+    <string name="err_road_junction_details_pedestrian">Please enter pedestrian</string>
     <string name="err_road_junction_details_ward_number">Please select ward number</string>
     <string name="err_road_junction_details_remarks">Please enter remarks</string>
     <string name="err_road_junction_details_photo_1">Please select photo</string>
@@ -677,12 +736,13 @@
     <string name="err_road_signboard_details_location">Please plot road signboard location</string>
 
 
-
     <!--Drainage Details-->
     <string name="drainage_details_title">Drainage Details</string>
     <string name="drainage_details_location">Drainage Location</string>
     <string name="drainage_details_drainage_name">Drainage Name</string>
     <string name="drainage_details_place">Place</string>
+    <string name="drainage_details_length">Length(M)</string>
+    <string name="drainage_details_drainage_length">Drainage Length</string>
     <string name="drainage_details_Drainage_material">Drainage Material</string>
     <string name="drainage_details_drainage_type">Drainage Type</string>
     <string name="drainage_details_ward_number">Ward Number</string>
@@ -694,6 +754,8 @@
     <string name="err_drainage_details_start_place">Please enter place</string>
     <string name="err_drainage_details_drainage_material">Please enter drainage  material</string>
     <string name="err_drainage_details_drainage_type">Please enter drainage type</string>
+    <string name="err_drainage_details_length">Please enter length</string>
+    <string name="err_drainage_details_drainage_length">Please enter drainage length</string>
     <string name="err_drainage_details_ward_number">Please select ward number</string>
     <string name="err_drainage_details_remarks">Please enter remarks</string>
     <string name="err_drainage_details_location">Please plot drainage location</string>
@@ -1152,7 +1214,6 @@
     <string name="err_high_and_low_mast_details_remarks">Please enter remarks</string>
     <string name="err_high_and_low_mast_details_photo_1">Please select photo 1</string>
     <string name="err_high_and_low_mast_details_high_or_low_mast_location">Please plot high or low mast location</string>
-
 
 
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorWhite">
@@ -13,24 +12,20 @@
         android:layout_alignParentTop="true"
         android:background="@color/colorWhite">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/colorWhite"
+            android:orientation="vertical"
             android:padding="@dimen/standard_spacing_medium">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerBuildingName"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerPlace"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etBuildingName"
@@ -52,15 +47,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerPlace"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerOwnerName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerBuildingName"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etMobileTowerPlace"
@@ -81,15 +71,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerOwnerName"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerOwnerAddress"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerPlace"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etMobileTowerOwnerName"
@@ -110,15 +95,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerOwnerAddress"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerOwnerMobile"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerOwnerName"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etMobileTowerOwnerAddress"
@@ -139,15 +119,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerOwnerMobile"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerBuildingStatus"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerOwnerAddress"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etMobileTowerOwnerMobile"
@@ -168,15 +143,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerBuildingStatus"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerBuildingUsage"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerOwnerMobile"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srBuildingStatus"
@@ -195,15 +165,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerBuildingUsage"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerNewPropertyId"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerBuildingStatus"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srBuildingUsage"
@@ -222,15 +187,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerNewPropertyId"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerOldPropertyId"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerBuildingUsage"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etNewPropertyId"
@@ -251,15 +211,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerOldPropertyId"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerYearOfConstruction"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerNewPropertyId"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etOldPropertyId"
@@ -280,16 +235,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerYearOfConstruction"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerUniqueId"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerOldPropertyId"
-                app:layout_constraintEnd_toStartOf="@id/cbElectricConnectivity"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etYearOfConstruction"
@@ -308,10 +257,8 @@
 
             <androidx.appcompat.widget.AppCompatCheckBox
                 android:id="@+id/cbElectricConnectivity"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/standard_spacing_mini"
-                android:layout_marginEnd="@dimen/dimen_zero_dp"
                 android:button="@drawable/selector_checkbox"
                 android:fontFamily="@font/roboto_regular"
                 android:minHeight="@dimen/standard_edt_txt_height_medium"
@@ -319,24 +266,15 @@
                 android:paddingEnd="@dimen/dimen_zero_dp"
                 android:text="@string/mobile_tower_details_electric_connection"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/layoutMobileTowerYearOfConstruction"
-                app:layout_constraintStart_toEndOf="@id/layoutMobileTowerYearOfConstruction"
-                app:layout_constraintTop_toTopOf="@id/layoutMobileTowerYearOfConstruction"/>
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerUniqueId"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerServiceProvider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerYearOfConstruction"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etMobileTowerUniqueId"
@@ -357,15 +295,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerServiceProvider"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerConsumerNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerUniqueId"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etServiceProvider"
@@ -386,15 +319,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerConsumerNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerRoadWidth"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerServiceProvider"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etConsumerNumber"
@@ -415,15 +343,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerRoadWidth"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerRoadType"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerConsumerNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadWidth"
@@ -444,15 +367,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutMobileTowerRoadType"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutWardNo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerRoadWidth"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRoadType"
@@ -473,15 +391,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutWardNo"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutRemarks"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerRoadType"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSSpinner
                     android:id="@+id/srWardNo"
@@ -500,15 +413,10 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/layoutRemarks"
                 style="@style/AppCommonTextInputLayout"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
-                android:fontFamily="@font/roboto_regular"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerImage1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutWardNo"
-                app:layout_constraintVertical_chainStyle="packed">
+                android:fontFamily="@font/roboto_regular">
 
                 <in.ults.ipms.views.IPMSEditText
                     android:id="@+id/etRemarks"
@@ -530,95 +438,62 @@
 
             <TextView
                 android:id="@+id/layoutMobileTowerImage1"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/mobile_tower_details_photo_1"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/imgMobileTower1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutRemarks"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgMobileTower1"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_property_image_place_holder"
-                app:layout_constraintBottom_toTopOf="@id/layoutMobileTowerImage2"
-                app:layout_constraintDimensionRatio="H,2:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutMobileTowerImage1"
-                app:layout_constraintVertical_chainStyle="packed" />
-            
+                android:src="@mipmap/ic_property_image_place_holder" />
+
             <TextView
                 android:id="@+id/layoutMobileTowerImage2"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/mobile_tower_details_photo_2"
                 android:textAlignment="viewStart"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/imgMobileTower2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgMobileTower1"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imgMobileTower2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="@dimen/standard_image_height_large"
                 android:layout_marginTop="@dimen/standard_spacing_mini"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_property_image_place_holder"
-                app:layout_constraintBottom_toTopOf="@id/txtMobileTowerLocation"
-                app:layout_constraintDimensionRatio="H,2:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgMobileTower2"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:src="@mipmap/ic_property_image_place_holder" />
 
             <TextView
                 android:id="@+id/txtMobileTowerLocation"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
                 android:fontFamily="@font/roboto_medium"
                 android:text="@string/mobile_tower_details_location"
                 android:textColor="@color/colorBlack"
-                android:textSize="@dimen/standard_text_size_medium"
-                app:layout_constraintBottom_toTopOf="@id/includeMiniMapProperty"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imgMobileTower2"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:textSize="@dimen/standard_text_size_medium" />
 
             <include
                 android:id="@+id/includeMiniMapProperty"
                 layout="@layout/include_mini_map"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/standard_spacing_medium"
-                android:layout_marginBottom="@dimen/standard_spacing_medium"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintDimensionRatio="H,1.25:1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txtMobileTowerLocation"
-                app:layout_constraintVertical_chainStyle="packed" />
+                android:layout_marginBottom="@dimen/standard_spacing_medium" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
@@ -631,8 +506,7 @@
         android:paddingTop="@dimen/standard_spacing_medium"
         android:text="@string/submit_button"
         android:textColor="@color/colorWhite"
-        android:textSize="@dimen/standard_text_size_medium"
-        app:layout_constraintVertical_chainStyle="packed" />
+        android:textSize="@dimen/standard_text_size_medium" />
 
 
 </RelativeLayout>

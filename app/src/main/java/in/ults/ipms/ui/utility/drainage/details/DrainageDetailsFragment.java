@@ -33,9 +33,11 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
     public static final int ERROR_TYPE_PLACE = 2;
     public static final int ERROR_TYPE_MATERIAL = 3;
     public static final int ERROR_TYPE_TYPE = 4;
-    public static final int ERROR_TYPE_WARD_NUMBER = 5;
-    public static final int ERROR_TYPE_REMARKS = 6;
-    public static final int ERROR_TYPE_PHOTO = 7;
+    public static final int ERROR_TYPE_LENGTH = 5;
+    public static final int ERROR_TYPE_DRAINAGE_LENGTH = 6;
+    public static final int ERROR_TYPE_WARD_NUMBER = 7;
+    public static final int ERROR_TYPE_REMARKS = 8;
+    public static final int ERROR_TYPE_PHOTO = 9;
     private String photo;
     static final int REQUEST_CODE_IMAGE = 101;
     String roadLength;
@@ -104,9 +106,11 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
         String place = Objects.requireNonNull(getViewBinding().etPlace.getText()).toString().trim();
         String material = (String) getViewBinding().srDrainageMaterial.getTag();
         String type = (String) getViewBinding().srDrainageType.getTag();
+        String length = (String) getViewBinding().srDrainageType.getTag();
+        String drainageLength = (String) getViewBinding().srDrainageType.getTag();
         String wardNumber = (String) getViewBinding().srWardNumber.getTag();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
-        presenter.validateData(name, place, material, type, wardNumber, remarks, photo, geom);
+        presenter.validateData(name, place, material, type,length,drainageLength, wardNumber, remarks, photo, geom);
 
     }
 
@@ -129,6 +133,14 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
                 getViewBinding().layoutDrainageType.setError(error);
                 getViewBinding().layoutDrainageType.requestFocus();
                 break;
+            case ERROR_TYPE_LENGTH:
+                getViewBinding().layoutLength.setError(error);
+                getViewBinding().layoutLength.requestFocus();
+                break;
+            case ERROR_TYPE_DRAINAGE_LENGTH:
+                getViewBinding().layoutDrainageLength.setError(error);
+                getViewBinding().layoutDrainageLength.requestFocus();
+                break;
             case ERROR_TYPE_WARD_NUMBER:
                 getViewBinding().layoutWardNumber.setError(error);
                 getViewBinding().layoutWardNumber.requestFocus();
@@ -150,6 +162,8 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
         getViewBinding().layoutDrainageName.setErrorEnabled(false);
         getViewBinding().layoutDrainageType.setErrorEnabled(false);
         getViewBinding().layoutDrainageMaterial.setErrorEnabled(false);
+        getViewBinding().layoutDrainageLength.setErrorEnabled(false);
+        getViewBinding().layoutLength.setErrorEnabled(false);
         getViewBinding().layoutPlace.setErrorEnabled(false);
         getViewBinding().layoutWardNumber.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
@@ -161,6 +175,8 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
                 AppCacheData.getOurInstance().getBuildingAssetData().getDrainageDetails() != null) {
             UtilityAssets.Drainage drainageDetails = AppCacheData.getOurInstance().getBuildingAssetData().getDrainageDetails();
             getViewBinding().etDrainageName.setText(drainageDetails.getDrainageName());
+            getViewBinding().etLength.setText(drainageDetails.getLength());
+            getViewBinding().etDrainageLength.setText(drainageDetails.getDrainageLength());
             getViewBinding().etPlace.setText(drainageDetails.getPlace());
             getViewBinding().etRemarks.setText(drainageDetails.getRemarks());
             drainageTypeAdapter.setContent(drainageDetails.getDrainageType());

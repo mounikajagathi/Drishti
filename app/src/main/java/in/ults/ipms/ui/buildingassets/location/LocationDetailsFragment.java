@@ -57,7 +57,7 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
     public static final int ERROR_TYPE_PLACE_NAME = 1;
     public static final int ERROR_TYPE_ZONE = 2;
     public static final int ERROR_TYPE_WARD_NUMBER = 3;
-    public static final int ERROR_TYPE_POSTOFFICE= 4;
+    public static final int ERROR_TYPE_POSTOFFICE = 4;
     public static final int ERROR_TYPE_PROPERTY_LOCATION = 5;
 
     public static LocationDetailsFragment newInstance() {
@@ -125,10 +125,10 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
         });
         buildingZonesAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srLocationZone, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getBuildingZones());
         wardNosAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srLocationWardNumber, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getWardNos());
-        postofficesAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srLocationPostOffice,AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getPostoffices());
+        postofficesAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srLocationPostOffice, AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getPostoffices());
 
 //        if(AppCacheData.getOurInstance().isAssetUpdate()){
-            setEditData();
+        setEditData();
 //        }
 
     }
@@ -138,7 +138,7 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
         super.setUp(view);
         getViewBinding().includeMiniMapProperty.miniMapDelete.setOnClickListener(v -> {
             getViewBinding().includeMiniMapProperty.etMiniMapSearch.setText("");
-            latitude= 0.0;
+            latitude = 0.0;
             longitude = 0.0;
             if (pointOverlay != null) {
                 pointOverlay.getGraphics().clear();
@@ -272,7 +272,7 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
         String postOffice = (String) getViewBinding().srLocationPostOffice.getTag();
         Log.d("zone submit", zone);
 
-        presenter.validateData(placeName,zone,wardNumber,postOffice,latitude,longitude);
+        presenter.validateData(placeName, zone, wardNumber, postOffice, latitude, longitude);
     }
 
     @Override
@@ -311,8 +311,8 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
     }
 
     public void setEditData() {
-        if(AppCacheData.getOurInstance().getBuildingAssetData()!=null &&
-                AppCacheData.getOurInstance().getBuildingAssetData().getPropertyDetails()!=null) {
+        if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
+                AppCacheData.getOurInstance().getBuildingAssetData().getPropertyDetails() != null) {
             BuildingAssets.PropertyDetails propertyDetails = AppCacheData.getOurInstance().getBuildingAssetData().getPropertyDetails();
             getViewBinding().etLocationPlaceName.setText(propertyDetails.getPlace_name());
             buildingZonesAdapter.setContent(String.valueOf(propertyDetails.getBldgZone()));
@@ -343,9 +343,7 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
 
     @Override
     public void onDestroy() {
-        if( getViewBinding().includeMiniMapProperty.miniMap!=null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 
@@ -356,6 +354,6 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
 
     @Override
     public void onAddOrUpdateSuccess() {
-        getBaseActivity().launchBuildAssetHome(false,false);
+        getBaseActivity().launchBuildAssetHome(false, false);
     }
 }

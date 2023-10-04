@@ -36,8 +36,9 @@ public class TaxDetailsFragment extends BaseFragment<FragmentTaxDetailsBinding> 
     public static final int ERROR_TYPE_PAID_DATE = 2;
     public static final int ERROR_TYPE_PAID_YEAR = 3;
     public static final int ERROR_TYPE_AMOUNT = 4;
-    public static final int ERROR_TYPE_ASSESSMENT_NUMBER = 5;
-    public static final int ERROR_TYPE_IMAGE = 6;
+    public static final int ERROR_TYPE_ANNUAL = 5;
+    public static final int ERROR_TYPE_ASSESSMENT_NUMBER = 6;
+    public static final int ERROR_TYPE_IMAGE = 7;
 
     public static int selectedPosition = -1;
     private String taxPhoto;
@@ -92,7 +93,7 @@ public class TaxDetailsFragment extends BaseFragment<FragmentTaxDetailsBinding> 
         datePicker.getDatePicker().setMaxDate(newCalendar.getTimeInMillis());
         getViewBinding().etTaxPaidDate.setOnClickListener(v -> datePicker.show());
 
-        if (/*AppCacheData.getOurInstance().isAssetUpdate() && */selectedPosition!=-1) {
+        if (/*AppCacheData.getOurInstance().isAssetUpdate() && */selectedPosition != -1) {
             setEditData();
         }
     }
@@ -139,9 +140,10 @@ public class TaxDetailsFragment extends BaseFragment<FragmentTaxDetailsBinding> 
         String paidDate = Objects.requireNonNull(getViewBinding().etTaxPaidDate.getText()).toString().trim();
         String paidYear = Objects.requireNonNull(getViewBinding().etTaxPaidYear.getText()).toString().trim();
         String amount = Objects.requireNonNull(getViewBinding().etTaxAmount.getText()).toString().trim();
+        String annualTax = Objects.requireNonNull(getViewBinding().etTaxAnnual.getText()).toString().trim();
         String assessmentNumber = Objects.requireNonNull(getViewBinding().etTaxAssessmentNumber.getText()).toString().trim();
 
-        presenter.validateData(billNumber, paidDate, paidYear, amount, assessmentNumber, taxPhoto);
+        presenter.validateData(billNumber, paidDate, paidYear, amount, annualTax, assessmentNumber, taxPhoto);
     }
 
     @Override
@@ -163,6 +165,10 @@ public class TaxDetailsFragment extends BaseFragment<FragmentTaxDetailsBinding> 
                 getViewBinding().layoutTaxAmount.setError(error);
                 getViewBinding().layoutTaxAmount.requestFocus();
                 break;
+            case ERROR_TYPE_ANNUAL:
+                getViewBinding().layoutTaxAnnual.setError(error);
+                getViewBinding().layoutTaxAnnual.requestFocus();
+                break;
             case ERROR_TYPE_ASSESSMENT_NUMBER:
                 getViewBinding().layoutTaxAssessmentNumber.setError(error);
                 getViewBinding().layoutTaxAssessmentNumber.requestFocus();
@@ -181,22 +187,24 @@ public class TaxDetailsFragment extends BaseFragment<FragmentTaxDetailsBinding> 
         getViewBinding().layoutTaxPaidDate.setErrorEnabled(false);
         getViewBinding().layoutTaxPaidYear.setErrorEnabled(false);
         getViewBinding().layoutTaxAmount.setErrorEnabled(false);
+        getViewBinding().layoutTaxAnnual.setErrorEnabled(false);
         getViewBinding().layoutTaxAssessmentNumber.setErrorEnabled(false);
     }
 
     public void setEditData() {
-        if(AppCacheData.getOurInstance().getBuildingAssetData()!=null &&
-                AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails()!=null &&
-                AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails().size()> selectedPosition) {
+        if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
+                AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails() != null &&
+                AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails().size() > selectedPosition) {
             ArrayList<BuildingAssets.TaxDetails> taxDetails = AppCacheData.getOurInstance().getBuildingAssetData().getTaxDetails();
             BuildingAssets.TaxDetails taxDetail = taxDetails.get(selectedPosition);
             getViewBinding().etTaxBillNumber.setText(taxDetail.getTaxBillNo());
             getViewBinding().etTaxPaidDate.setText(taxDetail.getTaxPaidDate());
             getViewBinding().etTaxPaidYear.setText(String.valueOf(taxDetail.getTaxPaidYear()));
             getViewBinding().etTaxAmount.setText(taxDetail.getTaxAmount());
+            getViewBinding().etTaxAnnual.setText(taxDetail.getTaxAnnual());
             getViewBinding().etTaxAssessmentNumber.setText(taxDetail.getAssessmentNo());
             String photo = taxDetail.getTaxPhoto();
-            onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+photo, null, photo);
+            onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + photo, null, photo);
         }
     }
 

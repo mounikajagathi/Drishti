@@ -25,7 +25,7 @@ public class TenantDetailsPresenter <V extends ITenantDetailsView, I extends ITe
     }
 
     @Override
-    public void validateData(String firstName, String lastName, String email, String mobile,String landphone, String gender,String placeName,String village, String street,String tenantHouse, String tenantNative,String tenantPostoffice,String tenantSurveyNumber, String rentAmount) {
+    public void validateData(String firstName, String lastName, String email, String mobile,String landphone, String gender,String placeName,String village, String street,String tenantHouse, String tenantNative,String tenantState,String tenantPostoffice,String tenantPincode,String tenantSurveyNumber, String rentAmount, String tenantStatus) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(firstName)) {
             getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_FIRST_NAME,baseActivity.getResources().getString(R.string.err_first_name));
@@ -71,8 +71,16 @@ public class TenantDetailsPresenter <V extends ITenantDetailsView, I extends ITe
             getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_TENANT_NATIVE,baseActivity.getResources().getString(R.string.err_tenant_native));
             return;
         }
+        if (CommonUtils.isNullString(tenantState)) {
+            getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_TENANT_STATE,baseActivity.getResources().getString(R.string.err_state));
+            return;
+        }
         if (CommonUtils.isNullString(tenantPostoffice)) {
             getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_TENANT_POSTOFFICE,baseActivity.getResources().getString(R.string.err_postoffice));
+            return;
+        }
+        if (CommonUtils.isNullString(tenantPincode)) {
+            getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_TENANT_PINCODE,baseActivity.getResources().getString(R.string.err_pincode));
             return;
         }
         if (CommonUtils.isNullString(tenantSurveyNumber)) {
@@ -83,10 +91,14 @@ public class TenantDetailsPresenter <V extends ITenantDetailsView, I extends ITe
             getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_RENT_AMOUNT,baseActivity.getResources().getString(R.string.err_rent_amount));
             return;
         }
-        savingTenantDetails(firstName,lastName,email,mobile,landphone,gender,placeName,village,street,tenantHouse,tenantNative,tenantPostoffice,tenantSurveyNumber,rentAmount);
+        if (CommonUtils.isNullString(tenantStatus)) {
+            getMvpView().showTenantDetailsFieldError(TenantDetailsFragment.ERROR_TYPE_TENANT_STATUS,baseActivity.getResources().getString(R.string.err_tenant_status));
+            return;
+        }
+        savingTenantDetails(firstName,lastName,email,mobile,landphone,gender,placeName,village,street,tenantHouse,tenantNative,tenantState,tenantPostoffice,tenantPincode,tenantSurveyNumber,rentAmount,tenantStatus);
     }
 
-    public void savingTenantDetails(String firstName, String lastName, String email, String mobile,String landphone, String gender,String placeName,String village, String street,String tenantHouse, String tenantNative,String tenantPostoffice,String tenantSurveyNumber, String rentAmount){
+    public void savingTenantDetails(String firstName, String lastName, String email, String mobile,String landphone, String gender,String placeName,String village, String street,String tenantHouse, String tenantNative,String tenantState,String tenantPostoffice,String tenantPincode,String tenantSurveyNumber, String rentAmount, String tenantStatus){
 
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
             if (AppCacheData.getOurInstance().getBuildingAssetData() != null) {
@@ -104,9 +116,12 @@ public class TenantDetailsPresenter <V extends ITenantDetailsView, I extends ITe
                 data.getTenantDetails().setStreet(street);
                 data.getTenantDetails().setTntHouseName(tenantHouse);
                 data.getTenantDetails().setTntNative(tenantNative);
+                data.getTenantDetails().setTenantState(tenantState);
                 data.getTenantDetails().setTntPostOffice(tenantPostoffice);
+                data.getTenantDetails().setTenantPincode(tenantPincode);
                 data.getTenantDetails().setTntSurveyNo(tenantSurveyNumber);
                 data.getTenantDetails().setRentAmount(rentAmount);
+                data.getTenantDetails().setTenantStatus(tenantStatus);
                 data.getTenantDetails().setUpdationStatus(AppConstants.UPDATION_STATUS_UPDATE);
                 saveAssetDetails(data);
             }
@@ -134,9 +149,12 @@ public class TenantDetailsPresenter <V extends ITenantDetailsView, I extends ITe
                 tenantDetails.setStreet(street);
                 tenantDetails.setTntHouseName(tenantHouse);
                 tenantDetails.setTntNative(tenantNative);
+                tenantDetails.setTenantState(tenantState);
                 tenantDetails.setTntPostOffice(tenantPostoffice);
+                tenantDetails.setTenantPincode(tenantPincode);
                 tenantDetails.setTntSurveyNo(tenantSurveyNumber);
                 tenantDetails.setRentAmount(rentAmount);
+                tenantDetails.setTenantStatus(tenantStatus);
                 FetchAssetDataResponse.Data newData = new FetchAssetDataResponse.Data();
                 newData.setTenantDetails(tenantDetails);
                 saveAssetDetails(newData);

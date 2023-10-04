@@ -26,10 +26,25 @@ public class RoadJunctionDetailsPresenter<V extends IRoadJunctionDetailsView, I 
     }
 
     @Override
-    public void validateData(String name, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String name,String location,String noOfRoad,String pedestrian, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(name)) {
             getMvpView().showErrors(RoadJunctionDetailsFragment.ERROR_TYPE_NAME, baseActivity.getResources().getString(R.string.err_road_junction_details_name));
+            return;
+        }
+
+        if (CommonUtils.isNullString(location)) {
+            getMvpView().showErrors(RoadJunctionDetailsFragment.ERROR_TYPE_LOCATION_DETAILS, baseActivity.getResources().getString(R.string.err_road_junction_details_location_details));
+            return;
+        }
+
+        if (CommonUtils.isNullString(noOfRoad)) {
+            getMvpView().showErrors(RoadJunctionDetailsFragment.ERROR_TYPE_NO_OF_ROADS, baseActivity.getResources().getString(R.string.err_road_junction_details_no_of_roads));
+            return;
+        }
+
+        if (CommonUtils.isNullString(pedestrian)) {
+            getMvpView().showErrors(RoadJunctionDetailsFragment.ERROR_TYPE_PEDESTRIAN, baseActivity.getResources().getString(R.string.err_road_junction_details_pedestrian));
             return;
         }
 
@@ -51,11 +66,11 @@ public class RoadJunctionDetailsPresenter<V extends IRoadJunctionDetailsView, I 
             return;
         }
 
-        addUpdateContent(name, wardNo, remarks, photo, locationLatitude, locationLongitude);
+        addUpdateContent(name,location,noOfRoad,pedestrian, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String name, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String name,String location,String noOfRoad,String pedestrian, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -63,6 +78,9 @@ public class RoadJunctionDetailsPresenter<V extends IRoadJunctionDetailsView, I 
                     AppCacheData.getOurInstance().getBuildingAssetData().getRoadJunctionDetails() != null) {
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getRoadJunctionDetails().setJunctionName(name);
+                data.getRoadJunctionDetails().setLocation(location);
+                data.getRoadJunctionDetails().setNoOfRoads(noOfRoad);
+                data.getRoadJunctionDetails().setPedestrian(pedestrian);
                 data.getRoadJunctionDetails().setWard(Long.parseLong(wardNo));
                 data.getRoadJunctionDetails().setRemarks(remarks);
                 data.getRoadJunctionDetails().setPhoto1(photo);
@@ -74,6 +92,9 @@ public class RoadJunctionDetailsPresenter<V extends IRoadJunctionDetailsView, I 
             FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
             UtilityAssets.RoadJunction details = new UtilityAssets.RoadJunction();
             details.setJunctionName(name);
+            details.setLocation(location);
+            details.setNoOfRoads(noOfRoad);
+            details.setPedestrian(pedestrian);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
             details.setPhoto1(photo);

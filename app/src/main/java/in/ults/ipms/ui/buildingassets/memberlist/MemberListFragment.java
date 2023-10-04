@@ -6,7 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import javax.inject.Inject;
 
@@ -28,9 +27,6 @@ public class MemberListFragment extends BaseFragment<FragmentMemberListBinding> 
 
     @Inject
     MembersListAdapter membersListAdapter;
-
-    @Inject
-    LinearLayoutManager layoutManager;
 
 
     public static MemberListFragment newInstance() {
@@ -64,7 +60,6 @@ public class MemberListFragment extends BaseFragment<FragmentMemberListBinding> 
 
     @Override
     protected void init(View view) {
-        getViewBinding().rvMemberList.setLayoutManager(layoutManager);
         if (AppCacheData.getOurInstance().getBuildingAssetData() != null &&
                 AppCacheData.getOurInstance().getBuildingAssetData().getMemberDetails() != null) {
             membersListAdapter.setLocalDataSet(AppCacheData.getOurInstance().getBuildingAssetData().getMemberDetails());

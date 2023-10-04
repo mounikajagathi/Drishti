@@ -57,10 +57,14 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
 
     public static final int ERROR_TYPE_CULVERT_NAME = 1;
     public static final int ERROR_TYPE_PLACE = 2;
-    public static final int ERROR_TYPE_WARD_NO = 3;
-    public static final int ERROR_TYPE_REMARKS = 4;
-    public static final int ERROR_TYPE_PHOTO = 5;
-    public static final int ERROR_TYPE_LOCATION = 6;
+    public static final int ERROR_TYPE_UNIQUE_ID = 3;
+    public static final int ERROR_TYPE_SPAN_LENGTH = 4;
+    public static final int ERROR_TYPE_CONSTRUCTION_MATERIAL = 5;
+    public static final int ERROR_TYPE_ROAD_NAME = 6;
+    public static final int ERROR_TYPE_WARD_NO = 7;
+    public static final int ERROR_TYPE_REMARKS = 8;
+    public static final int ERROR_TYPE_PHOTO = 9;
+    public static final int ERROR_TYPE_LOCATION = 10;
 
     public static CulvertDetailsFragment newInstance() {
         return new CulvertDetailsFragment();
@@ -272,9 +276,13 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
     void submitOnClick() {
         String name = Objects.requireNonNull(getViewBinding().etCulvertName.getText()).toString().trim();
         String place = Objects.requireNonNull(getViewBinding().etCulvertPlace.getText()).toString().trim();
+        String uniqueID = Objects.requireNonNull(getViewBinding().etUniqueID.getText()).toString().trim();
+        String spanLength = Objects.requireNonNull(getViewBinding().etSpanLength.getText()).toString().trim();
+        String constructionMaterial = Objects.requireNonNull(getViewBinding().etConstructionMaterial.getText()).toString().trim();
+        String roadName = Objects.requireNonNull(getViewBinding().etRoadName.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String wardNo = (String)getViewBinding().srWardNo.getTag();
-        presenter.validateData(name, place, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(name, place,uniqueID,spanLength,constructionMaterial,roadName, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -287,6 +295,22 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
             case ERROR_TYPE_PLACE:
                 getViewBinding().layoutCulvertPlace.setError(error);
                 getViewBinding().layoutCulvertPlace.requestFocus();
+                break;
+            case ERROR_TYPE_UNIQUE_ID:
+                getViewBinding().layoutCulvertUniqueID.setError(error);
+                getViewBinding().layoutCulvertUniqueID.requestFocus();
+                break;
+            case ERROR_TYPE_CONSTRUCTION_MATERIAL:
+                getViewBinding().layoutConstructionMaterial.setError(error);
+                getViewBinding().layoutConstructionMaterial.requestFocus();
+                break;
+            case ERROR_TYPE_SPAN_LENGTH:
+                getViewBinding().layoutSpanLength.setError(error);
+                getViewBinding().layoutSpanLength.requestFocus();
+                break;
+            case ERROR_TYPE_ROAD_NAME:
+                getViewBinding().layoutRoadName.setError(error);
+                getViewBinding().layoutRoadName.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -309,6 +333,10 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
     public void clearErrors() {
         getViewBinding().layoutCulvertName.setErrorEnabled(false);
         getViewBinding().layoutCulvertPlace.setErrorEnabled(false);
+        getViewBinding().layoutCulvertUniqueID.setErrorEnabled(false);
+        getViewBinding().layoutConstructionMaterial.setErrorEnabled(false);
+        getViewBinding().layoutSpanLength.setErrorEnabled(false);
+        getViewBinding().layoutRoadName.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
@@ -319,6 +347,10 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
             if (culvertDetails != null) {
                 getViewBinding().etCulvertName.setText(culvertDetails.getCulvertName());
                 getViewBinding().etCulvertPlace.setText(culvertDetails.getPlace());
+                getViewBinding().etUniqueID.setText(culvertDetails.getUniqueID());
+                getViewBinding().etSpanLength.setText(culvertDetails.getSpanLength());
+                getViewBinding().etConstructionMaterial.setText(culvertDetails.getConstructionMaterial());
+                getViewBinding().etRoadName.setText(culvertDetails.getRoadName());
                 getViewBinding().etRemarks.setText(culvertDetails.getRemarks());
                 wardAdapter.setContent(String.valueOf(culvertDetails.getWard()));
                 GeomPoint geom = culvertDetails.getGeom();
@@ -385,9 +417,7 @@ public class CulvertDetailsFragment extends BaseFragment<FragmentCulvertDetailsB
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

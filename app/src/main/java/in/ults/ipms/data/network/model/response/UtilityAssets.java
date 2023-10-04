@@ -91,6 +91,35 @@ public class UtilityAssets {
         @SerializedName("start_point")
         private String startPoint;
 
+        @SerializedName("ward")
+        @Expose
+        private long ward;
+
+        @Expose
+        @SerializedName("footpath")
+        private String footpath;
+
+        @Expose
+        @SerializedName("foodpath_placement")
+        private String footpathPlacement;
+
+        @Expose
+        @SerializedName("foodpath_cons_mat")
+        private String footpathConsMat;
+
+        @Expose
+        @SerializedName("environment")
+        private String environment;
+
+        @Expose
+        @SerializedName("board_reso")
+        private String boardResolution;
+
+        @Expose
+        @SerializedName("ar_id")
+        private String assetID;
+
+
         @Expose
         @SerializedName("state")
         private int state;
@@ -330,6 +359,62 @@ public class UtilityAssets {
         public void setGeom(GeomPolyLine geom) {
             this.geom = geom;
         }
+
+        public long getWard() {
+            return ward;
+        }
+
+        public void setWard(long ward) {
+            this.ward = ward;
+        }
+
+        public String getFootpath() {
+            return footpath;
+        }
+
+        public void setFootpath(String footpath) {
+            this.footpath = footpath;
+        }
+
+        public String getFootpathPlacement() {
+            return footpathPlacement;
+        }
+
+        public void setFootpathPlacement(String footpathPlacement) {
+            this.footpathPlacement = footpathPlacement;
+        }
+
+        public String getFootpathConsMat() {
+            return footpathConsMat;
+        }
+
+        public void setFootpathConsMat(String footpathConsMat) {
+            this.footpathConsMat = footpathConsMat;
+        }
+
+        public String getEnvironment() {
+            return environment;
+        }
+
+        public void setEnvironment(String environment) {
+            this.environment = environment;
+        }
+
+        public String getBoardResolution() {
+            return boardResolution;
+        }
+
+        public void setBoardResolution(String boardResolution) {
+            this.boardResolution = boardResolution;
+        }
+
+        public String getAssetID() {
+            return assetID;
+        }
+
+        public void setAssetID(String assetID) {
+            this.assetID = assetID;
+        }
     }
 
     public static class Playground {
@@ -373,6 +458,12 @@ public class UtilityAssets {
         @SerializedName("ground_type")
         @Expose
         private String groundType;
+        @SerializedName("survey_no")
+        @Expose
+        private String surveyNo;
+        @SerializedName("area")
+        @Expose
+        private String groundArea;
         @SerializedName("asset_status")
         @Expose
         private long assetStatus;
@@ -554,6 +645,22 @@ public class UtilityAssets {
         public void setPk(long pk) {
             this.pk = pk;
         }
+
+        public String getSurveyNo() {
+            return surveyNo;
+        }
+
+        public void setSurveyNo(String surveyNo) {
+            this.surveyNo = surveyNo;
+        }
+
+        public String getGroundArea() {
+            return groundArea;
+        }
+
+        public void setGroundArea(String groundArea) {
+            this.groundArea = groundArea;
+        }
     }
 
     public static class Drainage {
@@ -600,6 +707,12 @@ public class UtilityAssets {
         @SerializedName("drainage_type")
         @Expose
         private String drainageType;
+        @SerializedName("drainage_length")
+        @Expose
+        private String length;
+        @SerializedName("length")
+        @Expose
+        private String drainageLength;
         @SerializedName("district")
         @Expose
         private long district;
@@ -789,6 +902,22 @@ public class UtilityAssets {
         public void setPk(long pk) {
             this.pk = pk;
         }
+
+        public String getLength() {
+            return length;
+        }
+
+        public void setLength(String length) {
+            this.length = length;
+        }
+
+        public String getDrainageLength() {
+            return drainageLength;
+        }
+
+        public void setDrainageLength(String drainageLength) {
+            this.drainageLength = drainageLength;
+        }
     }
 
     public static class ParkingArea {
@@ -832,6 +961,15 @@ public class UtilityAssets {
         @SerializedName("parking_type")
         @Expose
         private String parkingType;
+        @SerializedName("park_type")
+        @Expose
+        private String parkType;
+        @SerializedName("survey_no")
+        @Expose
+        private String surveyNo;
+        @SerializedName("area")
+        @Expose
+        private String area;
         @SerializedName("asset_status")
         @Expose
         private long assetStatus;
@@ -1014,6 +1152,29 @@ public class UtilityAssets {
             this.pk = pk;
         }
 
+        public String getParkType() {
+            return parkType;
+        }
+
+        public void setParkType(String parkType) {
+            this.parkType = parkType;
+        }
+
+        public String getSurveyNo() {
+            return surveyNo;
+        }
+
+        public void setSurveyNo(String surveyNo) {
+            this.surveyNo = surveyNo;
+        }
+
+        public String getArea() {
+            return area;
+        }
+
+        public void setArea(String area) {
+            this.area = area;
+        }
     }
 
     public static class RoadSignboard {
@@ -1259,6 +1420,15 @@ public class UtilityAssets {
         @SerializedName("junction_name")
         @Expose
         private String junctionName;
+        @SerializedName("location")
+        @Expose
+        private String location;
+        @SerializedName("no_of_roads")
+        @Expose
+        private String noOfRoads;
+        @SerializedName("pedestrian")
+        @Expose
+        private String pedestrian;
         @SerializedName("geom")
         @Expose
         private GeomPoint geom;
@@ -1431,6 +1601,29 @@ public class UtilityAssets {
             this.pk = pk;
         }
 
+        public String getLocation() {
+            return location;
+        }
+
+        public void setLocation(String location) {
+            this.location = location;
+        }
+
+        public String getNoOfRoads() {
+            return noOfRoads;
+        }
+
+        public void setNoOfRoads(String noOfRoads) {
+            this.noOfRoads = noOfRoads;
+        }
+
+        public String getPedestrian() {
+            return pedestrian;
+        }
+
+        public void setPedestrian(String pedestrian) {
+            this.pedestrian = pedestrian;
+        }
     }
 
     public static class RoadHump {
@@ -1480,6 +1673,9 @@ public class UtilityAssets {
         @SerializedName("photo1")
         @Expose
         private String photo1;
+        @SerializedName("status")
+        @Expose
+        private String status;
         @SerializedName("localbody")
         @Expose
         private long localbody;
@@ -1667,6 +1863,13 @@ public class UtilityAssets {
             this.pk = pk;
         }
 
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
+        }
     }
 
     public static class Divider {
@@ -1710,6 +1913,12 @@ public class UtilityAssets {
         @SerializedName("divider_material")
         @Expose
         private String dividerMaterial;
+        @SerializedName("width")
+        @Expose
+        private String width;
+        @SerializedName("start_end")
+        @Expose
+        private String startEnd;
         @SerializedName("district")
         @Expose
         private long district;
@@ -1892,6 +2101,21 @@ public class UtilityAssets {
             this.pk = pk;
         }
 
+        public String getWidth() {
+            return width;
+        }
+
+        public void setWidth(String width) {
+            this.width = width;
+        }
+
+        public String getStartEnd() {
+            return startEnd;
+        }
+
+        public void setStartEnd(String startEnd) {
+            this.startEnd = startEnd;
+        }
     }
 
     public static class Culvert {
@@ -1932,6 +2156,18 @@ public class UtilityAssets {
         @SerializedName("place")
         @Expose
         private String place;
+        @SerializedName("unique_id")
+        @Expose
+        private String uniqueID;
+        @SerializedName("span_length")
+        @Expose
+        private String spanLength;
+        @SerializedName("construction_material")
+        @Expose
+        private String constructionMaterial;
+        @SerializedName("road_name")
+        @Expose
+        private String roadName;
         @SerializedName("district")
         @Expose
         private long district;
@@ -2105,6 +2341,38 @@ public class UtilityAssets {
         public void setPk(long pk) {
             this.pk = pk;
         }
+
+        public String getUniqueID() {
+            return uniqueID;
+        }
+
+        public void setUniqueID(String uniqueID) {
+            this.uniqueID = uniqueID;
+        }
+
+        public String getSpanLength() {
+            return spanLength;
+        }
+
+        public void setSpanLength(String spanLength) {
+            this.spanLength = spanLength;
+        }
+
+        public String getConstructionMaterial() {
+            return constructionMaterial;
+        }
+
+        public void setConstructionMaterial(String constructionMaterial) {
+            this.constructionMaterial = constructionMaterial;
+        }
+
+        public String getRoadName() {
+            return roadName;
+        }
+
+        public void setRoadName(String roadName) {
+            this.roadName = roadName;
+        }
     }
 
     public static class Bridge {
@@ -2157,6 +2425,12 @@ public class UtilityAssets {
         @SerializedName("bridge_width")
         @Expose
         private String bridgeWidth;
+        @SerializedName("length")
+        @Expose
+        private String bridgeLength;
+        @SerializedName("footpath_construction_material")
+        @Expose
+        private String footpathConstructionMaterial;
         @SerializedName("maintained_by")
         @Expose
         private long maintainedBy;
@@ -2374,6 +2648,21 @@ public class UtilityAssets {
             this.pk = pk;
         }
 
+        public String getBridgeLength() {
+            return bridgeLength;
+        }
+
+        public void setBridgeLength(String bridgeLength) {
+            this.bridgeLength = bridgeLength;
+        }
+
+        public String getFootpathConstructionMaterial() {
+            return footpathConstructionMaterial;
+        }
+
+        public void setFootpathConstructionMaterial(String footpathConstructionMaterial) {
+            this.footpathConstructionMaterial = footpathConstructionMaterial;
+        }
     }
 
     public static class BusBay {

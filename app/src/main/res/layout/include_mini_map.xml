@@ -2,23 +2,27 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:cardBackgroundColor="@color/colorWhite"
     app:cardCornerRadius="@dimen/standard_spacing_small"
     app:cardElevation="@dimen/standard_spacing_micro">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/bg_editext_bordered">
 
 
         <com.esri.arcgisruntime.mapping.view.MapView
             android:id="@+id/miniMap"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@id/miniMapButtonBar"
-            android:layout_alignParentTop="true">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            app:layout_constraintBottom_toTopOf="@id/miniMapButtonBar"
+            app:layout_constraintDimensionRatio="H,1.25:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,11 +55,14 @@
             android:id="@+id/miniMapButtonBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:background="@color/colorDarkBlue"
             android:gravity="center"
             android:layoutDirection="rtl"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/miniMap">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/miniMapDelete"
@@ -87,7 +94,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/standard_spacing_small"
                 android:background="@color/colorWhite"
-                android:singleLine="true"
                 android:digits="0123456789.,"
                 android:fontFamily="@font/roboto_regular"
                 android:hint="@string/longitude_latitude"
@@ -96,6 +102,7 @@
                 android:paddingTop="@dimen/standard_spacing_small"
                 android:paddingEnd="@dimen/standard_spacing_normal"
                 android:paddingBottom="@dimen/standard_spacing_small"
+                android:singleLine="true"
                 android:textColor="@color/colorBlack"
                 android:textColorHint="@color/colorHintGrey"
                 android:textDirection="ltr"
@@ -104,6 +111,6 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

@@ -6,8 +6,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
@@ -36,11 +34,12 @@ public class FloorAndRoofDetailsFragment extends BaseFragment<FragmentFloorRoofD
     public static final int REMOVE_TYPE_FLOOR_AREA = 2;
     public static final int REMOVE_TYPE_ROOF_TYPE = 3;
 
-    @Inject
-    FloorTypeAdapter floorTypesAdapter;
 
     @Inject
     IFloorAndRoofDetailsPresenter<IFloorAndRoofDetailsView, IFloorAndRoofDetailsInteractor> presenter;
+
+    @Inject
+    FloorTypeAdapter floorTypesAdapter;
 
     @Inject
     FloorAreaAdapter floorAreaAdapter;
@@ -90,24 +89,21 @@ public class FloorAndRoofDetailsFragment extends BaseFragment<FragmentFloorRoofD
             request.setFloorTypes(new DeleteAssetDataRequest.AssetDeleteDetails(pk));
             presenter.deleteAssetDetails(REMOVE_TYPE_FLOOR_TYPE, request, position);
         });
-        getViewBinding().rvFloorType.setLayoutManager(new GridLayoutManager(getBaseActivity(), 2));
         getViewBinding().rvFloorType.setAdapter(floorTypesAdapter);
-        getViewBinding().rvFloorArea.setLayoutManager(new LinearLayoutManager(getBaseActivity()));
-        getViewBinding().rvFloorArea.setAdapter(floorAreaAdapter);
         floorAreaAdapter.setFloorCategoryList(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getFloorNumbers());
         floorAreaAdapter.setRemoveListener((position, pk) -> {
             DeleteAssetDataRequest request = new DeleteAssetDataRequest();
             request.setFloorArea(new DeleteAssetDataRequest.AssetDeleteDetails(pk));
             presenter.deleteAssetDetails(REMOVE_TYPE_FLOOR_AREA, request, position);
         });
-        getViewBinding().rvRoofType.setLayoutManager(new LinearLayoutManager(getBaseActivity()));
-        getViewBinding().rvRoofType.setAdapter(roofTypeAdapter);
+        getViewBinding().rvFloorArea.setAdapter(floorAreaAdapter);
         roofTypeAdapter.setRoofCategoryList(AppCacheData.getOurInstance().getBuildingAssetSpinnerData().getRoofCategories());
         roofTypeAdapter.setRemoveListener((position, pk) -> {
             DeleteAssetDataRequest request = new DeleteAssetDataRequest();
             request.setRoofTypes(new DeleteAssetDataRequest.AssetDeleteDetails(pk));
             presenter.deleteAssetDetails(REMOVE_TYPE_ROOF_TYPE, request, position);
         });
+        getViewBinding().rvRoofType.setAdapter(roofTypeAdapter);
         setEditData();
     }
 
@@ -162,11 +158,11 @@ public class FloorAndRoofDetailsFragment extends BaseFragment<FragmentFloorRoofD
 
     @Override
     public void removeDataFromList(int type, int position) {
-        if(type == REMOVE_TYPE_FLOOR_TYPE){
+        if (type == REMOVE_TYPE_FLOOR_TYPE) {
             floorTypesAdapter.removeListData(position);
-        }else if(type == REMOVE_TYPE_FLOOR_AREA){
+        } else if (type == REMOVE_TYPE_FLOOR_AREA) {
             floorAreaAdapter.removeListData(position);
-        }else if(type == REMOVE_TYPE_ROOF_TYPE){
+        } else if (type == REMOVE_TYPE_ROOF_TYPE) {
             roofTypeAdapter.removeListData(position);
         }
     }

@@ -58,10 +58,12 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
     public static final int ERROR_TYPE_LOCATION = 1;
     public static final int ERROR_TYPE_NAME = 2;
     public static final int ERROR_TYPE_GROUND_TYPE = 3;
-    public static final int ERROR_TYPE_WARD_NO = 4;
-    public static final int ERROR_TYPE_REMARKS = 5;
-    public static final int ERROR_TYPE_PHOTO = 6;
-    public static final int ERROR_TYPE_PLAYGROUND_LOCATION = 7;
+    public static final int ERROR_TYPE_GROUND_AREA = 4;
+    public static final int ERROR_TYPE_GROUND_SURVEY_NO = 5;
+    public static final int ERROR_TYPE_WARD_NO = 6;
+    public static final int ERROR_TYPE_REMARKS = 7;
+    public static final int ERROR_TYPE_PHOTO = 8;
+    public static final int ERROR_TYPE_PLAYGROUND_LOCATION = 9;
 
     public static PlaygroundDetailsFragment newInstance() {
         return new PlaygroundDetailsFragment();
@@ -276,10 +278,12 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
     void submitOnClick() {
         String location = Objects.requireNonNull(getViewBinding().etPlaygroundLocation.getText()).toString().trim();
         String name = Objects.requireNonNull(getViewBinding().etPlaygroundName.getText()).toString().trim();
+        String area = Objects.requireNonNull(getViewBinding().etPlaygroundArea.getText()).toString().trim();
+        String surveyNo = Objects.requireNonNull(getViewBinding().etPlaygroundSurveyNo.getText()).toString().trim();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String type = (String) getViewBinding().srPlaygroundType.getTag();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(location, name, type, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(location, name, type,area,surveyNo, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -296,6 +300,14 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
             case ERROR_TYPE_GROUND_TYPE:
                 getViewBinding().layoutPlaygroundType.setError(error);
                 getViewBinding().layoutPlaygroundType.requestFocus();
+                break;
+            case ERROR_TYPE_GROUND_AREA:
+                getViewBinding().layoutPlaygroundArea.setError(error);
+                getViewBinding().layoutPlaygroundArea.requestFocus();
+                break;
+            case ERROR_TYPE_GROUND_SURVEY_NO:
+                getViewBinding().layoutPlaygroundSurveyNo.setError(error);
+                getViewBinding().layoutPlaygroundSurveyNo.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
@@ -319,6 +331,8 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
         getViewBinding().layoutPlaygroundLocation.setErrorEnabled(false);
         getViewBinding().layoutPlaygroundName.setErrorEnabled(false);
         getViewBinding().layoutPlaygroundType.setErrorEnabled(false);
+        getViewBinding().layoutPlaygroundArea.setErrorEnabled(false);
+        getViewBinding().layoutPlaygroundSurveyNo.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
@@ -329,6 +343,8 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
             if (playgroundDetails != null) {
                 getViewBinding().etPlaygroundLocation.setText(playgroundDetails.getLocation());
                 getViewBinding().etPlaygroundName.setText(String.valueOf(playgroundDetails.getGroundName()));
+                getViewBinding().etPlaygroundArea.setText(String.valueOf(playgroundDetails.getGroundArea()));
+                getViewBinding().etPlaygroundSurveyNo.setText(String.valueOf(playgroundDetails.getSurveyNo()));
                 getViewBinding().etRemarks.setText(playgroundDetails.getRemarks());
                 groundTypeAdapter.setContent(String.valueOf(playgroundDetails.getGroundType()));
                 wardAdapter.setContent(String.valueOf(playgroundDetails.getWard()));
@@ -396,9 +412,7 @@ public class PlaygroundDetailsFragment extends BaseFragment<FragmentPlaygroundDe
 
     @Override
     public void onDestroy() {
-        if (getViewBinding().includeMiniMapProperty.miniMap != null) {
-            getViewBinding().includeMiniMapProperty.miniMap.dispose();
-        }
+        getViewBinding().includeMiniMapProperty.miniMap.dispose();
         super.onDestroy();
     }
 

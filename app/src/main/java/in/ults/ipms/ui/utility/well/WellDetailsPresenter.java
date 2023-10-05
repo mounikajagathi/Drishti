@@ -106,7 +106,7 @@ public class WellDetailsPresenter<V extends IWellDetailsView, I extends IWellDet
                 data.getWellDetails().setStatus(status);
                 data.getWellDetails().setSeasonal(seasonal);
                 data.getWellDetails().setWard(Long.parseLong(wardNo));
-                data.getWellDetails().setWellType(Integer.parseInt(wellType));
+                data.getWellDetails().setWellType(wellType);
                 data.getWellDetails().setRemarks(remarks);
                 data.getWellDetails().setPhoto1(photo);
                 data.getWellDetails().setGeom(geom);
@@ -117,7 +117,7 @@ public class WellDetailsPresenter<V extends IWellDetailsView, I extends IWellDet
             FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
             UtilityAssets.Well details = new UtilityAssets.Well();
             details.setLocation(location);
-            details.setWellType(Long.parseLong(wellType));
+            details.setWellType(wellType);
             details.setWellCover(cover);
             details.setStatus(status);
             details.setSurveyNo(surveyNo);

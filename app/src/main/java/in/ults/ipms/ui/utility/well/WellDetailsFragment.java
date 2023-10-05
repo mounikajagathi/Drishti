@@ -382,7 +382,7 @@ public class WellDetailsFragment extends BaseFragment<FragmentWellDetailsBinding
                 getViewBinding().etWellSurveyNo.setText(wellDetails.getSurveyNo());
                 getViewBinding().etWellLocation.setText(wellDetails.getLocation());
                 getViewBinding().etRemarks.setText(wellDetails.getRemarks());
-                wellTypeAdapter.setContent(String.valueOf(wellDetails.getWellType()));
+                wellTypeAdapter.setContent(wellDetails.getWellType());
                 wardAdapter.setContent(String.valueOf(wellDetails.getWard()));
                 GeomPoint geom = wellDetails.getGeom();
                 if (geom != null && geom.getCoordinates() != null && geom.getCoordinates().size() == 2) {

@@ -1,4 +1,4 @@
-package in.ults.ipms.ui.utility.bus;
+package in.ults.ipms.ui.utility.busstand;
 
 import in.ults.ipms.ui.base.IBasePresenter;
 

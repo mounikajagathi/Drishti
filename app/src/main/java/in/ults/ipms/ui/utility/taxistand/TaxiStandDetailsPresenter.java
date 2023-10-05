@@ -75,10 +75,10 @@ public class TaxiStandDetailsPresenter<V extends ITaxiStandDetailsView, I extend
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getTaxiStandDetails().setLocation(location);
                 data.getTaxiStandDetails().setAuthorised(authorised);
-                data.getTaxiStandDetails().setParkingType(Long.parseLong(type));
+                data.getTaxiStandDetails().setParkingType(type);
                 data.getTaxiStandDetails().setWard(Long.parseLong(wardNo));
                 data.getTaxiStandDetails().setRemarks(remarks);
-                data.getTaxiStandDetails().setCapacity(Integer.parseInt(capacity));
+                data.getTaxiStandDetails().setCapacity(capacity);
                 data.getTaxiStandDetails().setAuthorisationDetails(authDetails);
                 data.getTaxiStandDetails().setPhoto1(photo);
                 data.getTaxiStandDetails().setGeom(geom);
@@ -90,10 +90,10 @@ public class TaxiStandDetailsPresenter<V extends ITaxiStandDetailsView, I extend
             UtilityAssets.TaxiStand details = new UtilityAssets.TaxiStand();
             details.setLocation(location);
             details.setAuthorised(authorised);
-            details.setParkingType(Long.parseLong(type));
+            details.setParkingType(type);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
-            details.setCapacity(Integer.parseInt(capacity));
+            details.setCapacity(capacity);
             details.setAuthorisationDetails(authDetails);
             details.setPhoto1(photo);
             details.setGeom(geom);

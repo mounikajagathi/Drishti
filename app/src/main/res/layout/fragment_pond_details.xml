@@ -364,6 +364,197 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPondWidth"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etPondWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_pond_width"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPondLength"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etPondLength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_pond_length"
+                    android:inputType="numberDecimal"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPondOwner"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etPondOwner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_pond_owner"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutPurpose"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etPurpose"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_purpose"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutSurveyNo"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etSurveyNo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_survey_no"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutColour"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etColour"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_color"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutMaintainBy"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etMaintainBy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_maintain_by"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutType"
+                style="@style/AppCommonTextInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/standard_spacing_mini"
+                android:fontFamily="@font/roboto_regular">
+
+                <in.ults.ipms.views.IPMSEditText
+                    android:id="@+id/etType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_regular"
+                    android:hint="@string/pond_details_type"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:minHeight="@dimen/standard_edt_txt_height_medium"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/standard_text_size_medium">
+
+                </in.ults.ipms.views.IPMSEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout

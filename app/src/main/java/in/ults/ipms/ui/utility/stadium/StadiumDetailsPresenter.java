@@ -101,7 +101,7 @@ public class StadiumDetailsPresenter<V extends IStadiumDetailsView, I extends IS
                     AppCacheData.getOurInstance().getBuildingAssetData().getStadiumDetails() != null) {
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getStadiumDetails().setName(name);
-                data.getStadiumDetails().setArea(Double.parseDouble(area));
+                data.getStadiumDetails().setArea(area);
                 data.getStadiumDetails().setAddress(address);
                 data.getStadiumDetails().setLocation(location);
                 data.getStadiumDetails().setSurveyNo(surveyNo);
@@ -110,7 +110,7 @@ public class StadiumDetailsPresenter<V extends IStadiumDetailsView, I extends IS
                 data.getStadiumDetails().setBathroom(bathroom);
                 data.getStadiumDetails().setGalleryCoverage(galleryCoverage);
                 data.getStadiumDetails().setWard(Long.parseLong(wardNo));
-                data.getStadiumDetails().setGallery(Integer.parseInt(gallery));
+                data.getStadiumDetails().setGallery(gallery);
                 data.getStadiumDetails().setRemarks(remarks);
                 data.getStadiumDetails().setPhoto1(photo);
                 data.getStadiumDetails().setGeom(geom);
@@ -121,8 +121,8 @@ public class StadiumDetailsPresenter<V extends IStadiumDetailsView, I extends IS
             FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
             UtilityAssets.Stadium details = new UtilityAssets.Stadium();
             details.setName(name);
-            details.setGallery(Integer.parseInt(gallery));
-            details.setArea(Double.parseDouble(area));
+            details.setGallery(gallery);
+            details.setArea(area);
             details.setBathroom(bathroom);
             details.setSurveyNo(surveyNo);
             details.setNoGallery(noGallery);

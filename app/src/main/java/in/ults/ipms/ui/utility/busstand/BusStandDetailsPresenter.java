@@ -1,4 +1,4 @@
-package in.ults.ipms.ui.utility.bus;
+package in.ults.ipms.ui.utility.busstand;
 
 import javax.inject.Inject;
 
@@ -75,8 +75,8 @@ public class BusStandDetailsPresenter<V extends IBusStandDetailsView, I extends 
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getBusStandDetails().setBusStandName(name);
                 data.getBusStandDetails().setPlace(place);
-                data.getBusStandDetails().setSurveyNo(Long.parseLong(surveyNo));
-                data.getBusStandDetails().setOwnership(Long.parseLong(ownership));
+                data.getBusStandDetails().setSurveyNo(surveyNo);
+                data.getBusStandDetails().setOwnership(ownership);
                 data.getBusStandDetails().setWard(Long.parseLong(wardNo));
                 data.getBusStandDetails().setRemarks(remarks);
                 data.getBusStandDetails().setPhoto1(photo);
@@ -89,8 +89,8 @@ public class BusStandDetailsPresenter<V extends IBusStandDetailsView, I extends 
             UtilityAssets.BusStand details = new UtilityAssets.BusStand();
             details.setBusStandName(name);
             details.setPlace(place);
-            details.setSurveyNo(Long.parseLong(surveyNo));
-            details.setOwnership(Long.parseLong(ownership));
+            details.setSurveyNo(surveyNo);
+            details.setOwnership(ownership);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
             details.setPhoto1(photo);

@@ -65,17 +65,17 @@ public class MobileTowerDetailsFragment extends BaseFragment<FragmentMobileTower
     public static final int ERROR_TYPE_NEW_PROPERTY_ID = 8;
     public static final int ERROR_TYPE_OLD_PROPERTY_ID = 9;
     public static final int ERROR_TYPE_YEAR_OF_CONSTRUCTION = 10;
-    public static final int ERROR_TYPE_PHOTO_2 = 11;
-    public static final int ERROR_TYPE_ELECTRIC_CONNECTIVITY = 12;
-    public static final int ERROR_TYPE_UNIQUE_ID = 13;
-    public static final int ERROR_TYPE_SERVICE_PROVIDER = 14;
-    public static final int ERROR_TYPE_CONSUMER_NO = 15;
-    public static final int ERROR_TYPE_ROAD_WIDTH = 16;
-    public static final int ERROR_TYPE_ROAD_TYPE = 17;
-    public static final int ERROR_TYPE_WARD_NO = 18;
-    public static final int ERROR_TYPE_REMARKS = 19;
-    public static final int ERROR_TYPE_PHOTO_1 = 20;
-    public static final int ERROR_TYPE_MOBILE_TOWER_LOCATION = 22;
+    public static final int ERROR_TYPE_ELECTRIC_CONNECTIVITY = 11;
+    public static final int ERROR_TYPE_UNIQUE_ID = 12;
+    public static final int ERROR_TYPE_SERVICE_PROVIDER = 13;
+    public static final int ERROR_TYPE_CONSUMER_NO = 14;
+    public static final int ERROR_TYPE_ROAD_WIDTH = 15;
+    public static final int ERROR_TYPE_ROAD_TYPE = 16;
+    public static final int ERROR_TYPE_WARD_NO = 17;
+    public static final int ERROR_TYPE_REMARKS = 18;
+    public static final int ERROR_TYPE_PHOTO_1 = 19;
+    public static final int ERROR_TYPE_PHOTO_2 = 20;
+    public static final int ERROR_TYPE_MOBILE_TOWER_LOCATION = 21;
 
     public static MobileTowerDetailsFragment newInstance() {
         return new MobileTowerDetailsFragment();

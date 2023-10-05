@@ -52,6 +52,30 @@ public class WaterBodyAssets {
         @SerializedName("capacity")
         @Expose
         private String capacity;
+        @SerializedName("width")
+        @Expose
+        private String width;
+        @SerializedName("length")
+        @Expose
+        private String length;
+        @SerializedName("pond_owner")
+        @Expose
+        private String pondOwner;
+        @SerializedName("purpose")
+        @Expose
+        private String purpose;
+        @SerializedName("survey_no")
+        @Expose
+        private String surveyNo;
+        @SerializedName("colour")
+        @Expose
+        private String colour;
+        @SerializedName("maintain_by")
+        @Expose
+        private String maintainBy;
+        @SerializedName("type")
+        @Expose
+        private String type;
         @SerializedName("maintained_by")
         @Expose
         private long maintainedBy;
@@ -358,6 +382,70 @@ public class WaterBodyAssets {
 
         public void setPk(long pk) {
             this.pk = pk;
+        }
+
+        public String getWidth() {
+            return width;
+        }
+
+        public void setWidth(String width) {
+            this.width = width;
+        }
+
+        public String getLength() {
+            return length;
+        }
+
+        public void setLength(String length) {
+            this.length = length;
+        }
+
+        public String getPondOwner() {
+            return pondOwner;
+        }
+
+        public void setPondOwner(String pondOwner) {
+            this.pondOwner = pondOwner;
+        }
+
+        public String getPurpose() {
+            return purpose;
+        }
+
+        public void setPurpose(String purpose) {
+            this.purpose = purpose;
+        }
+
+        public String getSurveyNo() {
+            return surveyNo;
+        }
+
+        public void setSurveyNo(String surveyNo) {
+            this.surveyNo = surveyNo;
+        }
+
+        public String getColour() {
+            return colour;
+        }
+
+        public void setColour(String colour) {
+            this.colour = colour;
+        }
+
+        public String getMaintainBy() {
+            return maintainBy;
+        }
+
+        public void setMaintainBy(String maintainBy) {
+            this.maintainBy = maintainBy;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(String type) {
+            this.type = type;
         }
     }
 }

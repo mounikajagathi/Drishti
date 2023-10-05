@@ -111,8 +111,8 @@ public class CanalDetailsPresenter<V extends ICanalDetailsView, I extends ICanal
                 data.getCanalDetails().setCanalName(name);
                 data.getCanalDetails().setLocation(location);
                 data.getCanalDetails().setCanalSteetName(streetName);
-                data.getCanalDetails().setArea(Double.parseDouble(area));
-                data.getCanalDetails().setType(Double.parseDouble(type));
+                data.getCanalDetails().setArea(area);
+                data.getCanalDetails().setType(type);
                 data.getCanalDetails().setCanalSubType(subType);
                 data.getCanalDetails().setClassField(classField);
                 data.getCanalDetails().setSidewall(sidewall);
@@ -133,8 +133,8 @@ public class CanalDetailsPresenter<V extends ICanalDetailsView, I extends ICanal
             details.setCanalName(name);
             details.setLocation(location);
             details.setCanalSteetName(streetName);
-            details.setArea(Double.parseDouble(area));
-            details.setType(Double.parseDouble(type));
+            details.setArea(area);
+            details.setType(type);
             details.setCanalSubType(subType);
             details.setClassField(classField);
             details.setSidewall(sidewall);

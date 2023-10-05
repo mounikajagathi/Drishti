@@ -2905,10 +2905,10 @@ public class UtilityAssets {
         private long assetStatus;
         @SerializedName("survey_no")
         @Expose
-        private long surveyNo;
+        private String surveyNo;
         @SerializedName("ownership")
         @Expose
-        private long ownership;
+        private String ownership;
         @SerializedName("geom")
         @Expose
         private GeomPoint geom;
@@ -3014,19 +3014,19 @@ public class UtilityAssets {
             this.busStandName = busStandName;
         }
 
-        public long getSurveyNo() {
+        public String getSurveyNo() {
             return surveyNo;
         }
 
-        public void setSurveyNo(long surveyNo) {
+        public void setSurveyNo(String surveyNo) {
             this.surveyNo = surveyNo;
         }
 
-        public long getOwnership() {
+        public String getOwnership() {
             return ownership;
         }
 
-        public void setOwnership(long ownership) {
+        public void setOwnership(String ownership) {
             this.ownership = ownership;
         }
 
@@ -3355,10 +3355,10 @@ public class UtilityAssets {
         private String canalSubType;
         @SerializedName("type")
         @Expose
-        private double type;
+        private String type;
         @SerializedName("area")
         @Expose
-        private double area;
+        private String area;
         @SerializedName("class_field")
         @Expose
         private String classField;
@@ -3511,19 +3511,19 @@ public class UtilityAssets {
             this.canalSubType = canalSubType;
         }
 
-        public double getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(double type) {
+        public void setType(String type) {
             this.type = type;
         }
 
-        public double getArea() {
+        public String getArea() {
             return area;
         }
 
-        public void setArea(double area) {
+        public void setArea(String area) {
             this.area = area;
         }
 
@@ -3673,10 +3673,10 @@ public class UtilityAssets {
         private String canalLineSubType;
         @SerializedName("type")
         @Expose
-        private double type;
+        private String type;
         @SerializedName("area")
         @Expose
-        private double area;
+        private String area;
         @SerializedName("class_field")
         @Expose
         private String classField;
@@ -3829,19 +3829,19 @@ public class UtilityAssets {
             this.length = length;
         }
 
-        public double getType() {
+        public String getType() {
             return type;
         }
 
-        public void setType(double type) {
+        public void setType(String type) {
             this.type = type;
         }
 
-        public double getArea() {
+        public String getArea() {
             return area;
         }
 
-        public void setArea(double area) {
+        public void setArea(String area) {
             this.area = area;
         }
 
@@ -4198,10 +4198,10 @@ public class UtilityAssets {
         private String ownerMobile;
         @SerializedName("bldg_status")
         @Expose
-        private long buildingStatus;
+        private String buildingStatus;
         @SerializedName("bldg_usage")
         @Expose
-        private long buildingUsage;
+        private String buildingUsage;
         @SerializedName("new_pro_id")
         @Expose
         private String newPropertyId;
@@ -4216,7 +4216,7 @@ public class UtilityAssets {
         private String uniqueId;
         @SerializedName("year_const")
         @Expose
-        private int yearOfConstruction;
+        private String yearOfConstruction;
         @SerializedName("service_provider")
         @Expose
         private String serviceProvider;
@@ -4225,7 +4225,7 @@ public class UtilityAssets {
         private String consumerNo;
         @SerializedName("road_width")
         @Expose
-        private double roadWidth;
+        private String roadWidth;
         @SerializedName("road_type")
         @Expose
         private String roadType;
@@ -4430,19 +4430,19 @@ public class UtilityAssets {
             this.ownerMobile = ownerMobile;
         }
 
-        public long getBuildingStatus() {
+        public String getBuildingStatus() {
             return buildingStatus;
         }
 
-        public void setBuildingStatus(long buildingStatus) {
+        public void setBuildingStatus(String buildingStatus) {
             this.buildingStatus = buildingStatus;
         }
 
-        public long getBuildingUsage() {
+        public String getBuildingUsage() {
             return buildingUsage;
         }
 
-        public void setBuildingUsage(long buildingUsage) {
+        public void setBuildingUsage(String buildingUsage) {
             this.buildingUsage = buildingUsage;
         }
 
@@ -4478,11 +4478,11 @@ public class UtilityAssets {
             this.uniqueId = uniqueId;
         }
 
-        public int getYearOfConstruction() {
+        public String getYearOfConstruction() {
             return yearOfConstruction;
         }
 
-        public void setYearOfConstruction(int yearOfConstruction) {
+        public void setYearOfConstruction(String yearOfConstruction) {
             this.yearOfConstruction = yearOfConstruction;
         }
 
@@ -4502,11 +4502,11 @@ public class UtilityAssets {
             this.consumerNo = consumerNo;
         }
 
-        public double getRoadWidth() {
+        public String getRoadWidth() {
             return roadWidth;
         }
 
-        public void setRoadWidth(double roadWidth) {
+        public void setRoadWidth(String roadWidth) {
             this.roadWidth = roadWidth;
         }
 
@@ -4561,7 +4561,7 @@ public class UtilityAssets {
         private String surveyNo;
         @SerializedName("area")
         @Expose
-        private double area;
+        private String area;
         @SerializedName("name")
         @Expose
         private String parkName;
@@ -4573,7 +4573,7 @@ public class UtilityAssets {
         private String photo1;
         @SerializedName("park_type")
         @Expose
-        private long parkType;
+        private String parkType;
         @SerializedName("asset_status")
         @Expose
         private long assetStatus;
@@ -4676,11 +4676,11 @@ public class UtilityAssets {
             this.surveyNo = surveyNo;
         }
 
-        public double getArea() {
+        public String getArea() {
             return area;
         }
 
-        public void setArea(double area) {
+        public void setArea(String area) {
             this.area = area;
         }
 
@@ -4692,11 +4692,11 @@ public class UtilityAssets {
             this.parkName = parkName;
         }
 
-        public long getParkType() {
+        public String getParkType() {
             return parkType;
         }
 
-        public void setParkType(long parkType) {
+        public void setParkType(String parkType) {
             this.parkType = parkType;
         }
 
@@ -4816,7 +4816,7 @@ public class UtilityAssets {
         private String address;
         @SerializedName("area")
         @Expose
-        private double area;
+        private String area;
         @SerializedName("survey_no")
         @Expose
         private String surveyNo;
@@ -4834,7 +4834,7 @@ public class UtilityAssets {
         private String galleryCoverage;
         @SerializedName("gallery")
         @Expose
-        private int gallery;
+        private String gallery;
         @SerializedName("district")
         @Expose
         private long district;
@@ -4961,11 +4961,11 @@ public class UtilityAssets {
             this.address = address;
         }
 
-        public double getArea() {
+        public String getArea() {
             return area;
         }
 
-        public void setArea(double area) {
+        public void setArea(String area) {
             this.area = area;
         }
 
@@ -5009,11 +5009,11 @@ public class UtilityAssets {
             this.galleryCoverage = galleryCoverage;
         }
 
-        public int getGallery() {
+        public String getGallery() {
             return gallery;
         }
 
-        public void setGallery(int gallery) {
+        public void setGallery(String gallery) {
             this.gallery = gallery;
         }
 
@@ -5549,7 +5549,7 @@ public class UtilityAssets {
         private String tankOwner;
         @SerializedName("capacity")
         @Expose
-        private int capacity;
+        private String capacity;
         @SerializedName("geom")
         @Expose
         private GeomPoint geom;
@@ -5701,11 +5701,11 @@ public class UtilityAssets {
             this.tankOwner = tankOwner;
         }
 
-        public int getCapacity() {
+        public String getCapacity() {
             return capacity;
         }
 
-        public void setCapacity(int capacity) {
+        public void setCapacity(String capacity) {
             this.capacity = capacity;
         }
 
@@ -5784,7 +5784,7 @@ public class UtilityAssets {
         private boolean authorised;
         @SerializedName("capacity")
         @Expose
-        private int capacity;
+        private String capacity;
         @SerializedName("authorisation_details")
         @Expose
         private String AuthorisationDetails;
@@ -5796,7 +5796,7 @@ public class UtilityAssets {
         private String photo1;
         @SerializedName("parking_type")
         @Expose
-        private long parkingType;
+        private String parkingType;
         @SerializedName("asset_status")
         @Expose
         private long assetStatus;
@@ -5891,11 +5891,11 @@ public class UtilityAssets {
             this.authorised = authorised;
         }
 
-        public int getCapacity() {
+        public String getCapacity() {
             return capacity;
         }
 
-        public void setCapacity(int capacity) {
+        public void setCapacity(String capacity) {
             this.capacity = capacity;
         }
 
@@ -5907,11 +5907,11 @@ public class UtilityAssets {
             AuthorisationDetails = authorisationDetails;
         }
 
-        public long getParkingType() {
+        public String getParkingType() {
             return parkingType;
         }
 
-        public void setParkingType(long parkingType) {
+        public void setParkingType(String parkingType) {
             this.parkingType = parkingType;
         }
 
@@ -6045,25 +6045,25 @@ public class UtilityAssets {
         private String consumerNo;
         @SerializedName("single_tube")
         @Expose
-        private int singleTube;
+        private String singleTube;
         @SerializedName("double_tube")
         @Expose
-        private int doubleTube;
+        private String doubleTube;
         @SerializedName("led")
         @Expose
-        private int LED;
+        private String LED;
         @SerializedName("cfl")
         @Expose
-        private int cfl;
+        private String cfl;
         @SerializedName("bulb")
         @Expose
-        private int bulb;
+        private String bulb;
         @SerializedName("sodium_vapour")
         @Expose
-        private int sodiumVapour;
+        private String sodiumVapour;
         @SerializedName("connected_load")
         @Expose
-        private int connectedLoad;
+        private String connectedLoad;
         @SerializedName("district")
         @Expose
         private long district;
@@ -6206,59 +6206,59 @@ public class UtilityAssets {
             this.consumerNo = consumerNo;
         }
 
-        public int getSingleTube() {
+        public String getSingleTube() {
             return singleTube;
         }
 
-        public void setSingleTube(int singleTube) {
+        public void setSingleTube(String singleTube) {
             this.singleTube = singleTube;
         }
 
-        public int getDoubleTube() {
+        public String getDoubleTube() {
             return doubleTube;
         }
 
-        public void setDoubleTube(int doubleTube) {
+        public void setDoubleTube(String doubleTube) {
             this.doubleTube = doubleTube;
         }
 
-        public int getLED() {
+        public String getLED() {
             return LED;
         }
 
-        public void setLED(int LED) {
+        public void setLED(String LED) {
             this.LED = LED;
         }
 
-        public int getCfl() {
+        public String getCfl() {
             return cfl;
         }
 
-        public void setCfl(int cfl) {
+        public void setCfl(String cfl) {
             this.cfl = cfl;
         }
 
-        public int getBulb() {
+        public String getBulb() {
             return bulb;
         }
 
-        public void setBulb(int bulb) {
+        public void setBulb(String bulb) {
             this.bulb = bulb;
         }
 
-        public int getSodiumVapour() {
+        public String getSodiumVapour() {
             return sodiumVapour;
         }
 
-        public void setSodiumVapour(int sodiumVapour) {
+        public void setSodiumVapour(String sodiumVapour) {
             this.sodiumVapour = sodiumVapour;
         }
 
-        public int getConnectedLoad() {
+        public String getConnectedLoad() {
             return connectedLoad;
         }
 
-        public void setConnectedLoad(int connectedLoad) {
+        public void setConnectedLoad(String connectedLoad) {
             this.connectedLoad = connectedLoad;
         }
 
@@ -6375,7 +6375,7 @@ public class UtilityAssets {
         private boolean seasonal;
         @SerializedName("well_type")
         @Expose
-        private long wellType;
+        private String wellType;
         @SerializedName("status")
         @Expose
         private String status;
@@ -6541,11 +6541,11 @@ public class UtilityAssets {
             this.seasonal = seasonal;
         }
 
-        public long getWellType() {
+        public String getWellType() {
             return wellType;
         }
 
-        public void setWellType(long wellType) {
+        public void setWellType(String wellType) {
             this.wellType = wellType;
         }
 

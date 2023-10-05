@@ -91,7 +91,7 @@ public interface ApiInterface {
 
 
      @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("mobileapi/get-pond-utility-dropdown/")
+    @GET("mobileapi/get_otherasset_dropdown/")
     Observable<OtherAssetsSpinnerResponse> getOtherAssetsSpinnerResponse(@Header("Authorization") String auth);
 
 

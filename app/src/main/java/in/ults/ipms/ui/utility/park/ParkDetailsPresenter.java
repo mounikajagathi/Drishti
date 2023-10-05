@@ -79,10 +79,10 @@ public class ParkDetailsPresenter<V extends IParkDetailsView, I extends IParkDet
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getParkDetails().setLocation(location);
                 data.getParkDetails().setParkName(name);
-                data.getParkDetails().setParkType(Long.parseLong(type));
+                data.getParkDetails().setParkType(type);
                 data.getParkDetails().setWard(Long.parseLong(wardNo));
                 data.getParkDetails().setRemarks(remarks);
-                data.getParkDetails().setArea(Double.parseDouble(area));
+                data.getParkDetails().setArea(area);
                 data.getParkDetails().setSurveyNo(surveyNo);
                 data.getParkDetails().setPhoto1(photo);
                 data.getParkDetails().setGeom(geom);
@@ -94,10 +94,10 @@ public class ParkDetailsPresenter<V extends IParkDetailsView, I extends IParkDet
             UtilityAssets.Park details = new UtilityAssets.Park();
             details.setLocation(location);
             details.setParkName(name);
-            details.setParkType(Long.parseLong(type));
+            details.setParkType(type);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
-            details.setArea(Double.parseDouble(area));
+            details.setArea(area);
             details.setSurveyNo(surveyNo);
             details.setPhoto1(photo);
             details.setGeom(geom);

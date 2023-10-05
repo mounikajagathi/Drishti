@@ -78,7 +78,7 @@ public class TankDetailsPresenter<V extends ITankDetailsView, I extends ITankDet
                 data.getTankDetails().setTankType(Long.parseLong(tankType));
                 data.getTankDetails().setWard(Long.parseLong(wardNo));
                 data.getTankDetails().setRemarks(remarks);
-                data.getTankDetails().setCapacity(Integer.parseInt(capacity));
+                data.getTankDetails().setCapacity(capacity);
                 data.getTankDetails().setPhoto1(photo);
                 data.getTankDetails().setGeom(geom);
                 data.getTankDetails().setUpdationStatus(AppConstants.UPDATION_STATUS_UPDATE);
@@ -92,7 +92,7 @@ public class TankDetailsPresenter<V extends ITankDetailsView, I extends ITankDet
             details.setTankType(Long.parseLong(tankType));
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
-            details.setCapacity(Integer.parseInt(capacity));
+            details.setCapacity(capacity);
             details.setPhoto1(photo);
             details.setGeom(geom);
             details.setUpdationStatus(AppConstants.UPDATION_STATUS_ADD);

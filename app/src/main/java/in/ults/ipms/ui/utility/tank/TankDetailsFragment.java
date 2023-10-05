@@ -337,7 +337,7 @@ public class TankDetailsFragment extends BaseFragment<FragmentTankDetailsBinding
                 getViewBinding().etTankLocation.setText(tankDetails.getLocation());
                 getViewBinding().etTankOwner.setText(String.valueOf(tankDetails.getTankOwner()));
                 getViewBinding().etRemarks.setText(tankDetails.getRemarks());
-                getViewBinding().etTankCapacity.setText(String.valueOf(tankDetails.getCapacity()));
+                getViewBinding().etTankCapacity.setText(tankDetails.getCapacity());
                 getViewBinding().etRemarks.setText(tankDetails.getRemarks());
                 TankTypeAdapter.setContent(String.valueOf(tankDetails.getTankType()));
                 wardAdapter.setContent(String.valueOf(tankDetails.getWard()));

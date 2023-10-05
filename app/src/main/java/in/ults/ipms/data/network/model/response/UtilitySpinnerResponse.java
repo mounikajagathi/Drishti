@@ -104,11 +104,11 @@ public class UtilitySpinnerResponse extends BaseResponse {
         private DashboardResponse.LayerCategoryChild canal;
 
         @Expose
-        @SerializedName("Canal Line")
+        @SerializedName("Canal (Line)")
         private DashboardResponse.LayerCategoryChild canalLine;
 
         @Expose
-        @SerializedName("Garbage")
+        @SerializedName("Garbage Collection Points")
         private DashboardResponse.LayerCategoryChild garbage;
 
         @Expose
@@ -140,7 +140,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
         private DashboardResponse.LayerCategoryChild transformer;
 
         @Expose
-        @SerializedName("Tank")
+        @SerializedName("Water Tank")
         private DashboardResponse.LayerCategoryChild tank;
 
         @Expose
@@ -308,7 +308,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
         private ArrayList<OwnerShip> ownership;
 
         @Expose
-        @SerializedName("buildingStatus")
+        @SerializedName("building_status")
         private ArrayList<BuildingStatus> buildingStatus;
 
         @Expose
@@ -320,7 +320,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
         private ArrayList<TankType> tankType;
 
         @Expose
-        @SerializedName("buildingUsage")
+        @SerializedName("building_usage")
         private ArrayList<BuildingUsage> buildingUsage;
 
         @Expose
@@ -462,7 +462,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class OwnerShip extends BaseSpinnerData {
         @Expose
-        @SerializedName("ownership")
+        @SerializedName("name")
         private String spinnerTitle;
 
         @Override
@@ -561,7 +561,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class BuildingStatus extends BaseSpinnerData {
         @Expose
-        @SerializedName("building_status")
+        @SerializedName("status")
         private String spinnerTitle;
 
         @Override
@@ -572,7 +572,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class BuildingUsage extends BaseSpinnerData {
         @Expose
-        @SerializedName("building_usage")
+        @SerializedName("bldg_usage")
         private String spinnerTitle;
 
         @Override
@@ -583,7 +583,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class ParkType extends BaseSpinnerData {
         @Expose
-        @SerializedName("park_type")
+        @SerializedName("name")
         private String spinnerTitle;
 
         @Override
@@ -594,7 +594,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class TankType extends BaseSpinnerData {
         @Expose
-        @SerializedName("tank_type")
+        @SerializedName("name")
         private String spinnerTitle;
 
         @Override
@@ -605,7 +605,7 @@ public class UtilitySpinnerResponse extends BaseResponse {
 
     public static class WellType extends BaseSpinnerData {
         @Expose
-        @SerializedName("well_type")
+        @SerializedName("name")
         private String spinnerTitle;
 
         @Override

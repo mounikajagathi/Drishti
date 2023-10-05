@@ -23,7 +23,7 @@ import in.ults.ipms.ui.buildingassets.tenant.TenantDetailsFragment;
 import in.ults.ipms.ui.otherassets.home.OtherAssetsHomeFragment;
 import in.ults.ipms.ui.otherassets.mastlight.HighLowMastLightDetailsFragment;
 import in.ults.ipms.ui.utility.bridge.BridgeDetailsFragment;
-import in.ults.ipms.ui.utility.bus.BusStandDetailsFragment;
+import in.ults.ipms.ui.utility.busstand.BusStandDetailsFragment;
 import in.ults.ipms.ui.utility.busbay.BusBayDetailsFragment;
 import in.ults.ipms.ui.utility.busstop.BusStopDetailsFragment;
 import in.ults.ipms.ui.utility.canal.CanalDetailsFragment;

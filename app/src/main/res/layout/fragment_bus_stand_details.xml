@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:hint="@string/bus_stand_details_survey_no"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:maxLines="1"
                     android:minHeight="@dimen/standard_edt_txt_height_medium"
                     android:textColor="@color/colorBlack"

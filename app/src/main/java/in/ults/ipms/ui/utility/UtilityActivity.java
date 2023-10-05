@@ -14,7 +14,7 @@ import in.ults.ipms.data.network.model.response.GeomPolyLine;
 import in.ults.ipms.databinding.ActivityUtilityBinding;
 import in.ults.ipms.ui.base.BaseActivity;
 import in.ults.ipms.ui.utility.bridge.BridgeDetailsFragment;
-import in.ults.ipms.ui.utility.bus.BusStandDetailsFragment;
+import in.ults.ipms.ui.utility.busstand.BusStandDetailsFragment;
 import in.ults.ipms.ui.utility.busbay.BusBayDetailsFragment;
 import in.ults.ipms.ui.utility.busstop.BusStopDetailsFragment;
 import in.ults.ipms.ui.utility.canal.CanalDetailsFragment;

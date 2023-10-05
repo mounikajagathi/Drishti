@@ -1,4 +1,4 @@
-package in.ults.ipms.ui.utility.bus;
+package in.ults.ipms.ui.utility.busstand;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -130,8 +130,6 @@ public class BusStandDetailsFragment extends BaseFragment<FragmentBusStandDetail
 
         if (AppCacheData.getOurInstance().getUtilitySpinnerData() != null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues() != null) {
             wardAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srWardNo, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getWard());
-        }
-        if (AppCacheData.getOurInstance().getUtilitySpinnerData() != null && AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues() != null) {
             ownershipAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srOwnership, AppCacheData.getOurInstance().getUtilitySpinnerData().getDropDownValues().getOwnership());
         }
 

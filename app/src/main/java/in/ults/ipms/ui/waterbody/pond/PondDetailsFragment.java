@@ -70,10 +70,18 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
     public static final int ERROR_TYPE_SIDEWALL = 13;
     public static final int ERROR_TYPE_SIDEWALL_TYPE = 14;
     public static final int ERROR_TYPE_POND_CONDITION = 15;
-    public static final int ERROR_TYPE_WARD_NO = 16;
-    public static final int ERROR_TYPE_REMARKS = 17;
-    public static final int ERROR_TYPE_PHOTO = 18;
-    public static final int ERROR_TYPE_LOCATION = 19;
+    public static final int ERROR_TYPE_POND_WIDTH = 16;
+    public static final int ERROR_TYPE_POND_LENGTH = 17;
+    public static final int ERROR_TYPE_POND_OWNER = 18;
+    public static final int ERROR_TYPE_PURPOSE = 19;
+    public static final int ERROR_TYPE_SURVEY_NO = 20;
+    public static final int ERROR_TYPE_COLOR = 21;
+    public static final int ERROR_TYPE_MAINTAIN_BY = 22;
+    public static final int ERROR_TYPE_TYPE = 23;
+    public static final int ERROR_TYPE_WARD_NO = 24;
+    public static final int ERROR_TYPE_REMARKS = 25;
+    public static final int ERROR_TYPE_PHOTO = 26;
+    public static final int ERROR_TYPE_LOCATION = 27;
 
     public static PondDetailsFragment newInstance() {
         return new PondDetailsFragment();
@@ -319,8 +327,16 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
         String sideWall = (String) getViewBinding().srSideWall.getTag();
         String sideWallType = (String) getViewBinding().srSideWallType.getTag();
         String pondCondition = (String) getViewBinding().srPondCondition.getTag();
+        String pondWidth = Objects.requireNonNull(getViewBinding().etPondWidth.getText()).toString().trim();
+        String pondLength = Objects.requireNonNull(getViewBinding().etPondLength.getText()).toString().trim();
+        String pondOwner = Objects.requireNonNull(getViewBinding().etPondOwner.getText()).toString().trim();
+        String purpose = Objects.requireNonNull(getViewBinding().etPurpose.getText()).toString().trim();
+        String surveyNo = Objects.requireNonNull(getViewBinding().etSurveyNo.getText()).toString().trim();
+        String colour = Objects.requireNonNull(getViewBinding().etColour.getText()).toString().trim();
+        String maintainBy = Objects.requireNonNull(getViewBinding().etMaintainBy.getText()).toString().trim();
+        String type = Objects.requireNonNull(getViewBinding().etType.getText()).toString().trim();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(name, place, obId, area, capacity, maintainedBy, usage, odour, pondStatus, pondType, presentCondition, nature, sideWall, sideWallType, pondCondition, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(name, place, obId, area, capacity, maintainedBy, usage, odour, pondStatus, pondType, presentCondition, nature, sideWall, sideWallType, pondCondition, pondWidth, pondLength, pondOwner, purpose, surveyNo, colour, maintainBy, type, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override
@@ -386,6 +402,38 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
                 getViewBinding().layoutPondCondition.setError(error);
                 getViewBinding().layoutPondCondition.requestFocus();
                 break;
+            case ERROR_TYPE_POND_WIDTH:
+                getViewBinding().layoutPondWidth.setError(error);
+                getViewBinding().layoutPondWidth.requestFocus();
+                break;
+            case ERROR_TYPE_POND_LENGTH:
+                getViewBinding().layoutPondLength.setError(error);
+                getViewBinding().layoutPondLength.requestFocus();
+                break;
+            case ERROR_TYPE_POND_OWNER:
+                getViewBinding().layoutPondOwner.setError(error);
+                getViewBinding().layoutPondOwner.requestFocus();
+                break;
+            case ERROR_TYPE_PURPOSE:
+                getViewBinding().layoutPurpose.setError(error);
+                getViewBinding().layoutPurpose.requestFocus();
+                break;
+            case ERROR_TYPE_SURVEY_NO:
+                getViewBinding().layoutSurveyNo.setError(error);
+                getViewBinding().layoutSurveyNo.requestFocus();
+                break;
+            case ERROR_TYPE_COLOR:
+                getViewBinding().layoutColour.setError(error);
+                getViewBinding().layoutColour.requestFocus();
+                break;
+            case ERROR_TYPE_MAINTAIN_BY:
+                getViewBinding().layoutMaintainBy.setError(error);
+                getViewBinding().layoutMaintainBy.requestFocus();
+                break;
+            case ERROR_TYPE_TYPE:
+                getViewBinding().layoutType.setError(error);
+                getViewBinding().layoutType.requestFocus();
+                break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);
                 getViewBinding().layoutWardNo.requestFocus();
@@ -419,7 +467,14 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
         getViewBinding().layoutNature.setErrorEnabled(false);
         getViewBinding().layoutSideWall.setErrorEnabled(false);
         getViewBinding().layoutSideWallType.setErrorEnabled(false);
-        getViewBinding().layoutPondCondition.setErrorEnabled(false);
+        getViewBinding().layoutPondWidth.setErrorEnabled(false);
+        getViewBinding().layoutPondLength.setErrorEnabled(false);
+        getViewBinding().layoutPondOwner.setErrorEnabled(false);
+        getViewBinding().layoutPurpose.setErrorEnabled(false);
+        getViewBinding().layoutSurveyNo.setErrorEnabled(false);
+        getViewBinding().layoutColour.setErrorEnabled(false);
+        getViewBinding().layoutMaintainBy.setErrorEnabled(false);
+        getViewBinding().layoutType.setErrorEnabled(false);
         getViewBinding().layoutWardNo.setErrorEnabled(false);
         getViewBinding().layoutRemarks.setErrorEnabled(false);
     }
@@ -433,6 +488,14 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
                 getViewBinding().etObId.setText(String.valueOf(pondDetails.getObid()));
                 getViewBinding().etArea.setText(pondDetails.getArea());
                 getViewBinding().etCapacity.setText(pondDetails.getCapacity());
+                getViewBinding().etPondWidth.setText(pondDetails.getWidth());
+                getViewBinding().etPondLength.setText(pondDetails.getLength());
+                getViewBinding().etPondOwner.setText(pondDetails.getPondOwner());
+                getViewBinding().etPurpose.setText(pondDetails.getPurpose());
+                getViewBinding().etSurveyNo.setText(pondDetails.getSurveyNo());
+                getViewBinding().etColour.setText(pondDetails.getColour());
+                getViewBinding().etMaintainBy.setText(pondDetails.getMaintainBy());
+                getViewBinding().etType.setText(pondDetails.getType());
                 wardAdapter.setContent(String.valueOf(pondDetails.getWard()));
                 maintainedByAdapter.setContent(String.valueOf(pondDetails.getMaintainedBy()));
                 odourAdapter.setContent(pondDetails.getOdour());
@@ -450,7 +513,7 @@ public class PondDetailsFragment extends BaseFragment<FragmentPondDetailsBinding
                     double latitude = geom.getCoordinates().get(1);
                     plotPoint(latitude, longitude);
                 }
-                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+pondDetails.getPhoto1(), null, pondDetails.getPhoto1());
+                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + pondDetails.getPhoto1(), null, pondDetails.getPhoto1());
             }
         }
     }

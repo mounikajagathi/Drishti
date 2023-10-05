@@ -76,9 +76,9 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
     @Inject
     IHighLowMastLightDetailsPresenter<IHighLowMastLightDetailsView, IHighLowMastLightDetailsInteractor> presenter;
 
-    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.Sidewall> typeAdapter;
-    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.SidewallType> lightTypeAdapter;
-    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.PondCondition> workingStatusAdapter;
+    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.Type> typeAdapter;
+    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.LightType> lightTypeAdapter;
+    CommonSpinnerAdapter<OtherAssetsSpinnerResponse.WorkStatus> workingStatusAdapter;
     CommonSpinnerAdapter<OtherAssetsSpinnerResponse.Ward> wardAdapter;
 
     private ArcGISMap map;
@@ -137,9 +137,9 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
 
         if (AppCacheData.getOurInstance().getOtherAssetsSpinnerData() != null && AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues() != null) {
             wardAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srWardNo, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getWard());
-            typeAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastType, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getSidewalls());
-            lightTypeAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastLightType, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getSidewallTypes());
-            workingStatusAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastLightWorkingStatus, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getPondConditions());
+            typeAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastType, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getTypes());
+            lightTypeAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastLightType, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getLightTypes());
+            workingStatusAdapter = CommonSpinnerAdapter.setAdapter(getBaseActivity(), getViewBinding().srHighAndLowMastLightWorkingStatus, AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getDropDownValues().getWorkStatuses());
         }
 
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -215,7 +215,7 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
                 layers.add(AppCacheData.getOurInstance().getDashboardDetails().getWardBoundary());
                 if (AppCacheData.getOurInstance().getOtherAssetsSpinnerData() != null &&
                         AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getLayerDetails() != null) {
-                    layers.add(AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getLayerDetails().getPond());
+                    layers.add(AppCacheData.getOurInstance().getOtherAssetsSpinnerData().getLayerDetails().getHighMastLowMastLight());
                 }
             }
         }
@@ -379,7 +379,7 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
                 getViewBinding().etHighAndLowMastNoOfBulb.setText(highLowMastLightDetails.getBulbNumber());
                 wardAdapter.setContent(String.valueOf(highLowMastLightDetails.getWard()));
                 typeAdapter.setContent(highLowMastLightDetails.getType());
-                lightTypeAdapter.setContent(String.valueOf(highLowMastLightDetails.getLightType()));
+                lightTypeAdapter.setContent(highLowMastLightDetails.getLightType());
                 workingStatusAdapter.setContent(highLowMastLightDetails.getWorkingStatus());
                 GeomPoint geom = highLowMastLightDetails.getGeom();
                 if (geom != null && geom.getCoordinates() != null && geom.getCoordinates().size() == 2) {

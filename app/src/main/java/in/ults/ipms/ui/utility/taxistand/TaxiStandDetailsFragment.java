@@ -341,7 +341,7 @@ public class TaxiStandDetailsFragment extends BaseFragment<FragmentTaxiStandDeta
             UtilityAssets.TaxiStand taxiStandDetails = AppCacheData.getOurInstance().getBuildingAssetData().getTaxiStandDetails();
             if (taxiStandDetails != null) {
                 getViewBinding().etLocation.setText(taxiStandDetails.getLocation());
-                getViewBinding().etCapacity.setText(String.valueOf(taxiStandDetails.getCapacity()));
+                getViewBinding().etCapacity.setText(taxiStandDetails.getCapacity());
                 getViewBinding().etAuthDetails.setText(taxiStandDetails.getAuthorisationDetails());
                 getViewBinding().etRemarks.setText(taxiStandDetails.getRemarks());
                 getViewBinding().cbAuthorised.setChecked(taxiStandDetails.isAuthorised());

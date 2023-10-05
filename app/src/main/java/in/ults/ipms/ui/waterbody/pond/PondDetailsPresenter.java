@@ -26,7 +26,7 @@ public class PondDetailsPresenter<V extends IPondDetailsView, I extends IPondDet
     }
 
     @Override
-    public void validateData(String name, String place, String obId, String area, String capacity, String maintainedBy, String usage, String odour, String pondStatus, String pondType, String presentCondition, String nature, String sideWall, String sideWallType, String pondCondition, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    public void validateData(String name, String place, String obId, String area, String capacity, String maintainedBy, String usage, String odour, String pondStatus, String pondType, String presentCondition, String nature, String sideWall, String sideWallType, String pondCondition, String pondWidth, String pondLength, String pondOwner, String purpose, String surveyNo, String colour, String maintainBy, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
         if (CommonUtils.isNullString(name)) {
             getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_NAME, baseActivity.getResources().getString(R.string.err_pond_details_pond_name));
@@ -103,6 +103,46 @@ public class PondDetailsPresenter<V extends IPondDetailsView, I extends IPondDet
             return;
         }
 
+        if (CommonUtils.isNullString(pondWidth)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_POND_WIDTH, baseActivity.getResources().getString(R.string.err_pond_details_pond_width));
+            return;
+        }
+
+        if (CommonUtils.isNullString(pondLength)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_POND_LENGTH, baseActivity.getResources().getString(R.string.err_pond_details_pond_length));
+            return;
+        }
+
+        if (CommonUtils.isNullString(pondOwner)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_POND_OWNER, baseActivity.getResources().getString(R.string.err_pond_details_pond_owner));
+            return;
+        }
+
+        if (CommonUtils.isNullString(purpose)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_PURPOSE, baseActivity.getResources().getString(R.string.err_pond_details_purpose));
+            return;
+        }
+
+        if (CommonUtils.isNullString(surveyNo)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_SURVEY_NO, baseActivity.getResources().getString(R.string.err_pond_details_survey_no));
+            return;
+        }
+
+        if (CommonUtils.isNullString(colour)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_COLOR, baseActivity.getResources().getString(R.string.err_pond_details_color));
+            return;
+        }
+
+        if (CommonUtils.isNullString(maintainBy)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_MAINTAIN_BY, baseActivity.getResources().getString(R.string.err_pond_details_maintain_by));
+            return;
+        }
+
+        if (CommonUtils.isNullString(type)) {
+            getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_TYPE, baseActivity.getResources().getString(R.string.err_pond_details_type));
+            return;
+        }
+
         if (CommonUtils.isNullString(wardNo)) {
             getMvpView().showErrors(PondDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_pond_details_ward_number));
             return;
@@ -121,11 +161,11 @@ public class PondDetailsPresenter<V extends IPondDetailsView, I extends IPondDet
             return;
         }
 
-        addUpdateContent( name,  place,  obId,  area,  capacity,  maintainedBy,  usage,  odour,  pondStatus,  pondType,  presentCondition,  nature,  sideWall,  sideWallType,  pondCondition,  wardNo,  remarks,  photo, locationLatitude, locationLongitude);
+        addUpdateContent(name, place, obId, area, capacity, maintainedBy, usage, odour, pondStatus, pondType, presentCondition, nature, sideWall, sideWallType, pondCondition, pondWidth, pondLength, pondOwner, purpose, surveyNo, colour, maintainBy, type, wardNo, remarks, photo, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String name, String place, String obId, String area, String capacity, String maintainedBy, String usage, String odour, String pondStatus, String pondType, String presentCondition, String nature, String sideWall, String sideWallType, String pondCondition, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
+    void addUpdateContent(String name, String place, String obId, String area, String capacity, String maintainedBy, String usage, String odour, String pondStatus, String pondType, String presentCondition, String nature, String sideWall, String sideWallType, String pondCondition, String pondWidth, String pondLength, String pondOwner, String purpose, String surveyNo, String colour, String maintainBy, String type, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);
         if (AppCacheData.getOurInstance().isAssetUpdate()) {
@@ -146,6 +186,14 @@ public class PondDetailsPresenter<V extends IPondDetailsView, I extends IPondDet
                 data.getPondDetails().setNature(nature);
 //                data.getPondDetails().setSidewall(sideWall);
                 data.getPondDetails().setSidewallType(sideWallType);
+                data.getPondDetails().setLength(pondLength);
+                data.getPondDetails().setWidth(pondWidth);
+                data.getPondDetails().setPurpose(purpose);
+                data.getPondDetails().setPondOwner(pondOwner);
+                data.getPondDetails().setSurveyNo(surveyNo);
+                data.getPondDetails().setColour(colour);
+                data.getPondDetails().setMaintainBy(maintainBy);
+                data.getPondDetails().setType(type);
                 data.getPondDetails().setWard(Long.parseLong(wardNo));
                 data.getPondDetails().setMaintainedBy(Long.parseLong(maintainedBy));
                 data.getPondDetails().setRemarks(remarks);
@@ -171,6 +219,14 @@ public class PondDetailsPresenter<V extends IPondDetailsView, I extends IPondDet
             details.setNature(nature);
 //                details.setSidewall(sideWall);
             details.setSidewallType(sideWallType);
+            details.setLength(pondLength);
+            details.setWidth(pondWidth);
+            details.setPurpose(purpose);
+            details.setPondOwner(pondOwner);
+            details.setSurveyNo(surveyNo);
+            details.setColour(colour);
+            details.setMaintainBy(maintainBy);
+            details.setType(type);
             details.setWard(Long.parseLong(wardNo));
             details.setMaintainedBy(Long.parseLong(maintainedBy));
             details.setRemarks(remarks);

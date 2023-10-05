@@ -779,6 +779,14 @@
     <string name="pond_details_sidewall">Sidewall</string>
     <string name="pond_details_sidewall_type">Sidewall Type</string>
     <string name="pond_details_pond_condition">Pond Condition</string>
+    <string name="pond_details_pond_width">Pond Width</string>
+    <string name="pond_details_pond_length">Pond Length</string>
+    <string name="pond_details_pond_owner">Pond Owner</string>
+    <string name="pond_details_purpose">Purpose</string>
+    <string name="pond_details_survey_no">Survey Number</string>
+    <string name="pond_details_color">Colour</string>
+    <string name="pond_details_maintain_by">Maintain By</string>
+    <string name="pond_details_type">Type</string>
     <string name="pond_details_ward_number">Ward Number</string>
     <string name="pond_details_remarks">Remarks ( Max Length 100 )</string>
     <string name="pond_details_photo">Photo</string>
@@ -800,11 +808,18 @@
     <string name="err_pond_details_sidewall">Please select sidewall</string>
     <string name="err_pond_details_sidewall_type">Please select sidewall type</string>
     <string name="err_pond_details_pond_condition">Please select pond condition</string>
+    <string name="err_pond_details_pond_width">Please enter pond width</string>
+    <string name="err_pond_details_pond_length">Please enter pond length</string>
+    <string name="err_pond_details_pond_owner">Please enter pond owner</string>
+    <string name="err_pond_details_purpose">Please enter purpose</string>
+    <string name="err_pond_details_survey_no">Please enter survey number</string>
+    <string name="err_pond_details_color">Please enter colour</string>
+    <string name="err_pond_details_maintain_by">Please enter maintain by</string>
+    <string name="err_pond_details_type">Please enter type</string>
     <string name="err_pond_details_ward_number">Please select ward number</string>
-    <string name="err_pond_details_remarks">Please enter Remarks</string>
+    <string name="err_pond_details_remarks">Please enter remarks</string>
     <string name="err_pond_details_photo">Please select photo</string>
-    <string name="err_pond_details_location">Please locate pond location</string>
-
+    <string name="err_pond_details_location">Please select pond location</string>
 
     <!--bus bay Details-->
     <string name="bus_bay_details_title">Bus Bay Details</string>
@@ -814,7 +829,7 @@
     <string name="bus_bay_details_photo_1">Photo</string>
     <string name="bus_bay_details_location">Bus bay Location</string>
 
-    <string name="err_bus_bay_place">Please enter junction name</string>
+    <string name="err_bus_bay_place">Please enter place</string>
     <string name="err_bus_bay_ward_number">Please select ward number</string>
     <string name="err_bus_bay_remarks">Please enter remarks</string>
     <string name="err_bus_bay_photo_1">Please select photo</string>

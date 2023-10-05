@@ -39,125 +39,50 @@ public class OtherAssetsSpinnerResponse extends BaseResponse {
     public static class LayerDetails extends BaseSpinnerData {
 
         @Expose
-        @SerializedName("Pond")
-        private DashboardResponse.LayerCategoryChild pond;
+        @SerializedName("High Mast & Low Mast Light")
+        private DashboardResponse.LayerCategoryChild highMastLowMastLight;
 
-        public DashboardResponse.LayerCategoryChild getPond() {
-            return pond;
+        public DashboardResponse.LayerCategoryChild getHighMastLowMastLight() {
+            return highMastLowMastLight;
         }
     }
 
     public static class DropDownValues extends BaseSpinnerData {
 
         @Expose
-        @SerializedName("maintained_by")
-        private ArrayList<MaintainedBy> maintainedBy;
+        @SerializedName("work_status")
+        private ArrayList<WorkStatus> workStatuses;
 
         @Expose
-        @SerializedName("usage")
-        private ArrayList<Usage> usages;
+        @SerializedName("type")
+        private ArrayList<Type> types;
 
         @Expose
-        @SerializedName("odour")
-        private ArrayList<Odour> odours;
-
-        @Expose
-        @SerializedName("pond_status")
-        private ArrayList<PondStatus> pondStatuses;
-
-        @Expose
-        @SerializedName("pond_type")
-        private ArrayList<PondType> pondTypes;
-
-        @Expose
-        @SerializedName("present_condition")
-        private ArrayList<PresentCondition> presentConditions;
-
-        @Expose
-        @SerializedName("Nature")
-        private ArrayList<Nature> natures;
-
-        @Expose
-        @SerializedName("sidewall")
-        private ArrayList<Sidewall> sidewalls;
-
-        @Expose
-        @SerializedName("sidewall_Type")
-        private ArrayList<SidewallType> sidewallTypes;
-
-        @Expose
-        @SerializedName("pond_condition")
-        private ArrayList<PondCondition> pondConditions;
+        @SerializedName("light_type")
+        private ArrayList<LightType> lightTypes;
 
         @Expose
         @SerializedName("ward")
         private ArrayList<Ward> ward;
 
-        public ArrayList<MaintainedBy> getMaintainedBy() {
-            return maintainedBy;
+        public ArrayList<WorkStatus> getWorkStatuses() {
+            return workStatuses;
         }
 
-        public ArrayList<Usage> getUsages() {
-            return usages;
+        public ArrayList<Type> getTypes() {
+            return types;
         }
 
-        public ArrayList<Odour> getOdours() {
-            return odours;
-        }
-
-        public ArrayList<PondStatus> getPondStatuses() {
-            return pondStatuses;
-        }
-
-        public ArrayList<PondType> getPondTypes() {
-            return pondTypes;
-        }
-
-        public ArrayList<PresentCondition> getPresentConditions() {
-            return presentConditions;
-        }
-
-        public ArrayList<Nature> getNatures() {
-            return natures;
-        }
-
-        public ArrayList<Sidewall> getSidewalls() {
-            return sidewalls;
-        }
-
-        public ArrayList<SidewallType> getSidewallTypes() {
-            return sidewallTypes;
-        }
-
-        public ArrayList<PondCondition> getPondConditions() {
-            return pondConditions;
+        public ArrayList<LightType> getLightTypes() {
+            return lightTypes;
         }
 
         public ArrayList<Ward> getWard() {
             return ward;
         }
     }
-    public static class MaintainedBy extends BaseSpinnerData {
-        @Expose
-        @SerializedName("maintained_by")
-        private String spinnerTitle;
 
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class Usage extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
-
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class Odour extends BaseSpinnerData {
+    public static class LightType extends BaseSpinnerData {
         @Expose
         @SerializedName("name")
         private String spinnerTitle;
@@ -168,7 +93,7 @@ public class OtherAssetsSpinnerResponse extends BaseResponse {
         }
     }
 
-    public static class PondStatus extends BaseSpinnerData {
+    public static class Type extends BaseSpinnerData {
         @Expose
         @SerializedName("name")
         private String spinnerTitle;
@@ -178,7 +103,8 @@ public class OtherAssetsSpinnerResponse extends BaseResponse {
             return spinnerTitle;
         }
     }
-    public static class PondType extends BaseSpinnerData {
+
+    public static class WorkStatus extends BaseSpinnerData {
         @Expose
         @SerializedName("name")
         private String spinnerTitle;
@@ -188,56 +114,7 @@ public class OtherAssetsSpinnerResponse extends BaseResponse {
             return spinnerTitle;
         }
     }
-    public static class PresentCondition extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
 
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class Nature extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
-
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class Sidewall extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
-
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class SidewallType extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
-
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
-    public static class PondCondition extends BaseSpinnerData {
-        @Expose
-        @SerializedName("name")
-        private String spinnerTitle;
-
-        @Override
-        public String getSpinnerTitle() {
-            return spinnerTitle;
-        }
-    }
     public static class Ward extends BaseSpinnerData {
         @Expose
         @SerializedName("ward_name")

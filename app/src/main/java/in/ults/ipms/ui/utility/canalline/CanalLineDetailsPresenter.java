@@ -101,8 +101,8 @@ public class CanalLineDetailsPresenter<V extends ICanalLineDetailsView, I extend
                     AppCacheData.getOurInstance().getBuildingAssetData().getCanalLineDetails() != null) {
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getCanalLineDetails().setCanalLineSteetName(streetName);
-                data.getCanalLineDetails().setArea(Double.parseDouble(area));
-                data.getCanalLineDetails().setType(Double.parseDouble(type));
+                data.getCanalLineDetails().setArea(area);
+                data.getCanalLineDetails().setType(type);
                 data.getCanalLineDetails().setCanalLineSubType(subType);
                 data.getCanalLineDetails().setClassField(classField);
                 data.getCanalLineDetails().setWidth(width);
@@ -121,8 +121,8 @@ public class CanalLineDetailsPresenter<V extends ICanalLineDetailsView, I extend
             FetchAssetDataResponse.Data data = new FetchAssetDataResponse.Data();
             UtilityAssets.CanalLine details = new UtilityAssets.CanalLine();
             details.setCanalLineSteetName(streetName);
-            details.setArea(Double.parseDouble(area));
-            details.setType(Double.parseDouble(type));
+            details.setArea(area);
+            details.setType(type);
             details.setCanalLineSubType(subType);
             details.setClassField(classField);
             details.setWidth(width);

@@ -32,6 +32,14 @@ public class TaxiStandDetailsPresenter<V extends ITaxiStandDetailsView, I extend
             getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_taxi_stand_details_location));
             return;
         }
+        if (CommonUtils.isNullString(capacity)) {
+            getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_CAPACITY, baseActivity.getResources().getString(R.string.err_taxi_stand_details_capacity));
+            return;
+        }
+        if (CommonUtils.isNullString(authDetails)) {
+            getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_AUTHORISATION_DETAILS, baseActivity.getResources().getString(R.string.err_taxi_stand_details_auth_details));
+            return;
+        }
         if (CommonUtils.isNullString(type)) {
             getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_PARKING_TYPE, baseActivity.getResources().getString(R.string.err_taxi_stand_details_parking_type));
             return;
@@ -42,14 +50,6 @@ public class TaxiStandDetailsPresenter<V extends ITaxiStandDetailsView, I extend
         }
         if (CommonUtils.isNullString(remarks)) {
             getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_REMARKS, baseActivity.getResources().getString(R.string.err_taxi_stand_details_remarks));
-            return;
-        }
-        if (CommonUtils.isNullString(capacity)) {
-            getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_CAPACITY, baseActivity.getResources().getString(R.string.err_taxi_stand_details_capacity));
-            return;
-        }
-        if (CommonUtils.isNullString(authDetails)) {
-            getMvpView().showErrors(TaxiStandDetailsFragment.ERROR_TYPE_AUTHORISATION_DETAILS, baseActivity.getResources().getString(R.string.err_taxi_stand_details_auth_details));
             return;
         }
         if (CommonUtils.isNullString(photo)) {

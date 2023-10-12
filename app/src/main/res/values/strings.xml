@@ -980,9 +980,9 @@
 
     <string name="err_mobile_tower_details_building">Please enter build name</string>
     <string name="err_mobile_tower_details_place">Please enter place</string>
-    <string name="err_mobile_tower_details_owner_name">Please select owner name</string>
-    <string name="err_mobile_tower_details_owner_address">Please select owner address</string>
-    <string name="err_mobile_tower_details_owner_mobile">Please select owner mobile</string>
+    <string name="err_mobile_tower_details_owner_name">Please enter owner name</string>
+    <string name="err_mobile_tower_details_owner_address">Please enter owner address</string>
+    <string name="err_mobile_tower_details_owner_mobile">Please enter owner mobile</string>
     <string name="err_mobile_tower_details_building_status">Please select building status</string>
     <string name="err_mobile_tower_details_building_usage">Please select building usage</string>
     <string name="err_mobile_tower_details_new_property_id">Please enter new property id</string>
@@ -1040,11 +1040,11 @@
     <string name="stadium_details_photo_1">Photo</string>
     <string name="stadium_details_stadium_location">Stadium Location</string>
 
-    <string name="err_stadium_details_name">Please select stadium name</string>
-    <string name="err_stadium_details_area">Please select area</string>
-    <string name="err_stadium_details_location">Please select location</string>
-    <string name="err_stadium_details_address">Please select address</string>
-    <string name="err_stadium_details_survey_no">Please select survey number</string>
+    <string name="err_stadium_details_name">Please enter stadium name</string>
+    <string name="err_stadium_details_area">Please enter area</string>
+    <string name="err_stadium_details_location">Please enter location</string>
+    <string name="err_stadium_details_address">Please enter address</string>
+    <string name="err_stadium_details_survey_no">Please enter survey number</string>
     <string name="err_stadium_details_no_gallery">Please enter no gallery</string>
     <string name="err_stadium_details_gallery">Please enter gallery</string>
     <string name="err_stadium_details_gallery_coverage">Please enter gallery coverage</string>
@@ -1081,9 +1081,9 @@
     <string name="street_tap_details_street_location">Street Tap Location</string>
 
     <string name="err_street_tap_details_location">Please enter location</string>
-    <string name="err_street_tap_details_address">Please select address</string>
-    <string name="err_street_tap_details_working_status">Please select working status</string>
-    <string name="err_street_tap_details_funded_by">Please select funded by</string>
+    <string name="err_street_tap_details_address">Please enter address</string>
+    <string name="err_street_tap_details_working_status">Please enter working status</string>
+    <string name="err_street_tap_details_funded_by">Please enter funded by</string>
     <string name="err_street_tap_details_ward_number">Please select ward number</string>
     <string name="err_street_tap_details_remarks">Please enter remarks</string>
     <string name="err_street_tap_details_photo_1">Please select photo</string>
@@ -1102,7 +1102,7 @@
 
     <string name="err_tank_details_location">Please enter location</string>
     <string name="err_tank_details_tank_owner">Please enter tank owner</string>
-    <string name="err_tank_details_capacity">Please select capacity</string>
+    <string name="err_tank_details_capacity">Please enter capacity</string>
     <string name="err_tank_details_tank_type">Please select tank type</string>
     <string name="err_tank_details_ward_number">Please select ward number</string>
     <string name="err_tank_details_remarks">Please enter remarks</string>
@@ -1123,8 +1123,8 @@
 
     <string name="err_taxi_stand_details_location">Please enter location</string>
     <string name="err_taxi_stand_details_authorised">Please enter authorised</string>
-    <string name="err_taxi_stand_details_capacity">Please select capacity</string>
-    <string name="err_taxi_stand_details_auth_details">Please select authorisation details</string>
+    <string name="err_taxi_stand_details_capacity">Please enter capacity</string>
+    <string name="err_taxi_stand_details_auth_details">Please enter authorisation details</string>
     <string name="err_taxi_stand_details_parking_type">Please select parking type</string>
     <string name="err_taxi_stand_details_ward_number">Please select ward number</string>
     <string name="err_taxi_stand_details_remarks">Please enter remarks</string>
@@ -1152,14 +1152,14 @@
 
     <string name="err_transformer_details_application_no">Please enter application no</string>
     <string name="err_transformer_details_location">Please enter location</string>
-    <string name="err_transformer_details_street_pole_number">Please select pole number</string>
-    <string name="err_transformer_details_consumer_no">Please select consumer no</string>
-    <string name="err_transformer_details_category">Please select category</string>
-    <string name="err_transformer_details_single_tube">Please select single tube</string>
-    <string name="err_transformer_details_double_tube">Please select class field</string>
+    <string name="err_transformer_details_street_pole_number">Please enter pole number</string>
+    <string name="err_transformer_details_consumer_no">Please enter consumer no</string>
+    <string name="err_transformer_details_category">Please enter category</string>
+    <string name="err_transformer_details_single_tube">Please enter single tube</string>
+    <string name="err_transformer_details_double_tube">Please enter double tube</string>
     <string name="err_transformer_details_led">Please enter LED</string>
     <string name="err_transformer_details_cfl">Please enter CFL</string>
-    <string name="err_transformer_details_start_bulb">Please enter start bulb</string>
+    <string name="err_transformer_details_bulb">Please enter bulb</string>
     <string name="err_transformer_details_end_sodium_vapour">Please enter sodium vapour</string>
     <string name="err_transformer_details_connected_load">Please enter connected load</string>
     <string name="err_transformer_details_ward_number">Please select ward number</string>
@@ -1193,8 +1193,8 @@
     <string name="err_well_details_near_road">Please enter near road</string>
     <string name="err_well_details_re_water_availability_marks">Please enter re water availability marks</string>
     <string name="err_well_details_status">Please enter status</string>
-    <string name="err_well_details_seasonal">Please enter seasonal</string>
-    <string name="err_well_details_type">Please enter well type</string>
+    <string name="err_well_details_seasonal">Please select seasonal</string>
+    <string name="err_well_details_type">Please select well type</string>
     <string name="err_well_details_ward_number">Please select ward number</string>
     <string name="err_well_details_remarks">Please enter remarks</string>
     <string name="err_well_details_photo_1">Please select photo</string>

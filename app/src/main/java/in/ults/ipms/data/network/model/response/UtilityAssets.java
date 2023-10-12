@@ -5558,7 +5558,7 @@ public class UtilityAssets {
         private String photo1;
         @SerializedName("tank_type")
         @Expose
-        private long tankType;
+        private String tankType;
         @SerializedName("asset_status")
         @Expose
         private long assetStatus;
@@ -5709,11 +5709,11 @@ public class UtilityAssets {
             this.capacity = capacity;
         }
 
-        public long getTankType() {
+        public String getTankType() {
             return tankType;
         }
 
-        public void setTankType(long tankType) {
+        public void setTankType(String tankType) {
             this.tankType = tankType;
         }
 

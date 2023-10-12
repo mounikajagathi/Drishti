@@ -261,7 +261,7 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
 
     @Override
     public void saveAssetDetails(FetchAssetDataResponse.Data data) {
-      //  Log.d("save", new Gson().toJson(data));
+        Log.d("save", new Gson().toJson(data));
         getCompositeDisposable()
                 .add(getInteractor()
                         .saveAssetDetails(data)
@@ -271,7 +271,7 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
                         .doFinally(this::hideProgressDialog)
                         .doOnError(this::showApiCallErrors)
                         .doOnNext(response -> {
-                            //Log.d("response", new Gson().toJson(response));
+                            Log.d("response", new Gson().toJson(response));
 
                             if (!isViewAttached()) {
                                 return;

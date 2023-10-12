@@ -28,16 +28,16 @@ public class WellDetailsPresenter<V extends IWellDetailsView, I extends IWellDet
     @Override
     public void validateData(String location, String wellOwner, String purpose, String cover, String surveyNo, String nearRoad, String reWaterAvailMarks, String status, boolean seasonal, String wellType, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
+        if (CommonUtils.isNullString(location)) {
+            getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_well_details_location));
+            return;
+        }
         if (CommonUtils.isNullString(wellOwner)) {
             getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_WELL_OWNER, baseActivity.getResources().getString(R.string.err_well_details_owner));
             return;
         }
         if (CommonUtils.isNullString(purpose)) {
             getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_WELL_PURPOSE, baseActivity.getResources().getString(R.string.err_well_details_well_purpose));
-            return;
-        }
-        if (CommonUtils.isNullString(location)) {
-            getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_well_details_location));
             return;
         }
         if (CommonUtils.isNullString(cover)) {
@@ -61,12 +61,12 @@ public class WellDetailsPresenter<V extends IWellDetailsView, I extends IWellDet
             getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_STATUS, baseActivity.getResources().getString(R.string.err_well_details_status));
             return;
         }
-        if (CommonUtils.isNullString(wardNo)) {
-            getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_well_details_ward_number));
-            return;
-        }
         if (CommonUtils.isNullString(wellType)) {
             getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_WELL_TYPE, baseActivity.getResources().getString(R.string.err_well_details_type));
+            return;
+        }
+        if (CommonUtils.isNullString(wardNo)) {
+            getMvpView().showErrors(WellDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_well_details_ward_number));
             return;
         }
         if (CommonUtils.isNullString(remarks)) {

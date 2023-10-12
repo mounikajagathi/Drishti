@@ -28,12 +28,16 @@ public class TransformerDetailsPresenter<V extends ITransformerDetailsView, I ex
     @Override
     public void validateData(String poleNumber, String location, String consumerNo, String applicationNo, String category, String singleTube, String doubleTube, String led, String cfl, String bulb, String sodiumVapour, String connectedLoad, String wardNo, String remarks, String photo, double locationLatitude, double locationLongitude) {
         getMvpView().clearErrors();
+        if (CommonUtils.isNullString(location)) {
+            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_transformer_details_location));
+            return;
+        }
         if (CommonUtils.isNullString(poleNumber)) {
             getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_POLE_NUMBER, baseActivity.getResources().getString(R.string.err_transformer_details_street_pole_number));
             return;
         }
-        if (CommonUtils.isNullString(location)) {
-            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_transformer_details_location));
+        if (CommonUtils.isNullString(category)) {
+            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_CANAL_CATEGORY, baseActivity.getResources().getString(R.string.err_transformer_details_category));
             return;
         }
         if (CommonUtils.isNullString(applicationNo)) {
@@ -42,10 +46,6 @@ public class TransformerDetailsPresenter<V extends ITransformerDetailsView, I ex
         }
         if (CommonUtils.isNullString(consumerNo)) {
             getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_CONSUMER_NO, baseActivity.getResources().getString(R.string.err_transformer_details_consumer_no));
-            return;
-        }
-        if (CommonUtils.isNullString(category)) {
-            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_CANAL_CATEGORY, baseActivity.getResources().getString(R.string.err_transformer_details_category));
             return;
         }
         if (CommonUtils.isNullString(singleTube)) {
@@ -66,19 +66,19 @@ public class TransformerDetailsPresenter<V extends ITransformerDetailsView, I ex
         }
 
         if (CommonUtils.isNullString(bulb)) {
-            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_BULB, baseActivity.getResources().getString(R.string.err_transformer_details_start_bulb));
+            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_BULB, baseActivity.getResources().getString(R.string.err_transformer_details_bulb));
             return;
         }
         if (CommonUtils.isNullString(sodiumVapour)) {
             getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_SODIUM_VAPOUR, baseActivity.getResources().getString(R.string.err_transformer_details_end_sodium_vapour));
             return;
         }
-        if (CommonUtils.isNullString(wardNo)) {
-            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_transformer_details_ward_number));
-            return;
-        }
         if (CommonUtils.isNullString(connectedLoad)) {
             getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_CONNECTED_LOAD, baseActivity.getResources().getString(R.string.err_transformer_details_connected_load));
+            return;
+        }
+        if (CommonUtils.isNullString(wardNo)) {
+            getMvpView().showErrors(TransformerDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_transformer_details_ward_number));
             return;
         }
         if (CommonUtils.isNullString(remarks)) {

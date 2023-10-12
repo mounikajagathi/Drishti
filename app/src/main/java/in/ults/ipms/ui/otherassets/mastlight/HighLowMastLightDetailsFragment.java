@@ -302,8 +302,8 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
     public void showErrors(int errorType, String error) {
         switch (errorType) {
             case ERROR_TYPE_TYPE:
-                getViewBinding().srHighAndLowMastType.setError(error);
-                getViewBinding().srHighAndLowMastType.requestFocus();
+                getViewBinding().layoutHighAndLowMastType.setError(error);
+                getViewBinding().layoutHighAndLowMastType.requestFocus();
                 break;
             case ERROR_TYPE_LIGHT_TYPE:
                 getViewBinding().layoutHighAndLowMastLightType.setError(error);
@@ -358,6 +358,7 @@ public class HighLowMastLightDetailsFragment extends BaseFragment<FragmentHighLo
     public void clearErrors() {
         getViewBinding().layoutHighAndLowMastType.setErrorEnabled(false);
         getViewBinding().layoutHighAndLowMastLightType.setErrorEnabled(false);
+        getViewBinding().layoutHighAndLowMastLocation.setErrorEnabled(false);
         getViewBinding().layoutHighAndLowMastFundedBy.setErrorEnabled(false);
         getViewBinding().layoutHighAndLowMastWorkingStatus.setErrorEnabled(false);
         getViewBinding().layoutHighAndLowMastAddress.setErrorEnabled(false);

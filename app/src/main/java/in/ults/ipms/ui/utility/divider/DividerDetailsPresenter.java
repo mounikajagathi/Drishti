@@ -36,16 +36,16 @@ public class DividerDetailsPresenter<V extends IDividerDetailsView, I extends ID
             getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_LENGTH, baseActivity.getResources().getString(R.string.err_divider_details_length));
             return;
         }
+        if (CommonUtils.isNullString(material)) {
+            getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_MATERIAL, baseActivity.getResources().getString(R.string.err_divider_details_material));
+            return;
+        }
         if (CommonUtils.isNullString(width)) {
             getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_WIDTH, baseActivity.getResources().getString(R.string.err_divider_details_width));
             return;
         }
         if (CommonUtils.isNullString(startEnd)) {
             getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_START_END, baseActivity.getResources().getString(R.string.err_divider_details_start_end));
-            return;
-        }
-        if (CommonUtils.isNullString(material)) {
-            getMvpView().showErrors(DividerDetailsFragment.ERROR_TYPE_MATERIAL, baseActivity.getResources().getString(R.string.err_divider_details_material));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {

@@ -1,6 +1,8 @@
 package in.ults.ipms.data.network;
 
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -57,6 +59,7 @@ public class AppApiHelper implements ApiHelper {
 
     @Override
     public Observable<LoginResponse> loginUser(LoginRequest request) {
+        Log.v("LOGIN REQUEST :: " , new Gson().toJson(request));
         return mApiInterface.loginUser(RequestBody.create(API_BODY_REQUEST_TYPE,
                 gson.toJson(request)));
     }

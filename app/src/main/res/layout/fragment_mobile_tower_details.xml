@@ -247,6 +247,7 @@
                     android:fontFamily="@font/roboto_regular"
                     android:hint="@string/mobile_tower_details_year_of_construction"
                     android:inputType="number"
+                    android:maxLength="4"
                     android:maxLines="1"
                     android:minHeight="@dimen/standard_edt_txt_height_medium"
                     android:textColor="@color/colorBlack"

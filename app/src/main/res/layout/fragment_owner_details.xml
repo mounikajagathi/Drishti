@@ -222,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:hint="@string/mobile_number"
-                    android:inputType="text"
+                    android:inputType="phone"
                     android:maxLines="1"
                     android:minHeight="@dimen/standard_edt_txt_height_medium"
                     android:textColor="@color/colorBlack"

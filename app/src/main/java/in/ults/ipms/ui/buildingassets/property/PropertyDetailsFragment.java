@@ -1,5 +1,6 @@
 package in.ults.ipms.ui.buildingassets.property;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -281,6 +283,9 @@ public class PropertyDetailsFragment extends BaseFragment<FragmentPropertyDetail
             anyStructuralChangeAdapter.setContent(propertyDetails.getStructuralChange());
             higherFloorGrt250SqmAdapter.setContent(propertyDetails.getHigherFloorGt());
             anyOtherLowerFloorTypeAdapter.setContent(propertyDetails.getOtherFlrType());
+            Log.v(TAG, "RESPONSE :: " +new Gson().toJson(propertyDetails));
+            Log.v(TAG, "PHOTO 2:: " +propertyDetails.getPhoto2());
+            Log.v(TAG, "PHOTO 2:: " +propertyDetails.getPhoto2());
             onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+propertyDetails.getPhoto1(), AppConstants.IMAGE_PATH_PHOTO1, propertyDetails.getPhoto1());
             onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+propertyDetails.getPhoto2(), AppConstants.IMAGE_PATH_PHOTO2, propertyDetails.getPhoto2());
             onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() +""+propertyDetails.getPlan(), AppConstants.IMAGE_PATH_PLAN, propertyDetails.getPlan());

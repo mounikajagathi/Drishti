@@ -56,21 +56,20 @@ public class StadiumDetailsPresenter<V extends IStadiumDetailsView, I extends IS
             getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_ELECTRICITY, baseActivity.getResources().getString(R.string.err_stadium_details_electricity));
             return;
         }
-
-        if (CommonUtils.isNullString(gallery)) {
-            getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_GALLERY, baseActivity.getResources().getString(R.string.err_stadium_details_gallery));
-            return;
-        }
         if (CommonUtils.isNullString(bathroom)) {
             getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_BATHROOM, baseActivity.getResources().getString(R.string.err_stadium_details_bathroom));
             return;
         }
-        if (CommonUtils.isNullString(wardNo)) {
-            getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_stadium_details_ward_number));
-            return;
-        }
         if (CommonUtils.isNullString(galleryCoverage)) {
             getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_GALLERY_COVERAGE, baseActivity.getResources().getString(R.string.err_stadium_details_gallery_coverage));
+            return;
+        }
+        if (CommonUtils.isNullString(gallery)) {
+            getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_GALLERY, baseActivity.getResources().getString(R.string.err_stadium_details_gallery));
+            return;
+        }
+        if (CommonUtils.isNullString(wardNo)) {
+            getMvpView().showErrors(StadiumDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_stadium_details_ward_number));
             return;
         }
         if (CommonUtils.isNullString(remarks)) {

@@ -73,12 +73,12 @@ public class CanalDetailsPresenter<V extends ICanalDetailsView, I extends ICanal
             getMvpView().showErrors(CanalDetailsFragment.ERROR_TYPE_END_POINT, baseActivity.getResources().getString(R.string.err_canal_details_end_point));
             return;
         }
-        if (CommonUtils.isNullString(wardNo)) {
-            getMvpView().showErrors(CanalDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_canal_details_ward_number));
-            return;
-        }
         if (CommonUtils.isNullString(status)) {
             getMvpView().showErrors(CanalDetailsFragment.ERROR_TYPE_STATUS, baseActivity.getResources().getString(R.string.err_canal_details_status));
+            return;
+        }
+        if (CommonUtils.isNullString(wardNo)) {
+            getMvpView().showErrors(CanalDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_canal_details_ward_number));
             return;
         }
         if (CommonUtils.isNullString(remarks)) {

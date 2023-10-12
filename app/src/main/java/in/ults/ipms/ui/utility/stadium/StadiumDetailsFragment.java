@@ -303,36 +303,36 @@ public class StadiumDetailsFragment extends BaseFragment<FragmentStadiumDetailsB
                 getViewBinding().layoutStadiumArea.requestFocus();
                 break;
             case ERROR_TYPE_LOCATION:
-                getViewBinding().layoutStadiumAddress.setError(error);
-                getViewBinding().layoutStadiumAddress.requestFocus();
-                break;
-            case ERROR_TYPE_ADDRESS:
                 getViewBinding().layoutStadiumLocation.setError(error);
                 getViewBinding().layoutStadiumLocation.requestFocus();
                 break;
+            case ERROR_TYPE_ADDRESS:
+                getViewBinding().layoutStadiumAddress.setError(error);
+                getViewBinding().layoutStadiumAddress.requestFocus();
+                break;
             case ERROR_TYPE_SURVEY_NO:
-                getViewBinding().layoutStadiumGallery.setError(error);
-                getViewBinding().layoutStadiumGallery.requestFocus();
+                getViewBinding().layoutStadiumSurveyNo.setError(error);
+                getViewBinding().layoutStadiumSurveyNo.requestFocus();
                 break;
             case ERROR_TYPE_NO_GALLERY:
                 getViewBinding().layoutStadiumNoGallery.setError(error);
                 getViewBinding().layoutStadiumNoGallery.requestFocus();
                 break;
             case ERROR_TYPE_ELECTRICITY:
-                getViewBinding().layoutStadiumGalleryCoverage.setError(error);
-                getViewBinding().layoutStadiumGalleryCoverage.requestFocus();
-                break;
-            case ERROR_TYPE_GALLERY:
-                getViewBinding().layoutStadiumBathRoom.setError(error);
-                getViewBinding().layoutStadiumBathRoom.requestFocus();
-                break;
-            case ERROR_TYPE_BATHROOM:
                 getViewBinding().layoutStadiumElectricity.setError(error);
                 getViewBinding().layoutStadiumElectricity.requestFocus();
                 break;
+            case ERROR_TYPE_GALLERY:
+                getViewBinding().layoutStadiumGallery.setError(error);
+                getViewBinding().layoutStadiumGallery.requestFocus();
+                break;
+            case ERROR_TYPE_BATHROOM:
+                getViewBinding().layoutStadiumBathRoom.setError(error);
+                getViewBinding().layoutStadiumBathRoom.requestFocus();
+                break;
             case ERROR_TYPE_GALLERY_COVERAGE:
-                getViewBinding().layoutStadiumSurveyNo.setError(error);
-                getViewBinding().layoutStadiumSurveyNo.requestFocus();
+                getViewBinding().layoutStadiumGalleryCoverage.setError(error);
+                getViewBinding().layoutStadiumGalleryCoverage.requestFocus();
                 break;
             case ERROR_TYPE_WARD_NO:
                 getViewBinding().layoutWardNo.setError(error);

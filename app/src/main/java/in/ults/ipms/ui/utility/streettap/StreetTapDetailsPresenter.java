@@ -32,12 +32,12 @@ public class StreetTapDetailsPresenter<V extends IStreetTapDetailsView, I extend
             getMvpView().showErrors(StreetTapDetailsFragment.ERROR_TYPE_LOCATION, baseActivity.getResources().getString(R.string.err_street_tap_details_location));
             return;
         }
-        if (CommonUtils.isNullString(fundedBy)) {
-            getMvpView().showErrors(StreetTapDetailsFragment.ERROR_TYPE_FUNDED_BY, baseActivity.getResources().getString(R.string.err_street_tap_details_funded_by));
-            return;
-        }
         if (CommonUtils.isNullString(address)) {
             getMvpView().showErrors(StreetTapDetailsFragment.ERROR_TYPE_ADDRESS, baseActivity.getResources().getString(R.string.err_street_tap_details_address));
+            return;
+        }
+        if (CommonUtils.isNullString(fundedBy)) {
+            getMvpView().showErrors(StreetTapDetailsFragment.ERROR_TYPE_FUNDED_BY, baseActivity.getResources().getString(R.string.err_street_tap_details_funded_by));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {

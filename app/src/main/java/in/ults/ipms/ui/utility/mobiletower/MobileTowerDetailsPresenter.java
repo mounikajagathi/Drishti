@@ -26,7 +26,7 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
     }
 
     @Override
-    public void validateData(String buildingName, String place, String ownerName, String ownerAddress, String ownerMobile,
+    public void validateData(String buildingName, String place, String ownerAddress, String ownerName, String ownerMobile,
                              String newPropertyId, String oldPropertyId, String buildingStatus, String buildingUsage,
                              String yearOfConstruction, boolean electricConnectivity, String uniqueId,
                              String serviceProvider, String consumerNo, String roadWidth, String roadType,
@@ -74,6 +74,11 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_YEAR_OF_CONSTRUCTION, baseActivity.getResources().getString(R.string.err_mobile_tower_details_year_of_construction));
             return;
         }
+
+        if (CommonUtils.isNullString(uniqueId)) {
+            getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_UNIQUE_ID, baseActivity.getResources().getString(R.string.err_mobile_tower_details_unique_id));
+            return;
+        }
         if (CommonUtils.isNullString(serviceProvider)) {
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_SERVICE_PROVIDER, baseActivity.getResources().getString(R.string.err_mobile_tower_details_service_provider));
             return;
@@ -90,16 +95,8 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_ROAD_TYPE, baseActivity.getResources().getString(R.string.err_mobile_tower_details_road_type));
             return;
         }
-        if (CommonUtils.isNullString(photo2)) {
-            getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_PHOTO_2, baseActivity.getResources().getString(R.string.err_mobile_tower_details_photo_2));
-            return;
-        }
         if (CommonUtils.isNullString(wardNo)) {
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_WARD_NO, baseActivity.getResources().getString(R.string.err_canal_details_ward_number));
-            return;
-        }
-        if (CommonUtils.isNullString(uniqueId)) {
-            getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_UNIQUE_ID, baseActivity.getResources().getString(R.string.err_mobile_tower_details_unique_id));
             return;
         }
         if (CommonUtils.isNullString(remarks)) {
@@ -111,6 +108,10 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
             return;
         }
 
+        if (CommonUtils.isNullString(photo2)) {
+            getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_PHOTO_2, baseActivity.getResources().getString(R.string.err_mobile_tower_details_photo_2));
+            return;
+        }
         if (locationLatitude == 0.0 || locationLongitude == 0.0) {
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_MOBILE_TOWER_LOCATION, baseActivity.getResources().getString(R.string.err_mobile_tower_details_location));
             return;

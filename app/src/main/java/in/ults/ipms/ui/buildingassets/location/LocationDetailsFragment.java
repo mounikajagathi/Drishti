@@ -270,7 +270,7 @@ public class LocationDetailsFragment extends BaseFragment<FragmentLocationDetail
         String zone = (String) getViewBinding().srLocationZone.getTag();
         String wardNumber = (String) getViewBinding().srLocationWardNumber.getTag();
         String postOffice = (String) getViewBinding().srLocationPostOffice.getTag();
-        Log.d("zone submit", zone);
+        Log.d("zone submit", ""+zone);
 
         presenter.validateData(placeName, zone, wardNumber, postOffice, latitude, longitude);
     }

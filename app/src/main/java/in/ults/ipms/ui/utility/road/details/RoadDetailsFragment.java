@@ -161,12 +161,12 @@ public class RoadDetailsFragment extends BaseFragment<FragmentAddRoadBinding> im
         String roadwayWidth = Objects.requireNonNull(getViewBinding().etRURoadwayWidth.getText()).toString().trim();
         String footpathWidth = Objects.requireNonNull(getViewBinding().etRUFootpathWidth.getText()).toString().trim();
         String rightWayWidth = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String footpath = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String footpathPlacement = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String footpathConsMat = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String environment = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String boardResolution = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
-        String assetID = Objects.requireNonNull(getViewBinding().etRURightWayWidth.getText()).toString().trim();
+        String footpath = Objects.requireNonNull(getViewBinding().etFootPath.getText()).toString().trim();
+        String footpathPlacement = Objects.requireNonNull(getViewBinding().etFootpathPlacement.getText()).toString().trim();
+        String footpathConsMat = Objects.requireNonNull(getViewBinding().etFootpathConsMat.getText()).toString().trim();
+        String environment = Objects.requireNonNull(getViewBinding().etEnvironment.getText()).toString().trim();
+        String boardResolution = Objects.requireNonNull(getViewBinding().etBoardResolution.getText()).toString().trim();
+        String assetID = Objects.requireNonNull(getViewBinding().etAssetID.getText()).toString().trim();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
         //photo
         String remarks = Objects.requireNonNull(getViewBinding().etRURemarks.getText()).toString().trim();

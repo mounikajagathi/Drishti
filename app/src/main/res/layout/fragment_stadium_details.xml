@@ -153,7 +153,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:hint="@string/stadium_details_no_gallery"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:maxLines="1"
                     android:minHeight="@dimen/standard_edt_txt_height_medium"
                     android:textColor="@color/colorBlack"

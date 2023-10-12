@@ -40,16 +40,17 @@ public class TankDetailsPresenter<V extends ITankDetailsView, I extends ITankDet
             getMvpView().showErrors(TankDetailsFragment.ERROR_TYPE_CAPACITY, baseActivity.getResources().getString(R.string.err_tank_details_capacity));
             return;
         }
-        if (CommonUtils.isNullString(remarks)) {
-            getMvpView().showErrors(TankDetailsFragment.ERROR_TYPE_REMARKS, baseActivity.getResources().getString(R.string.err_tank_details_remarks));
-            return;
-        }
+
         if (CommonUtils.isNullString(tankType)) {
             getMvpView().showErrors(TankDetailsFragment.ERROR_TYPE_TANK_TYPE, baseActivity.getResources().getString(R.string.err_tank_details_tank_type));
             return;
         }
         if (CommonUtils.isNullString(wardNo)) {
             getMvpView().showErrors(TankDetailsFragment.ERROR_TYPE_WARD, baseActivity.getResources().getString(R.string.err_tank_details_ward_number));
+            return;
+        }
+        if (CommonUtils.isNullString(remarks)) {
+            getMvpView().showErrors(TankDetailsFragment.ERROR_TYPE_REMARKS, baseActivity.getResources().getString(R.string.err_tank_details_remarks));
             return;
         }
         if (CommonUtils.isNullString(photo)) {
@@ -75,7 +76,7 @@ public class TankDetailsPresenter<V extends ITankDetailsView, I extends ITankDet
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getTankDetails().setLocation(location);
                 data.getTankDetails().setTankOwner(tankOwner);
-                data.getTankDetails().setTankType(Long.parseLong(tankType));
+                data.getTankDetails().setTankType(tankType);
                 data.getTankDetails().setWard(Long.parseLong(wardNo));
                 data.getTankDetails().setRemarks(remarks);
                 data.getTankDetails().setCapacity(capacity);
@@ -89,7 +90,7 @@ public class TankDetailsPresenter<V extends ITankDetailsView, I extends ITankDet
             UtilityAssets.Tank details = new UtilityAssets.Tank();
             details.setLocation(location);
             details.setTankOwner(tankOwner);
-            details.setTankType(Long.parseLong(tankType));
+            details.setTankType(tankType);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);
             details.setCapacity(capacity);

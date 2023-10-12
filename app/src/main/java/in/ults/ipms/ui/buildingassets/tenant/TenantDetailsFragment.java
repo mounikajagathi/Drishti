@@ -202,6 +202,9 @@ public class TenantDetailsFragment extends BaseFragment<FragmentTenantDetailsBin
         getViewBinding().layoutTenantPostOffice.setErrorEnabled(false);
         getViewBinding().layoutTenantSurveyNumber.setErrorEnabled(false);
         getViewBinding().layoutTenantRentAmount.setErrorEnabled(false);
+        getViewBinding().layoutTenantState.setErrorEnabled(false);
+        getViewBinding().layoutTenantPincode.setErrorEnabled(false);
+        getViewBinding().layoutTenantStatus.setErrorEnabled(false);
     }
 
     public void setEditData() {

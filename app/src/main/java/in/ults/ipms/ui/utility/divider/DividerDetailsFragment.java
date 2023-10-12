@@ -282,7 +282,7 @@ public class DividerDetailsFragment extends BaseFragment<FragmentDividerDetailsB
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String material = (String) getViewBinding().srDividerMaterial.getTag();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
-        presenter.validateData(place, length, material, width, startEnd, wardNo, remarks, photo, latitude, longitude);
+        presenter.validateData(place, length, width, startEnd,material, wardNo, remarks, photo, latitude, longitude);
     }
 
     @Override

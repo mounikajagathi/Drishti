@@ -18,6 +18,7 @@ import com.esri.arcgisruntime.geometry.Point;
 import com.esri.arcgisruntime.geometry.SpatialReferences;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
+import com.esri.arcgisruntime.mapping.BasemapStyle;
 import com.esri.arcgisruntime.mapping.Viewpoint;
 import com.esri.arcgisruntime.mapping.view.DefaultMapViewOnTouchListener;
 import com.esri.arcgisruntime.mapping.view.Graphic;
@@ -171,7 +172,7 @@ public class BuildingDetailsFragment extends BaseFragment<FragmentBuildingDetail
         ArcGISRuntimeEnvironment.setApiKey(BuildConfig.ARC_GIS_API_KEY);
         ArcGISRuntimeEnvironment.setLicense(BuildConfig.ARC_GIS_LICENSE);
         getViewBinding().includeMiniMapBuilding.miniMap.setAttributionTextVisible(false);
-        map = new ArcGISMap(Basemap.createOpenStreetMap());
+        map = new ArcGISMap(BasemapStyle.ARCGIS_IMAGERY);
         if (map.getBasemap().getBaseLayers().size() > 0) {
             map.getBasemap().getBaseLayers().get(0).setId(AppConstants.BASE_MAP_NAME);
             map.getBasemap().getBaseLayers().get(0).setName(AppConstants.BASE_MAP_NAME);

@@ -28,6 +28,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by Allan on 27-07-2017.
@@ -47,12 +48,12 @@ public interface ApiInterface {
     Observable<DashboardResponse> dashboardDetails(@Header("Authorization") String auth);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("mobileapi/basicsearch/{field_name}/{field_value}/")
-    Observable<SearchResponse> searchData(@Header("Authorization") String auth, @Path("field_name") String searchFilter, @Path("field_value") String searchValue);
+    @GET("mobileapi/basicsearch/{field_name}/?")
+    Observable<SearchResponse> searchData(@Header("Authorization") String auth, @Path("field_name") String searchFilter, @Query("field_value") String searchValue);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("mobileapi/basicsearchresult/{search_filter}/{search_value}/")
-    Observable<SearchDetailsResponse> searchDetails(@Header("Authorization") String auth, @Path("search_filter") String searchFilter, @Path("search_value") String searchValue);
+    @GET("mobileapi/basicsearchresult/{search_filter}/?")
+    Observable<SearchDetailsResponse> searchDetails(@Header("Authorization") String auth, @Path("search_filter") String searchFilter, @Query("search_value") String searchValue);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("mobileapi/get-base-tables/")

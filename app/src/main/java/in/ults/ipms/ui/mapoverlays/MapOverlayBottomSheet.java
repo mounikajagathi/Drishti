@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.esri.arcgisruntime.layers.WmsLayer;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -114,11 +115,18 @@ public class MapOverlayBottomSheet extends BaseBottomSheet<BottomSheetMapOverlay
                         showProgressDialog();
                         String layerType = selectedLayer.getLayerType();
                         List<String> baseLayerName = new ArrayList<>();
+                        String baseLayerUrl = selectedLayer.getUrl() + "/wms";
                         String[] name = selectedLayer.getLayerName().split(":");
-                        baseLayerName.add(name.length > 0 ? name[name.length - 1] : "");
-                        String baseLayerUrl = selectedLayer.getUrl() + (name.length > 0 ? name[0] : "") + "/wms?TILED=true";
+                        if (name.length == 2) {
+                            baseLayerName.add(name[1]);
+                            if (!selectedLayer.getUrl().contains(name[0])) {
+                                baseLayerUrl = selectedLayer.getUrl() + name[0] + "/wms";
+                            }
+                        }else{
+                            baseLayerName.add(selectedLayer.getLayerName());
+                        }
                         WmsLayer baseLayer = new WmsLayer(baseLayerUrl, baseLayerName);
-                        baseLayer.setOpacity(1);
+                        baseLayer.setOpacity(0.6f);
                         baseLayer.setId(AppConstants.BASE_MAP_SUB_LAYERS + "_" + selectedLayer.getLabel());
                         baseLayer.setName(selectedLayer.getLabel());
                         if(selectedLayer.getCqlFilter()!=null) {

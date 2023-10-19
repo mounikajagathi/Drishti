@@ -23,6 +23,7 @@ import com.esri.arcgisruntime.geometry.SpatialReferences;
 import com.esri.arcgisruntime.loadable.LoadStatus;
 import com.esri.arcgisruntime.mapping.ArcGISMap;
 import com.esri.arcgisruntime.mapping.Basemap;
+import com.esri.arcgisruntime.mapping.BasemapStyle;
 import com.esri.arcgisruntime.mapping.Viewpoint;
 import com.esri.arcgisruntime.mapping.view.Graphic;
 import com.esri.arcgisruntime.mapping.view.GraphicsOverlay;
@@ -142,7 +143,7 @@ public class RoadMapFragment extends BaseFragment<FragmentRoadMapBinding> implem
         initialViewPoint = new Viewpoint(AppCacheData.getOurInstance().getDashboardDetails().getLocalBody().getDefaultLat(),
                 AppCacheData.getOurInstance().getDashboardDetails().getLocalBody().getDefaultLon(),
                 StaticData.getArcGisScale()[AppCacheData.getOurInstance().getDashboardDetails().getLocalBody().getDefaultZoom()]);
-        map = new ArcGISMap(Basemap.createOpenStreetMap());
+        map = new ArcGISMap(BasemapStyle.ARCGIS_IMAGERY);
         map.setInitialViewpoint(initialViewPoint);
         map.setMinScale(StaticData.getArcGisScale()[4]);
         map.setMaxScale(StaticData.getArcGisScale()[23]);

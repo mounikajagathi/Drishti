@@ -3,6 +3,7 @@ package in.ults.ipms.ui.utility.mobiletower;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -311,8 +312,8 @@ public class MobileTowerDetailsFragment extends BaseFragment<FragmentMobileTower
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         String wardNo = (String) getViewBinding().srWardNo.getTag();
         presenter.validateData(buildingName, place, ownerAddress, ownerName, ownerMobile, buildingStatus,
-                buildingUsage, newPropertyId, oldPropertyId,yearOfCon, isElecCon, uniqueId,  serviceProvider,
-                consumerNo,roadWidth,roadType, wardNo, remarks, photo, photo2, latitude, longitude);
+                buildingUsage, newPropertyId, oldPropertyId, yearOfCon, isElecCon, uniqueId, serviceProvider,
+                consumerNo, roadWidth, roadType, wardNo, remarks, photo, photo2, latitude, longitude);
     }
 
     @Override
@@ -449,8 +450,10 @@ public class MobileTowerDetailsFragment extends BaseFragment<FragmentMobileTower
                     double latitude = geom.getCoordinates().get(1);
                     plotPoint(latitude, longitude);
                 }
-                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + mobileTowerDetails.getPhoto1(), null, mobileTowerDetails.getPhoto1());
-                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + mobileTowerDetails.getPhoto2(), null, mobileTowerDetails.getPhoto2());
+                Log.v(TAG, "PHOTO1 :: " + mobileTowerDetails.getPhoto1());
+                Log.v(TAG, "PHOTO2 :: " + mobileTowerDetails.getPhoto2());
+                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + mobileTowerDetails.getPhoto1(), AppConstants.IMAGE_PATH_PHOTO1, mobileTowerDetails.getPhoto1());
+                onImageUploadSuccess(AppCacheData.getOurInstance().getImageBaseURL() + "" + mobileTowerDetails.getPhoto2(), AppConstants.IMAGE_PATH_PHOTO2, mobileTowerDetails.getPhoto2());
             }
         }
     }
@@ -513,7 +516,7 @@ public class MobileTowerDetailsFragment extends BaseFragment<FragmentMobileTower
                 break;
         }
 
-        }
+    }
 
 
     @Override

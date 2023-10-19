@@ -27,7 +27,7 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
 
     @Override
     public void validateData(String buildingName, String place, String ownerAddress, String ownerName, String ownerMobile,
-                             String newPropertyId, String oldPropertyId, String buildingStatus, String buildingUsage,
+                             String buildingStatus, String buildingUsage,String newPropertyId, String oldPropertyId,
                              String yearOfConstruction, boolean electricConnectivity, String uniqueId,
                              String serviceProvider, String consumerNo, String roadWidth, String roadType,
                              String wardNo, String remarks, String photo, String photo2, double locationLatitude,
@@ -117,12 +117,13 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
             return;
         }
 
-        addUpdateContent(buildingName, place, ownerName, ownerAddress, ownerMobile, newPropertyId, oldPropertyId, buildingStatus, buildingUsage, yearOfConstruction,
+        addUpdateContent(buildingName, place, ownerName, ownerAddress, ownerMobile,  buildingStatus, buildingUsage, newPropertyId, oldPropertyId,yearOfConstruction,
                 electricConnectivity, uniqueId, serviceProvider, consumerNo, roadWidth, roadType, wardNo, remarks, photo, photo2, locationLatitude, locationLongitude);
     }
 
 
-    void addUpdateContent(String buildingName, String place, String ownerName, String ownerAddress, String ownerMobile, String newPropertyId, String oldPropertyId, String buildingStatus, String buildingUsage, String yearOfConstruction, boolean electricConnectivity, String uniqueId,
+    void addUpdateContent(String buildingName, String place, String ownerName, String ownerAddress, String ownerMobile,
+                          String buildingStatus, String buildingUsage, String newPropertyId, String oldPropertyId, String yearOfConstruction, boolean electricConnectivity, String uniqueId,
                           String serviceProvider, String consumerNo, String roadWidth, String roadType, String wardNo, String remarks, String photo, String photo2, double locationLatitude, double locationLongitude) {
         GeomPoint geom = new GeomPoint();
         geom.setGeom(locationLongitude, locationLatitude);

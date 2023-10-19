@@ -44,6 +44,10 @@ public class PlaygroundDetailsPresenter<V extends IPlaygroundDetailsView, I exte
             getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_AREA, baseActivity.getResources().getString(R.string.err_playground_details_area));
             return;
         }
+        if (Double.parseDouble(area) > 10) {
+            getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_AREA, baseActivity.getResources().getString(R.string.err_playground_details_area_validation));
+            return;
+        }
         if (CommonUtils.isNullString(surveyNo)) {
             getMvpView().showErrors(PlaygroundDetailsFragment.ERROR_TYPE_GROUND_SURVEY_NO, baseActivity.getResources().getString(R.string.err_playground_details_survey_no));
             return;

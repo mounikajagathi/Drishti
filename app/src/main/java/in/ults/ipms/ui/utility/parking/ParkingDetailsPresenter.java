@@ -9,6 +9,7 @@ import in.ults.ipms.data.network.model.response.UtilityAssets;
 import in.ults.ipms.singletons.AppCacheData;
 import in.ults.ipms.ui.base.BaseActivity;
 import in.ults.ipms.ui.base.BasePresenter;
+import in.ults.ipms.ui.utility.playground.PlaygroundDetailsFragment;
 import in.ults.ipms.utils.AppConstants;
 import in.ults.ipms.utils.common.CommonUtils;
 import in.ults.ipms.utils.rx.SchedulerProvider;
@@ -46,6 +47,10 @@ public class ParkingDetailsPresenter<V extends IParkingDetailsView, I extends IP
         }
         if (CommonUtils.isNullString(area)) {
             getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_AREA, baseActivity.getResources().getString(R.string.err_parking_details_area));
+            return;
+        }
+        if (Double.parseDouble(area) > 10) {
+            getMvpView().showErrors(ParkingDetailsFragment.ERROR_TYPE_AREA, baseActivity.getResources().getString(R.string.err_playground_details_area_validation));
             return;
         }
         if (CommonUtils.isNullString(surveyNo)) {

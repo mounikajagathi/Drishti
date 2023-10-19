@@ -75,13 +75,14 @@ public final class AppConstants {
     public static final String LAYER_TYPE_BUS_STOP = "Bus_Stop";
     public static final String LAYER_TYPE_CANAL = "Canal";
     public static final String LAYER_TYPE_CANAL_LINE = "Canal_Line";
-    public static final String LAYER_TYPE_GARBAGE = "Garbage";
+    public static final String LAYER_TYPE_GARBAGE = "Garbage_Point";
     public static final String LAYER_TYPE_MOBILE_TOWER = "Mobile_Tower";
     public static final String LAYER_TYPE_PARK = "Park";
     public static final String LAYER_TYPE_STADIUM = "Stadium";
     public static final String LAYER_TYPE_STATUE = "Statue";
     public static final String LAYER_TYPE_STREET_TAP = "Street_Tap";
     public static final String LAYER_TYPE_TANK = "Tank";
+    public static final String LAYER_TYPE_TAXI_STAND = "Taxi_Stand";
     public static final String LAYER_TYPE_TRANSFORMER = "Transformer";
     public static final String LAYER_TYPE_WELL = "Well";
     public static final String LAYER_TYPE_PARKING_AREA = "Parking_Area";

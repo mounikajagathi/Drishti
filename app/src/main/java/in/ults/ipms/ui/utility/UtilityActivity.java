@@ -456,6 +456,9 @@ public class UtilityActivity extends BaseActivity<ActivityUtilityBinding> implem
                 case AppConstants.LAYER_TYPE_TANK:
                     launchTankDetails(false, false);
                     break;
+                case AppConstants.LAYER_TYPE_TAXI_STAND:
+                    launchTaxiStandDetails(false, false);
+                    break;
                 case AppConstants.LAYER_TYPE_TRANSFORMER:
                     launchTransformerDetails(false, false);
                     break;

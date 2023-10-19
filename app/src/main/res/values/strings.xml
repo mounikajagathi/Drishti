@@ -529,9 +529,9 @@
     <string name="err_road_utility_road_name">Please enter road name</string>
     <string name="err_road_utility_start_point">Please enter start point</string>
     <string name="err_road_utility_end_point">Please enter end point</string>
-    <string name="err_road_utility_road_material">Please enter road  material</string>
-    <string name="err_road_utility_road_category">Please enter road category</string>
-    <string name="err_road_utility_maintained_by">Please enter maintained by</string>
+    <string name="err_road_utility_road_material">Please select road  material</string>
+    <string name="err_road_utility_road_category">Please select road category</string>
+    <string name="err_road_utility_maintained_by">Please select maintained by</string>
     <string name="err_road_utility_length_mtr">Please enter length in mtr</string>
     <string name="err_road_utility_carriage_width_mtr">Please enter carriage width in mtr</string>
     <string name="err_road_utility_roadway_width_mtr">Please enter road way width in mtr</string>
@@ -669,6 +669,7 @@
     <string name="err_playground_details_name">Please enter ground name</string>
     <string name="err_playground_details_type">Please select ground type</string>
     <string name="err_playground_details_area">Please enter playground area</string>
+    <string name="err_playground_details_area_validation">area should be 1 to 10</string>
     <string name="err_playground_details_survey_no">Please enter survey number</string>
     <string name="err_playground_details_ward_number">Please select ward number</string>
     <string name="err_playground_details_remarks">Please enter remarks</string>

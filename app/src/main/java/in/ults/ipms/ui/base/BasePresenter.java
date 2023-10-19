@@ -240,7 +240,7 @@ public class BasePresenter<V extends IBaseView, I extends IBaseInteractor> imple
                                 return;
                             }
                             if (isResponseSuccess(response)) {
-                                System.out.println("@@@--->"+new Gson().toJson(response));
+                                Log.v("TAG","RESPONSE :: " + new Gson().toJson(response));
                                 if (app.equalsIgnoreCase(AppConstants.APP_TYPE_BUILDING_ASSET)) {
                                     if (layer.equals(AppConstants.LAYER_TYPE_BUILDING)) {
                                         AppCacheData.getOurInstance().setBuildingDetailsData(response.getData());

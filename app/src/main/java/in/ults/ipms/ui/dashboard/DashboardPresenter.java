@@ -1,6 +1,16 @@
 package in.ults.ipms.ui.dashboard;
 
+import android.util.JsonReader;
+import android.util.Log;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -74,9 +84,13 @@ public class DashboardPresenter<V extends IDashboardView, I extends IDashboardIn
     @Override
     public void getFeatureInfoData(Set<String> featureIdSet) {
         ArrayList<FeatureDataRequest> dataRequests = new ArrayList<>();
+        String id =  "utility_mobile_tower.148";
+        featureIdSet = new HashSet<>();
+        featureIdSet.add(id);
         for (String data : featureIdSet) {
             dataRequests.add(new FeatureDataRequest(data));
         }
+        Log.v("TAG", "" + new Gson().toJson(featureIdSet));
         getCompositeDisposable()
                 .add(getInteractor()
                         .getFeatureInfoData(dataRequests)

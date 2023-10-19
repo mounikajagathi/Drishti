@@ -106,8 +106,8 @@ public class DrainageDetailsFragment extends BaseFragment<FragmentDrainageDetail
         String place = Objects.requireNonNull(getViewBinding().etPlace.getText()).toString().trim();
         String material = (String) getViewBinding().srDrainageMaterial.getTag();
         String type = (String) getViewBinding().srDrainageType.getTag();
-        String length = (String) getViewBinding().srDrainageType.getTag();
-        String drainageLength = (String) getViewBinding().srDrainageType.getTag();
+        String length =  Objects.requireNonNull(getViewBinding().etLength.getText()).toString().trim();
+        String drainageLength =  Objects.requireNonNull(getViewBinding().etDrainageLength.getText()).toString().trim();
         String wardNumber = (String) getViewBinding().srWardNumber.getTag();
         String remarks = Objects.requireNonNull(getViewBinding().etRemarks.getText()).toString().trim();
         presenter.validateData(name, place, material, type,length,drainageLength, wardNumber, remarks, photo, geom);

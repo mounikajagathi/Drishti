@@ -994,6 +994,7 @@
     <string name="err_mobile_tower_details_service_provider">Please enter service provider</string>
     <string name="err_mobile_tower_details_consumer_no">Please enter consumer no</string>
     <string name="err_mobile_tower_details_road_width">Please enter road width</string>
+    <string name="err_mobile_tower_details_road_width_val">Road width should be from 1 to 10</string>
     <string name="err_mobile_tower_details_road_type">Please enter road type</string>
     <string name="err_mobile_tower_details_ward_number">Please select ward number</string>
     <string name="err_mobile_tower_details_remarks">Please enter remarks</string>
@@ -1225,6 +1226,7 @@
     <string name="err_high_and_low_mast_details_address">Please enter address</string>
     <string name="err_high_and_low_mast_details_power">Please enter power</string>
     <string name="err_high_and_low_mast_details_height">Please enter high mast light height</string>
+    <string name="err_high_and_low_mast_details_height_val">Height should be from 1 to 10 </string>
     <string name="err_high_and_low_mast_details_no_of_bulbs">Please enter no of bulbs</string>
     <string name="err_high_and_low_mast_details_ward_number">Please select ward number</string>
     <string name="err_high_and_low_mast_details_remarks">Please enter remarks</string>

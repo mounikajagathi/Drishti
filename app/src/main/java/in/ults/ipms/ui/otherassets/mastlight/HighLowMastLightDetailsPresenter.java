@@ -68,6 +68,11 @@ public class HighLowMastLightDetailsPresenter<V extends IHighLowMastLightDetails
             return;
         }
 
+        if (Double.parseDouble(height) > 10 ) {
+            getMvpView().showErrors(HighLowMastLightDetailsFragment.ERROR_TYPE_HIGH_MAST_LIGHT_HEIGHT, baseActivity.getResources().getString(R.string.err_high_and_low_mast_details_height_val));
+            return;
+        }
+
         if (CommonUtils.isNullString(bulbNumber)) {
             getMvpView().showErrors(HighLowMastLightDetailsFragment.ERROR_TYPE_NO_OF_BULBS, baseActivity.getResources().getString(R.string.err_high_and_low_mast_details_no_of_bulbs));
             return;

@@ -79,8 +79,8 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
                 FetchAssetDataResponse.Data data = AppCacheData.getOurInstance().getBuildingAssetData();
                 data.getRoadHumpDetails().setRoadName(name);
                 data.getRoadHumpDetails().setPlace(place);
-                data.getRoadHumpDetails().setLength(Long.parseLong(length));
-                data.getRoadHumpDetails().setWidth(Long.parseLong(width));
+                data.getRoadHumpDetails().setLength(Double.parseDouble(length));
+                data.getRoadHumpDetails().setWidth(Double.parseDouble(width));
                 data.getRoadHumpDetails().setStatus(status);
                 data.getRoadHumpDetails().setWard(Long.parseLong(wardNo));
                 data.getRoadHumpDetails().setRemarks(remarks);
@@ -94,8 +94,8 @@ public class RoadHumpDetailsPresenter<V extends IRoadHumpDetailsView, I extends 
             UtilityAssets.RoadHump details = new UtilityAssets.RoadHump();
             details.setRoadName(name);
             details.setPlace(place);
-            details.setLength(Long.parseLong(length));
-            details.setWidth(Long.parseLong(width));
+            details.setLength(Double.parseDouble(length));
+            details.setWidth(Double.parseDouble(width));
             details.setStatus(status);
             details.setWard(Long.parseLong(wardNo));
             details.setRemarks(remarks);

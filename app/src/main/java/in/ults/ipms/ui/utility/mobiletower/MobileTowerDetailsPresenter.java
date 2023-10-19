@@ -91,6 +91,10 @@ public class MobileTowerDetailsPresenter<V extends IMobileTowerDetailsView, I ex
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_ROAD_WIDTH, baseActivity.getResources().getString(R.string.err_mobile_tower_details_road_width));
             return;
         }
+        if (Double.parseDouble(roadWidth) > 10) {
+            getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_ROAD_WIDTH, baseActivity.getResources().getString(R.string.err_mobile_tower_details_road_width_val));
+            return;
+        }
         if (CommonUtils.isNullString(roadType)) {
             getMvpView().showErrors(MobileTowerDetailsFragment.ERROR_TYPE_ROAD_TYPE, baseActivity.getResources().getString(R.string.err_mobile_tower_details_road_type));
             return;

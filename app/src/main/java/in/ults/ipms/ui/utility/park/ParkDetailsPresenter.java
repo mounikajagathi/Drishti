@@ -36,6 +36,14 @@ public class ParkDetailsPresenter<V extends IParkDetailsView, I extends IParkDet
             getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_NAME, baseActivity.getResources().getString(R.string.err_park_details_name));
             return;
         }
+        if (CommonUtils.isNullString(area)) {
+            getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PARK_AREA, baseActivity.getResources().getString(R.string.err_park_details_area));
+            return;
+        }
+        if (CommonUtils.isNullString(surveyNo)) {
+            getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PARK_SURVEY_NO, baseActivity.getResources().getString(R.string.err_park_details_survey_no));
+            return;
+        }
         if (CommonUtils.isNullString(type)) {
             getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PARK_TYPE, baseActivity.getResources().getString(R.string.err_park_details_type));
             return;
@@ -48,15 +56,7 @@ public class ParkDetailsPresenter<V extends IParkDetailsView, I extends IParkDet
             getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_REMARKS, baseActivity.getResources().getString(R.string.err_park_details_remarks));
             return;
         }
-        if (CommonUtils.isNullString(surveyNo)) {
-            getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PARK_SURVEY_NO, baseActivity.getResources().getString(R.string.err_park_details_survey_no));
-            return;
-        }
-        if (CommonUtils.isNullString(area)) {
-            getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PARK_AREA, baseActivity.getResources().getString(R.string.err_park_details_area));
-            return;
-        }
-        if (CommonUtils.isNullString(photo)) {
+       if (CommonUtils.isNullString(photo)) {
             getMvpView().showErrors(ParkDetailsFragment.ERROR_TYPE_PHOTO, baseActivity.getResources().getString(R.string.err_park_details_photo_1));
             return;
         }

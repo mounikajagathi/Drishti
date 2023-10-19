@@ -1663,10 +1663,10 @@ public class UtilityAssets {
         private long assetStatus;
         @SerializedName("length")
         @Expose
-        private long length;
+        private double length;
         @SerializedName("Width")
         @Expose
-        private long width;
+        private double width;
         @SerializedName("geom")
         @Expose
         private GeomPoint geom;
@@ -1783,19 +1783,19 @@ public class UtilityAssets {
             this.assetStatus = assetStatus;
         }
 
-        public long getLength() {
+        public double getLength() {
             return length;
         }
 
-        public void setLength(long length) {
+        public void setLength(double length) {
             this.length = length;
         }
 
-        public long getWidth() {
+        public double getWidth() {
             return width;
         }
 
-        public void setWidth(long width) {
+        public void setWidth(double width) {
             this.width = width;
         }
 

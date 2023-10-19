@@ -124,9 +124,9 @@ public class WellDetailsPresenter<V extends IWellDetailsView, I extends IWellDet
             details.setNearRoad(nearRoad);
             details.setReWaterAvailabilityMarks(reWaterAvailMarks);
             details.setSeasonal(seasonal);
-            details.setLocation(wellOwner);
             details.setWard(Long.parseLong(wardNo));
             details.setWellPurpose(purpose);
+            details.setWellOwner(wellOwner);
             details.setRemarks(remarks);
             details.setPhoto1(photo);
             details.setGeom(geom);

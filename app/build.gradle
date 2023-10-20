@@ -20,14 +20,16 @@ android {
         debug {
             debuggable true
             minifyEnabled false
-            buildConfigField("String", "API_BASE_URL", "\"http://drishtitestadmin.ulgis.com/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://drishtiadmin.ulgis.com/\"")
+//            buildConfigField("String", "API_BASE_URL", "\"http://drishtitestadmin.ulgis.com/\"")
             buildConfigField("String", "ARC_GIS_API_KEY", "\"AAPK4f216c319b4d46e981c14e15225aa3de8fc41JFfadE6oe9Ca4cJQB80OdeZJ5v5XV4ncDodQMUYiJ9hOgBsemn7-oD0SH0b\"")
             buildConfigField("String", "ARC_GIS_LICENSE", "\"runtimelite,1000,rud4449636536,none,NKMFA0PL4S0DRJE15166\"")
         }
         release {
             debuggable false
             minifyEnabled false
-            buildConfigField("String", "API_BASE_URL", "\"http://dev.ipms.ults.build:6071/\"")
+            buildConfigField("String", "API_BASE_URL", "\"https://drishtiadmin.ulgis.com/\"")
+//            buildConfigField("String", "API_BASE_URL", "\"http://dev.ipms.ults.build:6071/\"")
             buildConfigField("String", "ARC_GIS_API_KEY", "\"AAPK4f216c319b4d46e981c14e15225aa3de8fc41JFfadE6oe9Ca4cJQB80OdeZJ5v5XV4ncDodQMUYiJ9hOgBsemn7-oD0SH0b\"")
             buildConfigField("String", "ARC_GIS_LICENSE", "\"runtimelite,1000,rud4449636536,none,NKMFA0PL4S0DRJE15166\"")
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'

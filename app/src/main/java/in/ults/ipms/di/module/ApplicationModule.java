@@ -29,6 +29,7 @@ import in.ults.ipms.di.ApplicationContext;
 import in.ults.ipms.di.DatabaseInfo;
 import in.ults.ipms.di.PreferenceInfo;
 import in.ults.ipms.utils.AppConstants;
+import in.ults.ipms.utils.glide.UnsafeOkHttpClient;
 import in.ults.ipms.utils.network.NetworkInterceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -88,7 +89,8 @@ public class ApplicationModule {
     @Provides
     @Singleton
     Retrofit provideRetrofit(@ApplicationContext Context context) {
-        OkHttpClient.Builder okHttpClientBuilder = new OkHttpClient.Builder();
+        OkHttpClient okHttpClient = UnsafeOkHttpClient.getUnsafeOkHttpClient();
+        OkHttpClient.Builder okHttpClientBuilder = okHttpClient.newBuilder();
         okHttpClientBuilder.connectTimeout(30, TimeUnit.SECONDS);
         okHttpClientBuilder.readTimeout(30, TimeUnit.SECONDS);
         okHttpClientBuilder.writeTimeout(30, TimeUnit.SECONDS);

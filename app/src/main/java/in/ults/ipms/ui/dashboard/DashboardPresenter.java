@@ -84,13 +84,9 @@ public class DashboardPresenter<V extends IDashboardView, I extends IDashboardIn
     @Override
     public void getFeatureInfoData(Set<String> featureIdSet) {
         ArrayList<FeatureDataRequest> dataRequests = new ArrayList<>();
-        String id =  "utility_mobile_tower.148";
-        featureIdSet = new HashSet<>();
-        featureIdSet.add(id);
         for (String data : featureIdSet) {
             dataRequests.add(new FeatureDataRequest(data));
         }
-        Log.v("TAG", "" + new Gson().toJson(featureIdSet));
         getCompositeDisposable()
                 .add(getInteractor()
                         .getFeatureInfoData(dataRequests)
